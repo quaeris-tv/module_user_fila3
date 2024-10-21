@@ -36,7 +36,7 @@ trait HasTeams
             return false;
         }
 
-        return $teamContract->getKey() == $this->currentTeam->getKey();
+        return $teamContract->getKey() === $this->currentTeam->getKey();
     }
 
     /**

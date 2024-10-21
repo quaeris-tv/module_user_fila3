@@ -16,12 +16,12 @@ class CheckOtpExpiredRule implements ValidationRule
     public function validate(string $attribute, mixed $value, \Closure $fail): void
     {
         $user = Auth::user();
-        if (null == $user) {
+        if (null === $user) {
             $fail('utente non loggato');
 
             return;
         }
-        if (null == $user->updated_at) {
+        if (null === $user->updated_at) {
             return;
         }
 
