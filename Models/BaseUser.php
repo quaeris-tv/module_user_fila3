@@ -148,9 +148,9 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
 
     /** @var string */
     protected $connection = 'user';
-
+    /** @var string */
     protected $primaryKey = 'id';
-
+    /** @var string */
     protected $keyType = 'string';
 
     /** @var list<string> */
