@@ -21,9 +21,7 @@ class RoleResource extends XotBaseResource
                 [
                     'name' => TextInput::make('name')
                         ->required()
-                        ->maxLength(255)
-                        ->searchable()
-                        ->sortable(),
+                        ->maxLength(255),
                 ]
             );
     }
