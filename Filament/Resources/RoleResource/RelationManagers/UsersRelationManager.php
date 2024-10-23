@@ -100,6 +100,7 @@ final class UsersRelationManager extends RelationManager
             ->headerActions($this->getTableHeaderActions())
             ->filters($this->getTableFilters())
             ->filtersLayout(FiltersLayout::AboveContent)
+            ->filtersFormColumns(3)
             ->persistFiltersInSession()
             ->actions($this->getTableActions())
             ->bulkActions($this->getTableBulkActions())
@@ -166,19 +167,18 @@ final class UsersRelationManager extends RelationManager
     protected function getTableHeaderActions(): array
     {
         return [
-            ActionGroup::make([
-                AttachAction::make()
-                    ->label('')
-                    ->tooltip(__('user::actions.attach_user'))
-                    ->icon('heroicon-o-link')
-                    ->color('primary'),
-
-                AssociateAction::make()
-                    ->label('')
-                    ->tooltip(__('user::actions.associate_user'))
-                    ->icon('heroicon-o-user-plus')
-                    ->color('success'),
-            ])->tooltip(__('user::actions.user_actions')),
+            AttachAction::make()
+                ->label('')
+                ->tooltip(__('user::actions.attach_user'))
+                ->icon('heroicon-o-link')
+                ->color('primary'),
+            /*
+            AssociateAction::make()
+                ->label('')
+                ->tooltip(__('user::actions.associate_user'))
+                ->icon('heroicon-o-user-plus')
+                ->color('success'),
+            */
         ];
     }
 
@@ -190,26 +190,24 @@ final class UsersRelationManager extends RelationManager
     protected function getTableActions(): array
     {
         return [
-            ActionGroup::make([
-                ViewAction::make()
-                    ->label('')
-                    ->tooltip(__('user::actions.view'))
-                    ->icon('heroicon-o-eye')
-                    ->color('info'),
+            ViewAction::make()
+                ->label('')
+                ->tooltip(__('user::actions.view'))
+                ->icon('heroicon-o-eye')
+                ->color('info'),
 
-                EditAction::make()
-                    ->label('')
-                    ->tooltip(__('user::actions.edit'))
-                    ->icon('heroicon-o-pencil')
-                    ->color('warning'),
+            EditAction::make()
+                ->label('')
+                ->tooltip(__('user::actions.edit'))
+                ->icon('heroicon-o-pencil')
+                ->color('warning'),
 
-                DetachAction::make()
-                    ->label('')
-                    ->tooltip(__('user::actions.detach'))
-                    ->icon('heroicon-o-link-slash')
-                    ->color('danger')
-                    ->requiresConfirmation(),
-            ])->tooltip(__('user::actions.row_actions')),
+            DetachAction::make()
+                ->label('')
+                ->tooltip(__('user::actions.detach'))
+                ->icon('heroicon-o-link-slash')
+                ->color('danger')
+                ->requiresConfirmation(),
         ];
     }
 <<<<<<< HEAD
@@ -261,7 +259,8 @@ final class UsersRelationManager extends RelationManager
                             $data['created_until'],
                             fn (Builder $query, $date): Builder => $query->whereDate('created_at', '<=', $date),
                         );
-                }),
+                })
+                ->columns(2),
         ];
     }
 >>>>>>> 9705fe34 (up)
