@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
 // ---- models ---
+use Modules\User\Models\Role;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 use Modules\Xot\Datas\XotData;
 
 /*
  * Class CreateModelHasRolesTable.
  */
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -21,7 +22,7 @@ return new class extends XotBaseMigration {
             static function (Blueprint $table): void {
                 $team_class = XotData::make()->getTeamClass();
                 $table->id();
-                $table->unsignedBigInteger('role_id');
+                $table->foreignIdFor(Role::class, 'role_id')->nullable();
                 $table->uuidMorphs('model');
                 $table->foreignIdFor($team_class, 'team_id')->nullable();
             }
