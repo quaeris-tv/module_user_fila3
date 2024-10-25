@@ -221,7 +221,7 @@ final class UsersRelationManager extends RelationManager
     protected function getTableBulkActions(): array
     {
         return [
-            DeleteBulkAction::make()
+            'bulk_delete' => DeleteBulkAction::make()
                 ->label('')
                 ->tooltip(__('user::actions.delete_selected'))
                 ->icon('heroicon-o-trash')
