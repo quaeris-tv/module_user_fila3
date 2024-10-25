@@ -4,33 +4,48 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\AttachAction;
+use Filament\Tables\Actions\DetachAction;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
 use Modules\UI\Enums\TableLayoutEnum;
-use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
-use Modules\User\Filament\Resources\UserResource\Pages\ListUsers; // Import the TableLayoutEnum
-use Modules\Xot\Filament\Traits\TransTrait; // Ensure you have the correct namespace for TransTrait
+use Modules\User\Filament\Resources\UserResource;
+use Modules\Xot\Filament\Traits\TransTrait;
 
 class UsersRelationManager extends RelationManager
 {
-    use TransTrait; // Include the TransTrait
+    use TransTrait;
+
+    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
     protected static string $relationship = 'users';
-    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST; // Set the layout view to LIST
 
+    protected static ?string $inverseRelationship = 'roles';
+
+    protected static ?string $recordTitleAttribute = 'name';
+
+    /**
+     * Define the form for this relation.
+     */
     public function form(Form $form): Form
     {
-        return $form->schema($this->getFormSchema());
+        return $this->getUserResourceForm($form);
+    }
+
+    /**
+     * Modular function to configure the form.
+     */
+    protected function getUserResourceForm(Form $form): Form
+    {
+        // Centralize form structure using UserResource for consistency
+        return UserResource::form($form);
     }
 
     public function table(Table $table): Table
@@ -47,22 +62,10 @@ class UsersRelationManager extends RelationManager
             ->actions($this->getTableActions())
             ->bulkActions($this->getTableBulkActions())
             ->actionsPosition(ActionsPosition::BeforeColumns)
-
             ->defaultSort(
                 column: 'users.created_at',
                 direction: 'DESC',
-            )
-        ;
-    }
-
-    protected function getFormSchema(): array
-    {
-        return [
-            Forms\Components\TextInput::make('name')
-                ->required()
-                ->maxLength(255),
-            // Add other fields as needed
-        ];
+            );
     }
 
     public function getGridTableColumns(): array
@@ -74,14 +77,54 @@ class UsersRelationManager extends RelationManager
 
     public function getListTableColumns(): array
     {
-        return app(ListUsers::class)->getListTableColumns();
-        /*
         return [
             TextColumn::make('name')
-                ->label(__('Name')), // Use translations for labels
-            // Add more columns as necessary
+                ->label(__('user.name'))
+                ->searchable()
+                ->sortable(),
+            TextColumn::make('email')
+                ->label(__('user.email'))
+                ->searchable()
+                ->sortable(),
+            TextColumn::make('role')
+                ->label(__('user.role')),
         ];
-        */
+    }
+
+    // /**
+    //  * Define the header actions in a separate function.
+    //  */
+    // protected function getTableHeaderActions(): array
+    // {
+    //     return [
+    //         AttachAction::make()
+    //             ->label('')
+    //             ->tooltip(__('role.attach_user'))
+    //             ->icon('heroicon-o-link')
+    //         // ->icon('heroicon-o-paper-clip')
+    //         ,
+    //     ];
+    // }
+
+    /**
+     * Define the row-level actions in a separate function.
+     */
+    protected function getTableActions(): array
+    {
+        return [
+            ViewAction::make()
+                ->label('')
+                ->tooltip(__('role.view_user'))
+                ->icon('heroicon-o-eye'),
+            EditAction::make()
+                ->label('')
+                ->tooltip(__('role.edit_user'))
+                ->icon('heroicon-o-pencil'),
+            DetachAction::make()
+                ->label('')
+                ->tooltip(__('role.detach_user'))
+                ->icon('heroicon-o-link-slash'),
+        ];
     }
 
     public function getTableFilters(): array
@@ -117,17 +160,17 @@ class UsersRelationManager extends RelationManager
         ];
     }
 
-    protected function getTableActions(): array
-    {
-        return [
-            EditAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Edit')), // Move label to tooltip
-            DeleteAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Delete')), // Move label to tooltip
-        ];
-    }
+    // protected function getTableActions(): array
+    // {
+    //     return [
+    //         EditAction::make()
+    //             ->label('') // Empty label
+    //             ->tooltip(__('Edit')), // Move label to tooltip
+    //         DeleteAction::make()
+    //             ->label('') // Empty label
+    //             ->tooltip(__('Delete')), // Move label to tooltip
+    //     ];
+    // }
 
     protected function getBulkActions(): array
     {

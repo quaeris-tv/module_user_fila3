@@ -4,33 +4,52 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
-use Filament\Forms;
+use Filament\Actions;
+use Filament\Actions\CreateAction;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\Layout\Stack;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
 use Modules\UI\Enums\TableLayoutEnum;
 use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
-use Modules\User\Filament\Resources\UserResource\Pages\ListUsers; // Import the TableLayoutEnum
-use Modules\Xot\Filament\Traits\TransTrait; // Ensure you have the correct namespace for TransTrait
+use Modules\Xot\Filament\Traits\TransTrait;
 
 class UsersRelationManager extends RelationManager
 {
-    use TransTrait; // Include the TransTrait
+    use TransTrait;
+
+    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
     protected static string $relationship = 'users';
-    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST; // Set the layout view to LIST
 
+    protected static ?string $recordTitleAttribute = 'name';
+
+    /**
+     * Define the form configuration.
+     */
     public function form(Form $form): Form
     {
         return $form->schema($this->getFormSchema());
+    }
+
+    /**
+     * Define the form schema in a separate function.
+     */
+    protected function getFormSchema(): array
+    {
+        return [
+            Forms\Components\TextInput::make('name')
+                ->label(__('tenant.name'))
+                ->required()
+                ->maxLength(255),
+            Forms\Components\TextInput::make('email')
+                ->label(__('tenant.email'))
+                ->email()
+                ->required()
+                ->maxLength(255),
+        ];
     }
 
     public function table(Table $table): Table
@@ -47,86 +66,79 @@ class UsersRelationManager extends RelationManager
             ->actions($this->getTableActions())
             ->bulkActions($this->getTableBulkActions())
             ->actionsPosition(ActionsPosition::BeforeColumns)
-
             ->defaultSort(
-                column: 'users.created_at',
+                column: 'created_at',
                 direction: 'DESC',
-            )
-        ;
-    }
-
-    protected function getFormSchema(): array
-    {
-        return [
-            Forms\Components\TextInput::make('name')
-                ->required()
-                ->maxLength(255),
-            // Add other fields as needed
-        ];
+            );
     }
 
     public function getGridTableColumns(): array
     {
-        return [
-            Stack::make($this->getListTableColumns()),
+        return [Stack::make($this->getListTableColumns()),
         ];
     }
 
-    public function getListTableColumns(): array
-    {
-        return app(ListUsers::class)->getListTableColumns();
-        /*
-        return [
-            TextColumn::make('name')
-                ->label(__('Name')), // Use translations for labels
-            // Add more columns as necessary
-        ];
-        */
-    }
-
-    public function getTableFilters(): array
+    /**
+     * Define the table columns in a separate function.
+     */
+    protected function getListTableColumns(): array
     {
         return [
+            Tables\Columns\TextColumn::make('name')
+                ->label(__('tenant.name'))
+                ->searchable()
+                ->sortable(),
+            Tables\Columns\TextColumn::make('email')
+                ->label(__('tenant.email'))
+                ->searchable()
+                ->sortable(),
         ];
     }
 
     protected function getHeaderActions(): array
     {
         return [
-            Tables\Actions\CreateAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Create User')), // Move label to tooltip
-            Tables\Actions\AssociateAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Associate User')), // Move label to tooltip
+            CreateAction::make(),
         ];
     }
 
+    /**
+     * Define the header actions in a separate function.
+     */
     protected function getTableHeaderActions(): array
     {
         return [
             TableLayoutToggleTableAction::make(),
+            Tables\Actions\CreateAction::make()
+                ->label(__('tenant.create_user'))
+                ->icon('heroicon-o-plus'),
         ];
     }
 
+    /**
+     * Define the row-level actions in a separate function.
+     */
     protected function getTableActions(): array
     {
         return [
-            EditAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Edit')), // Move label to tooltip
-            DeleteAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Delete')), // Move label to tooltip
+            Tables\Actions\EditAction::make()
+                ->label(__('tenant.edit_user'))
+                ->icon('heroicon-o-pencil'),
+            Tables\Actions\DeleteAction::make()
+                ->label(__('tenant.delete_user'))
+                ->icon('heroicon-o-trash'),
         ];
     }
 
-    protected function getBulkActions(): array
+    /**
+     * Define the bulk actions in a separate function.
+     */
+    protected function getTableBulkActions(): array
     {
         return [
-            DeleteBulkAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Delete Selected')), // Move label to tooltip
+            Tables\Actions\DeleteBulkAction::make()
+                ->label(__('tenant.delete_selected'))
+                ->icon('heroicon-o-trash'),
         ];
     }
 }
