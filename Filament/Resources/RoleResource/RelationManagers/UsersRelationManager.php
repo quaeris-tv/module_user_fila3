@@ -8,12 +8,17 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\UI\Enums\TableLayoutEnum;
@@ -88,8 +93,6 @@ final class UsersRelationManager extends RelationManager
 
     /**
      * Get table columns for grid layout.
-     *
-     * @return array<int, Stack>
      */
     public function getGridTableColumns(): array
     {
@@ -100,8 +103,6 @@ final class UsersRelationManager extends RelationManager
 
     /**
      * Get table columns for list layout.
-     *
-     * @return array<int, TextColumn>
      */
     public function getListTableColumns(): array
     {
