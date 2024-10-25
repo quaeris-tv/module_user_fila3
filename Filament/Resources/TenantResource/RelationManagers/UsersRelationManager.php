@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
 use Filament\Actions\CreateAction;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
@@ -85,13 +85,18 @@ class UsersRelationManager extends RelationManager
         ];
     }
 
+    /**
+     * Summary of getTableHeaderActions.
+     *
+     * @return array<\Filament\Tables\Actions\Action|\Filament\Tables\Actions\ActionGroup>
+     */
     protected function getTableHeaderActions(): array
     {
         return [
-            TableLayoutToggleTableAction::make(),
-            CreateAction::make()
-                ->label(__('tenant.create_user'))
-                ->icon('heroicon-o-plus'),
+            // TableLayoutToggleTableAction::make(),
+            // CreateAction::make()
+            //    ->label(__('tenant.create_user'))
+            //    ->icon('heroicon-o-plus'),
         ];
     }
 
@@ -101,10 +106,10 @@ class UsersRelationManager extends RelationManager
     protected function getTableActions(): array
     {
         return [
-            EditAction::make()
+            'edit' => EditAction::make()
                 ->label(__('tenant.edit_user'))
                 ->icon('heroicon-o-pencil'),
-            DeleteAction::make()
+            'delete' => DeleteAction::make()
                 ->label(__('tenant.delete_user'))
                 ->icon('heroicon-o-trash'),
         ];
