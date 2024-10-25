@@ -29,11 +29,7 @@ class ListRoles extends ListRecords
     public function getGridTableColumns(): array
     {
         return [
-            Stack::make([
-                'id' => TextColumn::make('id')->searchable()->sortable(),
-                'name' => TextColumn::make('name')->searchable()->sortable(),
-                // Tables\Columns\TextColumn::make('role'),
-            ]),
+            Stack::make($this->getListTableColumns()),
         ];
     }
 
@@ -41,7 +37,9 @@ class ListRoles extends ListRecords
     {
         return [
             'id' => TextColumn::make('id'),
-            'name' => TextColumn::make('name'),
+            'name' => TextColumn::make('name')
+            ->searchable()
+            ->sortable(),
             // Tables\Columns\TextColumn::make('role'),
         ];
     }

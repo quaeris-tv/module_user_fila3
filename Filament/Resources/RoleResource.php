@@ -22,8 +22,6 @@ class RoleResource extends XotBaseResource
                     'name' => TextInput::make('name')
                         ->required()
                         ->maxLength(255),
-                    // 'role'=>Forms\Components\Select::make('role')
-                    //    ->options(Role::all()->pluck('name', 'name')),
                 ]
             );
     }
@@ -47,6 +45,6 @@ class RoleResource extends XotBaseResource
 
     public static function getNavigationBadge(): ?string
     {
-        return (string) static::getModel()::count();
+        return number_format(static::getModel()::count(), 2);
     }
 }
