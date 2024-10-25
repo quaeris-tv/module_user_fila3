@@ -4,28 +4,21 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 
-use Filament\Forms\Components\DatePicker;
+use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Actions\AssociateAction;
-use Filament\Tables\Actions\AttachAction;
-use Filament\Tables\Actions\BulkAction;
+use Filament\Tables;
 use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\DetachAction;
 use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ViewAction;
-use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Modules\UI\Enums\TableLayoutEnum;
-use Modules\User\Filament\Resources\UserResource;
+use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
+use Modules\User\Filament\Resources\UserResource\Pages\ListUsers; // Ensure correct import for ListUsers
 use Modules\Xot\Filament\Traits\TransTrait;
 
 /**
@@ -37,25 +30,8 @@ final class UsersRelationManager extends RelationManager
 {
     use TransTrait;
 
-    /**
-     * @var TableLayoutEnum Current table layout view
-     */
-    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
-
-    /**
-     * @var string The relationship being managed
-     */
     protected static string $relationship = 'users';
-
-    /**
-     * @var string|null The inverse relationship
-     */
-    protected static ?string $inverseRelationship = 'roles';
-
-    /**
-     * @var string|null The attribute used for record titles
-     */
-    protected static ?string $recordTitleAttribute = 'name';
+    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST; // Set the layout view to LIST
 
     /**
      * Define the form structure for this relation.
@@ -66,19 +42,20 @@ final class UsersRelationManager extends RelationManager
      */
     public function form(Form $form): Form
     {
-        return $this->getUserResourceForm($form);
+        return $form->schema($this->getFormSchema());
     }
 
     /**
-     * Configure the form using UserResource for consistency.
-     *
-     * @param Form $form The form instance to configure
-     *
-     * @return Form The configured form
+     * Configure the form schema for the user resource.
      */
-    protected function getUserResourceForm(Form $form): Form
+    protected function getFormSchema(): array
     {
-        return UserResource::form($form);
+        return [
+            Forms\Components\TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+            // Add other fields as needed
+        ];
     }
 
     /**
@@ -108,18 +85,6 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Get table columns for grid layout.
-     *
-     * @return array<int, Stack>
-     */
-    public function getGridTableColumns(): array
-    {
-        return [
-            Stack::make($this->getListTableColumns()),
-        ];
-    }
-
-    /**
      * Get table columns for list layout.
      *
      * @return array<int, TextColumn>
@@ -131,14 +96,12 @@ final class UsersRelationManager extends RelationManager
                 ->label(__('user::fields.name'))
                 ->searchable()
                 ->sortable()
-                // ->tooltip(fn (Model $record): string => "{$record->name}")
                 ->copyable(),
 
             TextColumn::make('email')
                 ->label(__('user::fields.email'))
                 ->searchable()
                 ->sortable()
-                // ->tooltip(fn (Model $record): string => "{$record->email}")
                 ->copyable(),
 
             TextColumn::make('created_at')
@@ -163,18 +126,15 @@ final class UsersRelationManager extends RelationManager
     protected function getTableHeaderActions(): array
     {
         return [
-            AttachAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.attach_user'))
+            TableLayoutToggleTableAction::make(),
+            Tables\Actions\AssociateAction::make()
+                ->label('') // Empty label
                 ->icon('heroicon-o-link')
-                ->color('primary'),
-            /*
-            AssociateAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.associate_user'))
-                ->icon('heroicon-o-user-plus')
-                ->color('success'),
-            */
+                ->tooltip(__('user::actions.associate_user')),
+            Tables\Actions\AttachAction::make()
+                ->label('') // Empty label
+                ->icon('heroicon-o-paper-clip')
+                ->tooltip(__('user::actions.attach_user')),
         ];
     }
 
@@ -186,20 +146,20 @@ final class UsersRelationManager extends RelationManager
     protected function getTableActions(): array
     {
         return [
-            ViewAction::make()
-                ->label('')
+            Tables\Actions\ViewAction::make()
+                ->label('') // Empty label
                 ->tooltip(__('user::actions.view'))
                 ->icon('heroicon-o-eye')
                 ->color('info'),
 
             EditAction::make()
-                ->label('')
+                ->label('') // Empty label
                 ->tooltip(__('user::actions.edit'))
                 ->icon('heroicon-o-pencil')
                 ->color('warning'),
 
-            DetachAction::make()
-                ->label('')
+            Tables\Actions\DetachAction::make()
+                ->label('') // Empty label
                 ->tooltip(__('user::actions.detach'))
                 ->icon('heroicon-o-link-slash')
                 ->color('danger')
@@ -216,7 +176,7 @@ final class UsersRelationManager extends RelationManager
     {
         return [
             'bulk_delete' => DeleteBulkAction::make()
-                ->label('')
+                ->label('') // Empty label
                 ->tooltip(__('user::actions.delete_selected'))
                 ->icon('heroicon-o-trash')
                 ->color('danger')
@@ -240,8 +200,8 @@ final class UsersRelationManager extends RelationManager
             Filter::make('created_at')
                 ->label(__('user::filters.creation_date'))
                 ->form([
-                    DatePicker::make('created_from'),
-                    DatePicker::make('created_until'),
+                    Forms\Components\DatePicker::make('created_from'),
+                    Forms\Components\DatePicker::make('created_until'),
                 ])
                 ->query(function (Builder $query, array $data): Builder {
                     return $query
