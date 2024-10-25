@@ -135,14 +135,14 @@ final class UsersRelationManager extends RelationManager
                 ->label(__('user::fields.name'))
                 ->searchable()
                 ->sortable()
-                ->tooltip(fn (Model $record): string => "{$record->name}")
+                // ->tooltip(fn (Model $record): string => "{$record->name}")
                 ->copyable(),
 
             TextColumn::make('email')
                 ->label(__('user::fields.email'))
                 ->searchable()
                 ->sortable()
-                ->tooltip(fn (Model $record): string => "{$record->email}")
+                // ->tooltip(fn (Model $record): string => "{$record->email}")
                 ->copyable(),
 
             TextColumn::make('created_at')
