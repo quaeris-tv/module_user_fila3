@@ -10,7 +10,7 @@ use Modules\User\Database\Factories\ModelHasRoleFactory;
 /**
  * Modules\User\Models\ModelHasRole.
  *
- * @property int         $id
+ * @property string      $id
  * @property string      $role_id
  * @property string      $model_type
  * @property string      $model_id
@@ -77,6 +77,10 @@ class ModelHasRole extends BaseMorphPivot
     {
         return [
             'id' => 'string',
+            'role_id' => 'string',
+            'model_type' => 'string',
+            'model_id' => 'string',
+            'team_id' => 'string',
             // 'uuid' => 'string',
 
             'created_at' => 'datetime',
