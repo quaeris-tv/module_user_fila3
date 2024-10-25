@@ -37,7 +37,7 @@ class ListTenants extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            Actions\CreateAction::make(),
         ];
     }
 
@@ -100,7 +100,7 @@ class ListTenants extends ListRecords
         ];
     }
 
-    protected function getListTableColumns(): array
+    public function getListTableColumns(): array
     {
         return [
             TextColumn::make('id')->label(__('ID'))->searchable()->sortable(),
@@ -118,17 +118,15 @@ class ListTenants extends ListRecords
     protected function getTableActions(): array
     {
         return [
-            ViewAction::make(),
-            EditAction::make(),
+            TableActions\ViewAction::make(),
+            TableActions\EditAction::make(),
         ];
     }
 
     protected function getTableBulkActions(): array
     {
         return [
-            Tables\Actions\BulkActionGroup::make([
-                DeleteBulkAction::make(),
-            ]),
+            TableActions\DeleteBulkAction::make(),
         ];
     }
 
