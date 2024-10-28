@@ -65,6 +65,7 @@ class AuthenticationLog extends BaseModel
         'location',
     ];
 
+    /** @return array<string, string> */
     public function casts(): array
     {
         return [

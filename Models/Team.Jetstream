@@ -13,7 +13,7 @@ class Team extends JetstreamTeam
     use HasFactory;
 
     /** @return array<string, string> */
-    protected function casts(): array
+    public function casts(): array
     {
         return [
 
