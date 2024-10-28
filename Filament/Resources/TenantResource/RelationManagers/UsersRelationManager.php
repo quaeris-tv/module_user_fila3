@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
-use Filament\Actions;
 use Filament\Actions\CreateAction;
+use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables\Columns\Layout\Stack;
+use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
@@ -20,10 +23,8 @@ class UsersRelationManager extends RelationManager
 {
     use TransTrait;
 
-    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
-
     protected static string $relationship = 'users';
-
+    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
     protected static ?string $recordTitleAttribute = 'name';
 
     /**
@@ -55,27 +56,16 @@ class UsersRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            // ->columns($this->getTableColumns())
             ->columns($this->layoutView->getTableColumns())
             ->contentGrid($this->layoutView->getTableContentGrid())
             ->headerActions($this->getTableHeaderActions())
-
             ->filters($this->getTableFilters())
             ->filtersLayout(FiltersLayout::AboveContent)
             ->persistFiltersInSession()
             ->actions($this->getTableActions())
             ->bulkActions($this->getTableBulkActions())
             ->actionsPosition(ActionsPosition::BeforeColumns)
-            ->defaultSort(
-                column: 'created_at',
-                direction: 'DESC',
-            );
-    }
-
-    public function getGridTableColumns(): array
-    {
-        return [Stack::make($this->getListTableColumns()),
-        ];
+            ->defaultSort(column: 'created_at', direction: 'DESC');
     }
 
     /**
@@ -95,23 +85,18 @@ class UsersRelationManager extends RelationManager
         ];
     }
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            CreateAction::make(),
-        ];
-    }
-
     /**
-     * Define the header actions in a separate function.
+     * Summary of getTableHeaderActions.
+     *
+     * @return array<\Filament\Tables\Actions\Action|\Filament\Tables\Actions\ActionGroup>
      */
     protected function getTableHeaderActions(): array
     {
         return [
-            TableLayoutToggleTableAction::make(),
-            Tables\Actions\CreateAction::make()
-                ->label(__('tenant.create_user'))
-                ->icon('heroicon-o-plus'),
+            // TableLayoutToggleTableAction::make(),
+            // CreateAction::make()
+            //    ->label(__('tenant.create_user'))
+            //    ->icon('heroicon-o-plus'),
         ];
     }
 
@@ -121,10 +106,10 @@ class UsersRelationManager extends RelationManager
     protected function getTableActions(): array
     {
         return [
-            Tables\Actions\EditAction::make()
+            'edit' => EditAction::make()
                 ->label(__('tenant.edit_user'))
                 ->icon('heroicon-o-pencil'),
-            Tables\Actions\DeleteAction::make()
+            'delete' => DeleteAction::make()
                 ->label(__('tenant.delete_user'))
                 ->icon('heroicon-o-trash'),
         ];
@@ -136,7 +121,7 @@ class UsersRelationManager extends RelationManager
     protected function getTableBulkActions(): array
     {
         return [
-            Tables\Actions\DeleteBulkAction::make()
+            DeleteBulkAction::make()
                 ->label(__('tenant.delete_selected'))
                 ->icon('heroicon-o-trash'),
         ];
