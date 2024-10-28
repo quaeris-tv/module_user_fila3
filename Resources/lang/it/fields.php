@@ -11,4 +11,12 @@ return [
     'actions' => [
         'attach_user' => 'Attacca utente',
     ],
+    'new_password' => [
+        'label' => 'Nuova Password',
+        'placeholder' => 'Inserisci la tua nuova password',
+    ],
+    'confirm_password' => [
+        'label' => 'Conferma Password',
+        'placeholder' => 'Conferma la tua nuova password',
+    ],
 ];

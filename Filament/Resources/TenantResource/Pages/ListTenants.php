@@ -119,7 +119,7 @@ class ListTenants extends ListRecords
     protected function getTableFilters(): array
     {
         return [
-            // Define your filters here
+            // Your filters here
         ];
     }
 
