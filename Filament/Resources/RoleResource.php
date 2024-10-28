@@ -46,6 +46,6 @@ class RoleResource extends XotBaseResource
 
     public static function getNavigationBadge(): ?string
     {
-        return number_format(static::getModel()::count(), 2);
+        return number_format(static::getModel()::count(), 0);
     }
 }
