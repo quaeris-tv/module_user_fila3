@@ -30,6 +30,7 @@ class RoleResource extends XotBaseResource
     {
         return [
             RelationManagers\UsersRelationManager::class,
+            RelationManagers\PermissionsRelationManager::class,
         ];
     }
 
