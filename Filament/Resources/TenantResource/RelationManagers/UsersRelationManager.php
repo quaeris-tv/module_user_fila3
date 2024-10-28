@@ -149,6 +149,11 @@ class UsersRelationManager extends RelationManager
         ];
     }
 
+    /**
+     * Summary of getTableHeaderActions.
+     *
+     * @return array<\Filament\Tables\Actions\Action|\Filament\Tables\Actions\ActionGroup>
+     */
     protected function getTableHeaderActions(): array
     {
         return [
