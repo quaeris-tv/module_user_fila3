@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -24,6 +25,7 @@ use Modules\User\Database\Factories\UserFactory;
 use Modules\User\Models\Traits\HasTeams;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
@@ -141,14 +143,15 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
     use Notifiable;
     use Traits\HasAuthenticationLogTrait;
     use Traits\HasTenants;
+    use RelationX;
 
     public $incrementing = false;
 
     /** @var string */
     protected $connection = 'user';
-
+    /** @var string */
     protected $primaryKey = 'id';
-
+    /** @var string */
     protected $keyType = 'string';
 
     /** @var list<string> */
@@ -232,27 +235,26 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         return true;
     }
 
-    /*
-    public function mobileDevices(): BelongsToMany
-    {
-        return $this
-            ->belongsToMany(MobileDevice::class)
-            ->using(MobileDeviceUser::class)
-            ->withPivot(MobileDeviceUser::$additionalPivotFields)
-            ->withTimestamps();
-    }
-    */
     public function devices(): BelongsToMany
     {
-        $pivot_class = DeviceUser::class;
-        $pivot = app($pivot_class);
-        $pivot_fields = $pivot->getFillable();
-
         return $this
-            ->belongsToMany(Device::class)
-            ->using($pivot_class)
-            ->withPivot($pivot_fields)
-            ->withTimestamps();
+            ->belongsToManyX(Device::class);
+    }
+
+    public function socialiteUsers(): HasMany
+    {
+        return $this
+            ->hasMany(SocialiteUser::class);
+    }
+
+    public function getProviderField(string $provider, string $field): string
+    {
+        $socialiteUser = $this->socialiteUsers()->firstWhere(['provider' => $provider]);
+        if (null == $socialiteUser) {
+            throw new \Exception('SocialiteUser not found');
+        }
+
+        return $socialiteUser->{$field};
     }
 
     // ----------------------

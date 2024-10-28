@@ -42,6 +42,8 @@ class OauthPersonalAccessClient extends PassportPersonalAccessClient
     protected $connection = 'user';
 
     // protected $primaryKey = 'uuid';
+    /** @var string */
+    protected $keyType = 'string';
 
     // protected $fillable = ['id', 'client_id'];
 }
