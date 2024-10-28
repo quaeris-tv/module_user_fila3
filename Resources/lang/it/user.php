@@ -19,12 +19,18 @@ return [
         'updated_at' => 'Ultima Modifica',
         'role' => 'Ruolo',
         'active' => 'Attivo',
+        'id' => 'ID',
+        'password' => 'Password',
+        'password_confirmation' => 'Conferma Password',
+        'email_verified_at' => 'Email Verificata Il',
     ],
     'filters' => [
         'active_users' => 'Utenti Attivi',
         'creation_date' => 'Data di Creazione',
         'date_from' => 'Dal',
         'date_to' => 'Al',
+        'verified' => 'Utenti Verificati',
+        'unverified' => 'Utenti Non Verificati',
     ],
     'messages' => [
         'no_records' => 'Nessun utente trovato',
@@ -32,6 +38,12 @@ return [
         'search' => 'Cerca utenti...',
     ],
     'actions' => [
+        'toggle_layout' => 'Cambia Layout',
+        'create' => 'Crea Utente',
+        'delete' => 'Elimina Utente',
+        'associate' => 'Associa Utente',
+        'bulk_delete' => 'Elimina Selezionati',
+        'bulk_detach' => 'Scollega Selezionati',
         'attach_user' => 'Collega Utente',
         'associate_user' => 'Associa Utente',
         'user_actions' => 'Azioni Utente',
@@ -58,5 +70,55 @@ return [
             ],
         ],
         'change_password' => 'Cambio password',
+    ],
+    'modals' => [
+        'create' => [
+            'heading' => 'Crea Utente',
+            'description' => 'Crea un nuovo utente',
+            'actions' => [
+                'submit' => 'Crea',
+                'cancel' => 'Annulla',
+            ],
+        ],
+        'edit' => [
+            'heading' => 'Modifica Utente',
+            'description' => 'Modifica le informazioni utente',
+            'actions' => [
+                'submit' => 'Salva Modifiche',
+                'cancel' => 'Annulla',
+            ],
+        ],
+        'delete' => [
+            'heading' => 'Elimina Utente',
+            'description' => 'Sei sicuro di voler eliminare questo utente?',
+            'actions' => [
+                'submit' => 'Elimina',
+                'cancel' => 'Annulla',
+            ],
+        ],
+        'associate' => [
+            'heading' => 'Associa Utente',
+            'description' => 'Seleziona un utente da associare',
+            'actions' => [
+                'submit' => 'Associa',
+                'cancel' => 'Annulla',
+            ],
+        ],
+        'detach' => [
+            'heading' => 'Scollega Utente',
+            'description' => 'Sei sicuro di voler scollegare questo utente?',
+            'actions' => [
+                'submit' => 'Scollega',
+                'cancel' => 'Annulla',
+            ],
+        ],
+        'bulk_delete' => [
+            'heading' => 'Elimina Utenti Selezionati',
+            'description' => 'Sei sicuro di voler eliminare gli utenti selezionati?',
+            'actions' => [
+                'submit' => 'Elimina Selezionati',
+                'cancel' => 'Annulla',
+            ],
+        ],
     ],
 ];
