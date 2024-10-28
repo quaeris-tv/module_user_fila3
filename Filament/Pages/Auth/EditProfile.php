@@ -11,6 +11,7 @@ use Filament\Pages\Page;
 use Illuminate\Support\Arr;
 use Filament\Forms\Components\Grid;
 use Illuminate\Support\Facades\Hash;
+use Modules\User\Datas\PasswordData;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Section;
@@ -45,42 +46,18 @@ class EditProfile extends BaseEditProfile
 
     protected function getPasswordFormComponent(): Component
     {
-        return parent::getPasswordFormComponent()
-            //->revealable(false)
-            ->live()
-            /*
-            ->afterStateUpdated(function (Set $set, $state) {
-                $validator = Validator::make(['new_password' => $state], [
-                    'new_password' => Password::default(),
-                ]);
-        
-                if ($validator->fails()) {
-                    $errors = $validator->errors()->get('new_password');
-                    $set('password_errors', $errors); // Set the errors to a variable
-                } else {
-                    $set('password_errors', []);
-                }
-                
-            })->helperText(fn (Get $get): ?string => implode(', ',Arr::wrap($get('password_errors')) ))
+        $pwd = PasswordData::make();
+        $messages = __('user::validation');
+       
+        $field=parent::getPasswordFormComponent();
+        if(!method_exists($field,'validationMessages')){
+            throw new \Exception('method validationMessages not exists');
+        }
+        return  $field
+            ->validationMessages($messages)
+            ->helperText($pwd->getHelperText())
+            //->live()
             ;
-            */
-            /*
-            ->rule(function ($attribute, $value, $fail) {
-                if (!Password::default()->passes($attribute, $value)) {
-                    $fail(__('La password deve essere composta da minimo 12 caratteri e almeno una lettera maiuscola, una minuscola, un numero e un carattere speciale.'));
-                }
-            });
-            */
-            /*
-            ->rules([
-                fn(): Closure => function (string $attribute, $value, Closure $fail) {
-                    
-                    $fail('zibibbo');
-                },
-            ]);
-            */
-            ->validationMessages([
-                '*' => 'La password deve essere composta da minimo 12 caratteri e almeno una lettera maiuscola, una minuscola, un numero e un carattere speciale.'
-            ]);
+        
     }
 }
