@@ -64,7 +64,7 @@ abstract class BaseTenant extends BaseModel implements HasAvatar, HasMedia, Tena
     {
         $user_class = XotData::make()->getUserClass();
 
-        return $this->belongsToMany($user_class);
+        return $this->belongsToManyX($user_class);
     }
 
     public function users(): BelongsToMany
@@ -79,10 +79,7 @@ abstract class BaseTenant extends BaseModel implements HasAvatar, HasMedia, Tena
         $userClass = $xot->getUserClass();
 
         // $this->setConnection('mysql');
-        return $this->belongsToMany($userClass, $pivotTableFull, 'tenant_id', 'user_id')
-            ->using($pivotClass)
-            ->withPivot($pivotFields)
-            ->withTimestamps();
+        return $this->belongsToManyX($userClass, null, 'tenant_id', 'user_id');
         // ->as('membership')
     }
 

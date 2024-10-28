@@ -32,4 +32,15 @@ namespace Modules\User\Models;
  */
 class PermissionRole extends BasePivot
 {
+
+    /** @return array<string, string> */
+    public function casts(): array
+    {   
+        $parent=parent::casts();
+        $up=[
+            'permission_id' => 'string',
+            'role_id' => 'string',
+        ];
+        return array_merge($parent,$up);
+    }
 }

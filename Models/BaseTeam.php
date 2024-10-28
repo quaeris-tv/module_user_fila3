@@ -114,23 +114,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
         $userClass = $xotData->getUserClass();
 
         return $this->belongsToManyX($userClass);
-        /*
-        $membershipClass = $xotData->getMembershipClass();
-        $pivot = app($membershipClass);
-        $pivotTable = $pivot->getTable();
-        $pivotDbName = $pivot->getConnection()->getDatabaseName();
-        $dbName = $this->getConnection()->getDatabaseName();
-        $pivotTableFull = $pivotTable;
-        if ($pivotDbName !== $dbName) {
-            $pivotTableFull = $pivotDbName.'.'.$pivotTable;
-        }
-
-        return $this->belongsToMany($userClass, $pivotTableFull, 'team_id')
-            ->using($membershipClass)
-            ->withPivot('role')
-            ->withTimestamps()
-            ->as('membership');
-        */
+        
     }
 
     public function members(): BelongsToMany

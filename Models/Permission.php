@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
+use Modules\Xot\Datas\XotData;
 use Modules\Xot\Contracts\UserContract;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Models\Permission as SpatiePermission;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 /**
  * Class Permission.
@@ -51,6 +53,7 @@ use Spatie\Permission\Models\Permission as SpatiePermission;
  */
 class Permission extends SpatiePermission
 {
+    use RelationX;
     /** @var string */
     protected $connection = 'user';
 
@@ -86,7 +89,7 @@ class Permission extends SpatiePermission
      */
     public function roles(): BelongsToMany
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToManyX(Role::class);
     }
 
     /**
@@ -94,8 +97,8 @@ class Permission extends SpatiePermission
      */
     public function users(): BelongsToMany
     {
-        $userClass = \Modules\Xot\Datas\XotData::make()->getUserClass();
+        $userClass = XotData::make()->getUserClass();
 
-        return $this->belongsToMany($userClass);
+        return $this->belongsToManyX($userClass);
     }
 }

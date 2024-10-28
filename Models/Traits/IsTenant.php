@@ -27,10 +27,7 @@ trait IsTenant
         $userClass = $xot->getUserClass();
 
         // $this->setConnection('mysql');
-        return $this->belongsToMany($userClass, $pivotTableFull, 'tenant_id', 'user_id')
-            ->using($pivotClass)
-            ->withPivot($pivotFields)
-            ->withTimestamps();
-        // ->as('membership')
+        return $this->belongsToManyX($userClass, $pivotTableFull, 'tenant_id', 'user_id');
+            
     }
 }

@@ -101,20 +101,11 @@ trait HasTeams
     public function teams(): BelongsToMany
     {
         $xot = XotData::make();
-        $pivotClass = $xot->getMembershipClass();
         $teamClass = $xot->getTeamClass();
 
-        $pivotTable = app($pivotClass)->getTable();
-        $pivotDbName = app($pivotClass)->getConnection()->getDatabaseName();
-        $teamClassDbName = app($teamClass)->getConnection()->getDatabaseName();
-
-        $pivotTableFull = $pivotDbName !== $teamClassDbName ? "$pivotDbName.$pivotTable" : $pivotTable;
-
-        return $this->belongsToMany($teamClass, $pivotTableFull, null, 'team_id')
-            ->using($pivotClass)
-            ->withPivot('role')
-            ->withTimestamps()
-            ->as('membership');
+        return $this->belongsToManyX($teamClass, null, null, 'team_id')
+            //->as('membership')
+            ;
     }
 
     /**
