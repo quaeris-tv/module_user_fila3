@@ -1,6 +1,7 @@
 <?php
+
 /**
- * --.
+ * Tenant List Management.
  */
 declare(strict_types=1);
 
@@ -44,20 +45,31 @@ class ListTenants extends ListRecords
     public function table(Table $table): Table
     {
         $tenantModel = static::getModel();
+        $tableName = app($tenantModel)->getTable();
 
         // Check if the table exists
-        if (empty($tenantModel) || ! app($tenantModel)->getConnection()->getSchemaBuilder()->hasTable(app($tenantModel)->getTable())) {
-            Notification::make()
-            ->title(__('Attenzione'))
-            ->body(__('La tabella :table non esiste', ['table' => app($tenantModel)->getTable()]))
-            ->persistent()
-            ->warning()
-            ->send();
+        if (! $this->tableExists($tenantModel)) {
+            $this->notifyTableMissing($tableName);
 
             return $this->configureEmptyTable($table);
         }
 
         return $this->configureTable($table);
+    }
+
+    protected function tableExists(string $model): bool
+    {
+        return app($model)->getConnection()->getSchemaBuilder()->hasTable(app($model)->getTable());
+    }
+
+    protected function notifyTableMissing(string $tableName): void
+    {
+        Notification::make()
+            ->title(__('Attenzione'))
+            ->body(__('La tabella :table non esiste', ['table' => $tableName]))
+            ->persistent()
+            ->warning()
+            ->send();
     }
 
     protected function configureEmptyTable(Table $table): Table
@@ -68,7 +80,7 @@ class ListTenants extends ListRecords
                 TextColumn::make('message')
                     ->label(__('Messaggio'))
                     ->default(__('La tabella tenants non è stata impostata. Per favore, configurala.'))
-                    ->html(), // This allows you to format the message if needed
+                    ->html(), // Allows you to format the message if needed
             ])
             ->headerActions([]) // No actions
             ->actions([]); // No footer actions
@@ -77,20 +89,16 @@ class ListTenants extends ListRecords
     protected function configureTable(Table $table): Table
     {
         return $table
-        ->columns($this->layoutView->getTableColumns())
-        ->contentGrid($this->layoutView->getTableContentGrid())
-        ->headerActions($this->getTableHeaderActions())
-
-        ->filters($this->getTableFilters())
-        ->filtersLayout(FiltersLayout::AboveContent)
-        ->persistFiltersInSession()
-        ->actions($this->getTableActions())
-        ->bulkActions($this->getTableBulkActions())
-        ->actionsPosition(ActionsPosition::BeforeColumns)
-        ->defaultSort(
-            column: 'created_at',
-            direction: 'DESC',
-        );
+            ->columns($this->layoutView->getTableColumns())
+            ->contentGrid($this->layoutView->getTableContentGrid())
+            ->headerActions($this->getTableHeaderActions())
+            ->filters($this->getTableFilters())
+            ->filtersLayout(FiltersLayout::AboveContent)
+            ->persistFiltersInSession()
+            ->actions($this->getTableActions())
+            ->bulkActions($this->getTableBulkActions())
+            ->actionsPosition(ActionsPosition::BeforeColumns)
+            ->defaultSort(column: 'created_at', direction: 'DESC');
     }
 
     public function getGridTableColumns(): array
@@ -111,7 +119,7 @@ class ListTenants extends ListRecords
     protected function getTableFilters(): array
     {
         return [
-            // Your filters here
+            // Define your filters here
         ];
     }
 
