@@ -13,10 +13,13 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Models\Role as SpatieRole;
+use Spatie\Permission\PermissionRegistrar;
 
 /**
  * Modules\User\Models\Role.
@@ -63,6 +66,7 @@ use Spatie\Permission\Models\Role as SpatieRole;
 class Role extends SpatieRole
 {
     use HasFactory;
+    use RelationX;
 
     // use HasUuids;
 
@@ -74,6 +78,8 @@ class Role extends SpatieRole
 
     /** @var string */
     protected $connection = 'user';
+    /** @var string */
+    protected $keyType = 'string';
 
     // protected $fillable=['id','']
 
@@ -87,19 +93,21 @@ class Role extends SpatieRole
         $teamClass = $xotData->getTeamClass();
 
         return $this->belongsTo($teamClass);
-        /*
-        $pivotClass = $xot->getMembershipClass();
-        $pivot = app($pivotClass);
-        $pivotTable = $pivot->getTable();
-        $pivotDbName = $pivot->getConnection()->getDatabaseName();
-        $pivotTableFull = $pivotDbName.'.'.$pivotTable;
+    }
 
-        // $this->setConnection('mysql');
-        return $this->belongsToMany($xot->getTeamClass(), $pivotTableFull, null, 'team_id')
-            ->using($pivotClass)
-            ->withPivot('role')
-            ->withTimestamps()
-            ->as('membership');
+    /**
+     * A role may be given various permissions.
+     */
+    public function permissions(): BelongsToMany
+    {
+        return $this->belongsToManyX(Permission::class);
+        /*
+        return $this->belongsToMany(
+            config('permission.models.permission'),
+            config('permission.table_names.role_has_permissions'),
+            app(PermissionRegistrar::class)->pivotRole,
+            app(PermissionRegistrar::class)->pivotPermission
+        );
         */
     }
 }

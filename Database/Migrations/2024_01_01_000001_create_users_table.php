@@ -8,7 +8,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /*
  * Class CreateLiveuserUsersTable.
  */
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -17,9 +17,9 @@ return new class extends XotBaseMigration {
         // -- CREATE --
         $this->tableCreate(
             static function (Blueprint $table): void {
-                $table->uuid('id')->primary();
+                // $table->uuid('id')->primary();
+                $table->string('id', 36)->primary();
                 $table->string('name');
-                // questo e' il nickname non nome
                 $table->string('first_name')->nullable();
                 $table->string('last_name')->nullable();
                 $table->string('email')->unique();
@@ -80,6 +80,16 @@ return new class extends XotBaseMigration {
                 }
                 if ($this->hasColumn('password')) {
                     $table->string('password')->nullable()->change();
+                }
+
+                if ('uuid' == $this->getColumnType('id')) {
+                    Schema::disableForeignKeyConstraints();
+
+                    $table->dropPrimary(['id']);
+                    $table->string('id', 36)->nullable()->change();
+                    $table->primary('id');
+
+                    Schema::enableForeignKeyConstraints();
                 }
                 // $this->updateUser($table);
                 $this->updateTimestamps($table, true);
