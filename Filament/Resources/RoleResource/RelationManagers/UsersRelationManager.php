@@ -202,11 +202,11 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
-    public function getTableFilters(): array
-    {
-        return [
-        ];
-    }
+    // public function getTableFilters(): array
+    // {
+    //     return [
+    //     ];
+    // }
 
     protected function getHeaderActions(): array
     {
@@ -220,32 +220,32 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
-    protected function getTableHeaderActions(): array
-    {
-        return [
-            TableLayoutToggleTableAction::make(),
-            Tables\Actions\AssociateAction::make()
-                ->label('') // Empty label
-                ->icon('heroicon-o-link')
-                ->tooltip(__('Associate User')), // Move label to tooltip
-            Tables\Actions\AttachAction::make()
-                ->label('') // Empty label
-                ->icon('heroicon-o-paper-clip')
-                ->tooltip(__('Attach User')), // Move label to tooltip
-        ];
-    }
+    // protected function getTableHeaderActions(): array
+    // {
+    //     return [
+    //         TableLayoutToggleTableAction::make(),
+    //         Tables\Actions\AssociateAction::make()
+    //             ->label('') // Empty label
+    //             ->icon('heroicon-o-link')
+    //             ->tooltip(__('Associate User')), // Move label to tooltip
+    //         Tables\Actions\AttachAction::make()
+    //             ->label('') // Empty label
+    //             ->icon('heroicon-o-paper-clip')
+    //             ->tooltip(__('Attach User')), // Move label to tooltip
+    //     ];
+    // }
 
-    protected function getTableActions(): array
-    {
-        return [
-            EditAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Edit')), // Move label to tooltip
-            DeleteAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Delete')), // Move label to tooltip
-        ];
-    }
+    // protected function getTableActions(): array
+    // {
+    //     return [
+    //         EditAction::make()
+    //             ->label('') // Empty label
+    //             ->tooltip(__('Edit')), // Move label to tooltip
+    //         DeleteAction::make()
+    //             ->label('') // Empty label
+    //             ->tooltip(__('Delete')), // Move label to tooltip
+    //     ];
+    // }
 
     protected function getBulkActions(): array
     {
