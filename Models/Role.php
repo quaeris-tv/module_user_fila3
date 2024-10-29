@@ -87,6 +87,5 @@ class Role extends SpatieRole
         $teamClass = $xotData->getTeamClass();
 
         return $this->belongsTo($teamClass);
-
     }
 }

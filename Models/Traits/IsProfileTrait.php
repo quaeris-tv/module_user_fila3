@@ -136,7 +136,7 @@ trait IsProfileTrait
                 relatedKey: null,
                 relation: null,
             )
-           ;
+        ;
     }
 
     public function mobileDeviceUsers(): HasMany
@@ -172,7 +172,7 @@ trait IsProfileTrait
     public function teams(): BelongsToMany
     {
         $xot = XotData::make();
-        $teamClass=$xot->getTeamClass();
+        $teamClass = $xot->getTeamClass();
 
         // $this->setConnection('mysql');
         return $this->belongsToManyX($teamClass, null, 'user_id', 'team_id', 'user_id')

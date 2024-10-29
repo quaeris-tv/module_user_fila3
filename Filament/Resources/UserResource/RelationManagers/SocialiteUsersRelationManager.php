@@ -8,9 +8,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\Column;
-use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -69,7 +67,6 @@ class SocialiteUsersRelationManager extends RelationManager
         ];
     }
 
-
     /**
      * Define table columns in a separate, strongly-typed method.
      *
@@ -99,8 +96,6 @@ class SocialiteUsersRelationManager extends RelationManager
                 ->size(40),
         ];
     }
-
-
 
     /*
      * Query scope to apply conditions to the relation manager.
