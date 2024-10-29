@@ -7,10 +7,22 @@ namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
+<<<<<<< HEAD
 use Filament\Tables;
 use Filament\Tables\Actions\DeleteBulkAction;
+=======
+<<<<<<< HEAD
+use Filament\Tables\Actions\AttachAction;
+use Filament\Tables\Actions\DetachAction;
+>>>>>>> 2fe2622f (✨ (UsersRelationManager.old): Add UsersRelationManager class to manage relations with users in RoleResource)
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
+=======
+use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+>>>>>>> 1279b1d4 (This code adds several new methods and properties to the `Users` class:)
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
@@ -19,7 +31,12 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\UI\Enums\TableLayoutEnum;
+<<<<<<< HEAD
 use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
+=======
+<<<<<<< HEAD
+use Modules\User\Filament\Resources\UserResource;
+>>>>>>> 2fe2622f (✨ (UsersRelationManager.old): Add UsersRelationManager class to manage relations with users in RoleResource)
 use Modules\Xot\Filament\Traits\TransTrait;
 
 final class UsersRelationManager extends RelationManager
@@ -31,12 +48,38 @@ final class UsersRelationManager extends RelationManager
     protected static ?string $recordTitleAttribute = 'name';
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
+<<<<<<< HEAD
+=======
+    protected static string $relationship = 'users';
+
+    protected static ?string $inverseRelationship = 'roles';
+
+    protected static ?string $recordTitleAttribute = 'name';
+=======
+use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
+use Modules\User\Filament\Resources\UserResource\Pages\ListUsers; // Import the TableLayoutEnum
+use Modules\Xot\Filament\Traits\TransTrait; // Ensure you have the correct namespace for TransTrait
+
+class UsersRelationManager extends RelationManager
+{
+    use TransTrait; // Include the TransTrait
+
+    protected static string $relationship = 'users';
+    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST; // Set the layout view to LIST
+>>>>>>> 1279b1d4 (This code adds several new methods and properties to the `Users` class:)
+
+>>>>>>> 2fe2622f (✨ (UsersRelationManager.old): Add UsersRelationManager class to manage relations with users in RoleResource)
     /**
      * Define the form structure.
      */
     public function form(Form $form): Form
     {
+<<<<<<< HEAD
         return $form->schema($this->getFormSchema());
+=======
+<<<<<<< HEAD
+        return $this->getUserResourceForm($form);
+>>>>>>> 2fe2622f (✨ (UsersRelationManager.old): Add UsersRelationManager class to manage relations with users in RoleResource)
     }
 
     /**
@@ -44,12 +87,20 @@ final class UsersRelationManager extends RelationManager
      */
     protected function getFormSchema(): array
     {
+<<<<<<< HEAD
         return [
             Forms\Components\TextInput::make('name')
                 ->required()
                 ->maxLength(255),
             // Additional fields as needed
         ];
+=======
+        // Centralize form structure using UserResource for consistency
+        return UserResource::form($form);
+=======
+        return $form->schema($this->getFormSchema());
+>>>>>>> 1279b1d4 (This code adds several new methods and properties to the `Users` class:)
+>>>>>>> 2fe2622f (✨ (UsersRelationManager.old): Add UsersRelationManager class to manage relations with users in RoleResource)
     }
 
     /**
@@ -68,10 +119,36 @@ final class UsersRelationManager extends RelationManager
             ->actions($this->getTableActions())
             ->bulkActions($this->getTableBulkActions())
             ->actionsPosition(ActionsPosition::BeforeColumns)
+<<<<<<< HEAD
             ->defaultSort('users.created_at', 'desc')
             ->striped()
             ->paginated([10, 25, 50, 100])
             ->poll('60s');
+=======
+<<<<<<< HEAD
+            ->defaultSort(
+                column: 'users.created_at',
+                direction: 'DESC',
+            );
+=======
+
+            ->defaultSort(
+                column: 'users.created_at',
+                direction: 'DESC',
+            )
+        ;
+    }
+
+    protected function getFormSchema(): array
+    {
+        return [
+            Forms\Components\TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+            // Add other fields as needed
+        ];
+>>>>>>> 1279b1d4 (This code adds several new methods and properties to the `Users` class:)
+>>>>>>> 2fe2622f (✨ (UsersRelationManager.old): Add UsersRelationManager class to manage relations with users in RoleResource)
     }
 
     /**
@@ -89,6 +166,7 @@ final class UsersRelationManager extends RelationManager
      */
     public function getListTableColumns(): array
     {
+<<<<<<< HEAD
         return [
             TextColumn::make('name')
                 ->label(__('user::fields.name'))
@@ -246,6 +324,70 @@ final class UsersRelationManager extends RelationManager
     //             ->tooltip(__('Delete')), // Move label to tooltip
     //     ];
     // }
+
+    protected function getBulkActions(): array
+    {
+        return [
+            DeleteBulkAction::make()
+                ->label('') // Empty label
+                ->tooltip(__('Delete Selected')), // Move label to tooltip
+        ];
+=======
+        return app(ListUsers::class)->getListTableColumns();
+        /*
+        return [
+            TextColumn::make('name')
+                ->label(__('Name')), // Use translations for labels
+            // Add more columns as necessary
+        ];
+        */
+>>>>>>> 1279b1d4 (This code adds several new methods and properties to the `Users` class:)
+    }
+
+    public function getTableFilters(): array
+    {
+        return [
+        ];
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Tables\Actions\CreateAction::make()
+                ->label('') // Empty label
+                ->tooltip(__('Create User')), // Move label to tooltip
+            Tables\Actions\AssociateAction::make()
+                ->label('') // Empty label
+                ->tooltip(__('Associate User')), // Move label to tooltip
+        ];
+    }
+
+    protected function getTableHeaderActions(): array
+    {
+        return [
+            TableLayoutToggleTableAction::make(),
+            Tables\Actions\AssociateAction::make()
+                ->label('') // Empty label
+                ->icon('heroicon-o-link')
+                ->tooltip(__('Associate User')), // Move label to tooltip
+            Tables\Actions\AttachAction::make()
+                ->label('') // Empty label
+                ->icon('heroicon-o-paper-clip')
+                ->tooltip(__('Attach User')), // Move label to tooltip
+        ];
+    }
+
+    protected function getTableActions(): array
+    {
+        return [
+            EditAction::make()
+                ->label('') // Empty label
+                ->tooltip(__('Edit')), // Move label to tooltip
+            DeleteAction::make()
+                ->label('') // Empty label
+                ->tooltip(__('Delete')), // Move label to tooltip
+        ];
+    }
 
     protected function getBulkActions(): array
     {
