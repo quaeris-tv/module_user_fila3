@@ -18,7 +18,6 @@ use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\UI\Enums\TableLayoutEnum;
-use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
 use Modules\User\Filament\Resources\TenantResource;
 use Modules\User\Models\User;
 use Modules\Xot\Filament\Traits\HasXotTable;
@@ -29,7 +28,6 @@ class ListTenants extends ListRecords
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
     protected static string $resource = TenantResource::class;
-
 
     public function getListTableColumns(): array
     {
