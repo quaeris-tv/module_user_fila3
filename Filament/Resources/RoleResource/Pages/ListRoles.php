@@ -35,9 +35,15 @@ class ListRoles extends ListRecords
         return [
             'id' => TextColumn::make('id'),
             'name' => TextColumn::make('name')
-            ->searchable()
-            ->sortable(),
+                ->searchable()
+                ->sortable(),
             // Tables\Columns\TextColumn::make('role'),
+            'guard_name' => TextColumn::make('guard_name')
+                ->searchable()
+                ->sortable(),
+            'team_id' => TextColumn::make('team.name')
+                ->searchable()
+                ->sortable(),
         ];
     }
 

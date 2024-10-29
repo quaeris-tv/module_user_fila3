@@ -5,19 +5,22 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
+use Filament\Forms\Form;
+use Filament\Tables\Table;
 use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\AttachAction;
+use Filament\Tables\Filters\Filter;
+use Modules\UI\Enums\TableLayoutEnum;
 use Filament\Tables\Actions\BulkAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\DetachAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\Filter;
-use Filament\Tables\Table;
+use Filament\Tables\Actions\AttachAction;
+use Filament\Tables\Actions\DetachAction;
 use Illuminate\Database\Eloquent\Builder;
+use Modules\Xot\Filament\Traits\HasXotTable;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Resources\RelationManagers\RelationManager;
+use Modules\User\Filament\Resources\TenantResource\Pages\ListTenants;
 
 /**
  * Manages the relationship between users and tenants.
@@ -27,7 +30,9 @@ use Illuminate\Database\Eloquent\Builder;
  */
 final class TenantsRelationManager extends RelationManager
 {
+    use HasXotTable;
     protected static string $relationship = 'tenants';
+    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
     /**
      * Set up the form schema for tenant relations.
@@ -47,124 +52,17 @@ final class TenantsRelationManager extends RelationManager
             ]);
     }
 
-    /**
-     * Set up the table schema and functionality for tenants.
-     *
-     * @param Table $table the table instance for configuration
-     *
-     * @return Table configured table instance
-     */
-    public function table(Table $table): Table
-    {
-        return $table
-            ->recordTitleAttribute('name')
-            ->columns($this->getTableColumns())
-            ->filters($this->getTableFilters())
-            ->headerActions($this->getTableHeaderActions())
-            ->actions($this->getTableActions())
-            ->bulkActions($this->getTableBulkActions())
-            ->striped()
-            ->paginated([10, 25, 50, 100])
-            ->poll('60s');
-    }
+
 
     /**
      * Define table columns for displaying tenant information.
      *
      * @return array<int, TextColumn> configured table columns
      */
-    protected function getTableColumns(): array
+    public function getListTableColumns(): array
     {
-        return [
-            TextColumn::make('name')
-                ->label(__('user::fields.name'))
-                ->sortable()
-                ->searchable(),
-            TextColumn::make('created_at')
-                ->label(__('user::fields.created_at'))
-                ->dateTime()
-                ->sortable(),
-            TextColumn::make('updated_at')
-                ->label(__('user::fields.updated_at'))
-                ->dateTime()
-                ->sortable(),
-        ];
+        return app(ListTenants::class)->getListTableColumns();
+
     }
 
-    /**
-     * Define filters for the table.
-     *
-     * @return array<int, Filter> configured table filters
-     */
-    protected function getTableFilters(): array
-    {
-        return [
-            Filter::make('active')
-                ->label(__('user::filters.active_tenants'))
-                ->query(fn (Builder $query): Builder => $query->where('is_active', true))
-                ->toggle(),
-        ];
-    }
-
-    /**
-     * Define header actions for the table.
-     *
-     * @return array<int, Action> configured header actions
-     */
-    protected function getTableHeaderActions(): array
-    {
-        return [
-            AttachAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.attach_tenant'))
-                ->icon('heroicon-o-link'),
-        ];
-    }
-
-    /**
-     * Define row actions for each tenant record.
-     *
-     * @return array<int, Action> configured row actions
-     */
-    protected function getTableActions(): array
-    {
-        return [
-            EditAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.edit'))
-                ->icon('heroicon-o-pencil')
-                ->color('warning'),
-
-            Tables\Actions\DeleteAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.delete'))
-                ->icon('heroicon-o-trash')
-                ->color('danger')
-                ->requiresConfirmation(),
-
-            DetachAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.detach_tenant'))
-                ->icon('heroicon-o-x-circle')
-                ->color('secondary')
-                ->requiresConfirmation(),
-        ];
-    }
-
-    /**
-     * Define bulk actions for the table.
-     *
-     * @return array<int, BulkAction> configured bulk actions
-     */
-    protected function getTableBulkActions(): array
-    {
-        return [
-            DeleteBulkAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.delete_selected'))
-                ->icon('heroicon-o-trash')
-                ->color('danger')
-                ->requiresConfirmation(),
-        ];
-    }
 }
