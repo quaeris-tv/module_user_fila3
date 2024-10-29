@@ -137,6 +137,7 @@ class ListTenants extends ListRecords
             TableActions\DeleteBulkAction::make(),
         ];
     }
+<<<<<<< HEAD
 
     public function table(Table $table): Table
     {
@@ -322,4 +323,6 @@ class ListTenants extends ListRecords
             TableActions\DeleteBulkAction::make(),
         ];
     }
+=======
+>>>>>>> eacae92a (fix(ListTenants): remove unused code and methods to improve maintainability and readability)
 }
