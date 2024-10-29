@@ -7,19 +7,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
-use Filament\Actions;
-use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
-use Filament\Tables\Actions as TableActions;
-use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Enums\ActionsPosition;
-use Filament\Tables\Enums\FiltersLayout;
-use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Modules\UI\Enums\TableLayoutEnum;
 use Modules\User\Filament\Resources\TenantResource;
-use Modules\User\Models\User;
 use Modules\Xot\Filament\Traits\HasXotTable;
 
 class ListTenants extends ListRecords
@@ -38,13 +29,10 @@ class ListTenants extends ListRecords
                 ->label(__('Nome')),
             TextColumn::make('slug')
                 ->label(__('Slug'))
-                ->default(function($record){
+                ->default(function ($record) {
                     $record->generateSlug();
                     $record->save();
-
                 }),
         ];
     }
-
-
 }

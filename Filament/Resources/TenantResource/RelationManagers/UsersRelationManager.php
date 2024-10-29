@@ -1,30 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
 use Filament\Forms;
-
-use Filament\Tables;
-use Filament\Actions;
 use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Modules\UI\Enums\TableLayoutEnum;
-
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Enums\FiltersLayout;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DetachAction;
-use Filament\Tables\Columns\Layout\Stack;
-use Illuminate\Database\Eloquent\Builder;
-use Filament\Tables\Enums\ActionsPosition;
-use Modules\Xot\Filament\Traits\TransTrait;
-use Filament\Tables\Actions\AssociateAction;
-use Modules\Xot\Filament\Traits\HasXotTable;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\DetachBulkAction;
 use Filament\Resources\RelationManagers\RelationManager;
-use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
+use Filament\Tables\Columns\TextColumn;
+use Modules\UI\Enums\TableLayoutEnum;
+use Modules\Xot\Filament\Traits\HasXotTable;
+use Modules\Xot\Filament\Traits\TransTrait;
 
 class UsersRelationManager extends RelationManager
 {
@@ -88,8 +74,6 @@ class UsersRelationManager extends RelationManager
         ];
     }
 
-
-
     public function getListTableColumns(): array
     {
         return [
@@ -129,6 +113,4 @@ class UsersRelationManager extends RelationManager
                 ->toggleable(),
         ];
     }
-
-
 }
