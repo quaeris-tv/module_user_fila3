@@ -16,8 +16,16 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
+<<<<<<< HEAD
+=======
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\Layout\Stack;
+>>>>>>> 3fc7f7f9 (.)
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
@@ -93,9 +101,20 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Get table columns for grid layout.
+     */
+    public function getGridTableColumns(): array
+    {
+        return [
+            Stack::make($this->getListTableColumns()),
+        ];
+    }
+
+    /**
+>>>>>>> 3fc7f7f9 (.)
      * Get table columns for list layout.
-     *
-     * @return array<int, TextColumn>
      */
     public function getListTableColumns(): array
     {
