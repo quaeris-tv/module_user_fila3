@@ -4,25 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Filament\Forms;
-=======
-use Filament\Forms\Components\DatePicker;
->>>>>>> 86d4dbee (📝 (UsersRelationManager.php): add DatePicker component to the form for the users relation manager)
-=======
-use Filament\Forms;
->>>>>>> 1d38b4fa (This code adds several new methods and properties to the `Users` class:)
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
-<<<<<<< HEAD
-=======
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\Layout\Stack;
->>>>>>> 3fc7f7f9 (.)
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
@@ -31,7 +20,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\UI\Enums\TableLayoutEnum;
 use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
-use Modules\User\Filament\Resources\UserResource\Pages\ListUsers; // Ensure correct import for ListUsers
+use Modules\User\Filament\Resources\UserResource\Pages\ListUsers;
 use Modules\Xot\Filament\Traits\TransTrait;
 
 final class UsersRelationManager extends RelationManager
@@ -39,42 +28,29 @@ final class UsersRelationManager extends RelationManager
     use TransTrait;
 
     protected static string $relationship = 'users';
-<<<<<<< HEAD
-    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST; // Set the layout view to LIST
-=======
     protected static ?string $inverseRelationship = 'roles';
     protected static ?string $recordTitleAttribute = 'name';
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
->>>>>>> e08b5451 (refactor(UsersRelationManager): remove unused methods and simplify code structure)
 
-    /**
-     * Define the form structure.
-     */
     public function form(Form $form): Form
     {
         return $form->schema($this->getFormSchema());
     }
 
-    /**
-     * Configure the form schema.
-     */
     protected function getFormSchema(): array
     {
         return [
             Forms\Components\TextInput::make('name')
                 ->required()
-                ->maxLength(255),
-            // Additional fields as needed
+                ->maxLength(255)
+                ->label(__('user::socialite_user.fields.name.label')),
         ];
     }
 
-    /**
-     * Configure the table structure and behavior.
-     */
     public function table(Table $table): Table
     {
         return $table
-            ->columns($this->layoutView->getTableColumns())
+            ->columns($this->getListTableColumns())
             ->contentGrid($this->layoutView->getTableContentGrid())
             ->headerActions($this->getTableHeaderActions())
             ->filters($this->getTableFilters())
@@ -90,31 +66,7 @@ final class UsersRelationManager extends RelationManager
             ->poll('60s');
     }
 
-    /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-     * Get table columns for grid layout.
-=======
-     * Get grid layout columns.
->>>>>>> e08b5451 (refactor(UsersRelationManager): remove unused methods and simplify code structure)
-     */
-    public function getGridTableColumns(): array
-    {
-        return [
-            Stack::make($this->getListTableColumns()),
-        ];
-    }
-
-    /**
-<<<<<<< HEAD
->>>>>>> 3fc7f7f9 (.)
-     * Get table columns for list layout.
-=======
-     * Get list layout columns.
->>>>>>> e08b5451 (refactor(UsersRelationManager): remove unused methods and simplify code structure)
-     */
-    public function getListTableColumns(): array
+    protected function getListTableColumns(): array
     {
         return [
             TextColumn::make('name')
@@ -143,9 +95,6 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
-    /**
-     * Get header actions.
-     */
     protected function getTableHeaderActions(): array
     {
         return [
@@ -161,19 +110,11 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
-    /**
-     * Get row-level actions.
-     */
     protected function getTableActions(): array
     {
         return [
-<<<<<<< HEAD
-            Tables\Actions\ViewAction::make()
-                ->label('') // Empty label
-=======
             ViewAction::make()
                 ->label('')
->>>>>>> e08b5451 (refactor(UsersRelationManager): remove unused methods and simplify code structure)
                 ->tooltip(__('user::actions.view'))
                 ->icon('heroicon-o-eye')
                 ->color('info'),
@@ -192,12 +133,7 @@ final class UsersRelationManager extends RelationManager
                 ->requiresConfirmation(),
         ];
     }
-<<<<<<< HEAD
-=======
 
-    /**
-     * Get bulk actions.
-     */
     protected function getTableBulkActions(): array
     {
         return [
@@ -210,9 +146,6 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
-    /**
-     * Get filters.
-     */
     protected function getTableFilters(): array
     {
         return [
@@ -235,62 +168,4 @@ final class UsersRelationManager extends RelationManager
                 ->columns(2),
         ];
     }
-<<<<<<< HEAD
->>>>>>> 9705fe34 (up)
-=======
-
-    public function getTableFilters(): array
-    {
-        return [
-        ];
-    }
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Tables\Actions\CreateAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Create User')), // Move label to tooltip
-            Tables\Actions\AssociateAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Associate User')), // Move label to tooltip
-        ];
-    }
-
-    protected function getTableHeaderActions(): array
-    {
-        return [
-            TableLayoutToggleTableAction::make(),
-            Tables\Actions\AssociateAction::make()
-                ->label('') // Empty label
-                ->icon('heroicon-o-link')
-                ->tooltip(__('Associate User')), // Move label to tooltip
-            Tables\Actions\AttachAction::make()
-                ->label('') // Empty label
-                ->icon('heroicon-o-paper-clip')
-                ->tooltip(__('Attach User')), // Move label to tooltip
-        ];
-    }
-
-    protected function getTableActions(): array
-    {
-        return [
-            EditAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Edit')), // Move label to tooltip
-            DeleteAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Delete')), // Move label to tooltip
-        ];
-    }
-
-    protected function getBulkActions(): array
-    {
-        return [
-            DeleteBulkAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Delete Selected')), // Move label to tooltip
-        ];
-    }
->>>>>>> 737dcebc (This code adds several new methods and properties to the `Users` class:)
 }
