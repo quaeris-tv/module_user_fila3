@@ -65,11 +65,21 @@ class Permission extends SpatiePermission
         'updated_by',
     ];
 
-    /** @var array<string, string> */
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
+    /** @return array<string, string> */
+    public function casts(): array
+    {
+        return [
+            'id' => 'string',
+            'uuid' => 'string',
+            'name' => 'string',
+            'guard_name' => 'string',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+        ];
+    }
+
+    /** @var string */
+    protected $keyType = 'string';
 
     /**
      * The roles associated with the permission.
