@@ -15,9 +15,11 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Modules\User\Models\SocialiteUser;
+use Modules\Xot\Filament\Traits\HasXotTable;
 
 class SocialiteUsersRelationManager extends RelationManager
 {
+    use HasXotTable;
     protected static string $relationship = 'socialiteUsers';
 
     /**
