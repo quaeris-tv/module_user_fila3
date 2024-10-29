@@ -7,10 +7,7 @@ namespace Modules\User\Models;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Contracts\UserContract;
-<<<<<<< HEAD
 use Modules\Xot\Models\Traits\RelationX;
-=======
->>>>>>> 33de029e (up)
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Permission\Models\Permission as SpatiePermission;
