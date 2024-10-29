@@ -69,26 +69,13 @@ class SocialiteUsersRelationManager extends RelationManager
         ];
     }
 
-    /**
-     * Configure the table for displaying Socialite User data.
-     */
-    public function table(Table $table): Table
-    {
-        return $table
-            ->recordTitleAttribute('provider')
-            ->columns($this->getTableColumns())
-            ->filters($this->getTableFilters())
-            ->headerActions($this->getHeaderActions())
-            ->actions($this->getTableActions())
-            ->bulkActions($this->getBulkActions());
-    }
 
     /**
      * Define table columns in a separate, strongly-typed method.
      *
      * @return array<Column>
      */
-    protected function getTableColumns(): array
+    protected function getListTableColumns(): array
     {
         return [
             Tables\Columns\TextColumn::make('provider')
@@ -113,61 +100,11 @@ class SocialiteUsersRelationManager extends RelationManager
         ];
     }
 
-    /**
-     * Define table filters in a dedicated method.
-     *
-     * @return array<Filter>
-     */
-    protected function getTableFilters(): array
-    {
-        return [
-            // Tables\Filters\TrashedFilter::make(), // Optional: filter for trashed records if using soft deletes
-        ];
-    }
 
-    /**
-     * Define header actions in a dedicated method.
-     *
-     * @return array<Action>
-     */
-    protected function getHeaderActions(): array
-    {
-        return [
-            Tables\Actions\AttachAction::make()->label(__('Attach Socialite User')),
-        ];
-    }
 
-    /**
-     * Define row-level table actions in a separate method.
-     *
-     * @return array<Action>
-     */
-    protected function getTableActions(): array
-    {
-        return [
-            Tables\Actions\DetachAction::make(),
-            Tables\Actions\ViewAction::make(),
-        ];
-    }
-
-    /**
-     * Define bulk actions in a dedicated method.
-     *
-     * @return array<Action>
-     */
-    protected function getBulkActions(): array
-    {
-        return [
-            Tables\Actions\BulkActionGroup::make([
-                Tables\Actions\DetachBulkAction::make(),
-                Tables\Actions\DeleteBulkAction::make()->label(__('Delete Selected')),
-            ]),
-        ];
-    }
-
-    /**
+    /*
      * Query scope to apply conditions to the relation manager.
-     */
+
     protected function applyTableQueryScope(Builder $query): Builder
     {
         return $query->when(
@@ -175,4 +112,5 @@ class SocialiteUsersRelationManager extends RelationManager
             fn (Builder $query) => $query->withTrashed()
         );
     }
+     */
 }
