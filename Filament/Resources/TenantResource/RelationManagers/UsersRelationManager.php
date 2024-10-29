@@ -10,7 +10,13 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
+<<<<<<< HEAD
 use Filament\Tables\Columns\Layout\Stack;
+=======
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+>>>>>>> 3fc7f7f9 (.)
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
@@ -97,6 +103,7 @@ class UsersRelationManager extends RelationManager
         ];
     }
 
+<<<<<<< HEAD
     protected function getHeaderActions(): array
     {
         return [
@@ -106,14 +113,27 @@ class UsersRelationManager extends RelationManager
 
     /**
      * Define the header actions in a separate function.
+=======
+    /**
+     * Summary of getTableHeaderActions.
+     *
+     * @return array<\Filament\Tables\Actions\Action|\Filament\Tables\Actions\ActionGroup>
+>>>>>>> 3fc7f7f9 (.)
      */
     protected function getTableHeaderActions(): array
     {
         return [
+<<<<<<< HEAD
             TableLayoutToggleTableAction::make(),
             Tables\Actions\CreateAction::make()
                 ->label(__('tenant.create_user'))
                 ->icon('heroicon-o-plus'),
+=======
+            // TableLayoutToggleTableAction::make(),
+            // CreateAction::make()
+            //    ->label(__('tenant.create_user'))
+            //    ->icon('heroicon-o-plus'),
+>>>>>>> 3fc7f7f9 (.)
         ];
     }
 
@@ -123,10 +143,17 @@ class UsersRelationManager extends RelationManager
     protected function getTableActions(): array
     {
         return [
+<<<<<<< HEAD
             Tables\Actions\EditAction::make()
                 ->label(__('tenant.edit_user'))
                 ->icon('heroicon-o-pencil'),
             Tables\Actions\DeleteAction::make()
+=======
+            'edit' => EditAction::make()
+                ->label(__('tenant.edit_user'))
+                ->icon('heroicon-o-pencil'),
+            'delete' => DeleteAction::make()
+>>>>>>> 3fc7f7f9 (.)
                 ->label(__('tenant.delete_user'))
                 ->icon('heroicon-o-trash'),
         ];
