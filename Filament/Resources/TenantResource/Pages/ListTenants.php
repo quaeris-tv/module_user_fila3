@@ -7,19 +7,9 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
 use Filament\Actions;
-<<<<<<< HEAD
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Tables\Actions as TableActions;
-=======
-use Filament\Actions\CreateAction;
-use Filament\Notifications\Notification;
-use Filament\Resources\Pages\ListRecords;
-use Filament\Tables;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ViewAction;
->>>>>>> 40ffc2cc (.)
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
