@@ -237,6 +237,7 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
 
     public function devices(): BelongsToMany
     {
+<<<<<<< HEAD
         return $this
             ->belongsToManyX(Device::class);
     }
@@ -255,6 +256,20 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         }
 
         return $socialiteUser->{$field};
+=======
+        /*
+        $pivot_class = DeviceUser::class;
+        $pivot = app($pivot_class);
+        $pivot_fields = $pivot->getFillable();
+        */
+        return $this
+            ->belongsToManyX(Device::class);
+        /*
+        ->using($pivot_class)
+        ->withPivot($pivot_fields)
+        ->withTimestamps();
+        */
+>>>>>>> 80db5f40 (up)
     }
 
     // ----------------------
