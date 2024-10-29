@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Modules\User\Database\Factories\DeviceFactory;
+use Modules\Xot\Datas\XotData;
 use Modules\Xot\Contracts\UserContract;
+use Modules\User\Database\Factories\DeviceFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 /**
  * Device model representing a user's device in the system.
@@ -86,15 +87,9 @@ class Device extends BaseModel
      */
     public function users(): BelongsToMany
     {
-        $pivotClass = DeviceUser::class;
-        $pivot = app($pivotClass);
-        $pivotFields = $pivot->getFillable();
-        $userClass = \Modules\Xot\Datas\XotData::make()->getUserClass();
+        $userClass = XotData::make()->getUserClass();
 
-        return $this->belongsToMany($userClass)
-            ->using($pivotClass)
-            ->withPivot($pivotFields)
-            ->withTimestamps();
+        return $this->belongsToManyX($userClass)            ;
     }
 
     /**
