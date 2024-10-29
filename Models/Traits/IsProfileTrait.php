@@ -126,24 +126,17 @@ trait IsProfileTrait
 
     public function devices(): BelongsToMany
     {
-        $pivotClass = DeviceUser::class;
-        $pivot = app($pivotClass);
-        $pivotTable = $pivot->getTable();
-        $pivotFields = $pivot->getFillable();
-
         return $this
-            ->belongsToMany(
+            ->belongsToManyX(
                 related: Device::class,
-                table: $pivotTable,
+                table: null,
                 foreignPivotKey: 'user_id',
                 relatedPivotKey: null,
                 parentKey: 'user_id',
                 relatedKey: null,
                 relation: null,
             )
-            ->using($pivotClass)
-            ->withPivot($pivotFields)
-            ->withTimestamps();
+        ;
     }
 
     public function mobileDeviceUsers(): HasMany

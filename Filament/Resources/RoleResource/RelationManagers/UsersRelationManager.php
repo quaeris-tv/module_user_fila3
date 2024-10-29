@@ -102,4 +102,5 @@ final class UsersRelationManager extends RelationManager
                 ->columns(2),
         ];
     }
+
 }
