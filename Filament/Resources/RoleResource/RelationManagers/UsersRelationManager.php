@@ -235,5 +235,62 @@ final class UsersRelationManager extends RelationManager
                 ->columns(2),
         ];
     }
+<<<<<<< HEAD
 >>>>>>> 9705fe34 (up)
+=======
+
+    public function getTableFilters(): array
+    {
+        return [
+        ];
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Tables\Actions\CreateAction::make()
+                ->label('') // Empty label
+                ->tooltip(__('Create User')), // Move label to tooltip
+            Tables\Actions\AssociateAction::make()
+                ->label('') // Empty label
+                ->tooltip(__('Associate User')), // Move label to tooltip
+        ];
+    }
+
+    protected function getTableHeaderActions(): array
+    {
+        return [
+            TableLayoutToggleTableAction::make(),
+            Tables\Actions\AssociateAction::make()
+                ->label('') // Empty label
+                ->icon('heroicon-o-link')
+                ->tooltip(__('Associate User')), // Move label to tooltip
+            Tables\Actions\AttachAction::make()
+                ->label('') // Empty label
+                ->icon('heroicon-o-paper-clip')
+                ->tooltip(__('Attach User')), // Move label to tooltip
+        ];
+    }
+
+    protected function getTableActions(): array
+    {
+        return [
+            EditAction::make()
+                ->label('') // Empty label
+                ->tooltip(__('Edit')), // Move label to tooltip
+            DeleteAction::make()
+                ->label('') // Empty label
+                ->tooltip(__('Delete')), // Move label to tooltip
+        ];
+    }
+
+    protected function getBulkActions(): array
+    {
+        return [
+            DeleteBulkAction::make()
+                ->label('') // Empty label
+                ->tooltip(__('Delete Selected')), // Move label to tooltip
+        ];
+    }
+>>>>>>> 737dcebc (This code adds several new methods and properties to the `Users` class:)
 }
