@@ -102,6 +102,61 @@ class UsersRelationManager extends RelationManager
             ->paginated([10, 25, 50, 100]);
     }
 
+<<<<<<< HEAD
+=======
+    public function getListTableColumns(): array
+    {
+        return [
+            TextColumn::make('id')
+                ->label(trans('user::user.fields.id'))
+                ->sortable()
+                ->toggleable(),
+
+            TextColumn::make('name')
+                ->label(trans('user::user.fields.name'))
+                ->searchable()
+                ->sortable()
+                ->toggleable(),
+
+            TextColumn::make('email')
+                ->label(trans('user::user.fields.email'))
+                ->searchable()
+                ->sortable()
+                ->toggleable(),
+
+            TextColumn::make('email_verified_at')
+                ->label(trans('user::user.fields.email_verified_at'))
+                ->dateTime()
+                ->sortable()
+                ->toggleable(),
+
+            TextColumn::make('created_at')
+                ->label(trans('user::user.fields.created_at'))
+                ->dateTime()
+                ->sortable()
+                ->toggleable(),
+
+            TextColumn::make('updated_at')
+                ->label(trans('user::user.fields.updated_at'))
+                ->dateTime()
+                ->sortable()
+                ->toggleable(),
+        ];
+    }
+
+    public function getGridTableColumns(): array
+    {
+        return [
+            Stack::make($this->getListTableColumns()),
+        ];
+    }
+
+    /**
+     * Summary of getTableHeaderActions.
+     *
+     * @return array<\Filament\Tables\Actions\Action|\Filament\Tables\Actions\ActionGroup>
+     */
+>>>>>>> d9f7564c (.)
     protected function getTableHeaderActions(): array
     {
         return [
