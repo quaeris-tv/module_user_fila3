@@ -7,6 +7,7 @@ namespace Modules\User\Models;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Models\Traits\RelationX;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Permission\Models\Permission as SpatiePermission;
@@ -52,6 +53,7 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
  */
 class Permission extends SpatiePermission
 {
+    use RelationX;
     /** @var string */
     protected $connection = 'user';
 
