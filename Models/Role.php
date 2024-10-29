@@ -87,19 +87,6 @@ class Role extends SpatieRole
         $teamClass = $xotData->getTeamClass();
 
         return $this->belongsTo($teamClass);
-        /*
-        $pivotClass = $xot->getMembershipClass();
-        $pivot = app($pivotClass);
-        $pivotTable = $pivot->getTable();
-        $pivotDbName = $pivot->getConnection()->getDatabaseName();
-        $pivotTableFull = $pivotDbName.'.'.$pivotTable;
 
-        // $this->setConnection('mysql');
-        return $this->belongsToMany($xot->getTeamClass(), $pivotTableFull, null, 'team_id')
-            ->using($pivotClass)
-            ->withPivot('role')
-            ->withTimestamps()
-            ->as('membership');
-        */
     }
 }
