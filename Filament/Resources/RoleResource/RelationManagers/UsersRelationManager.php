@@ -77,66 +77,6 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
-<<<<<<< HEAD
-=======
-    // /**
-    //  * Define the header actions in a separate function.
-    //  */
-    // protected function getTableHeaderActions(): array
-    // {
-    //     return [
-    //         AttachAction::make()
-    //             ->label('')
-    //             ->tooltip(__('role.attach_user'))
-    //             ->icon('heroicon-o-link')
-    //         // ->icon('heroicon-o-paper-clip')
-    //         ,
-    //     ];
-    // }
-
-    /**
-     * Get row-level actions.
-     */
-    protected function getTableActions(): array
-    {
-        return [
-            ViewAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.view'))
-                ->icon('heroicon-o-eye')
-                ->color('info'),
-
-            EditAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.edit'))
-                ->icon('heroicon-o-pencil')
-                ->color('warning'),
-
-            Tables\Actions\DetachAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.detach'))
-                ->icon('heroicon-o-link-slash')
-                ->color('danger')
-                ->requiresConfirmation(),
-        ];
-    }
-
-    /**
-     * Get bulk actions.
-     */
-    protected function getTableBulkActions(): array
-    {
-        return [
-            DeleteBulkAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.delete_selected'))
-                ->icon('heroicon-o-trash')
-                ->color('danger')
-                ->requiresConfirmation(),
-        ];
-    }
-
->>>>>>> 9765ca84 (.)
     /**
      * Get filters.
      */
