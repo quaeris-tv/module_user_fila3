@@ -102,8 +102,6 @@ class UsersRelationManager extends RelationManager
             ->paginated([10, 25, 50, 100]);
     }
 
-<<<<<<< HEAD
-=======
     public function getListTableColumns(): array
     {
         return [
@@ -156,7 +154,6 @@ class UsersRelationManager extends RelationManager
      *
      * @return array<\Filament\Tables\Actions\Action|\Filament\Tables\Actions\ActionGroup>
      */
->>>>>>> d9f7564c (.)
     protected function getTableHeaderActions(): array
     {
         return [
