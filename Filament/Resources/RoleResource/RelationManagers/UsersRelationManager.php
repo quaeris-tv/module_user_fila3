@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 
+<<<<<<< HEAD
 use Filament\Forms;
+=======
+use Filament\Forms\Components\DatePicker;
+>>>>>>> 86d4dbee (📝 (UsersRelationManager.php): add DatePicker component to the form for the users relation manager)
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Actions\Action;
