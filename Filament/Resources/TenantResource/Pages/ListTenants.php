@@ -28,6 +28,4 @@ class ListTenants extends ListRecords
             TextColumn::make('name')->label(__('user::fields.name.label')),
         ];
     }
-
-   
 }
