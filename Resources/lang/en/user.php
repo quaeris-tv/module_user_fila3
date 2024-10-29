@@ -17,7 +17,7 @@ return [
         'success_attached' => 'User successfully attached',
         'success_detached' => 'User successfully detached',
         'success_deleted' => 'Users successfully deleted',
-         'toggle_layout' => 'Toggle Layout',
+        'toggle_layout' => 'Toggle Layout',
         'create' => 'Create User',
         'edit' => 'Edit User',
         'delete' => 'Delete User',
