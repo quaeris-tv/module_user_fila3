@@ -17,19 +17,10 @@ return [
         'success_attached' => 'User successfully attached',
         'success_detached' => 'User successfully detached',
         'success_deleted' => 'Users successfully deleted',
-<<<<<<< HEAD
         'toggle_layout' => 'Toggle Layout',
         'create' => 'Create User',
         'delete' => 'Delete User',
         'associate' => 'Associate User',
-=======
-         'toggle_layout' => 'Toggle Layout',
-        'create' => 'Create User',
-        'edit' => 'Edit User',
-        'delete' => 'Delete User',
-        'associate' => 'Associate User',
-        'detach' => 'Detach User',
->>>>>>> 8721e948 (.)
         'bulk_delete' => 'Delete Selected',
         'bulk_detach' => 'Detach Selected',
     ],
