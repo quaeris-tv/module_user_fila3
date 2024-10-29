@@ -37,24 +37,21 @@ use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
 use Modules\User\Filament\Resources\UserResource\Pages\ListUsers; // Ensure correct import for ListUsers
 use Modules\Xot\Filament\Traits\TransTrait;
 
-/**
- * Class UsersRelationManager.
- *
- * Manages the relationship between roles and users with enhanced functionality and strict typing.
- */
 final class UsersRelationManager extends RelationManager
 {
     use TransTrait;
 
     protected static string $relationship = 'users';
+<<<<<<< HEAD
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST; // Set the layout view to LIST
+=======
+    protected static ?string $inverseRelationship = 'roles';
+    protected static ?string $recordTitleAttribute = 'name';
+    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
+>>>>>>> e08b5451 (refactor(UsersRelationManager): remove unused methods and simplify code structure)
 
     /**
-     * Define the form structure for this relation.
-     *
-     * @param Form $form The form instance to configure
-     *
-     * @return Form The configured form
+     * Define the form structure.
      */
     public function form(Form $form): Form
     {
@@ -62,7 +59,7 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Configure the form schema for the user resource.
+     * Configure the form schema.
      */
     protected function getFormSchema(): array
     {
@@ -70,16 +67,12 @@ final class UsersRelationManager extends RelationManager
             Forms\Components\TextInput::make('name')
                 ->required()
                 ->maxLength(255),
-            // Add other fields as needed
+            // Additional fields as needed
         ];
     }
 
     /**
      * Configure the table structure and behavior.
-     *
-     * @param Table $table The table instance to configure
-     *
-     * @return Table The configured table
      */
     public function table(Table $table): Table
     {
@@ -102,8 +95,12 @@ final class UsersRelationManager extends RelationManager
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      * Get table columns for grid layout.
+=======
+     * Get grid layout columns.
+>>>>>>> e08b5451 (refactor(UsersRelationManager): remove unused methods and simplify code structure)
      */
     public function getGridTableColumns(): array
     {
@@ -113,8 +110,12 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
+<<<<<<< HEAD
 >>>>>>> 3fc7f7f9 (.)
      * Get table columns for list layout.
+=======
+     * Get list layout columns.
+>>>>>>> e08b5451 (refactor(UsersRelationManager): remove unused methods and simplify code structure)
      */
     public function getListTableColumns(): array
     {
@@ -146,47 +147,48 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Get header actions for the table.
-     *
-     * @return array<int, Action|ActionGroup>
+     * Get header actions.
      */
     protected function getTableHeaderActions(): array
     {
         return [
             TableLayoutToggleTableAction::make(),
             Tables\Actions\AssociateAction::make()
-                ->label('') // Empty label
+                ->label('')
                 ->icon('heroicon-o-link')
                 ->tooltip(__('user::actions.associate_user')),
             Tables\Actions\AttachAction::make()
-                ->label('') // Empty label
+                ->label('')
                 ->icon('heroicon-o-paper-clip')
                 ->tooltip(__('user::actions.attach_user')),
         ];
     }
 
     /**
-     * Get row-level actions for the table.
-     *
-     * @return array<int, Action|ActionGroup>
+     * Get row-level actions.
      */
     protected function getTableActions(): array
     {
         return [
+<<<<<<< HEAD
             Tables\Actions\ViewAction::make()
                 ->label('') // Empty label
+=======
+            ViewAction::make()
+                ->label('')
+>>>>>>> e08b5451 (refactor(UsersRelationManager): remove unused methods and simplify code structure)
                 ->tooltip(__('user::actions.view'))
                 ->icon('heroicon-o-eye')
                 ->color('info'),
 
             EditAction::make()
-                ->label('') // Empty label
+                ->label('')
                 ->tooltip(__('user::actions.edit'))
                 ->icon('heroicon-o-pencil')
                 ->color('warning'),
 
             Tables\Actions\DetachAction::make()
-                ->label('') // Empty label
+                ->label('')
                 ->tooltip(__('user::actions.detach'))
                 ->icon('heroicon-o-link-slash')
                 ->color('danger')
@@ -197,15 +199,13 @@ final class UsersRelationManager extends RelationManager
 =======
 
     /**
-     * Get bulk actions for the table.
-     *
-     * @return array<string, BulkAction>
+     * Get bulk actions.
      */
     protected function getTableBulkActions(): array
     {
         return [
-            'bulk_delete' => DeleteBulkAction::make()
-                ->label('') // Empty label
+            DeleteBulkAction::make()
+                ->label('')
                 ->tooltip(__('user::actions.delete_selected'))
                 ->icon('heroicon-o-trash')
                 ->color('danger')
@@ -214,9 +214,7 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Get filters for the table.
-     *
-     * @return array<int, Filter>
+     * Get filters.
      */
     protected function getTableFilters(): array
     {
@@ -234,14 +232,8 @@ final class UsersRelationManager extends RelationManager
                 ])
                 ->query(function (Builder $query, array $data): Builder {
                     return $query
-                        ->when(
-                            $data['created_from'],
-                            fn (Builder $query, $date): Builder => $query->whereDate('created_at', '>=', $date),
-                        )
-                        ->when(
-                            $data['created_until'],
-                            fn (Builder $query, $date): Builder => $query->whereDate('created_at', '<=', $date),
-                        );
+                        ->when($data['created_from'], fn (Builder $query, $date) => $query->whereDate('created_at', '>=', $date))
+                        ->when($data['created_until'], fn (Builder $query, $date) => $query->whereDate('created_at', '<=', $date));
                 })
                 ->columns(2),
         ];
