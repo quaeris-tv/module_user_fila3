@@ -17,6 +17,14 @@ return [
         'success_attached' => 'User successfully attached',
         'success_detached' => 'User successfully detached',
         'success_deleted' => 'Users successfully deleted',
+         'toggle_layout' => 'Toggle Layout',
+        'create' => 'Create User',
+        'edit' => 'Edit User',
+        'delete' => 'Delete User',
+        'associate' => 'Associate User',
+        'detach' => 'Detach User',
+        'bulk_delete' => 'Delete Selected',
+        'bulk_detach' => 'Detach Selected',
     ],
     'fields' => [
         'name' => 'Name',
@@ -43,16 +51,7 @@ return [
         'loading' => 'Loading users...',
         'search' => 'Search users...',
     ],
-    'actions' => [
-        'toggle_layout' => 'Toggle Layout',
-        'create' => 'Create User',
-        'edit' => 'Edit User',
-        'delete' => 'Delete User',
-        'associate' => 'Associate User',
-        'detach' => 'Detach User',
-        'bulk_delete' => 'Delete Selected',
-        'bulk_detach' => 'Detach Selected',
-    ],
+
     'modals' => [
         'create' => [
             'heading' => 'Create User',
