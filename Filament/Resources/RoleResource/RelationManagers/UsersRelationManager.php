@@ -26,9 +26,6 @@ final class UsersRelationManager extends RelationManager
 
     /**
      * Definisce lo schema del form per la relazione users.
-     *
-     * @param Form $form
-     * @return Form
      */
     public function form(Form $form): Form
     {
@@ -37,8 +34,6 @@ final class UsersRelationManager extends RelationManager
 
     /**
      * Restituisce lo schema del form.
-     *
-     * @return array
      */
     protected function getFormSchema(): array
     {
@@ -53,8 +48,6 @@ final class UsersRelationManager extends RelationManager
 
     /**
      * Definisce le colonne della tabella in layout lista.
-     *
-     * @return array
      */
     public function getListTableColumns(): array
     {
@@ -87,8 +80,6 @@ final class UsersRelationManager extends RelationManager
 
     /**
      * Definisce i filtri disponibili nella tabella.
-     *
-     * @return array
      */
     protected function getTableFilters(): array
     {
