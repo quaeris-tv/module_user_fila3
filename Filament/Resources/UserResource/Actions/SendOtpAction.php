@@ -4,22 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\Actions;
 
-use Illuminate\Support\Str;
-use Modules\User\Models\User;
-use Illuminate\Support\Carbon;
 use Filament\Tables\Actions\Action;
-use Illuminate\Support\Facades\Hash;
-use Modules\User\Datas\PasswordData;
-use Modules\User\Notifications\Auth\Otp;
-use Modules\Xot\Filament\Traits\TransTrait;
-use Illuminate\Support\Facades\Notification;
 use Modules\User\Actions\Otp\SendOtpByUserAction;
-use Filament\Notifications\Notification as FilamentNotification;
+use Modules\User\Models\User;
 
 class SendOtpAction extends Action
 {
-    // use TransTrait;
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -28,7 +18,7 @@ class SendOtpAction extends Action
             ->label('')
             ->tooltip(trans('user::otp.actions.send_otp'))
             ->icon('heroicon-o-key')
-            ->action(function (User $record)  {
+            ->action(function (User $record) {
                 app(SendOtpByUserAction::class)->execute($record);
             })
             ->requiresConfirmation()
@@ -37,6 +27,9 @@ class SendOtpAction extends Action
             ->modalButton(trans('user::otp.actions.yes_send_otp'));
     }
 
+    /**
+     * Ottieni il nome predefinito dell'azione.
+     */
     public static function getDefaultName(): ?string
     {
         return 'send_otp';
