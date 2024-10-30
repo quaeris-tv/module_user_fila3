@@ -20,8 +20,6 @@ class SendOtpByUserAction
 
     /**
      * Send a one-time password (OTP) to the user via email.
-     *
-     * @param UserContract $user
      */
     public function execute(UserContract $user): void
     {
@@ -36,10 +34,6 @@ class SendOtpByUserAction
 
     /**
      * Update user with temporary password and OTP expiration.
-     *
-     * @param UserContract $user
-     * @param string $temporaryPassword
-     * @param Carbon $expirationTime
      */
     private function updateUserWithTemporaryPassword(UserContract $user, string $temporaryPassword, Carbon $expirationTime): void
     {
@@ -52,9 +46,6 @@ class SendOtpByUserAction
 
     /**
      * Send OTP notification via email.
-     *
-     * @param UserContract $user
-     * @param string $temporaryPassword
      */
     private function sendOtpNotification(UserContract $user, string $temporaryPassword): void
     {

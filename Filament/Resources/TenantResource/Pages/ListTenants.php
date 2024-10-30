@@ -23,8 +23,6 @@ class ListTenants extends ListRecords
 
     /**
      * Definisce le colonne della tabella per la lista tenant.
-     *
-     * @return array
      */
     public function getListTableColumns(): array
     {

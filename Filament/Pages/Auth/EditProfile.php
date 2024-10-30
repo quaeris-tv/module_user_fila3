@@ -8,7 +8,6 @@ use Filament\Forms\Components\Component;
 use Filament\Forms\Form;
 use Filament\Pages\Auth\EditProfile as BaseEditProfile;
 use Modules\User\Datas\PasswordData;
-use Exception;
 
 class EditProfile extends BaseEditProfile
 {
@@ -16,9 +15,6 @@ class EditProfile extends BaseEditProfile
 
     /**
      * Costruisce il form schema per la pagina di modifica profilo.
-     *
-     * @param Form $form
-     * @return Form
      */
     public function form(Form $form): Form
     {
@@ -34,8 +30,7 @@ class EditProfile extends BaseEditProfile
     /**
      * Recupera il componente per l'inserimento della password con le opzioni di validazione.
      *
-     * @return Component
-     * @throws Exception
+     * @throws \Exception
      */
     protected function getPasswordFormComponent(): Component
     {
@@ -43,8 +38,8 @@ class EditProfile extends BaseEditProfile
         $messages = __('user::validation');
 
         $field = parent::getPasswordFormComponent();
-        if (!method_exists($field, 'validationMessages')) {
-            throw new Exception('Metodo validationMessages non esiste');
+        if (! method_exists($field, 'validationMessages')) {
+            throw new \Exception('Metodo validationMessages non esiste');
         }
 
         return $field
