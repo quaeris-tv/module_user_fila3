@@ -22,16 +22,16 @@ class EditProfile extends BaseEditProfile
             ->schema([
                 $this->getNameFormComponent(),
                 $this->getEmailFormComponent(),
-                $this->getPasswordFormComponent(),
-                $this->getPasswordConfirmationFormComponent(),
+                // $this->getPasswordFormComponent(),
+                // $this->getPasswordConfirmationFormComponent(),
+                /*
+                PasswordData::make()->getPasswordFormComponent('new_password'),
+                PasswordData::make()->getPasswordConfirmationFormComponent(),
+                */
+                ...PasswordData::make()->getPasswordFormComponents('new_password'),
             ]);
     }
-
-    /**
-     * Recupera il componente per l'inserimento della password con le opzioni di validazione.
-     *
-     * @throws \Exception
-     */
+    /*
     protected function getPasswordFormComponent(): Component
     {
         $passwordData = PasswordData::make();
@@ -39,11 +39,14 @@ class EditProfile extends BaseEditProfile
 
         $field = parent::getPasswordFormComponent();
         if (! method_exists($field, 'validationMessages')) {
-            throw new \Exception('Metodo validationMessages non esiste');
+            throw new \Exception('method validationMessages not exists');
         }
 
         return $field
             ->validationMessages($messages)
-            ->helperText($passwordData->getHelperText());
+            ->helperText($pwd->getHelperText())
+            // ->live()
+        ;
     }
+    */
 }
