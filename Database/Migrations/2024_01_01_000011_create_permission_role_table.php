@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Modules\User\Models\Role;
-// ---- models ---
 use Modules\User\Models\Permission;
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;

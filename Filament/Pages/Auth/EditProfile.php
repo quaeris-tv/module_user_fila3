@@ -1,38 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Filament\Pages\Auth;
 
-
-use Closure;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
-use Filament\Forms\Form;
-use Filament\Pages\Page;
-use Illuminate\Support\Arr;
-use Filament\Forms\Components\Grid;
-use Illuminate\Support\Facades\Hash;
-use Modules\User\Datas\PasswordData;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Textarea;
-use Illuminate\Support\Facades\Storage;
-use Modules\Xot\Contracts\UserContract;
 use Filament\Forms\Components\Component;
-use Filament\Forms\Components\TextInput;
-use Filament\Notifications\Notification;
-use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\FileUpload;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rules\Password;
+use Filament\Forms\Form;
 use Filament\Pages\Auth\EditProfile as BaseEditProfile;
+use Modules\User\Datas\PasswordData;
+use Exception;
 
 class EditProfile extends BaseEditProfile
 {
+    public static ?string $title = 'Profilo Utente';
 
-    static ?string $title = 'aaaa';
-    
-
+    /**
+     * Costruisce il form schema per la pagina di modifica profilo.
+     *
+     * @param Form $form
+     * @return Form
+     */
     public function form(Form $form): Form
     {
         return $form
@@ -44,20 +31,24 @@ class EditProfile extends BaseEditProfile
             ]);
     }
 
+    /**
+     * Recupera il componente per l'inserimento della password con le opzioni di validazione.
+     *
+     * @return Component
+     * @throws Exception
+     */
     protected function getPasswordFormComponent(): Component
     {
-        $pwd = PasswordData::make();
+        $passwordData = PasswordData::make();
         $messages = __('user::validation');
-       
-        $field=parent::getPasswordFormComponent();
-        if(!method_exists($field,'validationMessages')){
-            throw new \Exception('method validationMessages not exists');
+
+        $field = parent::getPasswordFormComponent();
+        if (!method_exists($field, 'validationMessages')) {
+            throw new Exception('Metodo validationMessages non esiste');
         }
-        return  $field
+
+        return $field
             ->validationMessages($messages)
-            ->helperText($pwd->getHelperText())
-            //->live()
-            ;
-        
+            ->helperText($passwordData->getHelperText());
     }
 }
