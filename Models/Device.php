@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Modules\User\Database\Factories\DeviceFactory;
+use Modules\Xot\Datas\XotData;
 use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Datas\XotData;
-use Modules\Xot\Datas\XotData;
+use Modules\User\Database\Factories\DeviceFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 /**
  * Device model representing a user's device in the system.
@@ -84,7 +83,7 @@ class Device extends BaseModel
 
     /**
      * Define the many-to-many relationship between devices and users.
-     * return BelongsToMany<UserContract>.
+     * @return BelongsToMany<UserContract>
      */
     public function users(): BelongsToMany
     {
@@ -103,7 +102,6 @@ class Device extends BaseModel
         return [
             'id' => 'string',
             'uuid' => 'string',
-
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',

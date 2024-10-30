@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-use Illuminate\Database\Schema\Blueprint;
-// ---- models ---
-use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
+use Modules\User\Models\Permission;
+use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /*

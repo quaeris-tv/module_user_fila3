@@ -32,7 +32,11 @@ namespace Modules\User\Models;
  */
 class PermissionRole extends BasePivot
 {
-    /** @return array<string, string> */
+    /**
+     * Define the attribute casting for the model.
+     *
+     * @return array<string, string>
+     */
     public function casts(): array
     {
         $parent = parent::casts();
