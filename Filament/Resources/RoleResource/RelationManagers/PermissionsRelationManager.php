@@ -14,25 +14,36 @@ class PermissionsRelationManager extends RelationManager
 {
     protected static string $relationship = 'permissions';
 
+    /**
+     * Configura lo schema del form per la gestione delle permissioni.
+     *
+     * @param Form $form
+     * @return Form
+     */
     public function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-            ]);
+        return $form->schema([
+            Forms\Components\TextInput::make('name')
+                ->required()
+                ->maxLength(255)
+                ->label(__('Nome Permesso')),
+        ]);
     }
 
+    /**
+     * Configura la tabella per la visualizzazione e la gestione delle permissioni.
+     *
+     * @param Table $table
+     * @return Table
+     */
     public function table(Table $table): Table
     {
         return $table
             ->recordTitleAttribute('name')
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')->label(__('Nome')),
             ])
-            ->filters([
-            ])
+            ->filters([])
             ->headerActions([
                 Tables\Actions\CreateAction::make(),
             ])

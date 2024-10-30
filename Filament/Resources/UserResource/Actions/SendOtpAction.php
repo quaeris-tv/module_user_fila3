@@ -7,12 +7,9 @@ namespace Modules\User\Filament\Resources\UserResource\Actions;
 use Filament\Tables\Actions\Action;
 use Modules\User\Actions\Otp\SendOtpByUserAction;
 use Modules\User\Models\User;
-use Modules\Xot\Filament\Traits\TransTrait;
 
 class SendOtpAction extends Action
 {
-    // use TransTrait;
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -30,6 +27,9 @@ class SendOtpAction extends Action
             ->modalButton(trans('user::otp.actions.yes_send_otp'));
     }
 
+    /**
+     * Ottieni il nome predefinito dell'azione.
+     */
     public static function getDefaultName(): ?string
     {
         return 'send_otp';
