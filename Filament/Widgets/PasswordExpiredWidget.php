@@ -63,8 +63,11 @@ class PasswordExpiredWidget extends Widget implements HasForms
     {
         return [
             $this->getCurrentPasswordFormComponent(),
+            ...PasswordData::make()->getPasswordFormComponents('password'),
+            /*
             $this->getPasswordFormComponent(),
             $this->getPasswordConfirmationFormComponent(),
+            */
         ];
     }
 
@@ -176,6 +179,7 @@ class PasswordExpiredWidget extends Widget implements HasForms
             ->validationAttribute(static::trans('fields.current_password.validation_attribute'));
     }
 
+    /*
     protected function getPasswordFormComponent(): Component
     {
         $validation_messages = __('user::validation');
@@ -202,6 +206,7 @@ class PasswordExpiredWidget extends Widget implements HasForms
             ->required()
             ->dehydrated(false);
     }
+    */
 
     /**
      * @return array<Action|ActionGroup>

@@ -13,6 +13,7 @@ use Filament\Tables\Actions\Action;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use Modules\User\Datas\PasswordData;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Datas\XotData;
 
@@ -56,11 +57,14 @@ class ChangeProfilePasswordAction extends Action
             )
             ->form(
                 [
+                    /*
                     TextInput::make('new_password')
                         ->password()
                         ->label('New Password')
                         ->required()
                         ->rule(Password::default()),
+                    */
+                    PasswordData::make()->getPasswordFormComponent(),
                     TextInput::make('new_password_confirmation')
                         ->password()
                         ->label('Confirm New Password')
