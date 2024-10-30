@@ -5,22 +5,13 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 use Filament\Forms;
-use Filament\Tables;
 use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Filters\Filter;
-use Modules\UI\Enums\TableLayoutEnum;
-use Filament\Tables\Actions\BulkAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Actions\AttachAction;
-use Filament\Tables\Actions\DetachAction;
-use Illuminate\Database\Eloquent\Builder;
-use Modules\Xot\Filament\Traits\HasXotTable;
-use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+use Modules\UI\Enums\TableLayoutEnum;
 use Modules\User\Filament\Resources\TenantResource\Pages\ListTenants;
+use Modules\Xot\Filament\Traits\HasXotTable;
 
 /**
  * Manages the relationship between users and tenants.
@@ -52,8 +43,6 @@ final class TenantsRelationManager extends RelationManager
             ]);
     }
 
-
-
     /**
      * Define table columns for displaying tenant information.
      *
@@ -62,7 +51,5 @@ final class TenantsRelationManager extends RelationManager
     public function getListTableColumns(): array
     {
         return app(ListTenants::class)->getListTableColumns();
-
     }
-
 }
