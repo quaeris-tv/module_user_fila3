@@ -18,16 +18,10 @@ trait IsTenant
     public function users(): BelongsToMany
     {
         $xot = XotData::make();
-        $pivotClass = $xot->getTenantPivotClass();
-        $pivot = app($pivotClass);
-        $pivotTable = $pivot->getTable();
-        $pivotDbName = $pivot->getConnection()->getDatabaseName();
-        $pivotTableFull = $pivotDbName.'.'.$pivotTable;
-        $pivotFields = $pivot->getFillable();
         $userClass = $xot->getUserClass();
 
         // $this->setConnection('mysql');
-        return $this->belongsToManyX($userClass, $pivotTableFull, 'tenant_id', 'user_id');
-            
+       return $this->belongsToManyX($userClass, null, 'tenant_id', 'user_id');
+        // ->as('membership')
     }
 }

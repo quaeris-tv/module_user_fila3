@@ -12,10 +12,13 @@ use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Filters\Filter;
 use Modules\User\Models\SocialiteUser;
+use Filament\Tables\Columns\Column;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Xot\Filament\Traits\HasXotTable;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Resources\RelationManagers\RelationManager;
+use Modules\Xot\Filament\Traits\HasXotTable;
 
 class SocialiteUsersRelationManager extends RelationManager
 {
@@ -69,21 +72,6 @@ class SocialiteUsersRelationManager extends RelationManager
         ];
     }
 
-    /*
-     * Configure the table for displaying Socialite User data.
-     
-    public function table(Table $table): Table
-    {
-        return $table
-            ->recordTitleAttribute('provider')
-            ->columns($this->getTableColumns())
-            ->filters($this->getTableFilters())
-            ->headerActions($this->getHeaderActions())
-            ->actions($this->getTableActions())
-            ->bulkActions($this->getBulkActions());
-    }
-    */
-
     /**
      * Define table columns in a separate, strongly-typed method.
      *
@@ -114,11 +102,9 @@ class SocialiteUsersRelationManager extends RelationManager
         ];
     }
 
-   
-
     /*
      * Query scope to apply conditions to the relation manager.
-     
+
     protected function applyTableQueryScope(Builder $query): Builder
     {
         return $query->when(
@@ -126,5 +112,6 @@ class SocialiteUsersRelationManager extends RelationManager
             fn (Builder $query) => $query->withTrashed()
         );
     }
-        */
+     */
+
 }

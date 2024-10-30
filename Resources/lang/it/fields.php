@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     'name' => 'Nome',
+    'slug' => 'Slug',
     'email' => 'Email',
     'created_at' => 'Creato il',
     'updated_at' => 'Aggiornato il',

@@ -18,8 +18,6 @@ use Modules\Xot\Datas\XotData;
  */
 trait HasTenants
 {
-   
-
     public function canAccessTenant(Model $tenant): bool
     {
         // return $this->teams->contains($tenant);
@@ -38,18 +36,12 @@ trait HasTenants
     public function tenants(): BelongsToMany
     {
         $xot = XotData::make();
-        $pivotClass = $xot->getTenantPivotClass();
-
-        $pivot = app($pivotClass);
-        $pivotTable = $pivot->getTable();
-        $pivotDbName = $pivot->getConnection()->getDatabaseName();
-        $pivotTableFull = $pivotDbName.'.'.$pivotTable;
-        $pivotFields = $pivot->getFillable();
         /** @var class-string<Model> */
         $tenant_class = $xot->getTenantClass();
 
         // $this->setConnection('mysql');
-        return $this->belongsToManyX($tenant_class, $pivotTableFull, null, 'tenant_id');
+        return $this->belongsToManyX($tenant_class, null, null, 'tenant_id')
+        ;
         // ->ddRawSql()
         // ->as('membership')
     }

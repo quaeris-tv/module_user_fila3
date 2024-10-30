@@ -7,10 +7,16 @@ namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables\Actions\AttachAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\DetachAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\UI\Enums\TableLayoutEnum;
+use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
 use Modules\Xot\Filament\Traits\HasXotTable;
 use Modules\Xot\Filament\Traits\TransTrait;
 
@@ -24,24 +30,18 @@ final class UsersRelationManager extends RelationManager
     protected static ?string $recordTitleAttribute = 'name';
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
-    /**
-     * Define the form structure.
-     */
     public function form(Form $form): Form
     {
         return $form->schema($this->getFormSchema());
     }
 
-    /**
-     * Configure the form schema.
-     */
     protected function getFormSchema(): array
     {
         return [
             Forms\Components\TextInput::make('name')
                 ->required()
-                ->maxLength(255),
-            // Additional fields as needed
+                ->maxLength(255)
+                ->label(__('user::socialite_user.fields.name.label')),
         ];
     }
 
@@ -77,9 +77,7 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
-    /**
-     * Get filters.
-     */
+
     protected function getTableFilters(): array
     {
         return [
