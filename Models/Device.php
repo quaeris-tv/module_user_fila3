@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Modules\User\Database\Factories\DeviceFactory;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
-use Modules\Xot\Datas\XotData;
 
 /**
  * Device model representing a user's device in the system.

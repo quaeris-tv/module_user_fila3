@@ -30,7 +30,7 @@ class ListTenants extends ListRecords
             TextColumn::make('name')
               ->label(__('user::fields.name.label')),
             TextColumn::make('slug')
-                ->label(__('user::fields.slug.label')),
+                ->label(__('user::fields.slug.label'))
                 ->default(function ($record) {
                     $record->generateSlug();
                     $record->save();
