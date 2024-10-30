@@ -103,9 +103,8 @@ trait HasTeams
         $xot = XotData::make();
         $teamClass = $xot->getTeamClass();
 
-        return $this->belongsToManyX($teamClass, null, null, 'team_id')
-            // ->as('membership')
-        ;
+        return $this->belongsToManyX($teamClass, null, null, 'team_id');
+        // ->as('membership')
     }
 
     /**

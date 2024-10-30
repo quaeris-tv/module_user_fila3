@@ -24,11 +24,17 @@ final class UsersRelationManager extends RelationManager
     protected static ?string $recordTitleAttribute = 'name';
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
+    /**
+     * Definisce lo schema del form per la relazione users.
+     */
     public function form(Form $form): Form
     {
         return $form->schema($this->getFormSchema());
     }
 
+    /**
+     * Restituisce lo schema del form.
+     */
     protected function getFormSchema(): array
     {
         return [
@@ -36,11 +42,12 @@ final class UsersRelationManager extends RelationManager
                 ->required()
                 ->maxLength(255)
                 ->label(__('user::socialite_user.fields.name.label')),
+            // Aggiungi altri campi necessari
         ];
     }
 
     /**
-     * Get list layout columns.
+     * Definisce le colonne della tabella in layout lista.
      */
     public function getListTableColumns(): array
     {
@@ -71,6 +78,9 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
+    /**
+     * Definisce i filtri disponibili nella tabella.
+     */
     protected function getTableFilters(): array
     {
         return [
@@ -82,8 +92,8 @@ final class UsersRelationManager extends RelationManager
             Filter::make('created_at')
                 ->label(__('user::filters.creation_date'))
                 ->form([
-                    Forms\Components\DatePicker::make('created_from'),
-                    Forms\Components\DatePicker::make('created_until'),
+                    Forms\Components\DatePicker::make('created_from')->label(__('user::filters.created_from')),
+                    Forms\Components\DatePicker::make('created_until')->label(__('user::filters.created_until')),
                 ])
                 ->query(function (Builder $query, array $data): Builder {
                     return $query

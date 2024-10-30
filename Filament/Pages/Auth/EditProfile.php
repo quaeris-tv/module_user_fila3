@@ -11,8 +11,11 @@ use Modules\User\Datas\PasswordData;
 
 class EditProfile extends BaseEditProfile
 {
-    public static ?string $title = 'aaaa';
+    public static ?string $title = 'Profilo Utente';
 
+    /**
+     * Costruisce il form schema per la pagina di modifica profilo.
+     */
     public function form(Form $form): Form
     {
         return $form
@@ -24,20 +27,23 @@ class EditProfile extends BaseEditProfile
             ]);
     }
 
+    /**
+     * Recupera il componente per l'inserimento della password con le opzioni di validazione.
+     *
+     * @throws \Exception
+     */
     protected function getPasswordFormComponent(): Component
     {
-        $pwd = PasswordData::make();
+        $passwordData = PasswordData::make();
         $messages = __('user::validation');
 
         $field = parent::getPasswordFormComponent();
         if (! method_exists($field, 'validationMessages')) {
-            throw new \Exception('method validationMessages not exists');
+            throw new \Exception('Metodo validationMessages non esiste');
         }
 
         return $field
             ->validationMessages($messages)
-            ->helperText($pwd->getHelperText())
-            // ->live()
-        ;
+            ->helperText($passwordData->getHelperText());
     }
 }

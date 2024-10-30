@@ -16,25 +16,35 @@ use Modules\Xot\Filament\Traits\HasXotTable;
 class ListTenants extends ListRecords
 {
     use HasXotTable;
+
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
     protected static string $resource = TenantResource::class;
 
+    /**
+     * Definisce le colonne della tabella per la lista tenant.
+     */
     public function getListTableColumns(): array
     {
         return [
             TextColumn::make('id')
-              ->label(__('user::fields.id.label'))
-              ->searchable()
-              ->sortable(),
+                ->label(__('user::fields.id.label'))
+                ->searchable()
+                ->sortable(),
+
             TextColumn::make('name')
-              ->label(__('user::fields.name.label')),
+                ->label(__('user::fields.name.label'))
+                ->searchable(),
+
             TextColumn::make('slug')
                 ->label(__('user::fields.slug.label'))
                 ->default(function ($record) {
-                    $record->generateSlug();
+                    $record->slug = $record->generateSlug();
                     $record->save();
-                }),
+
+                    return $record->slug;
+                })
+                ->sortable(),
         ];
     }
 }

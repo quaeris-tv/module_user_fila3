@@ -83,7 +83,8 @@ class Device extends BaseModel
 
     /**
      * Define the many-to-many relationship between devices and users.
-     * return BelongsToMany<UserContract>.
+     *
+     * @return BelongsToMany<UserContract>
      */
     public function users(): BelongsToMany
     {
@@ -102,7 +103,6 @@ class Device extends BaseModel
         return [
             'id' => 'string',
             'uuid' => 'string',
-
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
