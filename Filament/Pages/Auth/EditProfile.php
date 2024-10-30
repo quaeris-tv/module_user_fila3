@@ -11,8 +11,11 @@ use Modules\User\Datas\PasswordData;
 
 class EditProfile extends BaseEditProfile
 {
-    public static ?string $title = 'aaaa';
+    public static ?string $title = 'Profilo Utente';
 
+    /**
+     * Costruisce il form schema per la pagina di modifica profilo.
+     */
     public function form(Form $form): Form
     {
         return $form
@@ -31,7 +34,7 @@ class EditProfile extends BaseEditProfile
     /*
     protected function getPasswordFormComponent(): Component
     {
-        $pwd = PasswordData::make();
+        $passwordData = PasswordData::make();
         $messages = __('user::validation');
 
         $field = parent::getPasswordFormComponent();
