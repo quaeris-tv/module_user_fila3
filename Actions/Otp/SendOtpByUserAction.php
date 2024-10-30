@@ -1,21 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Actions\Otp;
 
-
-use Illuminate\Support\Str;
-use Modules\User\Models\User;
-use Illuminate\Support\Carbon;
-use Filament\Tables\Actions\Action;
-use Illuminate\Support\Facades\Hash;
-use Modules\User\Datas\PasswordData;
-use Modules\Xot\Contracts\UserContract;
-use Modules\User\Notifications\Auth\Otp;
-use Modules\Xot\Filament\Traits\TransTrait;
-use Spatie\QueueableAction\QueueableAction;
-use Illuminate\Support\Facades\Notification;
-use Modules\User\Actions\Otp\Traits\OtpTrait;
 use Filament\Notifications\Notification as FilamentNotification;
+use Filament\Tables\Actions\Action;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Str;
+use Modules\User\Datas\PasswordData;
+use Modules\User\Notifications\Auth\Otp;
+use Modules\Xot\Contracts\UserContract;
+use Spatie\QueueableAction\QueueableAction;
 
 class SendOtpByUserAction
 {
