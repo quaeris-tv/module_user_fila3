@@ -25,7 +25,10 @@ final class UsersRelationManager extends RelationManager
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
     /**
-     * Define the form structure.
+     * Definisce lo schema del form per la relazione users.
+     *
+     * @param Form $form
+     * @return Form
      */
     public function form(Form $form): Form
     {
@@ -33,20 +36,25 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Configure the form schema.
+     * Restituisce lo schema del form.
+     *
+     * @return array
      */
     protected function getFormSchema(): array
     {
         return [
             Forms\Components\TextInput::make('name')
                 ->required()
-                ->maxLength(255),
-            // Additional fields as needed
+                ->maxLength(255)
+                ->label(__('user::socialite_user.fields.name.label')),
+            // Aggiungi altri campi necessari
         ];
     }
 
     /**
-     * Get list layout columns.
+     * Definisce le colonne della tabella in layout lista.
+     *
+     * @return array
      */
     public function getListTableColumns(): array
     {
@@ -78,7 +86,9 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Get filters.
+     * Definisce i filtri disponibili nella tabella.
+     *
+     * @return array
      */
     protected function getTableFilters(): array
     {
@@ -91,8 +101,8 @@ final class UsersRelationManager extends RelationManager
             Filter::make('created_at')
                 ->label(__('user::filters.creation_date'))
                 ->form([
-                    Forms\Components\DatePicker::make('created_from'),
-                    Forms\Components\DatePicker::make('created_until'),
+                    Forms\Components\DatePicker::make('created_from')->label(__('user::filters.created_from')),
+                    Forms\Components\DatePicker::make('created_until')->label(__('user::filters.created_until')),
                 ])
                 ->query(function (Builder $query, array $data): Builder {
                     return $query
