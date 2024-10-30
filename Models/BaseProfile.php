@@ -131,7 +131,7 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
     }
 
     /** @return array<string, string> */
-    protected function casts(): array
+    public function casts(): array
     {
         return [
             'id' => 'string',

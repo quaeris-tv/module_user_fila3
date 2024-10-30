@@ -26,16 +26,16 @@ return [
             'help' => 'La dimensione minima della password',
         ],
         'mixedCase' => [
-            'help' => 'Se la password richiede almeno una lettera maiuscola e una minuscola',
+            'help' => 'la password richiede almeno una lettera maiuscola e una minuscola',
         ],
         'letters' => [
-            'help' => 'Se la password richiede almeno una lettera',
+            'help' => 'la password richiede almeno una lettera',
         ],
         'numbers' => [
-            'help' => 'Se la password richiede almeno un numero',
+            'help' => 'la password richiede almeno un numero',
         ],
         'symbols' => [
-            'help' => 'Se la password richiede almeno un simbolo',
+            'help' => 'la password richiede almeno un simbolo',
         ],
         'uncompromised' => [
             'help' => 'Se la password non deve essere stata compromessa in data leaks',

@@ -75,6 +75,7 @@ abstract class BaseTenant extends BaseModel implements HasAvatar, HasMedia, Tena
 
         // $this->setConnection('mysql');
         return $this->belongsToManyX($userClass, null, 'tenant_id', 'user_id');
+        // ->as('membership')
     }
 
     public function getFilamentAvatarUrl(): ?string
