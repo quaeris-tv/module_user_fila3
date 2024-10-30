@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Modules\User\Database\Factories\DeviceFactory;
+use Modules\Xot\Datas\XotData;
 use Modules\Xot\Contracts\UserContract;
+use Modules\User\Database\Factories\DeviceFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Modules\Xot\Datas\XotData;
 
 /**
@@ -97,7 +98,7 @@ class Device extends BaseModel
      *
      * @return array<string, string>
      */
-    protected function casts(): array
+    public function casts(): array
     {
         return [
             'id' => 'string',

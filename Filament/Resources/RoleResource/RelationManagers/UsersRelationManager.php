@@ -13,10 +13,7 @@ use Filament\Tables\Actions\DetachAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Enums\ActionsPosition;
-use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
-use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\UI\Enums\TableLayoutEnum;
 use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
@@ -48,26 +45,10 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
-    public function table(Table $table): Table
-    {
-        return $table
-            ->columns($this->getListTableColumns())
-            ->contentGrid($this->layoutView->getTableContentGrid())
-            ->headerActions($this->getTableHeaderActions())
-            ->filters($this->getTableFilters())
-            ->filtersLayout(FiltersLayout::AboveContent)
-            ->filtersFormColumns(3)
-            ->persistFiltersInSession()
-            ->actions($this->getTableActions())
-            ->bulkActions($this->getTableBulkActions())
-            ->actionsPosition(ActionsPosition::BeforeColumns)
-            ->defaultSort('users.created_at', 'desc')
-            ->striped()
-            ->paginated([10, 25, 50, 100])
-            ->poll('60s');
-    }
-
-    protected function getListTableColumns(): array
+    /**
+     * Get list layout columns.
+     */
+    public function getListTableColumns(): array
     {
         return [
             TextColumn::make('name')
@@ -96,52 +77,6 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
-    protected function getTableHeaderActions(): array
-    {
-        return [
-            TableLayoutToggleTableAction::make(),
-            AttachAction::make()
-                ->label('')
-                ->icon('heroicon-o-paper-clip')
-                ->tooltip(__('user::actions.attach_user')),
-        ];
-    }
-
-    protected function getTableActions(): array
-    {
-        return [
-            ViewAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.view'))
-                ->icon('heroicon-o-eye')
-                ->color('info'),
-
-            EditAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.edit'))
-                ->icon('heroicon-o-pencil')
-                ->color('warning'),
-
-            DetachAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.detach'))
-                ->icon('heroicon-o-link-slash')
-                ->color('danger')
-                ->requiresConfirmation(),
-        ];
-    }
-
-    protected function getTableBulkActions(): array
-    {
-        return [
-            DeleteBulkAction::make()
-                ->label('')
-                ->tooltip(__('user::actions.delete_selected'))
-                ->icon('heroicon-o-trash')
-                ->color('danger')
-                ->requiresConfirmation(),
-        ];
-    }
 
     protected function getTableFilters(): array
     {

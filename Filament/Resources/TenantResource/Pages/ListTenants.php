@@ -24,11 +24,13 @@ class ListTenants extends ListRecords
     {
         return [
             TextColumn::make('id')
-                ->label(__('ID'))->searchable()->sortable(),
+              ->label(__('user::fields.id.label'))
+              ->searchable()
+              ->sortable(),
             TextColumn::make('name')
-                ->label(__('Nome')),
+              ->label(__('user::fields.name.label')),
             TextColumn::make('slug')
-                ->label(__('Slug'))
+                ->label(__('user::fields.slug.label')),
                 ->default(function ($record) {
                     $record->generateSlug();
                     $record->save();

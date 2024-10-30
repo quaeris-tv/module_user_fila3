@@ -13,9 +13,11 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Models\Role as SpatieRole;
 
 /**
@@ -63,6 +65,7 @@ use Spatie\Permission\Models\Role as SpatieRole;
 class Role extends SpatieRole
 {
     use HasFactory;
+    use RelationX;
 
     // use HasUuids;
 
@@ -74,6 +77,8 @@ class Role extends SpatieRole
 
     /** @var string */
     protected $connection = 'user';
+    /** @var string */
+    protected $keyType = 'string';
 
     // protected $fillable=['id','']
 
@@ -87,5 +92,13 @@ class Role extends SpatieRole
         $teamClass = $xotData->getTeamClass();
 
         return $this->belongsTo($teamClass);
+    }
+
+    /**
+     * A role may be given various permissions.
+     */
+    public function permissions(): BelongsToMany
+    {
+        return $this->belongsToManyX(Permission::class);
     }
 }
