@@ -9,15 +9,15 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Columns\Column;
-use Filament\Tables\Columns\Column;
-use Filament\Tables\Table;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Modules\User\Models\SocialiteUser;
 use Modules\Xot\Filament\Traits\HasXotTable;
-use Modules\Xot\Filament\Traits\HasXotTable;
 
+/**
+ * Class Modules\User\Filament\Resources\UserResource\RelationManagers\SocialiteUsersRelationManager.
+ */
 class SocialiteUsersRelationManager extends RelationManager
 {
     use HasXotTable;
