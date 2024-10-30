@@ -39,6 +39,8 @@ class PasswordData extends Data
 
     public ?string $failMessage = null;
 
+    public ?string $failMessage = null;
+
     private static ?self $instance = null;
 
     public static function make(): self
