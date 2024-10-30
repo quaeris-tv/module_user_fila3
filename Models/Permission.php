@@ -9,6 +9,7 @@ use Modules\Xot\Datas\XotData;
 use Modules\Xot\Contracts\UserContract;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Modules\Xot\Datas\XotData;
 use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Models\Permission as SpatiePermission;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
