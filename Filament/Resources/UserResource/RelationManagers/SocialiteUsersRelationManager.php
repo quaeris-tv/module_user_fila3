@@ -5,19 +5,17 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 use Filament\Forms;
-use Filament\Tables;
 use Filament\Forms\Form;
+use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables;
+use Filament\Tables\Columns\Column;
+use Filament\Tables\Columns\Column;
 use Filament\Tables\Table;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Columns\Column;
-use Filament\Tables\Filters\Filter;
-use Modules\User\Models\SocialiteUser;
-use Filament\Tables\Columns\Column;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Xot\Filament\Traits\HasXotTable;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Resources\RelationManagers\RelationManager;
+use Modules\User\Models\SocialiteUser;
+use Modules\Xot\Filament\Traits\HasXotTable;
 use Modules\Xot\Filament\Traits\HasXotTable;
 
 class SocialiteUsersRelationManager extends RelationManager
@@ -113,5 +111,4 @@ class SocialiteUsersRelationManager extends RelationManager
         );
     }
      */
-
 }

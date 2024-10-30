@@ -7,16 +7,10 @@ namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables\Actions\AttachAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\DetachAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\UI\Enums\TableLayoutEnum;
-use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
 use Modules\Xot\Filament\Traits\HasXotTable;
 use Modules\Xot\Filament\Traits\TransTrait;
 
@@ -76,7 +70,6 @@ final class UsersRelationManager extends RelationManager
                 ->toggleable(isToggledHiddenByDefault: true),
         ];
     }
-
 
     protected function getTableFilters(): array
     {

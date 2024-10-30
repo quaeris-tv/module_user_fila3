@@ -36,7 +36,7 @@ class PasswordData extends Data
     public bool $uncompromised = false; // If the password should not have been compromised in data leaks.
 
     public int $compromisedThreshold = 0; // The number of times a password can appear in data leaks before being considered compromised.
-    
+
     public ?string $failMessage = null;
 
     private static ?self $instance = null;
@@ -69,37 +69,39 @@ class PasswordData extends Data
         if ($this->uncompromised) {
             $pwd = $pwd->uncompromised($this->compromisedThreshold);
         }
-        //$pwd = $pwd->message(__('user::validation'));
-        //Cannot access protected property Illuminate\Validation\Rules\Password::$messages
-        //$pwd->messages = array_merge($pwd->messages, __('user::validation'));
-        //$pwd->fail(__('user::validation'));
+
+        // $pwd = $pwd->message(__('user::validation'));
+        // Cannot access protected property Illuminate\Validation\Rules\Password::$messages
+        // $pwd->messages = array_merge($pwd->messages, __('user::validation'));
+        // $pwd->fail(__('user::validation'));
         return $pwd;
     }
 
     public function toArray(): array
     {
         return [
-           'otp_expiration_minutes' => $this->otp_expiration_minutes,
-           'otp_length' => $this->otp_length,
-           'expires_in' => $this->expires_in,
-           'min' => $this->min,
-           'mixedCase' => $this->mixedCase,
-           'letters' => $this->letters,
-           'numbers' => $this->numbers,
-           'symbols' => $this->symbols,
-           'uncompromised' => $this->uncompromised,
-           'compromisedThreshold' => $this->compromisedThreshold,
-           'failMessage' => $this->failMessage,
+            'otp_expiration_minutes' => $this->otp_expiration_minutes,
+            'otp_length' => $this->otp_length,
+            'expires_in' => $this->expires_in,
+            'min' => $this->min,
+            'mixedCase' => $this->mixedCase,
+            'letters' => $this->letters,
+            'numbers' => $this->numbers,
+            'symbols' => $this->symbols,
+            'uncompromised' => $this->uncompromised,
+            'compromisedThreshold' => $this->compromisedThreshold,
+            'failMessage' => $this->failMessage,
         ];
     }
 
     public function getHelperText(): string
     {
-        $msg= 'La password deve essere composta da minimo '.$this->min.' caratteri';
-        $msg.=', almeno una lettera maiuscola';
-        $msg.=', una minuscola';
-        $msg.=', un numero';
-        $msg.=' e un carattere speciale.';
+        $msg = 'La password deve essere composta da minimo '.$this->min.' caratteri';
+        $msg .= ', almeno una lettera maiuscola';
+        $msg .= ', una minuscola';
+        $msg .= ', un numero';
+        $msg .= ' e un carattere speciale.';
+
         return $msg;
     }
 }
