@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth;
 
-use Livewire\Component;
-use Modules\Xot\Datas\XotData;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 use Modules\Xot\Actions\File\ViewCopyAction;
+use Modules\Xot\Datas\XotData;
 
 class Login extends Component
 {
@@ -33,14 +33,12 @@ class Login extends Component
      */
     public function authenticate()
     {
-        
-        
         $this->validate();
         $credentials = ['email' => $this->email, 'password' => $this->password];
         $remember = $this->remember;
         if (! Auth::attempt($credentials, $remember)) {
-            $main_module=XotData::make()->main_module;
-            $main_module_low=strtolower($main_module);
+            $main_module = XotData::make()->main_module;
+            $main_module_low = strtolower($main_module);
 
             $this->addError('email', trans($main_module_low.'::auth.failed'));
 
