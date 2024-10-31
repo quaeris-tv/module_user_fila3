@@ -101,14 +101,13 @@ class SocialiteUsersRelationManager extends RelationManager
         ];
     }
 
-    /**
-     * Query scope to apply conditions to the relation manager.
-     */
-    protected function applyTableQueryScope(Builder $query): Builder
-    {
-        return $query->when(
-            in_array(SoftDeletingScope::class, class_uses_recursive(SocialiteUser::class)),
-            fn (Builder $query) => $query->withTrashed()
-        );
-    }
+    //  * Query scope to apply conditions to the relation manager.
+
+    // protected function applyTableQueryScope(Builder $query): Builder
+    // {
+    //     return $query->when(
+    //         in_array(SoftDeletingScope::class, class_uses_recursive(SocialiteUser::class)),
+    //         fn (Builder $query) => $query->withTrashed()
+    //     );
+    // }
 }
