@@ -52,8 +52,11 @@ class PasswordExpired extends Page implements HasForms
         return $form
             ->schema([
                 $this->getCurrentPasswordFormComponent(),
+                /*
                 $this->getPasswordFormComponent(),
                 $this->getPasswordConfirmationFormComponent(),
+                */
+                ...PasswordData::make()->getPasswordFormComponents('password'),
             ]);
     }
 
@@ -150,6 +153,7 @@ class PasswordExpired extends Page implements HasForms
             ->validationAttribute(static::trans('fields.current_password.validation_attribute'));
     }
 
+    /*
     protected function getPasswordFormComponent(): Component
     {
         return TextInput::make('password')
@@ -173,7 +177,7 @@ class PasswordExpired extends Page implements HasForms
             ->required()
             ->dehydrated(false);
     }
-
+    */
     /**
      * @return array<Action|ActionGroup>
      */

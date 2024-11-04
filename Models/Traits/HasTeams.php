@@ -101,13 +101,11 @@ trait HasTeams
     public function teams(): BelongsToMany
     {
         $xot = XotData::make();
-
         $teamClass = $xot->getTeamClass();
 
-
-
         return $this->belongsToManyX($teamClass, null, null, 'team_id')
-            ->as('membership');
+            //->as('membership')
+            ;
     }
 
     /**

@@ -19,7 +19,6 @@ use Modules\Xot\Datas\XotData;
 trait HasTenants
 {
 
-
     public function canAccessTenant(Model $tenant): bool
     {
         // return $this->teams->contains($tenant);
@@ -42,8 +41,7 @@ trait HasTenants
         $tenant_class = $xot->getTenantClass();
 
         // $this->setConnection('mysql');
-        return $this->belongsToManyX($tenant_class, null, null, 'tenant_id')
-            ;
+        return $this->belongsToManyX($tenant_class, null, null, 'tenant_id');
         // ->ddRawSql()
         // ->as('membership')
     }

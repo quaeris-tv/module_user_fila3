@@ -8,6 +8,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Datas;
 
+use Filament\Forms\Components\Component;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Get;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\HtmlString;
 use Illuminate\Validation\Rules\Password;
 use Modules\Tenant\Services\TenantService;
 use Spatie\LaravelData\Data;
@@ -37,7 +42,10 @@ class PasswordData extends Data
 
     public int $compromisedThreshold = 0; // The number of times a password can appear in data leaks before being considered compromised.
 
+    public ?string $failMessage = null;
+
     private static ?self $instance = null;
+    private string $field_name = 'new_password';
 
     public static function make(): self
     {
@@ -68,6 +76,94 @@ class PasswordData extends Data
             $pwd = $pwd->uncompromised($this->compromisedThreshold);
         }
 
+        // $pwd = $pwd->message(__('user::validation'));
+        // Cannot access protected property Illuminate\Validation\Rules\Password::$messages
+        // $pwd->messages = array_merge($pwd->messages, __('user::validation'));
+        // $pwd->fail(__('user::validation'));
         return $pwd;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'otp_expiration_minutes' => $this->otp_expiration_minutes,
+            'otp_length' => $this->otp_length,
+            'expires_in' => $this->expires_in,
+            'min' => $this->min,
+            'mixedCase' => $this->mixedCase,
+            'letters' => $this->letters,
+            'numbers' => $this->numbers,
+            'symbols' => $this->symbols,
+            'uncompromised' => $this->uncompromised,
+            'compromisedThreshold' => $this->compromisedThreshold,
+            'failMessage' => $this->failMessage,
+        ];
+    }
+
+    public function getHelperText(): string
+    {
+        $msg = 'La password deve essere composta da minimo '.$this->min.' caratteri';
+        $msg .= ', almeno una lettera maiuscola';
+        $msg .= ', una minuscola';
+        $msg .= ', un numero';
+        $msg .= ' e un carattere speciale.';
+
+        return $msg;
+    }
+
+    public function getValidationMessages(): array
+    {
+        $messages = __('user::validation');
+
+        return $messages;
+    }
+
+    public function getPasswordFormComponent(string $field_name = 'new_password'): Component
+    {
+        $this->field_name = $field_name;
+        $field = TextInput::make($field_name)
+            ->password()
+            // ->label(__('filament-panels::pages/auth/login.form.password.label'))
+            ->label(__('user::fields.new_password.label'))
+            // ->hint(filament()->hasPasswordReset() ? new HtmlString(Blade::render('<x-filament::link :href="filament()->getRequestPasswordResetUrl()" tabindex="3"> {{ __(\'filament-panels::pages/auth/login.actions.request_password_reset.label\') }}</x-filament::link>')) : null)
+            ->placeholder(__('user::fields.new_password.placeholder'))
+            // ->revealable(filament()->arePasswordsRevealable())
+            ->revealable(true)
+            ->autocomplete('current-password')
+            ->required()
+            ->extraInputAttributes(['tabindex' => 2])
+            ->rule(Password::default())
+            ->validationMessages($this->getValidationMessages())
+            ->helperText($this->getHelperText())
+            // ->live()
+        ;
+
+        return $field;
+    }
+
+    public function getPasswordConfirmationFormComponent(): Component
+    {
+        return TextInput::make('passwordConfirmation')
+            ->label(__('filament-panels::pages/auth/edit-profile.form.password_confirmation.label'))
+            ->password()
+            // ->revealable(filament()->arePasswordsRevealable())
+            ->revealable(true)
+            ->required()
+            // ->visible(fn (Get $get): bool => filled($get($this->field_name)))
+            // ->dehydrated(false)
+            ->same($this->field_name)
+            ->validationMessages($this->getValidationMessages())
+        ;
+    }
+
+    /**
+     * @return array<Component>
+     */
+    public function getPasswordFormComponents(string $field_name = 'new_password'): array
+    {
+        return [
+            $this->getPasswordFormComponent($field_name),
+            $this->getPasswordConfirmationFormComponent(),
+        ];
     }
 }

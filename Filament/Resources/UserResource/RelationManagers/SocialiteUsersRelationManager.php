@@ -7,19 +7,21 @@ namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Columns\Column;
-use Filament\Tables\Filters\Filter;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Modules\User\Models\SocialiteUser;
 use Modules\Xot\Filament\Traits\HasXotTable;
 
+/**
+ * Class Modules\User\Filament\Resources\UserResource\RelationManagers\SocialiteUsersRelationManager.
+ */
 class SocialiteUsersRelationManager extends RelationManager
 {
     use HasXotTable;
+
     protected static string $relationship = 'socialiteUsers';
 
     /**
@@ -69,42 +71,39 @@ class SocialiteUsersRelationManager extends RelationManager
         ];
     }
 
-
     /**
      * Define table columns in a separate, strongly-typed method.
      *
-     * @return array<Column>
+     * @return array<TextColumn|ImageColumn>
      */
     protected function getListTableColumns(): array
     {
         return [
-            Tables\Columns\TextColumn::make('provider')
+            TextColumn::make('provider')
                 ->label(__('Provider'))
                 ->searchable(),
 
-            Tables\Columns\TextColumn::make('provider_id')
+            TextColumn::make('provider_id')
                 ->label(__('Provider ID'))
                 ->searchable(),
 
-            Tables\Columns\TextColumn::make('name')
+            TextColumn::make('name')
                 ->label(__('Name'))
                 ->searchable(),
 
-            Tables\Columns\TextColumn::make('email')
+            TextColumn::make('email')
                 ->label(__('Email'))
                 ->searchable(),
 
-            Tables\Columns\ImageColumn::make('avatar')
+            ImageColumn::make('avatar')
                 ->label(__('Avatar'))
                 ->size(40),
         ];
     }
 
-
-
-    /*
+    /**
      * Query scope to apply conditions to the relation manager.
-
+     */
     protected function applyTableQueryScope(Builder $query): Builder
     {
         return $query->when(
@@ -112,5 +111,4 @@ class SocialiteUsersRelationManager extends RelationManager
             fn (Builder $query) => $query->withTrashed()
         );
     }
-     */
 }
