@@ -22,8 +22,8 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null          $svg
  * @property string|null          $client_id
  * @property string|null          $client_secret
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  *
  * @method static \Modules\User\Database\Factories\SocialProviderFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider   newModelQuery()

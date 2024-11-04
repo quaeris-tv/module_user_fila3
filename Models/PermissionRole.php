@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Webmozart\Assert\Assert;
+
 /**
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
@@ -32,6 +34,20 @@ namespace Modules\User\Models;
  */
 class PermissionRole extends BasePivot
 {
+    /**
+     * @var list<string>
+     *
+     * @psalm-var list{'permission_id', 'role_id'}
+     */
+    protected $fillable = ['permission_id', 'role_id'];
+
+    public function getTable(): string
+    {
+        Assert::string($table = config('permission.table_names.role_has_permissions'));
+
+        return $table;
+    }
+
     /** @return array<string, string> */
     protected function casts(): array
     {
