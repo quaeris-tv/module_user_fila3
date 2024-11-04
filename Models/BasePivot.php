@@ -30,8 +30,6 @@ abstract class BasePivot extends Pivot
     /** @var int */
     protected $perPage = 30;
 
-    // use Searchable;
-
     /** @var string */
     protected $connection = 'user';
 

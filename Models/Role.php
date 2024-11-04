@@ -19,10 +19,12 @@ use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Models\Role as SpatieRole;
+use Webmozart\Assert\Assert;
 
 /**
  * Modules\User\Models\Role.
  *
+ * @property string                                                                    $id
  * @property string                                                                    $uuid
  * @property string|null                                                               $team_id
  * @property string                                                                    $name
@@ -81,6 +83,26 @@ class Role extends SpatieRole
     protected $keyType = 'string';
 
     // protected $fillable=['id','']
+
+    public function getTable(): string
+    {
+        Assert::string($table = config('permission.table_names.roles'));
+
+        return $table;
+    }
+
+    /** @return array<string, string> */
+    protected function casts(): array
+    {
+        return [
+            'id' => 'string',
+            'uuid' => 'string',
+            'name' => 'string',
+            'guard_name' => 'string',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+        ];
+    }
 
     /**
      * Get all of the teams the user belongs to.
