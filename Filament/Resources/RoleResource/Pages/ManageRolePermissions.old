@@ -1,0 +1,12 @@
+<?php
+
+namespace Modules\User\Filament\Resources\RoleResource\Pages;
+
+use Modules\User\Filament\Resources\RoleResource;
+use Filament\Actions;
+use Filament\Resources\Pages\ManageRecords;
+
+class ManageRolePermissions extends ManageRecords
+{
+    protected static string $resource = RoleResource::class;
+}
