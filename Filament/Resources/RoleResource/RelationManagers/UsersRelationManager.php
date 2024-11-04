@@ -8,9 +8,11 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
-use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\AttachAction;
+use Filament\Tables\Actions\DetachAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
@@ -20,45 +22,38 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\UI\Enums\TableLayoutEnum;
 use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
+use Modules\Xot\Filament\Traits\HasXotTable;
 use Modules\Xot\Filament\Traits\TransTrait;
 
 final class UsersRelationManager extends RelationManager
 {
     use TransTrait;
+    use HasXotTable;
 
     protected static string $relationship = 'users';
     protected static ?string $inverseRelationship = 'roles';
     protected static ?string $recordTitleAttribute = 'name';
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
-    /**
-     * Define the form structure.
-     */
     public function form(Form $form): Form
     {
         return $form->schema($this->getFormSchema());
     }
 
-    /**
-     * Configure the form schema.
-     */
     protected function getFormSchema(): array
     {
         return [
             Forms\Components\TextInput::make('name')
                 ->required()
-                ->maxLength(255),
-            // Additional fields as needed
+                ->maxLength(255)
+                ->label(__('user::socialite_user.fields.name.label')),
         ];
     }
 
-    /**
-     * Configure the table structure and behavior.
-     */
     public function table(Table $table): Table
     {
         return $table
-            ->columns($this->layoutView->getTableColumns())
+            ->columns($this->getListTableColumns())
             ->contentGrid($this->layoutView->getTableContentGrid())
             ->headerActions($this->getTableHeaderActions())
             ->filters($this->getTableFilters())
@@ -74,20 +69,7 @@ final class UsersRelationManager extends RelationManager
             ->poll('60s');
     }
 
-    /**
-     * Get grid layout columns.
-     */
-    public function getGridTableColumns(): array
-    {
-        return [
-            Stack::make($this->getListTableColumns()),
-        ];
-    }
-
-    /**
-     * Get list layout columns.
-     */
-    public function getListTableColumns(): array
+    protected function getListTableColumns(): array
     {
         return [
             TextColumn::make('name')
@@ -116,27 +98,17 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
-    /**
-     * Get header actions.
-     */
     protected function getTableHeaderActions(): array
     {
         return [
             TableLayoutToggleTableAction::make(),
-            Tables\Actions\AssociateAction::make()
-                ->label('')
-                ->icon('heroicon-o-link')
-                ->tooltip(__('user::actions.associate_user')),
-            Tables\Actions\AttachAction::make()
+            AttachAction::make()
                 ->label('')
                 ->icon('heroicon-o-paper-clip')
                 ->tooltip(__('user::actions.attach_user')),
         ];
     }
 
-    /**
-     * Get row-level actions.
-     */
     protected function getTableActions(): array
     {
         return [
@@ -152,7 +124,7 @@ final class UsersRelationManager extends RelationManager
                 ->icon('heroicon-o-pencil')
                 ->color('warning'),
 
-            Tables\Actions\DetachAction::make()
+            DetachAction::make()
                 ->label('')
                 ->tooltip(__('user::actions.detach'))
                 ->icon('heroicon-o-link-slash')
@@ -161,9 +133,6 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
-    /**
-     * Get bulk actions.
-     */
     protected function getTableBulkActions(): array
     {
         return [
@@ -176,9 +145,6 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
-    /**
-     * Get filters.
-     */
     protected function getTableFilters(): array
     {
         return [
