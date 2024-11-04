@@ -10,6 +10,7 @@ use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Models\Traits\RelationX;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Models\Permission as SpatiePermission;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
@@ -68,11 +69,21 @@ class Permission extends SpatiePermission
         'updated_by',
     ];
 
-    /** @var array<string, string> */
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
+    /** @return array<string, string> */
+    protected function casts(): array
+    {
+        return [
+            'id' => 'string',
+            'uuid' => 'string',
+            'name' => 'string',
+            'guard_name' => 'string',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+        ];
+    }
+
+    /** @var string */
+    protected $keyType = 'string';
 
     /**
      * The roles associated with the permission.

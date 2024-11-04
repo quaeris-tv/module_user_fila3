@@ -114,7 +114,6 @@ abstract class BaseTeam extends BaseModel implements TeamContract
         $userClass = $xotData->getUserClass();
 
         return $this->belongsToManyX($userClass);
-
     }
 
     public function members(): BelongsToMany

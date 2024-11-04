@@ -4,16 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\Actions;
 
-use Filament\Notifications\Notification as FilamentNotification;
-use Filament\Tables\Actions\Action;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
-use Modules\User\Datas\PasswordData;
 use Modules\User\Models\User;
+use Illuminate\Support\Carbon;
+use Filament\Tables\Actions\Action;
+use Illuminate\Support\Facades\Hash;
+use Modules\User\Datas\PasswordData;
 use Modules\User\Notifications\Auth\Otp;
 use Modules\Xot\Filament\Traits\TransTrait;
+use Illuminate\Support\Facades\Notification;
+use Modules\User\Actions\Otp\SendOtpByUserAction;
+use Filament\Notifications\Notification as FilamentNotification;
 
 class SendOtpAction extends Action
 {
@@ -21,29 +22,14 @@ class SendOtpAction extends Action
 
     protected function setUp(): void
     {
-        $pwd = PasswordData::make();
         parent::setUp();
 
         $this
             ->label('')
             ->tooltip(trans('user::otp.actions.send_otp'))
             ->icon('heroicon-o-key')
-            ->action(function (User $record) use ($pwd) {
-                $temporaryPassword = Str::random(12);
-                $expirationTime = Carbon::now()->addMinutes($pwd->otp_expiration_minutes);
-                $record->update([
-                    'password' => Hash::make($temporaryPassword),
-                    'is_otp' => true,
-                    'password_expires_at' => $expirationTime,
-                ]);
-
-                Notification::route('mail', $record->email)
-                    ->notify(new Otp($record, $temporaryPassword));
-
-                FilamentNotification::make()
-                    ->title(trans('user::otp.actions.send_otp_success'))
-                    ->success()
-                    ->send();
+            ->action(function (User $record)  {
+                app(SendOtpByUserAction::class)->execute($record);
             })
             ->requiresConfirmation()
             ->modalHeading(trans('user::otp.actions.send_otp'))
