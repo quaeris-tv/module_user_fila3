@@ -49,7 +49,6 @@ return [
         'loading' => 'Loading users...',
         'search' => 'Search users...',
     ],
-
     'modals' => [
         'create' => [
             'heading' => 'Create User',
