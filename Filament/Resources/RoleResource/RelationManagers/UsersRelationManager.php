@@ -47,7 +47,7 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Definisce le colonne della tabella in layout lista.
+     * Get list layout columns.
      */
     public function getListTableColumns(): array
     {
@@ -79,7 +79,7 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Definisce i filtri disponibili nella tabella.
+     * Get filters.
      */
     protected function getTableFilters(): array
     {
