@@ -8,6 +8,7 @@ return [
     'user_actions' => 'Azioni Utente',
     'view' => 'Visualizza',
     'edit' => 'Modifica',
+    'delete' => 'Cancella',
     'detach' => 'Scollega',
     'row_actions' => 'Azioni',
     'delete_selected' => 'Elimina Selezionati',
