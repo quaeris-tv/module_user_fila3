@@ -38,6 +38,10 @@ return new class extends XotBaseMigration {
                 if ($this->hasColumn('device_id')) {
                     $table->string('device_id', 36)->nullable()->change();
                 }
+                // dddx($this->getColumnType('device_id'));//varchar
+                if ('uuid' == $this->getColumnType('user_id')) {
+                    $table->string('user_id', 36)->nullable()->change();
+                }
 
                 $this->updateTimestamps($table);
             }
