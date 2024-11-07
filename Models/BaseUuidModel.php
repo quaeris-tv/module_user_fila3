@@ -49,12 +49,7 @@ abstract class BaseUuidModel extends Model
 
     /** @var string */
     protected $primaryKey = 'id';
-
-    /**
-     * The "type" of the primary key ID.
-     *
-     * @var string
-     */
+    /** @var string */
     protected $keyType = 'string';
 
     /** @var list<string> */

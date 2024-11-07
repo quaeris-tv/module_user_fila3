@@ -24,25 +24,31 @@ class ChangePasswordAction extends Action
             ->label('user::user.actions.change_password')
             ->icon('heroicon-o-key')
             ->action(
-                static function (UserContract $user, array $data): void {
-                    $user->update(
+                function (UserContract $record, array $data): void {
+                    $record->update(
                         [
                             'password' => Hash::make($data['new_password']),
                         ]
                     );
-                    Notification::make()->success()->title('Password changed successfully.');
+                    Notification::make()
+                        ->success()
+                        ->title(__('user::notifications.password_changed_successfully.title'))
+                        ->body(__('user::notifications.password_changed_successfully.message'))
+                    ;
                 }
             )
             ->form(
                 [
                     TextInput::make('new_password')
                         ->password()
-                        ->label('New Password')
+                        ->label(__('user::fields.new_password.label'))
+                        ->placeholder(__('user::fields.new_password.placeholder'))
                         ->required()
                         ->rule(Password::default()),
                     TextInput::make('new_password_confirmation')
                         ->password()
-                        ->label('Confirm New Password')
+                        ->label(__('user::fields.confirm_password.label'))
+                        ->placeholder(__('user::fields.confirm_password.placeholder'))
                         ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
                         ->same('new_password'),
                 ]
