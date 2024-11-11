@@ -20,6 +20,7 @@ use Modules\Xot\Datas\XotData;
 use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Models\Role as SpatieRole;
 use Webmozart\Assert\Assert;
+use Spatie\Permission\PermissionRegistrar;
 
 /**
  * Modules\User\Models\Role.
@@ -122,5 +123,13 @@ class Role extends SpatieRole
     public function permissions(): BelongsToMany
     {
         return $this->belongsToManyX(Permission::class);
+        /*
+        return $this->belongsToMany(
+            config('permission.models.permission'),
+            config('permission.table_names.role_has_permissions'),
+            app(PermissionRegistrar::class)->pivotRole,
+            app(PermissionRegistrar::class)->pivotPermission
+        );
+        */
     }
 }

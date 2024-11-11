@@ -90,6 +90,7 @@ class Permission extends SpatiePermission
 
         return $table;
     }
+    
 
     /**
      * The roles associated with the permission.
