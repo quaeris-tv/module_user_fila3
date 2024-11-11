@@ -16,10 +16,9 @@ use Illuminate\Support\Facades\Notification;
 use Modules\User\Actions\Otp\SendOtpByUserAction;
 use Filament\Notifications\Notification as FilamentNotification;
 
+
 class SendOtpAction extends Action
 {
-    // use TransTrait;
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -37,6 +36,9 @@ class SendOtpAction extends Action
             ->modalButton(trans('user::otp.actions.yes_send_otp'));
     }
 
+    /**
+     * Ottieni il nome predefinito dell'azione.
+     */
     public static function getDefaultName(): ?string
     {
         return 'send_otp';
