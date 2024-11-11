@@ -84,7 +84,7 @@ class Device extends BaseModel
     /**
      * Define the many-to-many relationship between devices and users.
      *
-     * @return BelongsToMany<UserContract>
+     * return BelongsToMany<UserContract, Device>
      */
     public function users(): BelongsToMany
     {
@@ -98,7 +98,7 @@ class Device extends BaseModel
      *
      * @return array<string, string>
      */
-    public function casts(): array
+    protected function casts(): array
     {
         return [
             'id' => 'string',
