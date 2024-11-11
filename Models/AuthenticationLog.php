@@ -65,7 +65,8 @@ class AuthenticationLog extends BaseModel
         'location',
     ];
 
-    public function casts(): array
+    /** @return array<string, string> */
+    protected function casts(): array
     {
         return [
             'cleared_by_user' => 'boolean',

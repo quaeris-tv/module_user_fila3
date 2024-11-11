@@ -6,6 +6,7 @@ namespace Modules\User\Filament\Resources;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Resources\Pages\Page;
 use Modules\User\Filament\Resources\RoleResource\Pages;
 use Modules\User\Filament\Resources\RoleResource\RelationManagers;
 use Modules\Xot\Filament\Resources\XotBaseResource;
@@ -41,11 +42,24 @@ class RoleResource extends XotBaseResource
             'create' => Pages\CreateRole::route('/create'),
             'view' => Pages\ViewRole::route('/{record}'),
             'edit' => Pages\EditRole::route('/{record}/edit'),
+            'permissions' => Pages\ManageRolePermissions::route('/{record}/permissions'),
         ];
     }
 
     public static function getNavigationBadge(): ?string
     {
-        return number_format(static::getModel()::count(), 2);
+        return number_format(static::getModel()::count(), 0);
+    }
+
+    public static function getRecordSubNavigation(Page $page): array
+    {
+        return $page->generateNavigationItems([
+            Pages\ViewRole::class,
+            Pages\EditRole::class,
+            // Pages\EditCustomerContact::class,
+            // Pages\ManageCustomerAddresses::class,
+            Pages\ManageRolePermissions::class,
+            // Pages\ManageCustomerPayments::class,
+        ]);
     }
 }

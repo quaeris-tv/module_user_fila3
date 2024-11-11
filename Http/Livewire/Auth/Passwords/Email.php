@@ -21,8 +21,8 @@ class Email extends Component
         $this->validate([
             'email' => ['required', 'email'],
         ]);
-
-        $response = $this->broker()->sendResetLink(['email' => $this->email]);
+        $broker = $this->broker();
+        $response = $broker->sendResetLink(['email' => $this->email]);
 
         if (Password::RESET_LINK_SENT === $response) {
             $this->emailSentMessage = trans('user::'.$response);
