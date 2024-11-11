@@ -19,8 +19,8 @@ use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Models\Role as SpatieRole;
-use Webmozart\Assert\Assert;
 use Spatie\Permission\PermissionRegistrar;
+use Webmozart\Assert\Assert;
 
 /**
  * Modules\User\Models\Role.

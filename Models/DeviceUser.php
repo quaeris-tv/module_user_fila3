@@ -44,10 +44,10 @@ use Modules\Xot\Datas\XotData;
  * @method static \Illuminate\Database\Eloquent\Builder|DeviceUser whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DeviceUser whereUserId($value)
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $profile
+ * @property ProfileContract|null $profile
  * @property UserContract|null    $user
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $updater
  *
  * @mixin \Eloquent
  */
