@@ -4,9 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\Actions;
 
-use Filament\Tables\Actions\Action;
-use Modules\User\Actions\Otp\SendOtpByUserAction;
+use Illuminate\Support\Str;
 use Modules\User\Models\User;
+use Illuminate\Support\Carbon;
+use Filament\Tables\Actions\Action;
+use Illuminate\Support\Facades\Hash;
+use Modules\User\Datas\PasswordData;
+use Modules\User\Notifications\Auth\Otp;
+use Modules\Xot\Filament\Traits\TransTrait;
+use Illuminate\Support\Facades\Notification;
+use Modules\User\Actions\Otp\SendOtpByUserAction;
+use Filament\Notifications\Notification as FilamentNotification;
+
 
 class SendOtpAction extends Action
 {
@@ -18,7 +27,7 @@ class SendOtpAction extends Action
             ->label('')
             ->tooltip(trans('user::otp.actions.send_otp'))
             ->icon('heroicon-o-key')
-            ->action(function (User $record) {
+            ->action(function (User $record)  {
                 app(SendOtpByUserAction::class)->execute($record);
             })
             ->requiresConfirmation()
