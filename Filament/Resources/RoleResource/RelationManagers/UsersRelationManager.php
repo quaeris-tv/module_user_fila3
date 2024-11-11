@@ -7,6 +7,7 @@ namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
@@ -25,7 +26,7 @@ final class UsersRelationManager extends RelationManager
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
     /**
-     * Definisce lo schema del form per la relazione users.
+     * Configura lo schema del form per la gestione degli utenti.
      */
     public function form(Form $form): Form
     {
@@ -42,12 +43,12 @@ final class UsersRelationManager extends RelationManager
                 ->required()
                 ->maxLength(255)
                 ->label(__('user::socialite_user.fields.name.label')),
-            // Aggiungi altri campi necessari
+            // Aggiungi altri campi necessari qui
         ];
     }
 
     /**
-     * Definisce le colonne della tabella in layout lista.
+     * Configura le colonne della tabella per la visualizzazione degli utenti.
      */
     public function getListTableColumns(): array
     {
@@ -79,7 +80,7 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Definisce i filtri disponibili nella tabella.
+     * Configura i filtri disponibili nella tabella.
      */
     protected function getTableFilters(): array
     {
@@ -101,6 +102,56 @@ final class UsersRelationManager extends RelationManager
                         ->when($data['created_until'], fn (Builder $query, $date) => $query->whereDate('created_at', '<=', $date));
                 })
                 ->columns(2),
+        ];
+    }
+
+    /**
+     * Definisce le azioni di intestazione disponibili nella tabella.
+     */
+    protected function getHeaderActions(): array
+    {
+        return [
+            Tables\Actions\CreateAction::make()
+                ->label('')
+                ->tooltip(__('Create User')),
+            Tables\Actions\AssociateAction::make()
+                ->label('')
+                ->tooltip(__('Associate User')),
+        ];
+    }
+
+    /**
+     * Configura le azioni specifiche della tabella.
+     */
+    protected function getTableActions(): array
+    {
+        return [
+            Tables\Actions\ViewAction::make()
+                ->label('')
+                ->tooltip(__('role.view_user'))
+                ->icon('heroicon-o-eye'),
+
+            Tables\Actions\EditAction::make()
+                ->label('')
+                ->tooltip(__('role.edit_user'))
+                ->icon('heroicon-o-pencil'),
+
+            Tables\Actions\DetachAction::make()
+                ->label('')
+                ->tooltip(__('role.detach_user'))
+                ->icon('heroicon-o-link-slash'),
+        ];
+    }
+
+    /**
+     * Configura le azioni collettive disponibili nella tabella.
+     */
+    protected function getBulkActions(): array
+    {
+        return [
+            Tables\Actions\DeleteBulkAction::make()
+                ->label('')
+                ->tooltip(__('Delete Selected')),
         ];
     }
 }
