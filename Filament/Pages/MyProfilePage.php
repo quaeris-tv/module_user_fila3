@@ -23,6 +23,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use Modules\User\Datas\PasswordData;
 
 /**
  * @property ComponentContainer $form
@@ -91,6 +92,12 @@ class MyProfilePage extends Page implements HasForms
                             ->password()
                             ->required()
                             ->currentPassword(),
+                        PasswordData::make()->getPasswordFormComponent()
+                            ->dehydrateStateUsing(fn ($state): string => Hash::make($state))
+                            ->live(debounce: 500)
+                        // ->same('passwordConfirmation')
+                        ,
+                        /*
                         Forms\Components\TextInput::make('password')
                             ->password()
                             ->required()
@@ -99,10 +106,12 @@ class MyProfilePage extends Page implements HasForms
                             ->dehydrateStateUsing(fn ($state): string => Hash::make($state))
                             ->live(debounce: 500)
                             ->same('passwordConfirmation'),
+                        */
                         Forms\Components\TextInput::make('passwordConfirmation')
                             ->password()
                             ->required()
-                            ->dehydrated(false),
+                            ->dehydrated(false)
+                            ->same('new_password'),
                     ]),
             ])
             ->model($this->getUser())

@@ -7,6 +7,7 @@ namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
@@ -25,7 +26,7 @@ final class UsersRelationManager extends RelationManager
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
     /**
-     * Define the form structure.
+     * Configura lo schema del form per la gestione degli utenti.
      */
     public function form(Form $form): Form
     {
@@ -33,20 +34,21 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Configure the form schema.
+     * Restituisce lo schema del form.
      */
     protected function getFormSchema(): array
     {
         return [
             Forms\Components\TextInput::make('name')
                 ->required()
-                ->maxLength(255),
-            // Additional fields as needed
+                ->maxLength(255)
+                ->label(__('user::socialite_user.fields.name.label')),
+            // Aggiungi altri campi necessari qui
         ];
     }
 
     /**
-     * Get list layout columns.
+     * Configura le colonne della tabella per la visualizzazione degli utenti.
      */
     public function getListTableColumns(): array
     {
@@ -77,97 +79,8 @@ final class UsersRelationManager extends RelationManager
         ];
     }
 
-<<<<<<< HEAD
-    // /**
-    //  * Define the header actions in a separate function.
-    //  */
-    // protected function getTableHeaderActions(): array
-    // {
-    //     return [
-    //         AttachAction::make()
-    //             ->label('')
-    //             ->tooltip(__('role.attach_user'))
-    //             ->icon('heroicon-o-link')
-    //         // ->icon('heroicon-o-paper-clip')
-    //         ,
-    //     ];
-    // }
-
     /**
-     * Define the row-level actions in a separate function.
-     */
-    protected function getTableActions(): array
-    {
-        return [
-            ViewAction::make()
-                ->label('')
-                ->tooltip(__('role.view_user'))
-                ->icon('heroicon-o-eye'),
-            EditAction::make()
-                ->label('')
-                ->tooltip(__('role.edit_user'))
-                ->icon('heroicon-o-pencil'),
-            DetachAction::make()
-                ->label('')
-                ->tooltip(__('role.detach_user'))
-                ->icon('heroicon-o-link-slash'),
-        ];
-    }
-
-    public function getTableFilters(): array
-    {
-        return [
-        ];
-    }
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Tables\Actions\CreateAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Create User')), // Move label to tooltip
-            Tables\Actions\AssociateAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Associate User')), // Move label to tooltip
-        ];
-    }
-
-    protected function getTableHeaderActions(): array
-    {
-        return [
-            TableLayoutToggleTableAction::make(),
-            Tables\Actions\AssociateAction::make()
-                ->label('') // Empty label
-                ->icon('heroicon-o-link')
-                ->tooltip(__('Associate User')), // Move label to tooltip
-            Tables\Actions\AttachAction::make()
-                ->label('') // Empty label
-                ->icon('heroicon-o-paper-clip')
-                ->tooltip(__('Attach User')), // Move label to tooltip
-        ];
-    }
-
-    // protected function getTableActions(): array
-    // {
-    //     return [
-    //         EditAction::make()
-    //             ->label('') // Empty label
-    //             ->tooltip(__('Edit')), // Move label to tooltip
-    //         DeleteAction::make()
-    //             ->label('') // Empty label
-    //             ->tooltip(__('Delete')), // Move label to tooltip
-    //     ];
-    // }
-
-    protected function getBulkActions(): array
-    {
-        return [
-            DeleteBulkAction::make()
-                ->label('') // Empty label
-                ->tooltip(__('Delete Selected')), // Move label to tooltip
-=======
-    /**
-     * Get filters.
+     * Configura i filtri disponibili nella tabella.
      */
     protected function getTableFilters(): array
     {
@@ -180,8 +93,8 @@ final class UsersRelationManager extends RelationManager
             Filter::make('created_at')
                 ->label(__('user::filters.creation_date'))
                 ->form([
-                    Forms\Components\DatePicker::make('created_from'),
-                    Forms\Components\DatePicker::make('created_until'),
+                    Forms\Components\DatePicker::make('created_from')->label(__('user::filters.created_from')),
+                    Forms\Components\DatePicker::make('created_until')->label(__('user::filters.created_until')),
                 ])
                 ->query(function (Builder $query, array $data): Builder {
                     return $query
@@ -189,7 +102,56 @@ final class UsersRelationManager extends RelationManager
                         ->when($data['created_until'], fn (Builder $query, $date) => $query->whereDate('created_at', '<=', $date));
                 })
                 ->columns(2),
->>>>>>> origin/dev
+        ];
+    }
+
+    /**
+     * Definisce le azioni di intestazione disponibili nella tabella.
+     */
+    protected function getHeaderActions(): array
+    {
+        return [
+            Tables\Actions\CreateAction::make()
+                ->label('')
+                ->tooltip(__('Create User')),
+            Tables\Actions\AssociateAction::make()
+                ->label('')
+                ->tooltip(__('Associate User')),
+        ];
+    }
+
+    /**
+     * Configura le azioni specifiche della tabella.
+     */
+    protected function getTableActions(): array
+    {
+        return [
+            Tables\Actions\ViewAction::make()
+                ->label('')
+                ->tooltip(__('role.view_user'))
+                ->icon('heroicon-o-eye'),
+
+            Tables\Actions\EditAction::make()
+                ->label('')
+                ->tooltip(__('role.edit_user'))
+                ->icon('heroicon-o-pencil'),
+
+            Tables\Actions\DetachAction::make()
+                ->label('')
+                ->tooltip(__('role.detach_user'))
+                ->icon('heroicon-o-link-slash'),
+        ];
+    }
+
+    /**
+     * Configura le azioni collettive disponibili nella tabella.
+     */
+    protected function getBulkActions(): array
+    {
+        return [
+            Tables\Actions\DeleteBulkAction::make()
+                ->label('')
+                ->tooltip(__('Delete Selected')),
         ];
     }
 }

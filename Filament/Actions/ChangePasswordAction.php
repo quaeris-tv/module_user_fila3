@@ -12,6 +12,7 @@ use Filament\Notifications\Notification;
 use Filament\Tables\Actions\Action;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use Modules\User\Datas\PasswordData;
 use Modules\Xot\Contracts\UserContract;
 
 class ChangePasswordAction extends Action
@@ -39,12 +40,15 @@ class ChangePasswordAction extends Action
             )
             ->form(
                 [
+                    /*
                     TextInput::make('new_password')
                         ->password()
                         ->label(__('user::fields.new_password.label'))
                         ->placeholder(__('user::fields.new_password.placeholder'))
                         ->required()
                         ->rule(Password::default()),
+                    */
+                    PasswordData::make()->getPasswordFormComponent(),
                     TextInput::make('new_password_confirmation')
                         ->password()
                         ->label(__('user::fields.confirm_password.label'))

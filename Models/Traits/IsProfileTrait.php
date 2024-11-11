@@ -126,24 +126,17 @@ trait IsProfileTrait
 
     public function devices(): BelongsToMany
     {
-        $pivotClass = DeviceUser::class;
-        $pivot = app($pivotClass);
-        $pivotTable = $pivot->getTable();
-        $pivotFields = $pivot->getFillable();
-
         return $this
-            ->belongsToMany(
+            ->belongsToManyX(
                 related: Device::class,
-                table: $pivotTable,
+                table: null,
                 foreignPivotKey: 'user_id',
                 relatedPivotKey: null,
                 parentKey: 'user_id',
                 relatedKey: null,
                 relation: null,
             )
-            ->using($pivotClass)
-            ->withPivot($pivotFields)
-            ->withTimestamps();
+        ;
     }
 
     public function mobileDeviceUsers(): HasMany
@@ -179,18 +172,11 @@ trait IsProfileTrait
     public function teams(): BelongsToMany
     {
         $xot = XotData::make();
-        $pivotClass = $xot->getMembershipClass();
-        $pivot = app($pivotClass);
-        $pivotTable = $pivot->getTable();
-        $pivotDbName = $pivot->getConnection()->getDatabaseName();
-        $pivotTableFull = $pivotDbName.'.'.$pivotTable;
+        $teamClass = $xot->getTeamClass();
 
         // $this->setConnection('mysql');
-        return $this->belongsToMany($xot->getTeamClass(), $pivotTableFull, 'user_id', 'team_id', 'user_id')
-            ->using($pivotClass)
-            ->withPivot('role')
-            ->withTimestamps()
-            ->as('membership');
+        return $this->belongsToManyX($teamClass, null, 'user_id', 'team_id', 'user_id');
+        // ->as('membership');
     }
 
     /**

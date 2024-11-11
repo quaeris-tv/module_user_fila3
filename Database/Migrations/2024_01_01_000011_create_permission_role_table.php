@@ -3,7 +3,8 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
-// ---- models ---
+use Modules\User\Models\Permission;
+use Modules\User\Models\Role;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /*
@@ -19,8 +20,10 @@ return new class extends XotBaseMigration {
         $this->tableCreate(
             static function (Blueprint $table): void {
                 $table->id();
-                $table->string('permission_id', 36)->nullable()->index();
-                $table->string('role_id', 36)->nullable()->index();
+                $table->foreignIdFor(Permission::class, 'permission_id')
+                    ->nullable();
+                $table->foreignIdFor(Role::class, 'role_id')
+                    ->nullable();
             }
         );
         // -- UPDATE --

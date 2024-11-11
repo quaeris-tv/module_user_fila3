@@ -33,8 +33,9 @@ class UserServiceProvider extends XotBaseServiceProvider
 
     protected string $module_ns = __NAMESPACE__;
 
-    public function bootCallback(): void
+    public function boot(): void
     {
+        parent::boot();
         $this->registerAuthenticationProviders();
         $this->registerEventListener();
         $this->registerPasswordRules();
