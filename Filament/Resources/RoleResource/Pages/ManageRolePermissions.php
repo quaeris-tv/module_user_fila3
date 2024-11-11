@@ -1,16 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
-use Modules\User\Filament\Resources\RoleResource;
-use Filament\Actions;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Pages\ManageRelatedRecords;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\User\Filament\Resources\RoleResource;
 
 class ManageRolePermissions extends ManageRelatedRecords
 {
@@ -43,7 +42,6 @@ class ManageRolePermissions extends ManageRelatedRecords
                 Tables\Columns\TextColumn::make('name'),
             ])
             ->filters([
-                //
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make(),

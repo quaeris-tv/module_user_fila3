@@ -16,9 +16,6 @@ class PermissionsRelationManager extends RelationManager
 
     /**
      * Configura lo schema del form per la gestione dei permessi.
-     *
-     * @param Form $form
-     * @return Form
      */
     public function form(Form $form): Form
     {
@@ -33,9 +30,6 @@ class PermissionsRelationManager extends RelationManager
 
     /**
      * Configura la tabella per la visualizzazione e la gestione dei permessi.
-     *
-     * @param Table $table
-     * @return Table
      */
     public function table(Table $table): Table
     {
