@@ -4,22 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
-use Filament\Tables\Table;
-use Modules\User\Models\Role;
-use Filament\Actions\CreateAction;
-use Modules\UI\Enums\TableLayoutEnum;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ViewAction;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Enums\FiltersLayout;
 use Filament\Resources\Pages\ListRecords;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Columns\Layout\Stack;
-use Filament\Tables\Enums\ActionsPosition;
-use Modules\Xot\Filament\Traits\HasXotTable;
-use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Columns\TextColumn;
+use Modules\UI\Enums\TableLayoutEnum;
 use Modules\User\Filament\Resources\RoleResource;
-use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
+use Modules\User\Models\Role;
+use Modules\Xot\Filament\Traits\HasXotTable;
 
 class ListRoles extends ListRecords
 {
@@ -27,8 +17,6 @@ class ListRoles extends ListRecords
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
     protected static string $resource = RoleResource::class;
-
-
 
     public function getListTableColumns(): array
     {
@@ -46,6 +34,4 @@ class ListRoles extends ListRecords
                 ->sortable(),
         ];
     }
-
-
 }

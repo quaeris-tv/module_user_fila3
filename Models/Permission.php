@@ -4,21 +4,22 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Support\Carbon;
-use Modules\Xot\Datas\XotData;
-use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Models\Traits\RelationX;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Spatie\Permission\Models\Permission as SpatiePermission;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Carbon;
+use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Datas\XotData;
+use Modules\Xot\Models\Traits\RelationX;
+use Spatie\Permission\Models\Permission as SpatiePermission;
+use Webmozart\Assert\Assert;
 
 /**
  * Class Permission.
  *
  * Extends Spatie's Permission model to interact with the permission system.
  *
- * @property int                                                                       $id
+ * @property string                                                                    $id
  * @property string                                                                    $name
  * @property string                                                                    $guard_name
  * @property Carbon|null                                                               $created_at
@@ -56,6 +57,8 @@ class Permission extends SpatiePermission
     use RelationX;
     /** @var string */
     protected $connection = 'user';
+    /** @var string */
+    protected $keyType = 'string';
 
     /** @var list<string> */
     protected $fillable = [
@@ -81,8 +84,12 @@ class Permission extends SpatiePermission
         ];
     }
 
-    /** @var string */
-    protected $keyType = 'string';
+    public function getTable(): string
+    {
+        Assert::string($table = config('permission.table_names.permissions'));
+
+        return $table;
+    }
 
     /**
      * The roles associated with the permission.

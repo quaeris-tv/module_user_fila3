@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
 // use Filament\Forms;
 use Modules\User\Filament\Resources\FeatureResource\Pages;
 use Modules\User\Models\Feature;
+use Modules\Xot\Filament\Resources\XotBaseResource;
 
 // use Illuminate\Database\Eloquent\Builder;
 // use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class FeatureResource extends Resource
+class FeatureResource extends XotBaseResource
 {
     protected static ?string $model = Feature::class;
 
@@ -30,6 +30,11 @@ class FeatureResource extends Resource
     {
         return [
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return number_format(static::getModel()::count(), 0);
     }
 
     public static function getPages(): array
