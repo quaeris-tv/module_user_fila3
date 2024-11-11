@@ -8,6 +8,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Datas;
 
+use Filament\Forms\Components\Component;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Get;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\HtmlString;
 use Illuminate\Validation\Rules\Password;
 use Modules\Tenant\Services\TenantService;
 use Spatie\LaravelData\Data;
@@ -40,6 +45,7 @@ class PasswordData extends Data
     public ?string $failMessage = null;
 
     private static ?self $instance = null;
+    private string $field_name = 'new_password';
 
     public static function make(): self
     {
@@ -103,5 +109,61 @@ class PasswordData extends Data
         $msg .= ' e un carattere speciale.';
 
         return $msg;
+    }
+
+    public function getValidationMessages(): array
+    {
+        $messages = __('user::validation');
+
+        return $messages;
+    }
+
+    public function getPasswordFormComponent(string $field_name = 'new_password'): Component
+    {
+        $this->field_name = $field_name;
+        $field = TextInput::make($field_name)
+            ->password()
+            // ->label(__('filament-panels::pages/auth/login.form.password.label'))
+            ->label(__('user::fields.new_password.label'))
+            // ->hint(filament()->hasPasswordReset() ? new HtmlString(Blade::render('<x-filament::link :href="filament()->getRequestPasswordResetUrl()" tabindex="3"> {{ __(\'filament-panels::pages/auth/login.actions.request_password_reset.label\') }}</x-filament::link>')) : null)
+            ->placeholder(__('user::fields.new_password.placeholder'))
+            // ->revealable(filament()->arePasswordsRevealable())
+            ->revealable(true)
+            ->autocomplete('current-password')
+            ->required()
+            ->extraInputAttributes(['tabindex' => 2])
+            ->rule(Password::default())
+            ->validationMessages($this->getValidationMessages())
+            ->helperText($this->getHelperText())
+            // ->live()
+        ;
+
+        return $field;
+    }
+
+    public function getPasswordConfirmationFormComponent(): Component
+    {
+        return TextInput::make('passwordConfirmation')
+            ->label(__('filament-panels::pages/auth/edit-profile.form.password_confirmation.label'))
+            ->password()
+            // ->revealable(filament()->arePasswordsRevealable())
+            ->revealable(true)
+            ->required()
+            // ->visible(fn (Get $get): bool => filled($get($this->field_name)))
+            // ->dehydrated(false)
+            ->same($this->field_name)
+            ->validationMessages($this->getValidationMessages())
+        ;
+    }
+
+    /**
+     * @return array<Component>
+     */
+    public function getPasswordFormComponents(string $field_name = 'new_password'): array
+    {
+        return [
+            $this->getPasswordFormComponent($field_name),
+            $this->getPasswordConfirmationFormComponent(),
+        ];
     }
 }

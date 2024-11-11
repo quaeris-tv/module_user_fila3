@@ -22,20 +22,7 @@ class UsersRelationManager extends RelationManager
 
     public function form(Form $form): Form
     {
-        return [
-            TextColumn::make('name')
-                ->label(__('user::attributes.name'))
-                ->sortable()
-                ->searchable(),
-            TextColumn::make('email')
-                ->label(__('user::attributes.email'))
-                ->sortable()
-                ->searchable(),
-            TextColumn::make('created_at')
-                ->label(__('user::attributes.created_at'))
-                ->date()
-                ->sortable(),
-        ];
+        return $form->schema($this->getFormSchema());
     }
 
     protected function getFormSchema(): array
