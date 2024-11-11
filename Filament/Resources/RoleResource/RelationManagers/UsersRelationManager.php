@@ -48,7 +48,7 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Configura le colonne della tabella per la visualizzazione degli utenti.
+     * Get list layout columns.
      */
     public function getListTableColumns(): array
     {
@@ -80,7 +80,7 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Configura i filtri disponibili nella tabella.
+     * Get filters.
      */
     protected function getTableFilters(): array
     {
