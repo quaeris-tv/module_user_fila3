@@ -17,7 +17,7 @@ use Modules\Xot\Filament\Traits\TransTrait;
 
 /**
  * UsersRelationManager.
- * 
+ *
  * Manages the relationship between users and roles, providing functionality
  * for viewing, filtering, and managing users associated with a specific role.
  */
@@ -41,8 +41,8 @@ final class UsersRelationManager extends RelationManager
 
     /**
      * Returns the form schema structure, defining the input fields for user data.
-     * 
-     * @return array The form schema configuration array.
+     *
+     * @return array the form schema configuration array
      */
     protected function getFormSchema(): array
     {
@@ -57,8 +57,8 @@ final class UsersRelationManager extends RelationManager
 
     /**
      * Defines the columns displayed in the users list table.
-     * 
-     * @return array The columns configuration array.
+     *
+     * @return array the columns configuration array
      */
     public function getListTableColumns(): array
     {
@@ -91,8 +91,8 @@ final class UsersRelationManager extends RelationManager
 
     /**
      * Configures available filters for the table, enabling users to refine their view.
-     * 
-     * @return array The filters configuration array.
+     *
+     * @return array the filters configuration array
      */
     protected function getTableFilters(): array
     {
@@ -119,8 +119,8 @@ final class UsersRelationManager extends RelationManager
 
     /**
      * Defines header actions for the table, typically used for adding or associating records.
-     * 
-     * @return array The header actions configuration array.
+     *
+     * @return array the header actions configuration array
      */
     protected function getHeaderActions(): array
     {
@@ -137,8 +137,8 @@ final class UsersRelationManager extends RelationManager
 
     /**
      * Configures individual record actions, enabling view, edit, and detach functionality.
-     * 
-     * @return array The actions configuration array.
+     *
+     * @return array the actions configuration array
      */
     protected function getTableActions(): array
     {
@@ -162,8 +162,8 @@ final class UsersRelationManager extends RelationManager
 
     /**
      * Defines bulk actions that can be performed on multiple records simultaneously.
-     * 
-     * @return array The bulk actions configuration array.
+     *
+     * @return array the bulk actions configuration array
      */
     protected function getBulkActions(): array
     {
