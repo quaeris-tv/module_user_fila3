@@ -15,6 +15,12 @@ use Modules\UI\Enums\TableLayoutEnum;
 use Modules\Xot\Filament\Traits\HasXotTable;
 use Modules\Xot\Filament\Traits\TransTrait;
 
+/**
+ * UsersRelationManager.
+ * 
+ * Manages the relationship between users and roles, providing functionality
+ * for viewing, filtering, and managing users associated with a specific role.
+ */
 final class UsersRelationManager extends RelationManager
 {
     use TransTrait;
@@ -26,7 +32,7 @@ final class UsersRelationManager extends RelationManager
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
     /**
-     * Configura lo schema del form per la gestione degli utenti.
+     * Defines the form schema for creating or editing a user within this relation.
      */
     public function form(Form $form): Form
     {
@@ -34,7 +40,9 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Restituisce lo schema del form.
+     * Returns the form schema structure, defining the input fields for user data.
+     * 
+     * @return array The form schema configuration array.
      */
     protected function getFormSchema(): array
     {
@@ -43,12 +51,14 @@ final class UsersRelationManager extends RelationManager
                 ->required()
                 ->maxLength(255)
                 ->label(__('user::socialite_user.fields.name.label')),
-            // Aggiungi altri campi necessari qui
+            // Additional fields can be added here as necessary
         ];
     }
 
     /**
-     * Get list layout columns.
+     * Defines the columns displayed in the users list table.
+     * 
+     * @return array The columns configuration array.
      */
     public function getListTableColumns(): array
     {
@@ -80,7 +90,9 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Get filters.
+     * Configures available filters for the table, enabling users to refine their view.
+     * 
+     * @return array The filters configuration array.
      */
     protected function getTableFilters(): array
     {
@@ -106,7 +118,9 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Definisce le azioni di intestazione disponibili nella tabella.
+     * Defines header actions for the table, typically used for adding or associating records.
+     * 
+     * @return array The header actions configuration array.
      */
     protected function getHeaderActions(): array
     {
@@ -114,6 +128,7 @@ final class UsersRelationManager extends RelationManager
             Tables\Actions\CreateAction::make()
                 ->label('')
                 ->tooltip(__('Create User')),
+
             Tables\Actions\AssociateAction::make()
                 ->label('')
                 ->tooltip(__('Associate User')),
@@ -121,7 +136,9 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Configura le azioni specifiche della tabella.
+     * Configures individual record actions, enabling view, edit, and detach functionality.
+     * 
+     * @return array The actions configuration array.
      */
     protected function getTableActions(): array
     {
@@ -144,7 +161,9 @@ final class UsersRelationManager extends RelationManager
     }
 
     /**
-     * Configura le azioni collettive disponibili nella tabella.
+     * Defines bulk actions that can be performed on multiple records simultaneously.
+     * 
+     * @return array The bulk actions configuration array.
      */
     protected function getBulkActions(): array
     {

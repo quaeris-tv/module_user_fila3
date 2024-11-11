@@ -22,31 +22,8 @@ class EditProfile extends BaseEditProfile
             ->schema([
                 $this->getNameFormComponent(),
                 $this->getEmailFormComponent(),
-                // $this->getPasswordFormComponent(),
-                // $this->getPasswordConfirmationFormComponent(),
-                /*
-                PasswordData::make()->getPasswordFormComponent('new_password'),
-                PasswordData::make()->getPasswordConfirmationFormComponent(),
-                */
                 ...PasswordData::make()->getPasswordFormComponents('new_password'),
             ]);
     }
-    /*
-    protected function getPasswordFormComponent(): Component
-    {
-        $passwordData = PasswordData::make();
-        $messages = __('user::validation');
-
-        $field = parent::getPasswordFormComponent();
-        if (! method_exists($field, 'validationMessages')) {
-            throw new \Exception('method validationMessages not exists');
-        }
-
-        return $field
-            ->validationMessages($messages)
-            ->helperText($pwd->getHelperText())
-            // ->live()
-        ;
-    }
-    */
+  
 }
