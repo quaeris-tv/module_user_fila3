@@ -51,11 +51,12 @@ class PermissionRole extends BasePivot
     /** @return array<string, string> */
     protected function casts(): array
     {
-        $parent=parent::casts();
-        $up=[
+        $parent = parent::casts();
+        $up = [
             'permission_id' => 'string',
             'role_id' => 'string',
         ];
-        return array_merge($parent,$up);
+
+        return array_merge($parent, $up);
     }
 }
