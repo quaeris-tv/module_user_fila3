@@ -16,7 +16,7 @@ use Spatie\QueueableAction\QueueableAction;
 
 /**
  * SendOtpByUserAction.
- * 
+ *
  * Handles the creation and dispatch of a One-Time Password (OTP) for secure user authentication.
  */
 class SendOtpByUserAction
@@ -34,7 +34,7 @@ class SendOtpByUserAction
     /**
      * Execute the action: Generate and send an OTP to the specified user.
      *
-     * @param UserContract $user User to receive the OTP.
+     * @param UserContract $user user to receive the OTP
      */
     public function execute(UserContract $user): void
     {
@@ -49,7 +49,7 @@ class SendOtpByUserAction
     /**
      * Generate a secure temporary password for OTP.
      *
-     * @return string Generated temporary password.
+     * @return string generated temporary password
      */
     private function generateTemporaryPassword(): string
     {
@@ -59,7 +59,7 @@ class SendOtpByUserAction
     /**
      * Calculate OTP expiration time using the configuration provided in PasswordData.
      *
-     * @return Carbon OTP expiration timestamp.
+     * @return Carbon OTP expiration timestamp
      */
     private function calculateOtpExpiration(): Carbon
     {
@@ -69,9 +69,9 @@ class SendOtpByUserAction
     /**
      * Update user's password with a hashed temporary OTP and set expiration properties.
      *
-     * @param UserContract $user User to update.
-     * @param string $temporaryPassword Generated temporary password.
-     * @param Carbon $expirationTime Expiration time for the OTP.
+     * @param UserContract $user              user to update
+     * @param string       $temporaryPassword generated temporary password
+     * @param Carbon       $expirationTime    expiration time for the OTP
      */
     private function updateUserWithOtp(UserContract $user, string $temporaryPassword, Carbon $expirationTime): void
     {
@@ -85,8 +85,8 @@ class SendOtpByUserAction
     /**
      * Send OTP notification to user's email.
      *
-     * @param UserContract $user User to notify.
-     * @param string $temporaryPassword Temporary password to include in notification.
+     * @param UserContract $user              user to notify
+     * @param string       $temporaryPassword temporary password to include in notification
      */
     private function dispatchOtpNotification(UserContract $user, string $temporaryPassword): void
     {

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages\Auth;
 
-use Filament\Forms\Components\Component;
 use Filament\Forms\Form;
 use Filament\Pages\Auth\EditProfile as BaseEditProfile;
 use Modules\User\Datas\PasswordData;
@@ -25,5 +24,4 @@ class EditProfile extends BaseEditProfile
                 ...PasswordData::make()->getPasswordFormComponents('new_password'),
             ]);
     }
-  
 }
