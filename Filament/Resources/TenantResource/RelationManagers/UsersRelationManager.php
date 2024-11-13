@@ -14,11 +14,11 @@ use Modules\Xot\Filament\Traits\TransTrait;
 
 class UsersRelationManager extends RelationManager
 {
-    use TransTrait;
+
     use HasXotTable;
     protected static string $relationship = 'users';
     protected static ?string $recordTitleAttribute = 'name';
-    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
+
 
     public function form(Form $form): Form
     {
