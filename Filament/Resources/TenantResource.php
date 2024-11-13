@@ -38,7 +38,7 @@ class TenantResource extends XotBaseResource
         $xot = XotData::make();
 
         $model= $xot->getTenantClass();
-        dddx($model);
+           dddx($model);
         return $model;
     }
 
