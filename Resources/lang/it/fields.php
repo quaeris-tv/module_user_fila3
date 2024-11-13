@@ -9,6 +9,9 @@ return [
     'created_at' => 'Creato il',
     'updated_at' => 'Aggiornato il',
     'role' => 'Ruolo',
+    'id.label' => 'ID',
+    'name.label' => 'Nome',
+    'slug.label' => 'Slug',
     'actions' => [
         'attach_user' => 'Attacca utente',
     ],
