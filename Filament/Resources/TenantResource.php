@@ -37,7 +37,9 @@ class TenantResource extends XotBaseResource
     {
         $xot = XotData::make();
 
-        return $xot->getTenantClass();
+        $model= $xot->getTenantClass();
+
+        return $model;
     }
 
     public static function form(Form $form): Form

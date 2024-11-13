@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Tenant List Management.
+ * Tenant List Management
  */
 declare(strict_types=1);
 
