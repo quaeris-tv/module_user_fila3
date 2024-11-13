@@ -23,7 +23,7 @@ class TenantsRelationManager extends RelationManager
 {
     use HasXotTable;
     protected static string $relationship = 'tenants';
-
+    protected static ?string $recordTitleAttribute = 'name';
 
     /**
      * Set up the form schema for tenant relations.
