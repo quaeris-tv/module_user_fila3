@@ -19,11 +19,11 @@ use Modules\Xot\Filament\Traits\HasXotTable;
  * This class provides the form schema and table configuration for the "tenants" relationship
  * with strong typing and enhanced structure for stability and professionalism.
  */
-final class TenantsRelationManager extends RelationManager
+class TenantsRelationManager extends RelationManager
 {
     use HasXotTable;
     protected static string $relationship = 'tenants';
-    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
+
 
     /**
      * Set up the form schema for tenant relations.
