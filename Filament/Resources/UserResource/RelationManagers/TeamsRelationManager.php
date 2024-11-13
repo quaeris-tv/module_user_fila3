@@ -14,9 +14,11 @@ use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
 use Modules\User\Filament\Resources\TeamResource;
+use Modules\Xot\Filament\Traits\HasXotTable;
 
 class TeamsRelationManager extends RelationManager
 {
+    use HasXotTable;
     protected static string $relationship = 'teams';
 
     protected static ?string $recordTitleAttribute = 'name';
@@ -77,13 +79,6 @@ class TeamsRelationManager extends RelationManager
     {
         $table = TeamResource::table($table);
 
-        /*
-        dddx([
-            //'getActions'=>$table->getActions(),
-            //'getHeaderActions'=>$table->getHeaderActions(),
-            'methods'=>get_class_methods($table),
-        ]);
-        //*/
         return $table
             ->columns($this->getColumns($table))
             ->filters($this->getFilters($table))
