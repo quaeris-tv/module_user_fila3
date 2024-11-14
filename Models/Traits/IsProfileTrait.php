@@ -176,7 +176,7 @@ trait IsProfileTrait
 
         // $this->setConnection('mysql');
         return $this->belongsToManyX($teamClass, null, 'user_id', 'team_id', 'user_id');
-        // ->as('membership');
+        // ->as('membership')
     }
 
     /**
