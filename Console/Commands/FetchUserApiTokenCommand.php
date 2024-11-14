@@ -32,8 +32,8 @@ class FetchUserApiTokenCommand extends Command
 
             return self::INVALID_ENV;
         }
-
-        $userEmail = trim($this->argument('email'));
+        Assert::string($email = $this->argument('email'));
+        $userEmail = trim($email);
         if (empty($userEmail)) {
             Assert::string($userEmail = $this->ask('Please enter the email of the user to impersonate'));
             $userEmail = trim($userEmail);
