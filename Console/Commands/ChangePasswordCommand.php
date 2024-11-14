@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
+use Webmozart\Assert\Assert;
+use Modules\Xot\Datas\XotData;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
-use Modules\Xot\Datas\XotData;
-use Webmozart\Assert\Assert;
+use Modules\User\Datas\PasswordData;
+use Modules\User\Events\NewPasswordSet;
 
 class ChangePasswordCommand extends Command
 {
@@ -34,10 +36,21 @@ class ChangePasswordCommand extends Command
 
             return;
         }
-
+        $pwd_data = PasswordData::make();
+        $passwordExpiryDateTime = now()->addDays($pwd_data->expires_in);
+        /*
+        $user->is_otp = false;
         $user->password = Hash::make($password);
         $user->save();
+        */
+        $user = tap($user)->update([
+            'password_expires_at' => $passwordExpiryDateTime,
+            'is_otp' => false,
+            'password' => Hash::make($password),
+        ]);
 
+        event(new NewPasswordSet($user));
+        
         $this->info('Password changed successfully!');
     }
 }
