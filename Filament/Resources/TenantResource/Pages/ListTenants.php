@@ -7,18 +7,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
-use Filament\Resources\Pages\ListRecords;
-use Filament\Tables\Columns\TextColumn;
 use Modules\UI\Enums\TableLayoutEnum;
-use Modules\User\Filament\Resources\TenantResource;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Resources\Pages\ListRecords;
 use Modules\Xot\Filament\Traits\HasXotTable;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
+use Modules\User\Filament\Resources\TenantResource;
 
-class ListTenants extends ListRecords
+class ListTenants extends XotBaseListRecords
 {
-    use HasXotTable;
-
-    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
-
+    
     protected static string $resource = TenantResource::class;
 
     /**
