@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\TeamResource\Pages;
 
 use Filament\Actions\CreateAction;
-use Filament\Resources\Pages\ListRecords;
 use Modules\UI\Enums\TableLayoutEnum;
-use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
+use Filament\Resources\Pages\ListRecords;
 use Modules\User\Filament\Resources\TeamResource;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
+use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
 
-class ListTeams extends ListRecords
+class ListTeams extends XotBaseListRecords
 {
-    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
-
+    
     // //
     protected static string $resource = TeamResource::class;
 
