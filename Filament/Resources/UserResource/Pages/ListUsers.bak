@@ -8,7 +8,7 @@ use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 use Modules\User\Filament\Resources\UserResource;
 
-class ListUsers extends ListRecords {
+class ListUsers extends \Modules\Xot\Filament\Pages\XotBaseListRecords {
     protected static string $resource = UserResource::class;
 
     protected function getActions(): array {

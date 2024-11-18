@@ -4,27 +4,25 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\FeatureResource\Pages;
 
+use Filament\Tables\Table;
 use Filament\Actions\CreateAction;
-use Filament\Resources\Pages\ListRecords;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
+use Modules\UI\Enums\TableLayoutEnum;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
-use Filament\Tables\Table;
-use Modules\UI\Enums\TableLayoutEnum;
-use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
-use Modules\User\Filament\Resources\FeatureResource;
+use Filament\Resources\Pages\ListRecords;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Enums\ActionsPosition;
 use Modules\Xot\Filament\Traits\TransTrait;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
+use Modules\User\Filament\Resources\FeatureResource;
+use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
 
-class ListFeatures extends ListRecords
+class ListFeatures extends XotBaseListRecords
 {
-    use TransTrait;
-
-    public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
-
+    
     protected static string $resource = FeatureResource::class;
 
     public function getGridTableColumns(): array
