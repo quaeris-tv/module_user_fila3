@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
-use Webmozart\Assert\Assert;
-use Modules\Xot\Datas\XotData;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Datas\PasswordData;
 use Modules\User\Events\NewPasswordSet;
+use Modules\Xot\Datas\XotData;
+use Webmozart\Assert\Assert;
 
 class ChangePasswordCommand extends Command
 {
@@ -50,7 +50,7 @@ class ChangePasswordCommand extends Command
         ]);
 
         event(new NewPasswordSet($user));
-        
+
         $this->info('Password changed successfully!');
     }
 }

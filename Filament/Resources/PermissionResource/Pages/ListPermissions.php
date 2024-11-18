@@ -4,20 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\PermissionResource\Pages;
 
-use Webmozart\Assert\Assert;
 use Filament\Actions\CreateAction;
 use Filament\Forms\Components\Select;
-use Modules\UI\Enums\TableLayoutEnum;
 use Filament\Tables\Actions\BulkAction;
-use Filament\Resources\Pages\ListRecords;
 use Illuminate\Database\Eloquent\Collection;
-use Modules\Xot\Filament\Pages\XotBaseListRecords;
-use Modules\User\Filament\Resources\PermissionResource;
 use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
+use Modules\User\Filament\Resources\PermissionResource;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
+use Webmozart\Assert\Assert;
 
 class ListPermissions extends XotBaseListRecords
 {
- 
     protected static string $resource = PermissionResource::class;
 
     protected function getTableHeaderActions(): array

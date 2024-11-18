@@ -4,17 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
-use Modules\User\Models\Role;
-use Modules\UI\Enums\TableLayoutEnum;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Resources\Pages\ListRecords;
-use Modules\Xot\Filament\Traits\HasXotTable;
 use Modules\User\Filament\Resources\RoleResource;
+use Modules\User\Models\Role;
 use Modules\Xot\Filament\Pages\XotBaseListRecords;
 
 class ListRoles extends XotBaseListRecords
 {
-    
     protected static string $resource = RoleResource::class;
 
     public function getListTableColumns(): array
