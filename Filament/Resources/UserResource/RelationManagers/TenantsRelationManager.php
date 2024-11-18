@@ -7,7 +7,6 @@ namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\User\Filament\Resources\TenantResource\Pages\ListTenants;
 use Modules\Xot\Filament\Traits\HasXotTable;
@@ -45,7 +44,7 @@ class TenantsRelationManager extends RelationManager
     /**
      * Define table columns for displaying tenant information.
      *
-     * @return array<int, TextColumn> configured table columns
+     * @return array<int, \Filament\Tables\Columns\Column> configured table columns
      */
     public function getListTableColumns(): array
     {
