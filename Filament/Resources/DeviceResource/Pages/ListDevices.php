@@ -4,25 +4,22 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\DeviceResource\Pages;
 
-use Filament\Tables\Table;
 use Filament\Actions\CreateAction;
-use Modules\UI\Enums\TableLayoutEnum;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Resources\Pages\ListRecords;
-use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Columns\Layout\Stack;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Modules\Xot\Filament\Pages\XotBaseListRecords;
-use Modules\User\Filament\Resources\DeviceResource;
+use Filament\Tables\Table;
 use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
+use Modules\User\Filament\Resources\DeviceResource;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
 
 class ListDevices extends XotBaseListRecords
 {
-    
     protected static string $resource = DeviceResource::class;
 
     public function getGridTableColumns(): array
