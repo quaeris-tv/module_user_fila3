@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Handles the registration of a new user.
  *
@@ -15,6 +16,7 @@
  *
  * @return \Illuminate\Http\JsonResponse The JSON response
  */
+
 declare(strict_types=1);
 
 namespace Modules\User\Http\Controllers\Api;
@@ -33,19 +35,13 @@ class RegisterController extends XotBaseController
     public function __invoke(Request $request): JsonResponse
     {
         $messages = __('user::validation');
-
-        $validator = Validator::make(
-            $request->all(),
-            [
+        $validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'email' => 'required|email',
                 // 'password' => 'required',
                 'password' => ['required',  PasswordRule::defaults()],
                 'c_password' => 'required|same:password',
-            ],
-            $messages
-        );
-
+            ], $messages);
         if ($validator->fails()) {
             return $this->sendError('Validation Error.', $validator->errors()->all());
         }
@@ -53,11 +49,10 @@ class RegisterController extends XotBaseController
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user_class = \Modules\Xot\Datas\XotData::make()->getUserClass();
-        /** @var \Modules\Xot\Contracts\UserContract */
+/** @var \Modules\Xot\Contracts\UserContract */
         $user = $user_class::create($input);
         $success['token'] = $user->createToken('MyApp')->accessToken;
         $success['name'] = $user->name;
-
         return $this->sendResponse('User register successfully.', $success);
     }
 }

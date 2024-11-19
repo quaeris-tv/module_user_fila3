@@ -70,12 +70,12 @@ class AssignModuleCommand extends Command
 
         foreach ($modules as $module) {
             $module_low = Str::lower((string) $module);
-            $role = $module_low.'::admin';
+            $role = $module_low . '::admin';
             $role = Role::firstOrCreate(['name' => $role]);
             $user->assignRole($role);
         }
 
-        $this->info(implode(', ', $modules).' assigned to '.$email);
+        $this->info(implode(', ', $modules) . ' assigned to ' . $email);
     }
 
     /**

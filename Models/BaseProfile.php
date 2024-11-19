@@ -115,7 +115,7 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
         $email = mb_strtolower($email);
         // 'myemailaddress@example.com'
         $hash = hash('sha256', $email);
-        $avatar = 'https://gravatar.com/avatar/'.$hash.'?s=64';
+        $avatar = 'https://gravatar.com/avatar/' . $hash . '?s=64';
 
         return $avatar;
 

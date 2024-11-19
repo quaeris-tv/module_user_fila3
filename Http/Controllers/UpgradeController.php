@@ -1,4 +1,5 @@
 <?php
+
 /**
  * --.
  */
@@ -17,7 +18,7 @@ class UpgradeController extends Controller
     {
         $user_class = XotData::make()->getUserClass();
         $users = $user_class::get();
-        /* da id a uuid
+/* da id a uuid
         foreach ($users as $user) {
             if (strlen((string) $user->id) >= 32) { // gia' convertito
                 continue;

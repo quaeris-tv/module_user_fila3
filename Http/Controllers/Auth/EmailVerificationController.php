@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Handles the email verification process for authenticated users.
  *
