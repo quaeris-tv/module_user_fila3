@@ -9,7 +9,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -24,7 +24,6 @@ return new class extends XotBaseMigration {
                 // $table->foreignIdFor(\Modules\Xot\Datas\XotData::make()->getUserClass());
                 $table->string('name');
                 $table->boolean('personal_team')->default(false);
-                // $table->timestamps();
             }
         );
         // -- UPDATE --
