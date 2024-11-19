@@ -24,7 +24,7 @@ class GetProviderScopesAction
          * @var array|\ArrayAccess
          */
         $services = config('services');
-        $scopes = Arr::get($services, $provider . '.scopes');
+        $scopes = Arr::get($services, $provider.'.scopes');
         if (! \is_array($scopes)) {
             return [];
         }

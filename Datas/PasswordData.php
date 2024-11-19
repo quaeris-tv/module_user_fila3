@@ -102,7 +102,7 @@ class PasswordData extends Data
 
     public function getHelperText(): string
     {
-        $msg = 'La password deve essere composta da minimo ' . $this->min . ' caratteri';
+        $msg = 'La password deve essere composta da minimo '.$this->min.' caratteri';
         $msg .= ', almeno una lettera maiuscola';
         $msg .= ', una minuscola';
         $msg .= ', un numero';

@@ -44,7 +44,7 @@ class ShowTenantListCommand extends Command
             $this->newLine();
         } else {
             $this->newLine();
-            $this->warn('⚡ No Tenants [' . $modelClass . ']');
+            $this->warn('⚡ No Tenants ['.$modelClass.']');
             $this->newLine();
         }
     }
