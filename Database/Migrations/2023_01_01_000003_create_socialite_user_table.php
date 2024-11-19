@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 use Modules\Xot\Datas\XotData;
 
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -22,7 +22,7 @@ return new class extends XotBaseMigration {
                 $table->foreignIdFor($userClass, 'user_id');
                 $table->string('provider');
                 $table->string('provider_id');
-                $table->string('token')->nullable();
+                $table->text('token')->nullable();
                 $table->string('name')->nullable();
                 $table->string('email')->nullable();
                 $table->string('avatar')->nullable();
@@ -44,6 +44,7 @@ return new class extends XotBaseMigration {
                 // if (! $this->hasColumn('email')) {
                 //    $table->string('email')->nullable();
                 // }
+                dddx($this->getColumnType('token'));
                 $this->updateTimestamps($table);
                 // $this->updateUser($table);
             }
