@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This is the start of the PHP code block.
  */
@@ -20,11 +21,10 @@ class LoginController extends XotBaseController
     public function __invoke(Request $request): JsonResponse
     {
         if (auth()->attempt(['email' => $request->email, 'password' => $request->password])) {
-            Assert::notNull($user = auth()->user(), '['.__LINE__.']['.class_basename($this).']');
+            Assert::notNull($user = auth()->user(), '[' . __LINE__ . '][' . class_basename($this) . ']');
             $success = [];
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['name'] = $user->name;
-
             return $this->sendResponse('User login successfully.', $success);
         }
 

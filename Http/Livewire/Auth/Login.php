@@ -40,7 +40,7 @@ class Login extends Component
             $main_module = XotData::make()->main_module;
             $main_module_low = strtolower($main_module);
 
-            $this->addError('email', trans($main_module_low.'::auth.failed'));
+            $this->addError('email', trans($main_module_low . '::auth.failed'));
 
             return;
         }

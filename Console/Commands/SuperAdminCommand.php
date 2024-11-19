@@ -55,12 +55,12 @@ class SuperAdminCommand extends Command
         $user->assignRole($role);
         $modules_opts = array_keys(Module::all());
         foreach ($modules_opts as $module) {
-            $role_name = Str::lower($module).'::admin';
+            $role_name = Str::lower($module) . '::admin';
             $role = Role::firstOrCreate(['name' => $role_name]);
             $user->assignRole($role);
         }
 
-        $this->info('super-admin assigned to '.$email);
+        $this->info('super-admin assigned to ' . $email);
     }
 
     /**

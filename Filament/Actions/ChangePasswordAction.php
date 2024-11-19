@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @see https://coderflex.com/blog/create-advanced-filters-with-filament
  */
@@ -20,26 +21,21 @@ class ChangePasswordAction extends Action
     protected function setUp(): void
     {
         parent::setUp();
-
         $this->translateLabel()
             ->label('user::user.actions.change_password')
             ->icon('heroicon-o-key')
-            ->action(
-                function (UserContract $record, array $data): void {
-                    $record->update(
-                        [
+            ->action(function (UserContract $record, array $data): void {
+
+                    $record->update([
                             'password' => Hash::make($data['new_password']),
-                        ]
-                    );
-                    Notification::make()
+                        ]);
+                Notification::make()
                         ->success()
                         ->title(__('user::notifications.password_changed_successfully.title'))
                         ->body(__('user::notifications.password_changed_successfully.message'))
                     ;
-                }
-            )
-            ->form(
-                [
+            })
+            ->form([
                     /*
                     TextInput::make('new_password')
                         ->password()
@@ -55,8 +51,7 @@ class ChangePasswordAction extends Action
                         ->placeholder(__('user::fields.confirm_password.placeholder'))
                         ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
                         ->same('new_password'),
-                ]
-            );
+                ]);
     }
 
     public static function getDefaultName(): ?string
