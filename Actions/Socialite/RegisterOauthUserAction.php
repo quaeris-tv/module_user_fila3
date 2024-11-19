@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @see https://github.com/DutchCodingCompany/filament-socialite
  */
@@ -17,31 +18,21 @@ class RegisterOauthUserAction
 {
     use QueueableAction;
 
+
     public function execute(string $provider, SocialiteUserContract $oauthUser): SocialiteUser
     {
-        $socialiteUser = DB::transaction(
-            static function () use ($provider, $oauthUser) {
+        $socialiteUser = DB::transaction(static function () use ($provider, $oauthUser) {
+
                 // Create a user
                 $user = app(CreateUserAction::class)
-                    ->execute(
-                        provider: $provider,
-                        oauthUser: $oauthUser,
-                    );
-
-                // Create a new socialite user instance
+                    ->execute(provider: $provider, oauthUser: $oauthUser,);
+// Create a new socialite user instance
                 return app(CreateSocialiteUserAction::class)
-                    ->execute(
-                        provider: $provider,
-                        oauthUser: $oauthUser,
-                        user: $user,
-                    );
-            }
-        );
-
-        // Dispatch the registered event
+                    ->execute(provider: $provider, oauthUser: $oauthUser, user: $user,);
+        });
+    // Dispatch the registered event
         Registered::dispatch($socialiteUser);
-
-        // Login the user
+    // Login the user
         // return app(LoginUserAction::class)->execute($socialiteUser);
         return $socialiteUser;
     }

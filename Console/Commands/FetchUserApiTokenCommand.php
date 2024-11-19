@@ -61,7 +61,7 @@ class FetchUserApiTokenCommand extends Command
 
         $this->info("Access token for `$userEmail`:");
         $this->comment($token->accessToken);
-        $this->info('Scopes included: '.implode(', ', $oauthScopes));
+        $this->info('Scopes included: ' . implode(', ', $oauthScopes));
 
         return self::SUCCESS;
     }

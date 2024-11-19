@@ -55,6 +55,7 @@ use Webmozart\Assert\Assert;
 class Permission extends SpatiePermission
 {
     use RelationX;
+
     /** @var string */
     protected $connection = 'user';
     /** @var string */
