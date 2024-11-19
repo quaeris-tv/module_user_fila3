@@ -22,7 +22,7 @@ class RetrieveSocialiteUserAction
      */
     public function execute(string $provider, SocialiteUserContract $user): ?SocialiteUser
     {
-        dddx($user->getToken());
+        dddx($user->token);
 
         return SocialiteUser::query()
             ->with(['user'])
