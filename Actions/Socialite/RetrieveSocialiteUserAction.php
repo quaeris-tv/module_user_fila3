@@ -22,6 +22,8 @@ class RetrieveSocialiteUserAction
      */
     public function execute(string $provider, SocialiteUserContract $user): ?SocialiteUser
     {
+        dddx($user);
+
         return SocialiteUser::query()
             ->with(['user'])
             ->where('provider', $provider)
