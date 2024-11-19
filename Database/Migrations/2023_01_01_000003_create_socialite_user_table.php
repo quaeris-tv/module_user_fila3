@@ -44,7 +44,9 @@ return new class() extends XotBaseMigration {
                 // if (! $this->hasColumn('email')) {
                 //    $table->string('email')->nullable();
                 // }
-                dddx($this->getColumnType('token'));
+                if ('varchar' == $this->getColumnType('token')) {
+                    $table->text('token')->nullable()->change();
+                }
                 $this->updateTimestamps($table);
                 // $this->updateUser($table);
             }
