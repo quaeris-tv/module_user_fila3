@@ -32,10 +32,7 @@ return new class() extends XotBaseMigration {
                     'provider_id',
                 ]);
                 */
-                // $table->timestamps();
-                // $table->string('created_by')->nullable();
-                // $table->string('updated_by')->nullable();
-            }
+                
         );
 
         // -- UPDATE --

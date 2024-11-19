@@ -9,7 +9,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /*
  * Class CreatePermissionsTable.
  */
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -24,7 +24,6 @@ return new class extends XotBaseMigration {
                 // For MySQL 8.0 use string('name', 125);
                 $table->string('guard_name');
                 // For MySQL 8.0 use string('guard_name', 125);
-                $table->timestamps();
                 $table->unique(['name', 'guard_name']);
             }
         );
