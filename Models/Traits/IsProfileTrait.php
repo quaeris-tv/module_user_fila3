@@ -40,7 +40,7 @@ trait IsProfileTrait
             return $value;
         }
 
-        $res = $this->first_name.' '.$this->last_name;
+        $res = $this->first_name . ' ' . $this->last_name;
         if (mb_strlen($res) > 2) {
             return $res;
         }
@@ -92,7 +92,7 @@ trait IsProfileTrait
     {
         $user = $this->user;
         if (null === $user) {
-            throw new \Exception('['.__LINE__.']['.class_basename($this).']');
+            throw new \Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
         }
         $to_assign = 'super-admin';
         $to_remove = 'negate-super-admin';

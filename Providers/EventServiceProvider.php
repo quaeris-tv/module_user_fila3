@@ -25,7 +25,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         SocialiteWasCalled::class => [
-            Auth0ExtendSocialite::class.'@handle',
+            Auth0ExtendSocialite::class . '@handle',
         ],
         Login::class => [
             LoginListener::class,
