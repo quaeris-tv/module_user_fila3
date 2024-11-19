@@ -32,40 +32,39 @@ class ChangeProfilePasswordAction extends Action
             ->tooltip(__('user::user.actions.change_password'))
             ->icon('heroicon-o-key')
             ->action(static function (ProfileContract $record, array $data): void {
-
-                    $user = $record->user;
+                $user = $record->user;
                 $profile_data = Arr::except($record->toArray(), ['id']);
                 if (null === $user) {
                     $user_class = XotData::make()->getUserClass();
-                /** @var \Modules\Xot\Contracts\UserContract */
-                        $user = XotData::make()->getUserByEmail($record->email);
+                    /** @var \Modules\Xot\Contracts\UserContract */
+                    $user = XotData::make()->getUserByEmail($record->email);
                 }
 
                 if (null === $user) {
                     $user = $record->user()->create($profile_data);
                 }
-                    // @phpstan-ignore argument.type, method.notFound
-                    $user->profile()->save($record);
+                // @phpstan-ignore argument.type, method.notFound
+                $user->profile()->save($record);
                 $user->update([
-                            'password' => Hash::make($data['new_password']),
-                        ]);
+                    'password' => Hash::make($data['new_password']),
+                ]);
                 Notification::make()->success()->title('Password changed successfully.');
             })
             ->form([
-                    /*
+                /*
                     TextInput::make('new_password')
                         ->password()
                         ->label('New Password')
                         ->required()
                         ->rule(Password::default()),
                     */
-                    PasswordData::make()->getPasswordFormComponent(),
-                    TextInput::make('new_password_confirmation')
-                        ->password()
-                        ->label('Confirm New Password')
-                        ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
-                        ->same('new_password'),
-                ]);
+                PasswordData::make()->getPasswordFormComponent(),
+                TextInput::make('new_password_confirmation')
+                    ->password()
+                    ->label('Confirm New Password')
+                    ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
+                    ->same('new_password'),
+            ]);
     }
 
     public static function getDefaultName(): ?string
