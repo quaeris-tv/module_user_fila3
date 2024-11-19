@@ -258,6 +258,7 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         if (is_string($res)) {
             return $res;
         }
+        dddx($socialiteUser);
         throw new \Exception('SocialiteUser field ['.$field.'] not found');
     }
 
