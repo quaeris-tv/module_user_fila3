@@ -94,11 +94,11 @@ class ListProfiles extends XotBaseListRecords
     {
         return [
             'type' => TextColumn::make('type')
-                //->label(static::trans('fields.type'))
+                // ->label(static::trans('fields.type'))
                 ->sortable(),
 
             'user_name' => TextColumn::make('user.name')
-                //->label(static::trans('fields.user_name'))
+                // ->label(static::trans('fields.user_name'))
                 ->sortable()
                 ->searchable()
                 ->default(
