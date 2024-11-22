@@ -194,12 +194,7 @@ class ListProfiles extends XotBaseListRecords
         // ->striped($this->isTableStriped())
     }
 
-    protected function getTableHeaderActions(): array
-    {
-        return [
-            TableLayoutToggleTableAction::make(),
-        ];
-    }
+    
 
     protected function getHeaderActions(): array
     {
