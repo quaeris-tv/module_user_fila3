@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
-use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
 use Modules\User\Filament\Actions\Profile\ChangeProfilePasswordAction;
 use Modules\User\Filament\Resources\BaseProfileResource;
 use Modules\Xot\Datas\XotData;
@@ -193,8 +192,6 @@ class ListProfiles extends XotBaseListRecords
         // ->selectCurrentPageOnly($this->shouldSelectCurrentPageOnly())
         // ->striped($this->isTableStriped())
     }
-
-    
 
     protected function getHeaderActions(): array
     {
