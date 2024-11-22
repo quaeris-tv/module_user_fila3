@@ -7,7 +7,7 @@ use Modules\User\Models\OauthClient;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 use Modules\Xot\Datas\XotData;
 
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     public function up(): void
     {
         $xot = XotData::make();
@@ -20,7 +20,6 @@ return new class extends XotBaseMigration {
                 $table->string('name')->nullable();
                 $table->text('scopes')->nullable();
                 $table->boolean('revoked');
-                $table->timestamps();
                 $table->dateTime('expires_at')->nullable();
             }
         );
@@ -29,6 +28,7 @@ return new class extends XotBaseMigration {
         $this->tableUpdate(
             function (Blueprint $table): void {
                 $this->updateUser($table);
+                $this->updateTimestamps(table: $table, hasSoftDeletes: true);
             }
         );
     }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -20,7 +20,6 @@ return new class extends XotBaseMigration {
                 $table->string('team_id', 36)->nullable()->index();
                 $table->string('email');
                 $table->string('role')->nullable();
-                // $table->timestamps();
                 // $table->unique(['team_id', 'email']);
             }
         );
