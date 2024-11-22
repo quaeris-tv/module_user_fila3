@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\User\Models\OauthClient;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     public function up(): void
     {
         $this->tableCreate(
@@ -15,7 +15,6 @@ return new class extends XotBaseMigration {
                 // $table->unsignedBigInteger('client_id');
                 // $table->uuid('client_id');
                 $table->foreignIdFor(OauthClient::class, 'client_id');
-                // $table->timestamps();
             }
         );
 

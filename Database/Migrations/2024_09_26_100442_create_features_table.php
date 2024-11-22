@@ -8,7 +8,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -21,7 +21,6 @@ return new class extends XotBaseMigration {
                 $table->string('name');
                 $table->string('scope');
                 $table->text('value');
-                $table->timestamps();
 
                 $table->unique(['name', 'scope']);
             }
