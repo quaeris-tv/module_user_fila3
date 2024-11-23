@@ -33,7 +33,7 @@ return new class() extends XotBaseMigration {
                 ]);
                 */
                 
-        );
+        });
 
         // -- UPDATE --
         $this->tableUpdate(
