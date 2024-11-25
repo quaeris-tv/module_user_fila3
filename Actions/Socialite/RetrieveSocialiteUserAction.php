@@ -29,6 +29,7 @@ class RetrieveSocialiteUserAction
             ->first();
 
         $res?->update([
+            // @phpstan-ignore property.notFound
             'token' => $user->token,
         ]);
 
