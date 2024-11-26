@@ -18,19 +18,19 @@ use Modules\Xot\Models\Traits\HasExtraTrait;
 /**
  * Modules\User\Models\Team.
  *
- * @property int                                                                                $id
- * @property int                                                                                $user_id
- * @property string                                                                             $name
- * @property int                                                                                $personal_team
- * @property \Illuminate\Support\Carbon|null                                                    $created_at
- * @property \Illuminate\Support\Carbon|null                                                    $updated_at
- * @property EloquentCollection<int, \Illuminate\Database\Eloquent\Model&UserContract>          $members
- * @property int|null                                                                           $members_count
- * @property UserContract|null                                                                  $owner
- * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\TeamInvitation> $teamInvitations
- * @property int|null                                                                           $team_invitations_count
- * @property EloquentCollection<int, \Illuminate\Database\Eloquent\Model&UserContract>          $users
- * @property int|null                                                                           $users_count
+ * @property int                                         $id
+ * @property int                                         $user_id
+ * @property string                                      $name
+ * @property int                                         $personal_team
+ * @property \Illuminate\Support\Carbon|null             $created_at
+ * @property \Illuminate\Support\Carbon|null             $updated_at
+ * @property EloquentCollection<int, Model&UserContract> $members
+ * @property int|null                                    $members_count
+ * @property UserContract|null                           $owner
+ * @property EloquentCollection<int, TeamInvitation>     $teamInvitations
+ * @property int|null                                    $team_invitations_count
+ * @property EloquentCollection<int, Model&UserContract> $users
+ * @property int|null                                    $users_count
  *
  * @method static \Modules\User\Database\Factories\TeamFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Team   newModelQuery()
