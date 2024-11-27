@@ -18,24 +18,24 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait;
 /**
  * @property \Spatie\SchemalessAttributes\SchemalessAttributes                                                             $extra
  * @property string                                                                                                        $avatar
- * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\DeviceUser>                                $deviceUsers
+ * @property \Illuminate\Database\Eloquent\Collection<int, DeviceUser>                                                     $deviceUsers
  * @property int|null                                                                                                      $device_users_count
- * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Device>                                    $devices
+ * @property \Illuminate\Database\Eloquent\Collection<int, Device>                                                         $devices
  * @property int|null                                                                                                      $devices_count
  * @property string|null                                                                                                   $first_name
  * @property string|null                                                                                                   $full_name
  * @property string|null                                                                                                   $last_name
  * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Modules\Media\Models\Media>    $media
  * @property int|null                                                                                                      $media_count
- * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\DeviceUser>                                $mobileDeviceUsers
+ * @property \Illuminate\Database\Eloquent\Collection<int, DeviceUser>                                                     $mobileDeviceUsers
  * @property int|null                                                                                                      $mobile_device_users_count
- * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Device>                                    $mobileDevices
+ * @property \Illuminate\Database\Eloquent\Collection<int, Device>                                                         $mobileDevices
  * @property int|null                                                                                                      $mobile_devices_count
  * @property \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property int|null                                                                                                      $notifications_count
- * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Permission>                                $permissions
+ * @property \Illuminate\Database\Eloquent\Collection<int, Permission>                                                     $permissions
  * @property int|null                                                                                                      $permissions_count
- * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Role>                                      $roles
+ * @property \Illuminate\Database\Eloquent\Collection<int, Role>                                                           $roles
  * @property int|null                                                                                                      $roles_count
  * @property \Modules\Xot\Contracts\UserContract|null                                                                      $user
  * @property string|null                                                                                                   $user_name
