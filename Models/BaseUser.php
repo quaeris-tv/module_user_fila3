@@ -31,25 +31,25 @@ use Spatie\Permission\Traits\HasRoles;
 /**
  * Modules\User\Models\User.
  *
- * @property Collection<int, \Modules\User\Models\OauthClient>      $clients
- * @property int|null                                               $clients_count
- * @property Team|null                                              $currentTeam
- * @property Collection<int, \Modules\User\Models\Device>           $devices
- * @property int|null                                               $devices_count
- * @property string|null                                            $full_name
- * @property DatabaseNotificationCollection<int, Notification>      $notifications
- * @property int|null                                               $notifications_count
- * @property Collection<int, \Modules\User\Models\Team>             $ownedTeams
- * @property int|null                                               $owned_teams_count
- * @property Collection<int, \Modules\User\Models\Permission>       $permissions
- * @property int|null                                               $permissions_count
- * @property \Modules\Xot\Contracts\ProfileContract|null            $profile
- * @property Collection<int, \Modules\User\Models\Role>             $roles
- * @property int|null                                               $roles_count
- * @property Collection<int, \Modules\User\Models\Team>             $teams
- * @property int|null                                               $teams_count
- * @property Collection<int, \Modules\User\Models\OauthAccessToken> $tokens
- * @property int|null                                               $tokens_count
+ * @property Collection<int, OauthClient>                      $clients
+ * @property int|null                                          $clients_count
+ * @property Team|null                                         $currentTeam
+ * @property Collection<int, Device>                           $devices
+ * @property int|null                                          $devices_count
+ * @property string|null                                       $full_name
+ * @property DatabaseNotificationCollection<int, Notification> $notifications
+ * @property int|null                                          $notifications_count
+ * @property Collection<int, Team>                             $ownedTeams
+ * @property int|null                                          $owned_teams_count
+ * @property Collection<int, Permission>                       $permissions
+ * @property int|null                                          $permissions_count
+ * @property \Modules\Xot\Contracts\ProfileContract|null       $profile
+ * @property Collection<int, Role>                             $roles
+ * @property int|null                                          $roles_count
+ * @property Collection<int, Team>                             $teams
+ * @property int|null                                          $teams_count
+ * @property Collection<int, OauthAccessToken>                 $tokens
+ * @property int|null                                          $tokens_count
  *
  * @method static \Modules\User\Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User   newModelQuery()
@@ -92,8 +92,8 @@ use Spatie\Permission\Traits\HasRoles;
  *
  * @mixin Eloquent
  *
- * @property Collection<int, \Modules\User\Models\Tenant> $tenants
- * @property int|null                                     $tenants_count
+ * @property Collection<int, Tenant> $tenants
+ * @property int|null                $tenants_count
  *
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutPermission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutRole($roles, $guard = null)
@@ -115,11 +115,11 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereFacebookId($value)
  * @method        bool                                       canAccessSocialite()
  *
- * @property TenantUser                                              $pivot
- * @property Membership                                              $membership
- * @property Collection<int, \Modules\User\Models\AuthenticationLog> $authentications
- * @property int|null                                                $authentications_count
- * @property AuthenticationLog|null                                  $latestAuthentication
+ * @property TenantUser                         $pivot
+ * @property Membership                         $membership
+ * @property Collection<int, AuthenticationLog> $authentications
+ * @property int|null                           $authentications_count
+ * @property AuthenticationLog|null             $latestAuthentication
  *
  * @mixin \Eloquent
  */
