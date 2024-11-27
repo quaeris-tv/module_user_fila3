@@ -23,7 +23,7 @@ use Modules\Xot\Contracts\UserContract;
  * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Modules\Media\Models\Media> $media
  * @property int|null                                                                                                   $media_count
  * @property TenantUser                                                                                                 $pivot
- * @property EloquentCollection<int, \Modules\User\Models\User>                                                         $users
+ * @property EloquentCollection<int, User>                                                                              $users
  * @property int|null                                                                                                   $users_count
  *
  * @mixin \Eloquent
