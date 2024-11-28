@@ -12,7 +12,6 @@ use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TernaryFilter;
-use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -105,8 +104,17 @@ class ListProfiles extends XotBaseListRecords
                         $user = $record->user;
                         $user_class = XotData::make()->getUserClass();
                         if (null === $user) {
-                            /** @var \Modules\Xot\Contracts\UserContract */
-                            $user = XotData::make()->getUserByEmail($record->email);
+                            if (null == $record->email) {
+                                $record->update(['email' => fake()->email()]);
+                            }
+                            try {
+                                /** @var \Modules\Xot\Contracts\UserContract */
+                                $user = XotData::make()->getUserByEmail($record->email);
+                            } catch (\Exception $e) {
+                                // $record->delete();
+
+                                return '--';
+                            }
                         }
                         if (null === $user) {
                             $data = $record->toArray();
@@ -139,60 +147,6 @@ class ListProfiles extends XotBaseListRecords
         ];
     }
 
-    public function table(Table $table): Table
-    {
-        return $table
-            // ->query($this->getTableQuery())
-            ->actions($this->getTableActions())
-            // ->actionsColumnLabel($this->getTableActionsColumnLabel())
-            // ->checkIfRecordIsSelectableUsing($this->isTableRecordSelectable())
-
-            // ->columns($this->getTableColumns())
-            ->columns($this->layoutView->getTableColumns())
-            ->contentGrid($this->layoutView->getTableContentGrid())
-            ->headerActions($this->getTableHeaderActions())
-
-            // ->columnToggleFormColumns($this->getTableColumnToggleFormColumns())
-            // ->columnToggleFormMaxHeight($this->getTableColumnToggleFormMaxHeight())
-            // ->columnToggleFormWidth($this->getTableColumnToggleFormWidth())
-            // ->content($this->getTableContent())
-            // ->contentFooter($this->getTableContentFooter())
-            // ->contentGrid($this->getTableContentGrid())
-            // ->defaultSort($this->getDefaultTableSortColumn(), $this->getDefaultTableSortDirection())
-            // ->deferLoading($this->isTableLoadingDeferred())
-            // ->description($this->getTableDescription())
-            // ->deselectAllRecordsWhenFiltered($this->shouldDeselectAllRecordsWhenTableFiltered())
-            // ->emptyState($this->getTableEmptyState())
-            // ->emptyStateActions($this->getTableEmptyStateActions())
-            // ->emptyStateDescription($this->getTableEmptyStateDescription())
-            // ->emptyStateHeading($this->getTableEmptyStateHeading())
-            // ->emptyStateIcon($this->getTableEmptyStateIcon())
-            ->filters($this->getTableFilters())
-            // ->filtersFormMaxHeight($this->getTableFiltersFormMaxHeight())
-            // ->filtersFormWidth($this->getTableFiltersFormWidth())
-            // ->groupedBulkActions($this->getTableBulkActions())
-            ->bulkActions($this->getTableBulkActions());
-        // ->header($this->getTableHeader())
-        // ->headerActions($this->getTableHeaderActions())
-        // ->modelLabel($this->getTableModelLabel())
-        // ->paginated($this->isTablePaginationEnabled())
-        // ->paginatedWhileReordering($this->isTablePaginationEnabledWhileReordering())
-        // ->paginationPageOptions($this->getTableRecordsPerPageSelectOptions())
-        // ->persistFiltersInSession($this->shouldPersistTableFiltersInSession())
-        // ->persistSearchInSession($this->shouldPersistTableSearchInSession())
-        // ->persistColumnSearchesInSession($this->shouldPersistTableColumnSearchInSession())
-        // ->persistSortInSession($this->shouldPersistTableSortInSession())
-        // ->pluralModelLabel($this->getTablePluralModelLabel())
-        // ->poll($this->getTablePollingInterval())
-        // ->recordAction($this->getTableRecordActionUsing())
-        // ->recordClasses($this->getTableRecordClassesUsing())
-        // ->recordTitle(fn (Model $record): ?string => $this->getTableRecordTitle($record))
-        // ->recordUrl($this->getTableRecordUrlUsing())
-        // ->reorderable($this->getTableReorderColumn())
-        // ->selectCurrentPageOnly($this->shouldSelectCurrentPageOnly())
-        // ->striped($this->isTableStriped())
-    }
-
     protected function getHeaderActions(): array
     {
         return [
@@ -204,9 +158,12 @@ class ListProfiles extends XotBaseListRecords
     {
         return [
             ChangeProfilePasswordAction::make(),
+            ...parent::getTableActions(),
+            /*
             Tables\Actions\EditAction::make()->label('')->tooltip(__('ui::txt.edit')),
             Tables\Actions\ViewAction::make()->label('')->tooltip(__('ui::txt.view')),
             Tables\Actions\DeleteAction::make()->label('')->tooltip(__('ui::txt.delete')),
+            */
         ];
     }
 

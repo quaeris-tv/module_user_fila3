@@ -37,23 +37,24 @@ return [
         'matr' => [
             'label' => 'matr',
         ],
-        'first_name' => [
-            'label' => 'first_name',
-            'fields' => [
-                'label' => 'first_name',
-            ],
-        ],
+        'first_name' => ['label' => 'Nome'],
         'last_name' => [
-            'label' => 'last_name',
+            'label' => 'Cognome',
             'fields' => [
-                'label' => 'last_name',
+                'label' => 'Cognome',
             ],
         ],
         'email' => [
             'fields' => 'email',
+            'label' => [
+                'fields' => 'email',
+            ],
         ],
         'is_active' => [
             'fields' => 'is_active',
+            'label' => [
+                'fields' => 'is_active',
+            ],
         ],
     ],
     'personal_info' => [
