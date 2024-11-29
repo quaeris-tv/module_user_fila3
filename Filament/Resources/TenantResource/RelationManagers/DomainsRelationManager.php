@@ -24,7 +24,7 @@ class DomainsRelationManager extends XotBaseRelationManager
                 [
                     Forms\Components\TextInput::make('domain')
                         ->required()
-                        ->label('Subdomain')
+
                         ->prefix('http(s)://')
                         ->suffix('.'.request()->getHost())
                         ->maxLength(255),
@@ -38,8 +38,8 @@ class DomainsRelationManager extends XotBaseRelationManager
             ->recordTitleAttribute('domain')
             ->columns(
                 [
-                    Tables\Columns\TextColumn::make('domain')->label('Subdomain'),
-                    Tables\Columns\TextColumn::make('full-domain')->label('Full Domain')->getStateUsing(static fn ($record) => \Str::of($record->domain)->append('.')->append(request()->getHost())),
+                    Tables\Columns\TextColumn::make('domain'),
+                    Tables\Columns\TextColumn::make('full-domain')->getStateUsing(static fn ($record) => \Str::of($record->domain)->append('.')->append(request()->getHost())),
                 ]
             )
             ->filters(

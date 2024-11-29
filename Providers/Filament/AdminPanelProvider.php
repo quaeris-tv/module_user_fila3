@@ -72,7 +72,7 @@ class AdminPanelProvider extends XotBasePanelProvider
         // $panel->userMenuItems([
         //     // 'account' => MenuItem::make()->url($profile_url),
         //     MenuItem::make()
-        //         ->label('Settings')
+        //
         //         ->url(fn (): string => '#')
         //         ->icon('heroicon-m-cog-8-tooth'),
         // ]);

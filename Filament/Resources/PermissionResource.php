@@ -74,15 +74,12 @@ class PermissionResource extends XotBaseResource
                             [
                                 Grid::make(2)->schema(
                                     [
-                                        TextInput::make('name')
-                                            ->label(static::trans('fields.name')),
+                                        TextInput::make('name'),
                                         Select::make('guard_name')
-                                            ->label(static::trans('fields.guard_name'))
                                             ->options($guard_names)
                                             ->default($default_guard_name),
                                         Select::make('roles')
                                             ->multiple()
-                                            ->label(static::trans('fields.roles'))
                                             ->relationship('roles', 'name')
                                             ->preload($preload_roles),
                                     ]
@@ -101,14 +98,11 @@ class PermissionResource extends XotBaseResource
             ->columns(
                 [
                     TextColumn::make('id')
-                        ->label('ID')
                         ->searchable(),
                     TextColumn::make('name')
-                        ->label(static::trans('fields.name'))
                         ->searchable(),
                     TextColumn::make('guard_name')
                         ->toggleable(isToggledHiddenByDefault: $isToggledHiddenByDefault)
-                        ->label(static::trans('fields.guard_name'))
                         ->searchable(),
                 ]
             )
@@ -159,7 +153,6 @@ class PermissionResource extends XotBaseResource
                         ->form(
                             [
                                 Select::make('role')
-                                    ->label(static::trans('fields.role'))
                                     ->options(Role::query()->pluck('name', 'id'))
                                     ->required(),
                             ]
