@@ -38,7 +38,7 @@ use Illuminate\Support\Carbon;
 class RoleHasPermission extends BasePivot
 {
     /**
-     * @var array<string>
+     * @var list<string>
      *
      * @psalm-var list{'permission_id', 'role_id'}
      */
