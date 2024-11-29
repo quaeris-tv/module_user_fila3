@@ -27,7 +27,7 @@ class ChangeProfilePasswordAction extends Action
     {
         parent::setUp();
         $this->translateLabel()
-            // ->label('user::user.actions.change_password')
+
             ->label('')
             ->tooltip(__('user::user.actions.change_password'))
             ->icon('heroicon-o-key')
@@ -54,14 +54,14 @@ class ChangeProfilePasswordAction extends Action
                 /*
                     TextInput::make('new_password')
                         ->password()
-                        ->label('New Password')
+
                         ->required()
                         ->rule(Password::default()),
                     */
                 PasswordData::make()->getPasswordFormComponent(),
                 TextInput::make('new_password_confirmation')
                     ->password()
-                    ->label('Confirm New Password')
+
                     ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
                     ->same('new_password'),
             ]);
@@ -84,12 +84,12 @@ Action::make('changePassword')
                     ->form([
                         TextInput::make('new_password')
                             ->password()
-                            ->label('New Password')
+
                             ->required()
                             ->rule(Password::default()),
                         TextInput::make('new_password_confirmation')
                             ->password()
-                            ->label('Confirm New Password')
+
                             ->rule('required', fn ($get): bool => (bool) $get('new_password'))
                             ->same('new_password'),
                     ])
