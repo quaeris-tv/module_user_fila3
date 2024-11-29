@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 use Modules\Xot\Datas\XotData;
 
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -32,7 +32,8 @@ return new class extends XotBaseMigration {
                     'provider_id',
                 ]);
                 */
-            });
+            }
+        );
 
         // -- UPDATE --
         $this->tableUpdate(
