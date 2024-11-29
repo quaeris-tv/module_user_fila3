@@ -45,7 +45,7 @@ use Modules\User\Database\Factories\ModelHasPermissionFactory;
 class ModelHasPermission extends BaseMorphPivot
 {
     /**
-     * @var array<string>
+     * @var list<string>
      *
      * @psalm-var list{'permission_id', 'model_type', 'model_id'}
      */

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Datas\XotData;
 
 class ShowUserListCommand extends Command
@@ -30,7 +31,7 @@ class ShowUserListCommand extends Command
     {
         $modelClass = XotData::make()->getUserClass();
 
-        $map = static function ($row) {
+        $map = static function (Model $row) {
             return $row->toArray();
         };
 
