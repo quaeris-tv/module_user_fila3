@@ -74,7 +74,6 @@ class PasswordExpiredWidget extends Widget implements HasForms
     public function getResetPasswordFormAction(): Action
     {
         return Action::make('resetPassword')
-            )
             ->submit('resetPassword');
     }
 
@@ -169,7 +168,6 @@ class PasswordExpiredWidget extends Widget implements HasForms
     {
         return TextInput::make('current_password')
             // ->label(__('user::otp.form.current_password.label'))
-            )
             ->password()
             // ->revealable(filament()->arePasswordsRevealable())
             ->revealable()
