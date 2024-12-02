@@ -22,7 +22,7 @@ return new class extends XotBaseMigration {
             static function (Blueprint $table): void {
                 $team_class = XotData::make()->getTeamClass();
                 $table->id();
-                //$table->foreignIdFor(Role::class, 'role_id')->nullable();
+                // $table->foreignIdFor(Role::class, 'role_id')->nullable();
                 $table->integer('role_id')->index()->nullable();
                 $table->uuidMorphs('model');
                 $table->foreignIdFor($team_class, 'team_id')->nullable();
