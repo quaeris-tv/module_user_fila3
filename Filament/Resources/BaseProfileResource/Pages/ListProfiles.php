@@ -43,11 +43,11 @@ class ListProfiles extends XotBaseListRecords
         return [
             Stack::make([
                 'type' => TextColumn::make('type')
-                    ->label(static::trans('fields.type'))
+                    
                     ->sortable(),
 
                 'user_name' => TextColumn::make('user.name')
-                    ->label(static::trans('fields.user_name'))
+                    
                     ->sortable()
                     ->searchable()
                     ->default(
@@ -70,19 +70,19 @@ class ListProfiles extends XotBaseListRecords
                         }
                     ),
                 'first_name' => TextColumn::make('first_name')
-                    ->label(static::trans('fields.first_name'))
+                    
                     ->sortable()
                     ->searchable(),
                 'last_name' => TextColumn::make('last_name')
-                    ->label(static::trans('fields.last_name'))
+                    
                     ->sortable()
                     ->searchable(),
                 'email' => TextColumn::make('email')
-                    ->label(static::trans('fields.email'))
+                    
                     ->sortable()
                     ->searchable(),
                 'is_active' => IconColumn::make('is_active')
-                    ->label(static::trans('fields.is_active'))
+                    
                     ->boolean(),
                 'photo' => SpatieMediaLibraryImageColumn::make('photo')
                     ->collection('profile'),
@@ -94,11 +94,11 @@ class ListProfiles extends XotBaseListRecords
     {
         return [
             'type' => TextColumn::make('type')
-                ->label(static::trans('fields.type'))
+                
                 ->sortable(),
 
             'user_name' => TextColumn::make('user.name')
-                ->label(static::trans('fields.user_name'))
+                
                 ->sortable()
                 ->searchable()
                 ->default(
@@ -121,19 +121,19 @@ class ListProfiles extends XotBaseListRecords
                     }
                 ),
             'first_name' => TextColumn::make('first_name')
-                ->label(static::trans('fields.first_name'))
+                
                 ->sortable()
                 ->searchable(),
             'last_name' => TextColumn::make('last_name')
-                ->label(static::trans('fields.last_name'))
+                
                 ->sortable()
                 ->searchable(),
             'email' => TextColumn::make('email')
-                ->label(static::trans('fields.email'))
+                
                 ->sortable()
                 ->searchable(),
             'is_active' => IconColumn::make('is_active')
-                ->label(static::trans('fields.is_active'))
+                
                 ->boolean(),
             'photo' => SpatieMediaLibraryImageColumn::make('photo')
                 ->collection('profile'),
@@ -240,7 +240,7 @@ class ListProfiles extends XotBaseListRecords
             // ]),
             Tables\Actions\DeleteBulkAction::make(),
             BulkAction::make('bulk_activate')
-                ->label(static::trans('actions.bulk_activate.cta'))
+                
                 ->action(
                     function (Collection $collection) {
                         $collection
@@ -257,7 +257,7 @@ class ListProfiles extends XotBaseListRecords
 
             BulkAction::make('bulk_inactivate')
 
-                ->label(static::trans('actions.bulk_inactivate.cta'))
+                
                 ->action(
                     function (Collection $collection) {
                         $collection
@@ -285,7 +285,7 @@ class ListProfiles extends XotBaseListRecords
                     true: static fn (Builder $query) => $query->where('is_active', '=', true),
                     false: static fn (Builder $query) => $query->where('is_active', '=', false),
                 )
-                ->label(static::trans('fields.is_active')),
+                ,
         ];
     }
 }
