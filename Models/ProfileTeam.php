@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Modules\Xot\Contracts\ProfileContract;
+
 /**
- * @property \Modules\Blog\Models\Profile|null $creator
- * @property \Modules\Blog\Models\Profile|null $updater
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $updater
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ProfileTeam newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ProfileTeam newQuery()
