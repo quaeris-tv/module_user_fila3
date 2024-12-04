@@ -74,7 +74,7 @@ class PasswordExpiredWidget extends Widget implements HasForms
     public function getResetPasswordFormAction(): Action
     {
         return Action::make('resetPassword')
-            ->label(static::trans('actions.reset_password.label'))
+            
             ->submit('resetPassword');
     }
 
@@ -169,7 +169,7 @@ class PasswordExpiredWidget extends Widget implements HasForms
     {
         return TextInput::make('current_password')
             // ->label(__('user::otp.form.current_password.label'))
-            ->label(static::trans('fields.current_password.label'))
+            
             ->password()
             // ->revealable(filament()->arePasswordsRevealable())
             ->revealable()
@@ -185,7 +185,7 @@ class PasswordExpiredWidget extends Widget implements HasForms
         $validation_messages = __('user::validation');
 
         return TextInput::make('password')
-            ->label(static::trans('fields.password.label'))
+            
             ->password()
             // ->revealable(filament()->arePasswordsRevealable())
             ->revealable()
@@ -199,7 +199,7 @@ class PasswordExpiredWidget extends Widget implements HasForms
     protected function getPasswordConfirmationFormComponent(): Component
     {
         return TextInput::make('passwordConfirmation')
-            ->label(static::trans('fields.password_confirmation.label'))
+            
             ->password()
             // ->revealable(filament()->arePasswordsRevealable())
             ->revealable()

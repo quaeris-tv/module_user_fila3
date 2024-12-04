@@ -26,18 +26,18 @@ class RegisterTenant extends BaseRegisterTenant
                 [
                     TextInput::make('name')
                         ->required()
-                        ->label('user::tenancy.fields.name')
+                        
                         ->translateLabel(),
                     TextInput::make('phone')
                         ->required()
                         ->tel()
                         ->telRegex('/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.\/0-9]*$/')
-                        ->label('user::tenancy.fields.phone')
+                        
                         ->translateLabel(),
                     TextInput::make('email')
                         ->required()
                         ->email()
-                        ->label('user::tenancy.fields.email')
+                        
                         ->translateLabel(),
                 ]
             );
