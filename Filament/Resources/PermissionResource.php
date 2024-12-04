@@ -74,15 +74,14 @@ class PermissionResource extends XotBaseResource
                             [
                                 Grid::make(2)->schema(
                                     [
-                                        TextInput::make('name')
-                                            ,
+                                        TextInput::make('name'),
                                         Select::make('guard_name')
-                                            
+
                                             ->options($guard_names)
                                             ->default($default_guard_name),
                                         Select::make('roles')
                                             ->multiple()
-                                            
+
                                             ->relationship('roles', 'name')
                                             ->preload($preload_roles),
                                     ]
@@ -101,14 +100,14 @@ class PermissionResource extends XotBaseResource
             ->columns(
                 [
                     TextColumn::make('id')
-                        
+
                         ->searchable(),
                     TextColumn::make('name')
-                        
+
                         ->searchable(),
                     TextColumn::make('guard_name')
                         ->toggleable(isToggledHiddenByDefault: $isToggledHiddenByDefault)
-                        
+
                         ->searchable(),
                 ]
             )
@@ -159,7 +158,7 @@ class PermissionResource extends XotBaseResource
                         ->form(
                             [
                                 Select::make('role')
-                                    
+
                                     ->options(Role::query()->pluck('name', 'id'))
                                     ->required(),
                             ]

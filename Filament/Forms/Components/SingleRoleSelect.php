@@ -18,7 +18,7 @@ class SingleRoleSelect extends Select
         $options = Role::all()->pluck('name', 'id')->toArray();
 
         $this
-            
+
             ->options(fn (): array => $options) // Ruoli dal DB
             // ->searchable() // Permette la ricerca
             // ->preload() // Precarica i risultati
@@ -34,7 +34,7 @@ class SingleRoleSelect extends Select
     public static function make(string $name): static
     {
         return parent::make($name)
-            
+
             ->options(Role::all()->pluck('name', 'id')->toArray()) // Ruoli dal DB
             ->searchable() // Permette la ricerca
             ->preload() // Precarica i risultati

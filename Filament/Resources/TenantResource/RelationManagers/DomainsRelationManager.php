@@ -24,7 +24,7 @@ class DomainsRelationManager extends RelationManager
                 [
                     Forms\Components\TextInput::make('domain')
                         ->required()
-                        
+
                         ->prefix('http(s)://')
                         ->suffix('.'.request()->getHost())
                         ->maxLength(255),
