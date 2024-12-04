@@ -27,8 +27,7 @@ abstract class BaseProfileResource extends XotBaseResource
             ->schema([
                 // Forms\Components\TextInput::make('user_id'),
                 // Forms\Components\TextInput::make('user_id')->readonly(),
-                Forms\Components\TextInput::make('user.name')
-                    ,
+                Forms\Components\TextInput::make('user.name'),
                 Forms\Components\TextInput::make('email'),
                 Forms\Components\TextInput::make('first_name'),
                 Forms\Components\TextInput::make('last_name'),
