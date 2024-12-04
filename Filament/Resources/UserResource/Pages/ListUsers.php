@@ -40,8 +40,8 @@ class ListUsers extends XotBaseListRecords
             // TextColumn::make('id')->sortable(),
             TextColumn::make('name')->sortable()->searchable(), // ->toggleable(),
             TextColumn::make('email')->sortable()->searchable(),
-            // TextColumn::make('profile.first_name')->label('first name')->sortable()->searchable()->toggleable(),
-            // TextColumn::make('profile.last_name')->label('last name')->sortable()->searchable()->toggleable(),
+            // TextColumn::make('profile.first_name')->sortable()->searchable()->toggleable(),
+            // TextColumn::make('profile.last_name')->sortable()->searchable()->toggleable(),
             TextColumn::make('teams.name')->searchable()->toggleable()->wrap()->badge(),
             // Tables\Columns\TextColumn::make('email'),
             // Tables\Columns\TextColumn::make('email_verified_at')
@@ -112,12 +112,12 @@ class ListUsers extends XotBaseListRecords
             ->form([
                 TextInput::make('new_password')
                     ->password()
-                    ->label('New Password')
+                    
                     ->required()
                     ->rule(Password::default()),
                 TextInput::make('new_password_confirmation')
                     ->password()
-                    ->label('Confirm New Password')
+                    
                     ->rule('required', fn ($get): bool => (bool) $get('new_password'))
                     ->same('new_password'),
             ])
