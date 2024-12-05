@@ -5,6 +5,7 @@ use Livewire\Volt\Component;
 middleware(['auth']);
 name('errors.password-expired');
 //Expression "new class extends \Livewire\Volt\Component…" on a separate line does not do anything.
+// @phpstan-ignore expr.resultUnused
 new class extends Component {};
 
 ?>
