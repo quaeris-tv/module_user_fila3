@@ -50,6 +50,8 @@ use Webmozart\Assert\Assert;
  * @method static \Illuminate\Database\Eloquent\Builder|Permission withoutPermission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder|Permission withoutRole($roles, $guard = null)
  *
+ * @property PermissionRole|null $pivot
+ *
  * @mixin \Eloquent
  */
 class Permission extends SpatiePermission

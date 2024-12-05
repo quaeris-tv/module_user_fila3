@@ -22,7 +22,7 @@ return new class extends XotBaseMigration {
                 $table->foreignIdFor($userClass, 'user_id');
                 $table->string('provider');
                 $table->string('provider_id');
-                $table->string('token')->nullable();
+                $table->text('token')->nullable();
                 $table->string('name')->nullable();
                 $table->string('email')->nullable();
                 $table->string('avatar')->nullable();
@@ -32,9 +32,6 @@ return new class extends XotBaseMigration {
                     'provider_id',
                 ]);
                 */
-                // $table->timestamps();
-                // $table->string('created_by')->nullable();
-                // $table->string('updated_by')->nullable();
             }
         );
 
@@ -44,6 +41,9 @@ return new class extends XotBaseMigration {
                 // if (! $this->hasColumn('email')) {
                 //    $table->string('email')->nullable();
                 // }
+                if ('varchar' == $this->getColumnType('token')) {
+                    $table->text('token')->nullable()->change();
+                }
                 $this->updateTimestamps($table);
                 // $this->updateUser($table);
             }

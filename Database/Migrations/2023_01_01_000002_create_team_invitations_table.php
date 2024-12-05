@@ -20,7 +20,6 @@ return new class extends XotBaseMigration {
                 $table->string('team_id', 36)->nullable()->index();
                 $table->string('email');
                 $table->string('role')->nullable();
-                // $table->timestamps();
                 // $table->unique(['team_id', 'email']);
             }
         );

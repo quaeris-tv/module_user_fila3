@@ -15,7 +15,6 @@ return new class extends XotBaseMigration {
                 // $table->unsignedBigInteger('client_id');
                 // $table->uuid('client_id');
                 $table->foreignIdFor(OauthClient::class, 'client_id');
-                // $table->timestamps();
             }
         );
 
