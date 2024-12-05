@@ -40,8 +40,8 @@ class ListProfiles extends XotBaseListRecords
     {
         return [
             Stack::make([
-                'type' => TextColumn::make('type')
-                    ->sortable(),
+                // 'type' => TextColumn::make('type')
+                //     ->sortable(),
 
                 'user_name' => TextColumn::make('user.name')
                     ->sortable()
@@ -85,12 +85,10 @@ class ListProfiles extends XotBaseListRecords
     public function getListTableColumns(): array
     {
         return [
-            'type' => TextColumn::make('type')
-                // )
-                ->sortable(),
+            // 'type' => TextColumn::make('type')
+            //     ->sortable(),
 
             'user_name' => TextColumn::make('user.name')
-                // )
                 ->sortable()
                 ->searchable()
                 ->default(
