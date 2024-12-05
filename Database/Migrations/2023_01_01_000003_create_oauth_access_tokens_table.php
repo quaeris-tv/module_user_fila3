@@ -20,7 +20,6 @@ return new class extends XotBaseMigration {
                 $table->string('name')->nullable();
                 $table->text('scopes')->nullable();
                 $table->boolean('revoked');
-                $table->timestamps();
                 $table->dateTime('expires_at')->nullable();
             }
         );
@@ -29,6 +28,7 @@ return new class extends XotBaseMigration {
         $this->tableUpdate(
             function (Blueprint $table): void {
                 $this->updateUser($table);
+                $this->updateTimestamps(table: $table, hasSoftDeletes: true);
             }
         );
     }

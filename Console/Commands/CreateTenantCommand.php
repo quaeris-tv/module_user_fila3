@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Model;
 
 use function Laravel\Prompts\text;
 
@@ -44,7 +45,7 @@ class CreateTenantCommand extends Command
             'name' => $name,
         ]);
 
-        $map = static function ($row) {
+        $map = static function (Model $row) {
             return $row->toArray();
         };
 

@@ -24,7 +24,6 @@ return new class extends XotBaseMigration {
                 // $table->foreignIdFor(\Modules\Xot\Datas\XotData::make()->getUserClass());
                 $table->string('name');
                 $table->boolean('personal_team')->default(false);
-                // $table->timestamps();
             }
         );
         // -- UPDATE --

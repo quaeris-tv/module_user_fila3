@@ -22,10 +22,17 @@ class RetrieveSocialiteUserAction
      */
     public function execute(string $provider, SocialiteUserContract $user): ?SocialiteUser
     {
-        return SocialiteUser::query()
+        $res = SocialiteUser::query()
             ->with(['user'])
             ->where('provider', $provider)
             ->where('provider_id', $user->getId())
             ->first();
+
+        $res?->update([
+            // @phpstan-ignore property.notFound
+            'token' => $user->token,
+        ]);
+
+        return $res;
     }
 }

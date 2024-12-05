@@ -40,7 +40,7 @@ use Modules\User\Database\Factories\PasswordResetFactory;
 class PasswordReset extends BaseModel
 {
     /**
-     * @var array<string>
+     * @var list<string>
      *
      * @psalm-var list{'email', 'token', 'created_at', 'updated_at', 'created_by', 'updated_by'}
      */

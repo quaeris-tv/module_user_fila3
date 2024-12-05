@@ -15,7 +15,9 @@ return [
     ],
     'fields' => [
         'name' => 'Nome',
-        'guard_name' => 'Guard',
+        'guard_name' => [
+            'label' => 'Guard',
+        ],
         'permissions' => 'Permessi',
         'updated_at' => 'Aggiornato il',
         'first_name' => 'Nome',
@@ -23,6 +25,11 @@ return [
         'select_all' => [
             'name' => 'Seleziona Tutti',
             'message' => '',
+        ],
+        'team' => [
+            'name' => [
+                'label' => 'team.name',
+            ],
         ],
     ],
     'actions' => [

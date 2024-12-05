@@ -21,7 +21,6 @@ return new class extends XotBaseMigration {
                 $table->string('name');
                 $table->string('scope');
                 $table->text('value');
-                $table->timestamps();
 
                 $table->unique(['name', 'scope']);
             }

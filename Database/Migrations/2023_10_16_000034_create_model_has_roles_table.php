@@ -22,7 +22,8 @@ return new class extends XotBaseMigration {
             static function (Blueprint $table): void {
                 $team_class = XotData::make()->getTeamClass();
                 $table->id();
-                $table->foreignIdFor(Role::class, 'role_id')->nullable();
+                // $table->foreignIdFor(Role::class, 'role_id')->nullable();
+                $table->integer('role_id')->index()->nullable();
                 $table->uuidMorphs('model');
                 $table->foreignIdFor($team_class, 'team_id')->nullable();
             }
@@ -36,6 +37,9 @@ return new class extends XotBaseMigration {
                 }
                 if ('uuid' === $this->getColumnType('model_id')) {
                     $table->string('model_id', 36)->index()->change();
+                }
+                if ('uuid' === $this->getColumnType('role_id')) {
+                    $table->integer('role_id')->index()->change();
                 }
                 // $this->updateUser($table);
                 $this->updateTimestamps($table);

@@ -11,6 +11,7 @@ namespace Modules\User\Datas;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Spatie\LaravelData\Data;
+use Webmozart\Assert\Assert;
 
 /**
  * Undocumented class.
@@ -95,7 +96,8 @@ class DeviceData extends Data
                 // fulfilled_at
             ]
         );
-        $this->synchronizationId = $synchronization->id;
+        Assert::string($synchronizationId = $synchronization->id);
+        $this->synchronizationId = $synchronizationId;
 
         return $this->synchronizationId;
     }
