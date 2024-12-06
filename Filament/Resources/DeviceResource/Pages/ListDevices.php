@@ -14,7 +14,6 @@ use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Table;
-use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
 use Modules\User\Filament\Resources\DeviceResource;
 use Modules\Xot\Filament\Pages\XotBaseListRecords;
 
@@ -104,13 +103,6 @@ class ListDevices extends XotBaseListRecords
                 column: 'created_at',
                 direction: 'DESC',
             );
-    }
-
-    protected function getTableHeaderActions(): array
-    {
-        return [
-            TableLayoutToggleTableAction::make(),
-        ];
     }
 
     protected function getHeaderActions(): array

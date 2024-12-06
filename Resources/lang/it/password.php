@@ -43,6 +43,12 @@ return [
         'compromisedThreshold' => [
             'help' => 'Il numero di volte che una password può apparire in data leaks prima di essere considerata compromessa',
         ],
+        'new_password' => [
+            'label' => 'new_password',
+            'fields' => [
+                'label' => 'new_password',
+            ],
+        ],
     ],
     'actions' => [
         'import' => [

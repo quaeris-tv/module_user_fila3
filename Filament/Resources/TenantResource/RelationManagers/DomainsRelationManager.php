@@ -9,11 +9,11 @@ namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
-class DomainsRelationManager extends RelationManager
+class DomainsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'domains';
 
