@@ -46,15 +46,11 @@ return [
         ],
         'email' => [
             'fields' => 'email',
-            'label' => [
-                'fields' => 'email',
-            ],
+            'label' => 'email',
         ],
         'is_active' => [
             'fields' => 'is_active',
-            'label' => [
-                'fields' => 'is_active',
-            ],
+            'label' => 'is_active',
         ],
     ],
     'personal_info' => [
