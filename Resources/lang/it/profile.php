@@ -29,4 +29,29 @@ return [
         ],
         'notify' => 'Profilo aggiornato correttamente!',
     ],
+    'fields' => [
+        'type' => [
+            'label' => 'tipo',
+        ],
+        'user' => [
+            'name' => [
+                'label' => 'Nome Utente',
+            ],
+        ],
+        'first_name' => [
+            'label' => 'Nome',
+        ],
+        'last_name' => [
+            'label' => 'Cognome',
+        ],
+        'email' => [
+            'label' => 'Email',
+        ],
+        'is_active' => [
+            'label' => 'Attivo ?',
+        ],
+        'photo' => [
+            'label' => 'foto',
+        ],
+    ],
 ];
