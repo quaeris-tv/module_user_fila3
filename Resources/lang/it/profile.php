@@ -8,50 +8,18 @@ return [
     'my_profile' => 'Il mio profilo',
     'subheading' => 'Gestisci il tuo profilo.',
     'fields' => [
-        'type' => [
-            'label' => 'Tipo',
-            'fields' => [
-                'label' => 'Tipo',
-            ],
-        ],
+        'type' => ['label' => 'Tipo'],
         'user' => [
-            'name' => [
-                'label' => 'Nome Utente',
-                'fields' => [
-                    'label' => 'Nome Utente',
-                ],
-            ],
+            'name' => ['label' => 'Nome Utente'],
         ],
-        'photo' => [
-            'label' => 'Foto',
-            'fields' => [
-                'label' => 'Foto',
-            ],
-        ],
-        'id' => [
-            'label' => 'id',
-        ],
-        'ente' => [
-            'label' => 'ente',
-        ],
-        'matr' => [
-            'label' => 'matr',
-        ],
+        'photo' => ['label' => 'Foto'],
+        'id' => ['label' => 'id'],
+        'ente' => ['label' => 'ente'],
+        'matr' => ['label' => 'matr'],
         'first_name' => ['label' => 'Nome'],
-        'last_name' => [
-            'label' => 'Cognome',
-            'fields' => [
-                'label' => 'Cognome',
-            ],
-        ],
-        'email' => [
-            'fields' => 'email',
-            'label' => 'email',
-        ],
-        'is_active' => [
-            'fields' => 'is_active',
-            'label' => 'is_active',
-        ],
+        'last_name' => ['label' => 'Cognome'],
+        'email' => ['label' => 'email'],
+        'is_active' => ['label' => 'Attivo ?'],
     ],
     'personal_info' => [
         'heading' => 'Informazioni personali',
