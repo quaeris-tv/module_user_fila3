@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 use Filament\Forms\Form;
-use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Actions;
 use Filament\Tables\Actions\AttachAction;
 use Filament\Tables\Actions\CreateAction;
@@ -14,9 +13,10 @@ use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
 use Modules\User\Filament\Resources\TeamResource;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 use Modules\Xot\Filament\Traits\HasXotTable;
 
-class TeamsRelationManager extends RelationManager
+class TeamsRelationManager extends XotBaseRelationManager
 {
     use HasXotTable;
     protected static string $relationship = 'teams';
@@ -44,6 +44,7 @@ class TeamsRelationManager extends RelationManager
         return $table->getFilters();
     }
 
+    /*
     public function getHeaderActions(Table $table): array
     {
         $actions = [
@@ -74,7 +75,8 @@ class TeamsRelationManager extends RelationManager
 
         return array_merge($actions, $table->getActions());
     }
-
+        */
+    /*
     public function table(Table $table): Table
     {
         $table = TeamResource::table($table);
@@ -94,4 +96,5 @@ class TeamsRelationManager extends RelationManager
             );
         // ->defaultSort('users.created_at', 'desc');
     }
+        */
 }

@@ -6,19 +6,19 @@ namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Modules\User\Models\SocialiteUser;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 use Modules\Xot\Filament\Traits\HasXotTable;
 
 /**
  * Class Modules\User\Filament\Resources\UserResource\RelationManagers\SocialiteUsersRelationManager.
  */
-class SocialiteUsersRelationManager extends RelationManager
+class SocialiteUsersRelationManager extends XotBaseRelationManager
 {
     use HasXotTable;
 
@@ -76,7 +76,7 @@ class SocialiteUsersRelationManager extends RelationManager
      *
      * @return array<TextColumn|ImageColumn>
      */
-    protected function getListTableColumns(): array
+    public function getListTableColumns(): array
     {
         return [
             TextColumn::make('provider')

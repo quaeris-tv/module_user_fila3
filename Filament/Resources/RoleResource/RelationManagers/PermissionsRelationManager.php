@@ -6,11 +6,11 @@ namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
-class PermissionsRelationManager extends RelationManager
+class PermissionsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'permissions';
 

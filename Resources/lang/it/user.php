@@ -13,16 +13,45 @@ return [
     'fields' => [
         'first_name' => 'Nome',
         'last_name' => 'Cognome',
-        'name' => 'Nome',
-        'email' => 'Email',
+        'name' => [
+            'label' => 'Nome',
+        ],
+        'email' => [
+            'label' => 'Email',
+        ],
         'created_at' => 'Data Creazione',
         'updated_at' => 'Ultima Modifica',
-        'role' => 'Ruolo',
+        'role' => [
+            'name' => [
+                'label' => 'role.name',
+            ],
+        ],
         'active' => 'Attivo',
         'id' => 'ID',
         'password' => 'Password',
         'password_confirmation' => 'Conferma Password',
-        'email_verified_at' => 'Email Verificata Il',
+        'email_verified_at' => [
+            'label' => 'Email Verificata Il',
+        ],
+        'teams' => [
+            'name' => [
+                'label' => 'teams.name',
+            ],
+        ],
+        'roles' => [
+            'name' => [
+                'label' => 'roles.name',
+            ],
+        ],
+        'password_expires_at' => [
+            'label' => 'password_expires_at',
+        ],
+        'verified' => [
+            'label' => 'verified',
+        ],
+        'unverified' => [
+            'label' => 'unverified',
+        ],
     ],
     'filters' => [
         'active_users' => 'Utenti Attivi',
