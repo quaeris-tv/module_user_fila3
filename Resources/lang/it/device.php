@@ -1,5 +1,4 @@
-<?php 
-return array (
+<?php return array (
   'navigation' => 
   array (
     'name' => 'Dispositivo',
@@ -80,5 +79,9 @@ return array (
         'parent_name' => 'Nome area livello superiore',
       ),
     ),
+    'create' => 
+    array (
+      'label' => 'create',
+    ),
   ),
-);
+);
