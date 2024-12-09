@@ -54,6 +54,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property int|null                                                                    $tenants_count
  * @property \Illuminate\Database\Eloquent\Collection<int, OauthAccessToken>             $tokens
  * @property int|null                                                                    $tokens_count
+ *
  * @method static \Modules\User\Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User   newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User   newQuery()

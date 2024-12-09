@@ -36,6 +36,7 @@ use Webmozart\Assert\Assert;
  * @property Team|null                                   $team
  * @property EloquentCollection<int, Model&UserContract> $users
  * @property int|null                                    $users_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Role newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Role newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Role permission($permissions)
