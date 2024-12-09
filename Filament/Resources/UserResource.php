@@ -66,7 +66,6 @@ class UserResource extends XotBaseResource
                         ->unique(ignoreRecord: true),
                     /*
                     'current_team_id' => Select::make('current_team_id')
-
                         ->relationship('teams', 'name'),
                     */
                     /*
@@ -108,13 +107,11 @@ class UserResource extends XotBaseResource
                         'password_group' => Group::make([
                     'password' => TextInput::make('password')
                         ->password()
-
                         ->nullable()
                         ->rule(Password::default())
                         ->dehydrated(false),
                     'password_confirmation' => TextInput::make('password_confirmation')
                         ->password()
-
                         ->rule('required', fn ($get): bool => (bool) $get('password'))
                         ->same('password')
                         ->dehydrated(false),

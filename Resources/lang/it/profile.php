@@ -8,6 +8,7 @@ return [
     'my_profile' => 'Il mio profilo',
     'subheading' => 'Gestisci il tuo profilo.',
     'fields' => [
+<<<<<<< HEAD
         'type' => [
             'label' => 'Tipo',
             'fields' => [
@@ -53,6 +54,15 @@ return [
             'label' => 'is_active',
         ],
     ],
+=======
+        'type' => ['label' => 'Tipo'],
+        'user' => [
+            'name' => ['label' => 'Nome Utente'],
+        ],
+        'photo' => ['label' => 'Foto'],
+    ],
+
+>>>>>>> origin/dev
     'personal_info' => [
         'heading' => 'Informazioni personali',
         'subheading' => 'Gestisci le tue informazioni personali.',
@@ -60,5 +70,30 @@ return [
             'label' => 'Aggiorna',
         ],
         'notify' => 'Profilo aggiornato correttamente!',
+    ],
+    'fields' => [
+        'type' => [
+            'label' => 'tipo',
+        ],
+        'user' => [
+            'name' => [
+                'label' => 'Nome Utente',
+            ],
+        ],
+        'first_name' => [
+            'label' => 'Nome',
+        ],
+        'last_name' => [
+            'label' => 'Cognome',
+        ],
+        'email' => [
+            'label' => 'Email',
+        ],
+        'is_active' => [
+            'label' => 'Attivo ?',
+        ],
+        'photo' => [
+            'label' => 'foto',
+        ],
     ],
 ];

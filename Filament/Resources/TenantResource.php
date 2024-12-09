@@ -59,12 +59,10 @@ class TenantResource extends XotBaseResource
                                     }
                                 )->columnSpanFull(),
                             Forms\Components\TextInput::make('id')
-
                                 ->required()
                                 ->disabled(static fn ($context) => 'create' !== $context)
                                 ->unique(table: 'tenants', ignoreRecord: true),
                             Forms\Components\TextInput::make('domain')
-
                                 ->required()
                                 ->visible(static fn ($context) => 'create' === $context)
                                 ->unique(table: 'domains', ignoreRecord: true)
