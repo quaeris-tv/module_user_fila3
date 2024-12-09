@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
+use Filament\Actions;
 use Filament\Tables;
 use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Columns\IconColumn;
@@ -39,24 +40,10 @@ class ListProfiles extends XotBaseListRecords
     {
         return [
             Stack::make([
-<<<<<<< HEAD
-<<<<<<< HEAD
                 // 'type' => TextColumn::make('type')
                 //     ->sortable(),
 
                 'user_name' => TextColumn::make('user.name')
-=======
-                'type' => TextColumn::make('type')
-
-                    ->sortable(),
-=======
-                // 'type' => TextColumn::make('type')
-                //    ->sortable(),
->>>>>>> origin/v0.2.10
-
-                'user_name' => TextColumn::make('user.name')
-
->>>>>>> origin/dev
                     ->sortable()
                     ->searchable()
                     ->default(
@@ -79,7 +66,6 @@ class ListProfiles extends XotBaseListRecords
                         }
                     ),
                 'first_name' => TextColumn::make('first_name')
-<<<<<<< HEAD
                     ->sortable()
                     ->searchable(),
                 'last_name' => TextColumn::make('last_name')
@@ -89,21 +75,6 @@ class ListProfiles extends XotBaseListRecords
                     ->sortable()
                     ->searchable(),
                 'is_active' => IconColumn::make('is_active')
-=======
-
-                    ->sortable()
-                    ->searchable(),
-                'last_name' => TextColumn::make('last_name')
-
-                    ->sortable()
-                    ->searchable(),
-                'email' => TextColumn::make('email')
-
-                    ->sortable()
-                    ->searchable(),
-                'is_active' => IconColumn::make('is_active')
-
->>>>>>> origin/dev
                     ->boolean(),
                 'photo' => SpatieMediaLibraryImageColumn::make('photo')
                     ->collection('profile'),
@@ -114,26 +85,10 @@ class ListProfiles extends XotBaseListRecords
     public function getListTableColumns(): array
     {
         return [
-<<<<<<< HEAD
-<<<<<<< HEAD
             // 'type' => TextColumn::make('type')
             //     ->sortable(),
 
             'user_name' => TextColumn::make('user.name')
-=======
-            'type' => TextColumn::make('type')
-
-                ->sortable(),
-
-            'user_name' => TextColumn::make('user.name')
-
->>>>>>> origin/dev
-=======
-            // 'type' => TextColumn::make('type')
-            //    ->sortable(),
-
-            'user_name' => TextColumn::make('user.name')
->>>>>>> origin/v0.2.10
                 ->sortable()
                 ->searchable()
                 ->default(
@@ -165,7 +120,6 @@ class ListProfiles extends XotBaseListRecords
                     }
                 ),
             'first_name' => TextColumn::make('first_name')
-<<<<<<< HEAD
                 ->sortable()
                 ->searchable(),
             'last_name' => TextColumn::make('last_name')
@@ -175,28 +129,12 @@ class ListProfiles extends XotBaseListRecords
                 ->sortable()
                 ->searchable(),
             'is_active' => IconColumn::make('is_active')
-=======
-
-                ->sortable()
-                ->searchable(),
-            'last_name' => TextColumn::make('last_name')
-
-                ->sortable()
-                ->searchable(),
-            'email' => TextColumn::make('email')
-
-                ->sortable()
-                ->searchable(),
-            'is_active' => IconColumn::make('is_active')
-
->>>>>>> origin/dev
                 ->boolean(),
             'photo' => SpatieMediaLibraryImageColumn::make('photo')
                 ->collection('profile'),
         ];
     }
 
-<<<<<<< HEAD
     protected function getHeaderActions(): array
     {
         return [
@@ -204,21 +142,16 @@ class ListProfiles extends XotBaseListRecords
         ];
     }
 
-=======
->>>>>>> origin/v0.2.10
     protected function getTableActions(): array
     {
         return [
             ChangeProfilePasswordAction::make(),
             ...parent::getTableActions(),
-<<<<<<< HEAD
             /*
             Tables\Actions\EditAction::make()->label('')->tooltip(__('ui::txt.edit')),
             Tables\Actions\ViewAction::make()->label('')->tooltip(__('ui::txt.view')),
             Tables\Actions\DeleteAction::make()->label('')->tooltip(__('ui::txt.delete')),
             */
-=======
->>>>>>> origin/v0.2.10
         ];
     }
 
@@ -244,10 +177,6 @@ class ListProfiles extends XotBaseListRecords
             // ]),
             Tables\Actions\DeleteBulkAction::make(),
             BulkAction::make('bulk_activate')
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/dev
                 ->action(
                     function (Collection $collection) {
                         $collection
@@ -263,10 +192,6 @@ class ListProfiles extends XotBaseListRecords
                 ),
 
             BulkAction::make('bulk_inactivate')
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/dev
                 ->action(
                     function (Collection $collection) {
                         $collection
