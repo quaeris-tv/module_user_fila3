@@ -1,5 +1,4 @@
-<?php 
-return array (
+<?php return array (
   'account' => 'Account',
   'profile' => 'Profilo',
   'my_profile' => 'Il mio profilo',
@@ -68,6 +67,10 @@ return array (
     'is_active' => 
     array (
       'fields' => 'is_active',
+      'label' => 
+      array (
+        'fields' => 'is_active',
+      ),
     ),
   ),
   'personal_info' => 
@@ -80,4 +83,4 @@ return array (
     ),
     'notify' => 'Profilo aggiornato correttamente!',
   ),
-);
+);
