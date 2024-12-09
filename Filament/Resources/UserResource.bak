@@ -16,7 +16,7 @@ use Modules\User\Models\Role;
 
 
 
-class UserResource extends Resource {
+class UserResource extends \Modules\Xot\Filament\Resources\XotBaseResource {
     ////
 
     protected static ?string $model = \Modules\Xot\Datas\XotData::make()->getUserClass();
@@ -98,12 +98,12 @@ class UserResource extends Resource {
                     ->form([
                         Forms\Components\TextInput::make('new_password')
                             ->password()
-                            
+
                             ->required()
                             ->rule(Password::default()),
                         Forms\Components\TextInput::make('new_password_confirmation')
                             ->password()
-                            
+
                             ->rule('required', fn ($get) => (bool) $get('new_password'))
                             ->same('new_password'),
                     ])
