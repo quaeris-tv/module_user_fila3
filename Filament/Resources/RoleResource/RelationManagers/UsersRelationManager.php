@@ -5,15 +5,16 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Tables;
-use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Form;
 use Filament\Tables\Filters\Filter;
-use Illuminate\Database\Eloquent\Builder;
 use Modules\UI\Enums\TableLayoutEnum;
-use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
-use Modules\Xot\Filament\Traits\HasXotTable;
+use Filament\Tables\Columns\TextColumn;
+use Illuminate\Database\Eloquent\Builder;
 use Modules\Xot\Filament\Traits\TransTrait;
+use Modules\Xot\Filament\Traits\HasXotTable;
+use Filament\Resources\RelationManagers\RelationManager;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
 /**
  * UsersRelationManager.
