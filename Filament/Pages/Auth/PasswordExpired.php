@@ -63,10 +63,7 @@ class PasswordExpired extends Page implements HasForms
     public function getResetPasswordFormAction(): Action
     {
         return Action::make('resetPassword')
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/dev
             ->submit('resetPassword');
     }
 
@@ -146,11 +143,8 @@ class PasswordExpired extends Page implements HasForms
     protected function getCurrentPasswordFormComponent(): Component
     {
         return TextInput::make('current_password')
-<<<<<<< HEAD
-=======
             // ->label(__('user::otp.form.current_password.label'))
 
->>>>>>> origin/dev
             ->password()
             // ->revealable(filament()->arePasswordsRevealable())
             ->revealable()
@@ -163,10 +157,7 @@ class PasswordExpired extends Page implements HasForms
     protected function getPasswordFormComponent(): Component
     {
         return TextInput::make('password')
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/dev
             ->password()
             // ->revealable(filament()->arePasswordsRevealable())
             ->revealable()
@@ -179,10 +170,7 @@ class PasswordExpired extends Page implements HasForms
     protected function getPasswordConfirmationFormComponent(): Component
     {
         return TextInput::make('passwordConfirmation')
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/dev
             ->password()
             // ->revealable(filament()->arePasswordsRevealable())
             ->revealable()

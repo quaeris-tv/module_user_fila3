@@ -1,17 +1,5 @@
-<<<<<<< HEAD
-<?php
-
-declare(strict_types=1);
-
-return [
-    'fields' => [
-        'new_password_confirmation' => [
-            'label' => 'new_password_confirmation',
-        ],
-    ],
-];
-=======
-<?php return array (
+<?php 
+return array (
   'fields' => 
   array (
     'new_password_confirmation' => 
@@ -20,4 +8,3 @@ return [
     ),
   ),
 );
->>>>>>> origin/v0.2.10
