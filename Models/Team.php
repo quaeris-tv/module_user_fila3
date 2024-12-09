@@ -27,6 +27,7 @@ namespace Modules\User\Models;
  * @property \Modules\Xot\Contracts\ProfileContract|null                   $updater
  * @property \Illuminate\Database\Eloquent\Collection<int, User>           $users
  * @property int|null                                                      $users_count
+ *
  * @method static \Modules\User\Database\Factories\TeamFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Team   newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Team   newQuery()
