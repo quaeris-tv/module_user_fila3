@@ -1,5 +1,4 @@
-<?php 
-return array (
+<?php return array (
   'navigation' => 
   array (
     'name' => 'Utente',
@@ -83,7 +82,10 @@ return array (
   'actions' => 
   array (
     'toggle_layout' => 'Cambia Layout',
-    'create' => 'Crea Utente',
+    'create' => 
+    array (
+      'label' => 'Crea Utente',
+    ),
     'delete' => 'Elimina Utente',
     'associate' => 'Associa Utente',
     'bulk_delete' => 'Elimina Selezionati',
@@ -182,4 +184,4 @@ return array (
       ),
     ),
   ),
-);
+);
