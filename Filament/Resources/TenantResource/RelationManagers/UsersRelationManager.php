@@ -9,8 +9,6 @@ use Filament\Forms\Form;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 use Modules\Xot\Filament\Traits\HasXotTable;
-use Filament\Resources\RelationManagers\RelationManager;
-use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
 class UsersRelationManager extends XotBaseRelationManager
 {
