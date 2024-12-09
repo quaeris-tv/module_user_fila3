@@ -7,62 +7,6 @@ return [
     'profile' => 'Profilo',
     'my_profile' => 'Il mio profilo',
     'subheading' => 'Gestisci il tuo profilo.',
-    'fields' => [
-<<<<<<< HEAD
-        'type' => [
-            'label' => 'Tipo',
-            'fields' => [
-                'label' => 'Tipo',
-            ],
-        ],
-        'user' => [
-            'name' => [
-                'label' => 'Nome Utente',
-                'fields' => [
-                    'label' => 'Nome Utente',
-                ],
-            ],
-        ],
-        'photo' => [
-            'label' => 'Foto',
-            'fields' => [
-                'label' => 'Foto',
-            ],
-        ],
-        'id' => [
-            'label' => 'id',
-        ],
-        'ente' => [
-            'label' => 'ente',
-        ],
-        'matr' => [
-            'label' => 'matr',
-        ],
-        'first_name' => ['label' => 'Nome'],
-        'last_name' => [
-            'label' => 'Cognome',
-            'fields' => [
-                'label' => 'Cognome',
-            ],
-        ],
-        'email' => [
-            'fields' => 'email',
-            'label' => 'email',
-        ],
-        'is_active' => [
-            'fields' => 'is_active',
-            'label' => 'is_active',
-        ],
-    ],
-=======
-        'type' => ['label' => 'Tipo'],
-        'user' => [
-            'name' => ['label' => 'Nome Utente'],
-        ],
-        'photo' => ['label' => 'Foto'],
-    ],
-
->>>>>>> origin/dev
     'personal_info' => [
         'heading' => 'Informazioni personali',
         'subheading' => 'Gestisci le tue informazioni personali.',
