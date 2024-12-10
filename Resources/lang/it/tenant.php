@@ -16,6 +16,10 @@
     array (
       'label' => 'secondary_color',
     ),
+    'slug' => 
+    array (
+      'label' => 'slug',
+    ),
   ),
   'actions' => 
   array (
