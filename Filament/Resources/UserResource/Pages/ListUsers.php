@@ -111,12 +111,10 @@ class ListUsers extends XotBaseListRecords
             ->form([
                 TextInput::make('new_password')
                     ->password()
-
                     ->required()
                     ->rule(Password::default()),
                 TextInput::make('new_password_confirmation')
                     ->password()
-
                     ->rule('required', fn ($get): bool => (bool) $get('new_password'))
                     ->same('new_password'),
             ])
