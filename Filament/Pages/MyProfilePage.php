@@ -250,7 +250,7 @@ class MyProfilePage extends Page implements HasForms
     {
         return [
             Action::make('updateProfileAction')
-                ->label(__('filament-panels::pages/auth/edit-profile.form.actions.save.label'))
+
                 ->submit('editProfileForm'),
         ];
     }
@@ -259,7 +259,7 @@ class MyProfilePage extends Page implements HasForms
     {
         return [
             Action::make('updatePasswordAction')
-                ->label(__('filament-panels::pages/auth/edit-profile.form.actions.save.label'))
+
                 ->submit('editPasswordForm'),
         ];
     }

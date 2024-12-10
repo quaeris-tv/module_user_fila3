@@ -104,7 +104,7 @@ class Password extends Page implements HasForms
     {
         return [
             Action::make('updateDataAction')
-                ->label(__('filament-panels::pages/auth/edit-profile.form.actions.save.label'))
+
                 ->submit('editDataForm'),
         ];
     }

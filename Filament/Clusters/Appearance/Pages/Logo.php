@@ -86,7 +86,7 @@ class Logo extends Page implements HasForms
     {
         return [
             Action::make('updateLogoAction')
-                ->label(__('filament-panels::pages/auth/edit-profile.form.actions.save.label'))
+                
                 ->submit('editLogoForm'),
         ];
     }

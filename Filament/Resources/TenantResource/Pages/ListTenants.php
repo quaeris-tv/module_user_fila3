@@ -7,9 +7,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
+use Illuminate\Support\Str;
 use Filament\Tables\Columns\TextColumn;
-use Modules\User\Filament\Resources\TenantResource;
 use Modules\Xot\Filament\Pages\XotBaseListRecords;
+use Modules\User\Filament\Resources\TenantResource;
 
 class ListTenants extends XotBaseListRecords
 {
@@ -22,21 +23,19 @@ class ListTenants extends XotBaseListRecords
     {
         return [
             TextColumn::make('id')
-                ->label(__('user::fields.id.label'))
                 ->searchable()
                 ->sortable(),
 
             TextColumn::make('name')
-                ->label(__('user::fields.name.label'))
                 ->searchable(),
 
             TextColumn::make('slug')
-                ->label(__('user::fields.slug.label'))
                 ->default(function ($record) {
-                    $record->slug = $record->generateSlug();
+                    $record->generateSlug();
+                    $slug=Str::slug($record->name);
+                    $record->slug = $slug;
                     $record->save();
-
-                    return $record->slug;
+                    return $slug;
                 })
                 ->sortable(),
         ];

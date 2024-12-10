@@ -97,7 +97,7 @@ class Alignment extends Page implements HasForms
     {
         return [
             Action::make('updateAction')
-                ->label(__('filament-panels::pages/auth/edit-profile.form.actions.save.label'))
+
                 ->submit('editForm'),
         ];
     }

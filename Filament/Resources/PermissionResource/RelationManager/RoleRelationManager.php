@@ -25,9 +25,9 @@ class RoleRelationManager extends XotBaseRelationManager
             ->schema(
                 [
                     TextInput::make('name')
-                        ->label(__('filament-spatie-roles-permissions::filament-spatie.field.name')),
+                        ,
                     TextInput::make('guard_name')
-                        ->label(__('filament-spatie-roles-permissions::filament-spatie.field.guard_name')),
+                        ,
                 ]
             );
     }
@@ -39,10 +39,10 @@ class RoleRelationManager extends XotBaseRelationManager
                 [
                     TextColumn::make('name')
                         ->searchable()
-                        ->label(__('filament-spatie-roles-permissions::filament-spatie.field.name')),
+                        ,
                     TextColumn::make('guard_name')
                         ->searchable()
-                        ->label(__('filament-spatie-roles-permissions::filament-spatie.field.guard_name')),
+                        ,
                 ]
             )
             ->filters(

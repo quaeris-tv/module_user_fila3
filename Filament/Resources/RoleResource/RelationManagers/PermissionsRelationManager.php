@@ -23,7 +23,7 @@ class PermissionsRelationManager extends XotBaseRelationManager
             Forms\Components\TextInput::make('name')
                 ->required()
                 ->maxLength(255)
-                ->label(__('Nome Permesso'))
+
                 ->placeholder(__('Inserisci il nome del permesso')),
         ]);
     }
@@ -37,27 +37,27 @@ class PermissionsRelationManager extends XotBaseRelationManager
             ->recordTitleAttribute('name')
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->label(__('Nome'))
+
                     ->sortable()
                     ->searchable(),
             ])
             ->filters([]) // Aggiungi eventuali filtri qui se necessario
             ->headerActions([
                 Tables\Actions\CreateAction::make()
-                    ->label(__('Crea Permesso'))
+
                     ->tooltip(__('Crea un nuovo permesso')),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
-                    ->label(__('Modifica'))
+
                     ->tooltip(__('Modifica permesso')),
                 Tables\Actions\DeleteAction::make()
-                    ->label(__('Elimina'))
+
                     ->tooltip(__('Elimina permesso')),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make()
-                    ->label(__('Elimina selezionati'))
+
                     ->tooltip(__('Elimina i permessi selezionati')),
             ]);
     }

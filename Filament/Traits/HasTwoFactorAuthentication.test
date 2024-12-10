@@ -44,7 +44,7 @@ trait HasTwoFactorAuthentication
     {
         return [
             TextInput::make('two_factor_code')
-                ->label(__('filament-jet::account/two-factor.fields.code'))
+
                 ->disableLabel()
                 ->placeholder(__('filament-jet::account/two-factor.fields.code'))
                 ->rules('nullable|string'),
