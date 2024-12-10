@@ -83,10 +83,10 @@ class ListUsers extends XotBaseListRecords
             ->attribute('role_id'),
         */
             Filter::make('verified')
-                ->label(trans('verified'))
+
                 ->query(static fn (Builder $query): Builder => $query->whereNotNull('email_verified_at')),
             Filter::make('unverified')
-                ->label(trans('unverified'))
+
                 ->query(static fn (Builder $query): Builder => $query->whereNull('email_verified_at')),
         ];
     }
