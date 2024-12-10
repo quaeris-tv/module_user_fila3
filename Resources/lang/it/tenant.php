@@ -1,32 +1,40 @@
-<?php
-
-declare(strict_types=1);
-
-return [
-    'navigation' => [
-        'name' => 'Tenant',
-        'plural' => 'Tenant',
-        'group' => [
-            'name' => 'Admin',
-        ],
-    ],
-    'fields' => [
-        'first_name' => 'Nome',
-        'last_name' => 'Cognome',
-    ],
-    'actions' => [
-        'import' => [
-            'fields' => [
-                'import_file' => 'Seleziona un file XLS o CSV da caricare',
-            ],
-        ],
-        'export' => [
-            'filename_prefix' => 'Aree al',
-            'columns' => [
-                'name' => 'Nome area',
-                'parent_name' => 'Nome area livello superiore',
-            ],
-        ],
-        'change_password' => 'Cambio password',
-    ],
-];
+<?php return array (
+  'navigation' => 
+  array (
+    'name' => 'Tenant',
+    'plural' => 'Tenant',
+    'group' => 
+    array (
+      'name' => 'Admin',
+    ),
+  ),
+  'fields' => 
+  array (
+    'first_name' => 'Nome',
+    'last_name' => 'Cognome',
+    'secondary_color' => 
+    array (
+      'label' => 'secondary_color',
+    ),
+  ),
+  'actions' => 
+  array (
+    'import' => 
+    array (
+      'fields' => 
+      array (
+        'import_file' => 'Seleziona un file XLS o CSV da caricare',
+      ),
+    ),
+    'export' => 
+    array (
+      'filename_prefix' => 'Aree al',
+      'columns' => 
+      array (
+        'name' => 'Nome area',
+        'parent_name' => 'Nome area livello superiore',
+      ),
+    ),
+    'change_password' => 'Cambio password',
+  ),
+);
