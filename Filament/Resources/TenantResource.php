@@ -44,6 +44,9 @@ class TenantResource extends XotBaseResource
 
     public static function form(Form $form): Form
     {
+        $resource = XotData::make()->getTenantResourceClass();
+        return app($resource)->form($form);
+        /*
         return $form
             ->schema(
                 [
@@ -77,6 +80,7 @@ class TenantResource extends XotBaseResource
                     )->columns(),
                 ]
             );
+        */
     }
 
     public static function getRelations(): array

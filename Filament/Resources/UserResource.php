@@ -77,7 +77,7 @@ class UserResource extends XotBaseResource
                 */
                     /*------------
                     'password' => TextInput::make('password')
-                        // ->label(trans('filament-user::user.resource.password'))
+                        //
                         ->password()
                         ->maxLength(255)
                         ->dehydrateStateUsing(
