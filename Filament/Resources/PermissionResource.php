@@ -171,10 +171,7 @@ class PermissionResource extends XotBaseResource
         ];
     }
 
-    public static function getNavigationBadge(): ?string
-    {
-        return number_format(static::getModel()::count(), 0);
-    }
+
 
     public static function getPages(): array
     {
