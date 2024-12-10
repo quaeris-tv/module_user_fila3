@@ -49,56 +49,7 @@ class TeamResource extends XotBaseResource
             );
     }
 
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->columns(
-                [
-                    'id' => TextColumn::make('id'),
-                    'name' => TextColumn::make('name'),
-                    // Tables\Columns\TextColumn::make('role'),
-                ]
-            )
-            ->filters(
-                [
-                ]
-            )
-            ->headerActions(
-                [
-                    // 'create' => Tables\Actions\CreateAction::make(),
-                    // Tables\Actions\AssociateAction::make(),
-                    // Tables\Actions\AttachAction::make()
 
-                    // ->form(fn (Tables\Actions\AttachAction $action): array => [
-                    //     $action->getRecordSelect(),
-                    //     // Forms\Components\TextInput::make('role')->required(),
-                    //     Forms\Components\Select::make('role_id')
-                    //         ->options(Role::all()->pluck('name', 'id'))
-                    // ])
-                ]
-            )
-            ->actions(
-                [
-                    ViewAction::make()
-                        ->label('')
-                        ->tooltip(__('filament-actions::view.single.label')),
-                    EditAction::make()
-                        ->label('')
-                        ->tooltip(__('filament-actions::edit.single.label')),
-                    // Tables\Actions\EditAction::make(),
-                    // Tables\Actions\DissociateAction::make(),
-                    // DetachAction::make(),
-                    // Tables\Actions\DeleteAction::make(),
-                ]
-            )
-            ->bulkActions(
-                [
-                    // Tables\Actions\DissociateBulkAction::make(),
-                    // Tables\Actions\DetachBulkAction::make(),
-                    // Tables\Actions\DeleteBulkAction::make(),
-                ]
-            );
-    }
 
     public static function getRelations(): array
     {
@@ -117,8 +68,5 @@ class TeamResource extends XotBaseResource
         ];
     }
 
-    public static function getNavigationBadge(): ?string
-    {
-        return (string) static::getModel()::count();
-    }
+
 }

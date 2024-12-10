@@ -24,14 +24,7 @@ class TenantResource extends XotBaseResource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
-    public static function getNavigationBadge(): ?string
-    {
-        try {
-            return (string) static::getModel()::count();
-        } catch (\Exception $e) {
-            return '---';
-        }
-    }
+
 
     public static function getModel(): string
     {
