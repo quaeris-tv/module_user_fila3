@@ -45,7 +45,7 @@ class ListUsers extends XotBaseListRecords
             // Tables\Columns\TextColumn::make('email'),
             // Tables\Columns\TextColumn::make('email_verified_at')
             //    ->dateTime(config('app.date_format')),
-            TextColumn::make('role.name')->toggleable(),
+            // TextColumn::make('role.name')->toggleable(),
             TextColumn::make('roles.name')->toggleable()->wrap()->badge(),
             // Tables\Columns\TextColumn::make('created_at')->dateTime(config('app.date_format')),
             // Tables\Columns\TextColumn::make('updated_at')
@@ -63,12 +63,6 @@ class ListUsers extends XotBaseListRecords
         ];
     }
 
-    public function getGridTableColumns(): array
-    {
-        return [
-            Stack::make($this->getListTableColumns()),
-        ];
-    }
 
     public function getTableFilters(): array
     {
@@ -94,12 +88,12 @@ class ListUsers extends XotBaseListRecords
     public function getTableActions(): array
     {
         return [
-            EditAction::make()
-                ->label('')
-                ->tooltip(__('filament-actions::edit.single.label')),
+
             ChangePasswordAction::make()
                 ->label('')
-                ->tooltip('Cambio Password'),
+                ->tooltip('Cambio Password')
+                ->iconButton(),
+            ...parent::getTableActions(),
             /*
         Action::make('changePassword')
             ->action(function (UserContract $user, array $data): void {
@@ -122,50 +116,21 @@ class ListUsers extends XotBaseListRecords
         // ->visible(fn (User $record): bool => $record->role_id === Role::ROLE_ADMINISTRATOR)
         ,
         */
+
             Action::make('deactivate')
-                ->label('')
                 ->tooltip(__('filament-actions::delete.single.label'))
                 ->color('danger')
                 ->icon('heroicon-o-trash')
                 ->action(static fn (UserContract $user) => $user->delete())
+                //->iconButton()
             // ->visible(fn (User $record): bool => $record->role_id === Role::ROLE_ADMINISTRATOR)
             ,
         ];
     }
 
-    public function getTableBulkActions(): array
-    {
-        return [
-            DeleteBulkAction::make(),
-        ];
-    }
 
-    public function table(Table $table): Table
-    {
-        return $table
-            // ->columns($this->getTableColumns())
-            ->columns($this->layoutView->getTableColumns())
-            ->contentGrid($this->layoutView->getTableContentGrid())
-            ->headerActions($this->getTableHeaderActions())
 
-            ->filters($this->getTableFilters())
-            ->filtersLayout(FiltersLayout::AboveContent)
-            ->persistFiltersInSession()
-            ->actions($this->getTableActions())
-            ->bulkActions($this->getTableBulkActions())
-            ->actionsPosition(ActionsPosition::BeforeColumns)
-            ->defaultSort(
-                column: 'created_at',
-                direction: 'DESC',
-            );
-    }
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            CreateAction::make(),
-        ];
-    }
 
     protected function getHeaderWidgets(): array
     {
