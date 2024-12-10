@@ -22,7 +22,6 @@ class ChangePasswordAction extends Action
     {
         parent::setUp();
         $this->translateLabel()
-
             ->icon('heroicon-o-key')
             ->action(function (UserContract $record, array $data): void {
                 $record->update([
@@ -70,12 +69,10 @@ Action::make('changePassword')
                     ->form([
                         TextInput::make('new_password')
                             ->password()
-
                             ->required()
                             ->rule(Password::default()),
                         TextInput::make('new_password_confirmation')
                             ->password()
-
                             ->rule('required', fn ($get): bool => (bool) $get('new_password'))
                             ->same('new_password'),
                     ])

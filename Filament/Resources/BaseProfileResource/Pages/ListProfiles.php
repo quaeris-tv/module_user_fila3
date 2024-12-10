@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
-use Filament\Actions;
 use Filament\Tables;
 use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Columns\IconColumn;
@@ -41,7 +40,7 @@ class ListProfiles extends XotBaseListRecords
         return [
             Stack::make([
                 // 'type' => TextColumn::make('type')
-                //     ->sortable(),
+                //    ->sortable(),
 
                 'user_name' => TextColumn::make('user.name')
                     ->sortable()
@@ -86,6 +85,7 @@ class ListProfiles extends XotBaseListRecords
     {
         return [
             // 'type' => TextColumn::make('type')
+            //    ->sortable(),
             //     ->sortable(),
 
             'user_name' => TextColumn::make('user.name')
@@ -135,25 +135,7 @@ class ListProfiles extends XotBaseListRecords
         ];
     }
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
 
-    protected function getTableActions(): array
-    {
-        return [
-            ChangeProfilePasswordAction::make(),
-            ...parent::getTableActions(),
-            /*
-            Tables\Actions\EditAction::make()->label('')->tooltip(__('ui::txt.edit')),
-            Tables\Actions\ViewAction::make()->label('')->tooltip(__('ui::txt.view')),
-            Tables\Actions\DeleteAction::make()->label('')->tooltip(__('ui::txt.delete')),
-            */
-        ];
-    }
 
     protected function getTableBulkActions(): array
     {

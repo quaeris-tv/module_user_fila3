@@ -81,19 +81,15 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static \Illuminate\Database\Eloquent\Builder|User   whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User   withoutPermission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder|User   withoutRole($roles, $guard = null)
- *
  * @property string      $surname
  * @property string|null $facebook_id
  * @property Team|null   $currentTeam
- *
  * @method static \Illuminate\Database\Eloquent\Builder|User whereFacebookId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereIsOtp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePasswordExpiresAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereSurname($value)
- *
  * @property \Illuminate\Database\Eloquent\Collection<int, SocialiteUser> $socialiteUsers
  * @property int|null                                                     $socialite_users_count
- *
  * @mixin \Eloquent
  */
 class User extends BaseUser

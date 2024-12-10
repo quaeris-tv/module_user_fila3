@@ -183,7 +183,6 @@ class PasswordExpiredWidget extends Widget implements HasForms
         $validation_messages = __('user::validation');
 
         return TextInput::make('password')
-            )
             ->password()
             // ->revealable(filament()->arePasswordsRevealable())
             ->revealable()
@@ -197,7 +196,6 @@ class PasswordExpiredWidget extends Widget implements HasForms
     protected function getPasswordConfirmationFormComponent(): Component
     {
         return TextInput::make('passwordConfirmation')
-            )
             ->password()
             // ->revealable(filament()->arePasswordsRevealable())
             ->revealable()
