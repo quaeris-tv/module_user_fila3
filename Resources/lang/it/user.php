@@ -22,7 +22,7 @@
     ),
     'created_at' => 
     array (
-      'label' => 'Data Creazione',
+      'label' => 'Data di Creazione',
     ),
     'updated_at' => 
     array (
@@ -32,7 +32,7 @@
     array (
       'name' => 
       array (
-        'label' => 'role.name',
+        'label' => 'Ruolo',
       ),
     ),
     'active' => 'Attivo',
@@ -44,33 +44,41 @@
     'password_confirmation' => 'Conferma Password',
     'email_verified_at' => 
     array (
-      'label' => 'Email Verificata Il',
+      'label' => 'Email Verificata',
     ),
     'teams' => 
     array (
       'name' => 
       array (
-        'label' => 'teams.name',
+        'label' => 'Nome Team',
       ),
     ),
     'roles' => 
     array (
       'name' => 
       array (
-        'label' => 'roles.name',
+        'label' => 'Nome Ruolo',
       ),
     ),
     'password_expires_at' => 
     array (
-      'label' => 'password_expires_at',
+      'label' => 'Scadenza Password',
     ),
     'verified' => 
     array (
-      'label' => 'verified',
+      'label' => 'Verificato',
     ),
     'unverified' => 
     array (
-      'label' => 'unverified',
+      'label' => 'Non Verificato',
+    ),
+    'deactivate' => 
+    array (
+      'label' => 'deactivate',
+    ),
+    'changePassword' => 
+    array (
+      'label' => 'changePassword',
     ),
   ),
   'filters' => 
@@ -124,11 +132,11 @@
       'filename_prefix' => 'Aree al',
       'columns' => 
       array (
-        'name' => 'Nome area',
-        'parent_name' => 'Nome area livello superiore',
+        'name' => 'Nome Area',
+        'parent_name' => 'Nome Area Superiore',
       ),
     ),
-    'change_password' => 'Cambio password',
+    'change_password' => 'Cambia Password',
   ),
   'modals' => 
   array (
@@ -145,7 +153,7 @@
     'edit' => 
     array (
       'heading' => 'Modifica Utente',
-      'description' => 'Modifica le informazioni utente',
+      'description' => 'Modifica le informazioni dell’utente',
       'actions' => 
       array (
         'submit' => 'Salva Modifiche',
