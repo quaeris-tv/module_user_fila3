@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
-use Modules\User\Filament\Actions\Profile\ChangeProfilePasswordAction;
 use Modules\User\Filament\Resources\BaseProfileResource;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Pages\XotBaseListRecords;
@@ -134,8 +133,6 @@ class ListProfiles extends XotBaseListRecords
                 ->collection('profile'),
         ];
     }
-
-
 
     protected function getTableBulkActions(): array
     {
