@@ -89,7 +89,7 @@ class Favicon extends Page implements HasForms
     {
         return [
             Action::make('updateAction')
-                
+
                 ->submit('editForm'),
         ];
     }

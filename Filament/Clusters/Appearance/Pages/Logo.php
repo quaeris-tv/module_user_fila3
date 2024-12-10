@@ -86,7 +86,7 @@ class Logo extends Page implements HasForms
     {
         return [
             Action::make('updateLogoAction')
-                
+
                 ->submit('editLogoForm'),
         ];
     }
