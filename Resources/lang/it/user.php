@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'navigation' => 
   array (
     'name' => 'Utente',
@@ -184,4 +185,4 @@
       ),
     ),
   ),
-);
+);

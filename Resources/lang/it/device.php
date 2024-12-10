@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'navigation' => 
   array (
     'name' => 'Dispositivo',
@@ -84,4 +85,4 @@
       'label' => 'create',
     ),
   ),
-);
+);

@@ -43,7 +43,6 @@ class ListProfiles extends XotBaseListRecords
                 //    ->sortable(),
 
                 'user_name' => TextColumn::make('user.name')
-
                     ->sortable()
                     ->searchable()
                     ->default(
@@ -66,19 +65,15 @@ class ListProfiles extends XotBaseListRecords
                         }
                     ),
                 'first_name' => TextColumn::make('first_name')
-
                     ->sortable()
                     ->searchable(),
                 'last_name' => TextColumn::make('last_name')
-
                     ->sortable()
                     ->searchable(),
                 'email' => TextColumn::make('email')
-
                     ->sortable()
                     ->searchable(),
                 'is_active' => IconColumn::make('is_active')
-
                     ->boolean(),
                 'photo' => SpatieMediaLibraryImageColumn::make('photo')
                     ->collection('profile'),
@@ -91,6 +86,7 @@ class ListProfiles extends XotBaseListRecords
         return [
             // 'type' => TextColumn::make('type')
             //    ->sortable(),
+            //     ->sortable(),
 
             'user_name' => TextColumn::make('user.name')
                 ->sortable()
@@ -100,8 +96,17 @@ class ListProfiles extends XotBaseListRecords
                         $user = $record->user;
                         $user_class = XotData::make()->getUserClass();
                         if (null === $user) {
-                            /** @var \Modules\Xot\Contracts\UserContract */
-                            $user = XotData::make()->getUserByEmail($record->email);
+                            if (null == $record->email) {
+                                $record->update(['email' => fake()->email()]);
+                            }
+                            try {
+                                /** @var \Modules\Xot\Contracts\UserContract */
+                                $user = XotData::make()->getUserByEmail($record->email);
+                            } catch (\Exception $e) {
+                                // $record->delete();
+
+                                return '--';
+                            }
                         }
                         if (null === $user) {
                             $data = $record->toArray();
@@ -115,32 +120,22 @@ class ListProfiles extends XotBaseListRecords
                     }
                 ),
             'first_name' => TextColumn::make('first_name')
-
                 ->sortable()
                 ->searchable(),
             'last_name' => TextColumn::make('last_name')
-
                 ->sortable()
                 ->searchable(),
             'email' => TextColumn::make('email')
-
                 ->sortable()
                 ->searchable(),
             'is_active' => IconColumn::make('is_active')
-
                 ->boolean(),
             'photo' => SpatieMediaLibraryImageColumn::make('photo')
                 ->collection('profile'),
         ];
     }
 
-    protected function getTableActions(): array
-    {
-        return [
-            ChangeProfilePasswordAction::make(),
-            ...parent::getTableActions(),
-        ];
-    }
+
 
     protected function getTableBulkActions(): array
     {
@@ -164,7 +159,6 @@ class ListProfiles extends XotBaseListRecords
             // ]),
             Tables\Actions\DeleteBulkAction::make(),
             BulkAction::make('bulk_activate')
-
                 ->action(
                     function (Collection $collection) {
                         $collection
@@ -180,7 +174,6 @@ class ListProfiles extends XotBaseListRecords
                 ),
 
             BulkAction::make('bulk_inactivate')
-
                 ->action(
                     function (Collection $collection) {
                         $collection

@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'account' => 'Account',
   'profile' => 'Profilo',
   'my_profile' => 'Il mio profilo',
@@ -83,4 +84,4 @@
     ),
     'notify' => 'Profilo aggiornato correttamente!',
   ),
-);
+);
