@@ -35,7 +35,7 @@ class TenantsRelationManager extends XotBaseRelationManager
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->label(__('user::fields.name'))
+
                     ->required()
                     ->maxLength(255),
             ]);

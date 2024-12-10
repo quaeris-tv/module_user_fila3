@@ -123,8 +123,8 @@ class PasswordData extends Data
         $this->field_name = $field_name;
         $field = TextInput::make($field_name)
             ->password()
-            // ->label(__('filament-panels::pages/auth/login.form.password.label'))
-            ->label(__('user::fields.new_password.label'))
+            // 
+            
             // ->hint(filament()->hasPasswordReset() ? new HtmlString(Blade::render('<x-filament::link :href="filament()->getRequestPasswordResetUrl()" tabindex="3"> {{ __(\'filament-panels::pages/auth/login.actions.request_password_reset.label\') }}</x-filament::link>')) : null)
             ->placeholder(__('user::fields.new_password.placeholder'))
             // ->revealable(filament()->arePasswordsRevealable())
@@ -144,7 +144,7 @@ class PasswordData extends Data
     public function getPasswordConfirmationFormComponent(): Component
     {
         return TextInput::make('passwordConfirmation')
-            ->label(__('filament-panels::pages/auth/edit-profile.form.password_confirmation.label'))
+            
             ->password()
             // ->revealable(filament()->arePasswordsRevealable())
             ->revealable(true)

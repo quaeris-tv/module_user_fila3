@@ -41,7 +41,7 @@ class ListPermissions extends XotBaseListRecords
                 ->form(
                     [
                         Select::make('role')
-                            ->label(__('filament-spatie-roles-permissions::filament-spatie.field.role'))
+
                             ->options($roleModel::query()->pluck('name', 'id'))
                             ->required(),
                     ]

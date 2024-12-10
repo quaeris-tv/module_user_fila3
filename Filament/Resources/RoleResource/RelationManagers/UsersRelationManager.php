@@ -50,7 +50,7 @@ final class UsersRelationManager extends XotBaseRelationManager
             Forms\Components\TextInput::make('name')
                 ->required()
                 ->maxLength(255)
-                ->label(__('user::socialite_user.fields.name.label')),
+                ,
             // Additional fields can be added here as necessary
         ];
     }
@@ -64,25 +64,25 @@ final class UsersRelationManager extends XotBaseRelationManager
     {
         return [
             TextColumn::make('name')
-                ->label(__('user::fields.name'))
+
                 ->searchable()
                 ->sortable()
                 ->copyable(),
 
             TextColumn::make('email')
-                ->label(__('user::fields.email'))
+
                 ->searchable()
                 ->sortable()
                 ->copyable(),
 
             TextColumn::make('created_at')
-                ->label(__('user::fields.created_at'))
+
                 ->dateTime()
                 ->sortable()
                 ->toggleable(),
 
             TextColumn::make('updated_at')
-                ->label(__('user::fields.updated_at'))
+
                 ->dateTime()
                 ->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),
@@ -98,15 +98,15 @@ final class UsersRelationManager extends XotBaseRelationManager
     {
         return [
             Filter::make('active')
-                ->label(__('user::filters.active_users'))
+
                 ->query(fn (Builder $query): Builder => $query->where('is_active', true))
                 ->toggle(),
 
             Filter::make('created_at')
-                ->label(__('user::filters.creation_date'))
+
                 ->form([
-                    Forms\Components\DatePicker::make('created_from')->label(__('user::filters.created_from')),
-                    Forms\Components\DatePicker::make('created_until')->label(__('user::filters.created_until')),
+                    Forms\Components\DatePicker::make('created_from'),
+                    Forms\Components\DatePicker::make('created_until'),
                 ])
                 ->query(function (Builder $query, array $data): Builder {
                     return $query

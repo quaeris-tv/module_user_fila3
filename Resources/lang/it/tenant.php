@@ -20,6 +20,14 @@
     array (
       'label' => 'slug',
     ),
+    'name' => 
+    array (
+      'label' => 'name',
+    ),
+    'id' => 
+    array (
+      'label' => 'id',
+    ),
   ),
   'actions' => 
   array (

@@ -37,7 +37,7 @@ class ChangePasswordAction extends Action
                 /*
                     TextInput::make('new_password')
                         ->password()
-                        ->label(__('user::fields.new_password.label'))
+
                         ->placeholder(__('user::fields.new_password.placeholder'))
                         ->required()
                         ->rule(Password::default()),
@@ -45,7 +45,7 @@ class ChangePasswordAction extends Action
                 PasswordData::make()->getPasswordFormComponent(),
                 TextInput::make('new_password_confirmation')
                     ->password()
-                    ->label(__('user::fields.confirm_password.label'))
+
                     ->placeholder(__('user::fields.confirm_password.placeholder'))
                     ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
                     ->same('new_password'),

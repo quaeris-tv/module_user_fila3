@@ -41,30 +41,30 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
     {
         return [
             Forms\Components\TextInput::make('provider')
-                ->label(__('Provider'))
+
                 ->required()
                 ->maxLength(255)
                 ->placeholder(__('Enter provider name, e.g., Google, Facebook')),
 
             Forms\Components\TextInput::make('provider_id')
-                ->label(__('Provider ID'))
+
                 ->required()
                 ->maxLength(255)
                 ->placeholder(__('Enter the provider ID for the user')),
 
             Forms\Components\TextInput::make('name')
-                ->label(__('Name'))
+
                 ->maxLength(255)
                 ->placeholder(__('User’s name associated with the provider')),
 
             Forms\Components\TextInput::make('email')
-                ->label(__('Email'))
+
                 ->email()
                 ->maxLength(255)
                 ->placeholder(__('User’s email associated with the provider')),
 
             Forms\Components\TextInput::make('avatar')
-                ->label(__('Avatar URL'))
+
                 ->url()
                 ->maxLength(512)
                 ->placeholder(__('URL of the user’s avatar image')),
@@ -80,23 +80,23 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
     {
         return [
             TextColumn::make('provider')
-                ->label(__('Provider'))
+
                 ->searchable(),
 
             TextColumn::make('provider_id')
-                ->label(__('Provider ID'))
+
                 ->searchable(),
 
             TextColumn::make('name')
-                ->label(__('Name'))
+
                 ->searchable(),
 
             TextColumn::make('email')
-                ->label(__('Email'))
+
                 ->searchable(),
 
             ImageColumn::make('avatar')
-                ->label(__('Avatar'))
+
                 ->size(40),
         ];
     }
