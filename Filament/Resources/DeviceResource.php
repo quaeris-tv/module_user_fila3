@@ -42,6 +42,4 @@ class DeviceResource extends XotBaseResource
             'edit' => EditDevice::route('/{record}/edit'),
         ];
     }
-
-
 }

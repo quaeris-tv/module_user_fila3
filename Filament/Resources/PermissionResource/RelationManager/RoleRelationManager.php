@@ -24,10 +24,8 @@ class RoleRelationManager extends XotBaseRelationManager
         return $form
             ->schema(
                 [
-                    TextInput::make('name')
-                        ,
-                    TextInput::make('guard_name')
-                        ,
+                    TextInput::make('name'),
+                    TextInput::make('guard_name'),
                 ]
             );
     }
@@ -38,11 +36,9 @@ class RoleRelationManager extends XotBaseRelationManager
             ->columns(
                 [
                     TextColumn::make('name')
-                        ->searchable()
-                        ,
+                        ->searchable(),
                     TextColumn::make('guard_name')
-                        ->searchable()
-                        ,
+                        ->searchable(),
                 ]
             )
             ->filters(

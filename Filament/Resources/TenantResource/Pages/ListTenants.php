@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
-use Illuminate\Support\Str;
 use Filament\Tables\Columns\TextColumn;
-use Modules\Xot\Filament\Pages\XotBaseListRecords;
+use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\TenantResource;
+use Modules\Xot\Filament\Pages\XotBaseListRecords;
 
 class ListTenants extends XotBaseListRecords
 {
@@ -32,9 +32,10 @@ class ListTenants extends XotBaseListRecords
             TextColumn::make('slug')
                 ->default(function ($record) {
                     $record->generateSlug();
-                    $slug=Str::slug($record->name);
+                    $slug = Str::slug($record->name);
                     $record->slug = $slug;
                     $record->save();
+
                     return $slug;
                 })
                 ->sortable(),

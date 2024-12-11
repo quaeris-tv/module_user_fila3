@@ -167,7 +167,7 @@ class PasswordExpiredWidget extends Widget implements HasForms
     protected function getCurrentPasswordFormComponent(): Component
     {
         return TextInput::make('current_password')
-            //
+
             ->password()
             // ->revealable(filament()->arePasswordsRevealable())
             ->revealable()
