@@ -24,8 +24,6 @@ class TenantResource extends XotBaseResource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
-
-
     public static function getModel(): string
     {
         $xot = XotData::make();
@@ -38,6 +36,7 @@ class TenantResource extends XotBaseResource
     public static function form(Form $form): Form
     {
         $resource = XotData::make()->getTenantResourceClass();
+
         return app($resource)->form($form);
         /*
         return $form

@@ -6,10 +6,6 @@ namespace Modules\User\Filament\Resources;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ViewAction;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
 use Modules\User\Filament\Resources\TeamResource\Pages\CreateTeam;
 use Modules\User\Filament\Resources\TeamResource\Pages\EditTeam;
 use Modules\User\Filament\Resources\TeamResource\Pages\ListTeams;
@@ -49,8 +45,6 @@ class TeamResource extends XotBaseResource
             );
     }
 
-
-
     public static function getRelations(): array
     {
         return [
@@ -67,6 +61,4 @@ class TeamResource extends XotBaseResource
             'edit' => EditTeam::route('/{record}/edit'),
         ];
     }
-
-
 }

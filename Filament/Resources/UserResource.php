@@ -33,8 +33,6 @@ class UserResource extends XotBaseResource
     // Static property Modules\User\Filament\Resources\UserResource::$enablePasswordUpdates is never read, only written.
     // private static bool|\Closure $enablePasswordUpdates = true;
 
-
-
     public static function getWidgets(): array
     {
         return [

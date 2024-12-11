@@ -46,8 +46,6 @@ class RoleResource extends XotBaseResource
         ];
     }
 
-
-
     public static function getRecordSubNavigation(Page $page): array
     {
         return $page->generateNavigationItems([
