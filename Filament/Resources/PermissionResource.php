@@ -171,8 +171,6 @@ class PermissionResource extends XotBaseResource
         ];
     }
 
-
-
     public static function getPages(): array
     {
         return [

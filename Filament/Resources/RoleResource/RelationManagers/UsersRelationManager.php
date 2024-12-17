@@ -49,8 +49,7 @@ final class UsersRelationManager extends XotBaseRelationManager
         return [
             Forms\Components\TextInput::make('name')
                 ->required()
-                ->maxLength(255)
-                ,
+                ->maxLength(255),
             // Additional fields can be added here as necessary
         ];
     }

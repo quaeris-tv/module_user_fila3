@@ -24,7 +24,6 @@ class SocialProviderResource extends XotBaseResource
             ]);
     }
 
-
     public static function getRelations(): array
     {
         return [
