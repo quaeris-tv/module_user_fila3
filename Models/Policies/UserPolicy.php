@@ -50,7 +50,7 @@ class UserPolicy extends UserBasePolicy
         return true;
     }
 
-        /**
+    /**
      * Determine whether the user can delete the model.
      */
     public function superadmin(UserContract $user, Post $post): bool
@@ -58,5 +58,4 @@ class UserPolicy extends UserBasePolicy
         // return $user->ownsTeam($team);
         return false;
     }
-    
 }
