@@ -4,19 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
-use Filament\Actions\CreateAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\BooleanColumn;
-use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Enums\ActionsPosition;
-use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
-use Filament\Tables\Table;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
@@ -63,7 +56,6 @@ class ListUsers extends XotBaseListRecords
         ];
     }
 
-
     public function getTableFilters(): array
     {
         return [
@@ -88,7 +80,6 @@ class ListUsers extends XotBaseListRecords
     public function getTableActions(): array
     {
         return [
-
             ChangePasswordAction::make()
                 ->label('')
                 ->tooltip('Cambio Password')
@@ -122,15 +113,11 @@ class ListUsers extends XotBaseListRecords
                 ->color('danger')
                 ->icon('heroicon-o-trash')
                 ->action(static fn (UserContract $user) => $user->delete())
-                //->iconButton()
+            // ->iconButton()
             // ->visible(fn (User $record): bool => $record->role_id === Role::ROLE_ADMINISTRATOR)
             ,
         ];
     }
-
-
-
-
 
     protected function getHeaderWidgets(): array
     {

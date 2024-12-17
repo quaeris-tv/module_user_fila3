@@ -32,8 +32,6 @@ class FeatureResource extends XotBaseResource
         ];
     }
 
-
-
     public static function getPages(): array
     {
         return [
