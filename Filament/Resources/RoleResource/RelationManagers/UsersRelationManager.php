@@ -42,7 +42,7 @@ final class UsersRelationManager extends XotBaseRelationManager
     /**
      * Returns the form schema structure, defining the input fields for user data.
      *
-     * @return array<\Filament\Forms\Components\Component>
+     * @return array<Forms\Components\Component>
      */
     protected function getFormSchema(): array
     {
@@ -57,7 +57,7 @@ final class UsersRelationManager extends XotBaseRelationManager
     /**
      * Defines the columns displayed in the users list table.
      *
-     * @return array<\Filament\Tables\Columns\Column|\Filament\Tables\Columns\Layout\Component>
+     * @return array<Tables\Columns\Column|Tables\Columns\Layout\Component>
      */
     public function getListTableColumns(): array
     {
@@ -91,7 +91,7 @@ final class UsersRelationManager extends XotBaseRelationManager
     /**
      * Configures available filters for the table, enabling users to refine their view.
      *
-     * @return array<\Filament\Tables\Filters\BaseFilter>
+     * @return array<Tables\Filters\BaseFilter>
      */
     protected function getTableFilters(): array
     {
