@@ -21,6 +21,9 @@ class UsersRelationManager extends XotBaseRelationManager
         return $form->schema($this->getFormSchema());
     }
 
+    /**
+     * @return array<\Filament\Forms\Components\Component>
+     */
     protected function getFormSchema(): array
     {
         return [

@@ -59,6 +59,9 @@ class PasswordExpiredWidget extends Widget implements HasForms
             ->statePath('data');
     }
 
+    /**
+     * @return array<\Filament\Forms\Components\Component>
+     */
     public function getFormSchema(): array
     {
         return [
