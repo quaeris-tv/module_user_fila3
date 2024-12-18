@@ -187,6 +187,9 @@ class ListProfiles extends XotBaseListRecords
         ];
     }
 
+    /**
+     * @return array<\Filament\Tables\Filters\BaseFilter>*
+     */
     protected function getTableFilters(): array
     {
         return [

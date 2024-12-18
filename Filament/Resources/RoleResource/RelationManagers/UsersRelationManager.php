@@ -57,7 +57,7 @@ final class UsersRelationManager extends XotBaseRelationManager
     /**
      * Defines the columns displayed in the users list table.
      *
-     * @return array the columns configuration array
+     * @return array<\Filament\Tables\Columns\Column|\Filament\Tables\Columns\Layout\Component>
      */
     public function getListTableColumns(): array
     {
@@ -91,7 +91,7 @@ final class UsersRelationManager extends XotBaseRelationManager
     /**
      * Configures available filters for the table, enabling users to refine their view.
      *
-     * @return array the filters configuration array
+     * @return array<\Filament\Tables\Filters\BaseFilter>
      */
     protected function getTableFilters(): array
     {
