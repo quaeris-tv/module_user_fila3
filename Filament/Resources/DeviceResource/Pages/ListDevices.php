@@ -71,7 +71,7 @@ class ListDevices extends XotBaseListRecords
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
      * @return array<\Filament\Tables\Actions\Action|\Filament\Tables\Actions\ActionGroup>
      */
