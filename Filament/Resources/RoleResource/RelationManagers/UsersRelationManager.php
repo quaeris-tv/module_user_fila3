@@ -42,7 +42,7 @@ final class UsersRelationManager extends XotBaseRelationManager
     /**
      * Returns the form schema structure, defining the input fields for user data.
      *
-     * @return array the form schema configuration array
+     * @return array<\Filament\Forms\Components\Component>
      */
     protected function getFormSchema(): array
     {
