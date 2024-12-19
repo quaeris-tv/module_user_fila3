@@ -22,7 +22,7 @@ class UsersRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<\Filament\Forms\Components\Component>
+     * @return array<Forms\Components\Component>
      */
     protected function getFormSchema(): array
     {

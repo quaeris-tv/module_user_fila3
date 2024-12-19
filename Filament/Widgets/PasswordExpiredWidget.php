@@ -60,7 +60,7 @@ class PasswordExpiredWidget extends Widget implements HasForms
     }
 
     /**
-     * @return array<\Filament\Forms\Components\Component>
+     * @return array<Component>
      */
     public function getFormSchema(): array
     {
