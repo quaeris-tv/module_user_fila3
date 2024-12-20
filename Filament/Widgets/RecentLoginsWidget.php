@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-use Filament\Widgets\TableWidget as BaseWidget;
 use Filament\Tables;
+use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Modules\User\Models\AuthenticationLog;
@@ -14,7 +14,7 @@ class RecentLoginsWidget extends BaseWidget
 {
     protected static ?string $heading = 'Recent Logins'; // Rendi static la proprietà
 
-    protected int | string | array $columnSpan = 'full';
+    protected int|string|array $columnSpan = 'full';
 
     /**
      * Define the query to fetch recent logins.
