@@ -93,6 +93,9 @@ class Colors extends Page implements HasForms
         ];
     }
 
+    /**
+     * @param array<string, mixed> $data
+     */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {
         $record->update($data);
