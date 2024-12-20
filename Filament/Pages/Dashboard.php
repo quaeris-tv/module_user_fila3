@@ -37,6 +37,7 @@ class Dashboard extends BaseBashboard
         return [
             Widgets\UsersChartWidget::make(['chart_id' => 'bb']),
             // Widgets\UsersChartWidget::make(['chart_id' => 'aa']),
+            Widgets\RecentLoginsWidget::class,
         ];
     }
 
