@@ -2,7 +2,7 @@
 
 /**
  * @see https://github.com/Althinect/filament-spatie-roles-permissions/tree/2.x
- * @see https://github.com/phpsa/filament-authentication/blob/main/src/Resources/PermissionResource.php
+ * @see https://github.com/phpsa/filament-authentication/blob/main/src/resources/PermissionResource.php
  */
 
 declare(strict_types=1);
