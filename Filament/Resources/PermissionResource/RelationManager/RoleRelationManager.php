@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @see https://github.com/Althinect/filament-spatie-roles-permissions/blob/2.x/src/Resources/PermissionResource/RelationManager/RoleRelationManager.php
+ * @see https://github.com/Althinect/filament-spatie-roles-permissions/blob/2.x/src/resources/PermissionResource/RelationManager/RoleRelationManager.php
  */
 
 declare(strict_types=1);

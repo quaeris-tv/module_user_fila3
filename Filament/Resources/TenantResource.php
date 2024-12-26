@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @see https://github.com/savannabits/filament-tenancy-starter/blob/main/app/Filament/Resources/TenantResource.php
+ * @see https://github.com/savannabits/filament-tenancy-starter/blob/main/app/Filament/resources/TenantResource.php
  */
 
 namespace Modules\User\Filament\Resources;

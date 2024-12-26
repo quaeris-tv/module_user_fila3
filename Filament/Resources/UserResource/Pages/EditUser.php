@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @see https://github.com/ryangjchandler/filament-user-resource/blob/main/src/Resources/UserResource/Pages/EditUser.php
+ * @see https://github.com/ryangjchandler/filament-user-resource/blob/main/src/resources/UserResource/Pages/EditUser.php
  */
 
 declare(strict_types=1);
