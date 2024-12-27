@@ -14,10 +14,12 @@
     ],
     "homepage": "https://github.com/laraxot/module_user_fila3",
     "license": "MIT",
-    "authors": [{
-        "name": "Marco Sottana",
-        "email": "marco.sottana@gmail.com"
-    }],
+    "authors": [
+        {
+            "name": "Marco Sottana",
+            "email": "marco.sottana@gmail.com"
+        }
+    ],
     "extra": {
         "laravel": {
             "providers": [
@@ -25,14 +27,12 @@
                 "Modules\\User\\Providers\\UserServiceProvider",
                 "Modules\\User\\Providers\\Filament\\AdminPanelProvider"
             ],
-            "aliases": {
-
-            }
+            "aliases": {}
         }
     },
     "autoload": {
         "psr-4": {
-            "Modules\\User\\": "",
+            "Modules\\User\\": "app/",
             "Modules\\User\\Database\\Factories\\": "database/factories/",
             "Modules\\User\\Database\\Seeders\\": "database/seeders/"
         }
@@ -44,9 +44,7 @@
         "socialiteproviders/auth0": "*",
         "spatie/laravel-personal-data-export": "*"
     },
-    "require-dev": {
-        
-    },
+    "require-dev": {},
     "repositories": [
         {
             "type": "path",
