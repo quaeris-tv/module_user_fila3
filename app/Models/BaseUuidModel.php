@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\Factory;
 // //use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Modules\Xot\Models\XotBaseUuidModel;
 use Modules\Xot\Actions\Factory\GetFactoryAction;
 use Modules\Xot\Traits\Updater;
 
 /**
  * Class BaseUuidModel.
  */
-abstract class BaseUuidModel extends Model
+abstract class BaseUuidModel extends XotBaseUuidModel
 {
     // use Searchable;
     // //use Cachable;
@@ -35,6 +35,12 @@ abstract class BaseUuidModel extends Model
     /** @var bool */
     public $incrementing = false;
 
+    /** @var string */
+    protected $keyType = 'string';
+
+    /** @var string */
+    protected $primaryKey = 'id';
+
     /** @var bool */
     public $timestamps = true;
 
@@ -46,11 +52,6 @@ abstract class BaseUuidModel extends Model
 
     /** @var list<string> */
     protected $appends = [];
-
-    /** @var string */
-    protected $primaryKey = 'id';
-    /** @var string */
-    protected $keyType = 'string';
 
     /** @var list<string> */
     protected $hidden = [
