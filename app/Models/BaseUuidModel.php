@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\Factory;
 // //use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Modules\Xot\Models\XotBaseUuidModel;
 use Modules\Xot\Actions\Factory\GetFactoryAction;
+use Modules\Xot\Models\XotBaseUuidModel;
 use Modules\Xot\Traits\Updater;
 
 /**
