@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -20,7 +20,7 @@ return new class extends XotBaseMigration {
                 $table->uuid('user_id')->nullable()->index();
                 // $table->foreignIdFor(\Modules\Xot\Datas\XotData::make()->getUserClass());
                 $table->string('role')->nullable();
-                $table->unique(['team_id', 'user_id']);
+                // $table->unique(['team_id', 'user_id']);
             }
         );
 
@@ -28,7 +28,7 @@ return new class extends XotBaseMigration {
         $this->tableUpdate(
             function (Blueprint $table): void {
                 $this->updateTimestamps(table: $table, hasSoftDeletes: true);
-                $this->updateUser($table);
+                // $this->updateUser($table);
             }
         );
     }
