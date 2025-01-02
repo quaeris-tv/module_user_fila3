@@ -10,7 +10,7 @@ use Modules\Xot\Datas\XotData;
 /*
  * Class CreateModelHasPermissionsTable.
  */
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -35,7 +35,7 @@ return new class extends XotBaseMigration {
                     $table->string('model_id', 36)->index()->change();
                 }
                 $this->updateTimestamps($table);
-                $this->updateUser($table);
+                // $this->updateUser($table);
             }
         );
     }
