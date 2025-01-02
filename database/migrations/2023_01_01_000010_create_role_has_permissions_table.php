@@ -8,7 +8,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /*
  * Class CreateModelHasRolesTable.
  */
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -26,7 +26,7 @@ return new class extends XotBaseMigration {
         $this->tableUpdate(
             function (Blueprint $table): void {
                 $this->updateTimestamps($table);
-                $this->updateUser($table);
+                // $this->updateUser($table);
             }
         );
     }
