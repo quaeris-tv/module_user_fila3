@@ -9,7 +9,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /*
  * Class CreatePermissionsTable.
  */
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -30,7 +30,7 @@ return new class extends XotBaseMigration {
         // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table): void {
-                $this->updateUser($table);
+                // $this->updateUser($table);
                 $this->updateTimestamps($table);
             }
         );
