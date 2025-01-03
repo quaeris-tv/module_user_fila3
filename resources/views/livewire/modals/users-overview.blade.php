@@ -6,6 +6,22 @@
         <label>Your email</label>
             <input type="email" placeholder="demo@wire-elements.dev">
     </div>
+    <x-filament::input.wrapper>
+        <x-filament::input
+            type="text"
+            wire:model="name"
+        />
+    </x-filament::input.wrapper>
+
+    <x-filament::input.wrapper
+    suffix-icon="heroicon-m-check-circle"
+    suffix-icon-color="success"
+>
+    <x-filament::input
+        type="url"
+        wire:model="domain"
+    />
+</x-filament::input.wrapper>
 
     <x-slot name="buttons">
         <button type="submit">
