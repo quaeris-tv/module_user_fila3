@@ -69,10 +69,5 @@ class ListSocialProviders extends XotBaseListRecords
         ];
     }
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
+    
 }

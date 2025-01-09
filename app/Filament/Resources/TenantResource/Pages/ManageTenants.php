@@ -12,10 +12,5 @@ class ManageTenants extends ManageRecords
 {
     protected static string $resource = TenantResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
+    
 }
