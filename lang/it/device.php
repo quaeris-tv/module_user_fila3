@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'navigation' => 
   array (
     'name' => 'Dispositivo',
@@ -6,8 +7,8 @@
     'group' => 
     array (
       'name' => 'Admin',
-    ),
-    'label' => 'device.navigation',
+    ),'
+    'label' => 'device',
   ),
   'fields' => 
   array (
@@ -85,4 +86,4 @@
       'label' => 'create',
     ),
   ),
-);
+);
