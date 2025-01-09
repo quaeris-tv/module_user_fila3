@@ -10,7 +10,7 @@ namespace Modules\User\Filament\Resources\TenantResource\Pages;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\TenantResource;
-use Modules\Xot\Filament\Pages\XotBaseListRecords;
+use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListTenants extends XotBaseListRecords
 {

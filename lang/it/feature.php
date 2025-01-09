@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'resources' => 'Risorse',
   'pages' => 'Pagine',
   'widgets' => 'Widgets',
@@ -9,8 +10,8 @@
     'group' => 
     array (
       'name' => 'Admin',
-    ),
-    'label' => 'feature.navigation',
+    ),'
+    'label' => 'feature',
   ),
   'fields' => 
   array (
@@ -49,4 +50,4 @@
       ),
     ),
   ),
-);
+);

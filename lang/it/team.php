@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'navigation' => 
   array (
     'name' => 'Team',
@@ -6,8 +7,8 @@
     'group' => 
     array (
       'name' => 'Admin',
-    ),
-    'label' => 'team.navigation',
+    ),'
+    'label' => 'team',
   ),
   'fields' => 
   array (
@@ -37,4 +38,4 @@
       'label' => 'create',
     ),
   ),
-);
+);

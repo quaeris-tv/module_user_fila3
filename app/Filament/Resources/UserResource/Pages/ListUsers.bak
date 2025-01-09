@@ -7,7 +7,7 @@ namespace Modules\User\Filament\Resources\UserResource\Pages;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 use Modules\User\Filament\Resources\UserResource;
-use Modules\Xot\Filament\Pages\XotBaseListRecords;
+use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListUsers extends XotBaseListRecords {
     protected static string $resource = UserResource::class;

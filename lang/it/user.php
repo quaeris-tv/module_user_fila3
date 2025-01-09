@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'navigation' => 
   array (
     'name' => 'Utente',
@@ -6,8 +7,8 @@
     'group' => 
     array (
       'name' => 'Admin',
-    ),
-    'label' => 'user.navigation',
+    ),'
+    'label' => 'user',
   ),
   'fields' => 
   array (
@@ -202,4 +203,4 @@
       ),
     ),
   ),
-);
+);

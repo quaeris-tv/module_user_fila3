@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'navigation' => 
   array (
     'name' => 'Tenant',
@@ -6,8 +7,8 @@
     'group' => 
     array (
       'name' => 'Admin',
-    ),
-    'label' => 'tenant.navigation',
+    ),'
+    'label' => 'tenant',
   ),
   'fields' => 
   array (
@@ -50,4 +51,4 @@
     ),
     'change_password' => 'Cambio password',
   ),
-);
+);

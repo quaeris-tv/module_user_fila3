@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'navigation' => 
   array (
     'name' => 'Permesso',
@@ -6,8 +7,8 @@
     'group' => 
     array (
       'name' => 'Admin',
-    ),
-    'label' => 'permission.navigation',
+    ),'
+    'label' => 'permission',
   ),
   'fields' => 
   array (
@@ -42,4 +43,4 @@
       ),
     ),
   ),
-);
+);
