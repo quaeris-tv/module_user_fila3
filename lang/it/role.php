@@ -10,7 +10,7 @@ return array (
     'group' => 
     array (
       'name' => 'Admin',
-    ),'
+    ),
     'label' => 'role',
   ),
   'fields' => 
