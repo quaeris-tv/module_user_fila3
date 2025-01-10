@@ -7,7 +7,7 @@ return array (
     'group' => 
     array (
       'name' => 'Admin',
-    ),'
+    ),
     'label' => 'tenant',
   ),
   'fields' => 
