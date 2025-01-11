@@ -10,6 +10,10 @@ return array (
     ),
     'label' => 'tenant',
   ),
+  'table' => 
+  array (
+    'heading' => 'Tenant',
+  ),
   'fields' => 
   array (
     'first_name' => 'Nome',
