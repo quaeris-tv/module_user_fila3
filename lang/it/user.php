@@ -4,10 +4,7 @@ return array (
   array (
     'name' => 'Utente',
     'plural' => 'Utenti',
-    'group' => 
-    array (
-      'name' => 'Admin',
-    ),
+    'group' => 'Utenti',
     'label' => 'user',
   ),
   'fields' => 
