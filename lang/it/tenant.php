@@ -1,5 +1,4 @@
-<?php 
-return array (
+<?php return array (
   'navigation' => 
   array (
     'name' => 'Tenant',
@@ -34,6 +33,10 @@ return array (
     array (
       'label' => 'id',
     ),
+    'message' => 
+    array (
+      'label' => 'message',
+    ),
   ),
   'actions' => 
   array (
@@ -55,4 +58,4 @@ return array (
     ),
     'change_password' => 'Cambio password',
   ),
-);
+);

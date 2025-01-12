@@ -1,5 +1,4 @@
-<?php 
-return array (
+<?php return array (
   'navigation' => 
   array (
     'name' => 'Dispositivo',
@@ -62,6 +61,10 @@ return array (
     array (
       'label' => 'is_phone',
     ),
+    'logout_at' => 
+    array (
+      'label' => 'logout_at',
+    ),
   ),
   'actions' => 
   array (
@@ -86,4 +89,4 @@ return array (
       'label' => 'create',
     ),
   ),
-);
+);

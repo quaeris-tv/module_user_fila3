@@ -1,5 +1,4 @@
-<?php 
-return array (
+<?php return array (
   'resources' => 'Risorse',
   'pages' => 'Pagine',
   'widgets' => 'Widgets',
@@ -50,4 +49,11 @@ return array (
       'label' => 'create',
     ),
   ),
-);
+  'plural' => 
+  array (
+    'model' => 
+    array (
+      'label' => 'social provider.plural.model',
+    ),
+  ),
+);

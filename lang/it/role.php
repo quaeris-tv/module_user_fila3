@@ -1,5 +1,4 @@
-<?php 
-return array (
+<?php return array (
   'resources' => 'Risorse',
   'pages' => 'Pagine',
   'widgets' => 'Widgets',
@@ -39,6 +38,10 @@ return array (
         'label' => 'team.name',
       ),
     ),
+    'detach' => 
+    array (
+      'label' => 'detach',
+    ),
   ),
   'actions' => 
   array (
@@ -59,4 +62,4 @@ return array (
       ),
     ),
   ),
-);
+);
