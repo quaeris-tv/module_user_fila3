@@ -1,5 +1,4 @@
-<?php 
-return array (
+<?php return array (
   'navigation' => 
   array (
     'name' => 'Team',
@@ -14,6 +13,10 @@ return array (
   array (
     'first_name' => 'Nome',
     'last_name' => 'Cognome',
+    'detach' => 
+    array (
+      'label' => 'detach',
+    ),
   ),
   'actions' => 
   array (
@@ -38,4 +41,4 @@ return array (
       'label' => 'create',
     ),
   ),
-);
+);

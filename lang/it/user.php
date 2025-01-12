@@ -1,5 +1,4 @@
-<?php 
-return array (
+<?php return array (
   'navigation' => 
   array (
     'name' => 'Utente',
@@ -200,4 +199,15 @@ return array (
       ),
     ),
   ),
-);
+  'plural' => 
+  array (
+    'model' => 
+    array (
+      'label' => 'user.plural.model',
+    ),
+  ),
+  'model' => 
+  array (
+    'label' => 'user.model',
+  ),
+);
