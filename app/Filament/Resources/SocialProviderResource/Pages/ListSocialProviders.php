@@ -7,11 +7,7 @@ namespace Modules\User\Filament\Resources\SocialProviderResource\Pages;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
-<<<<<<< HEAD
-=======
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\TextColumn;
->>>>>>> origin/dev
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
