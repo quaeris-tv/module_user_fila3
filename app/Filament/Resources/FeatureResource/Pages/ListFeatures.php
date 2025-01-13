@@ -23,16 +23,41 @@ class ListFeatures extends XotBaseListRecords
     public function getGridTableColumns(): array
     {
         return [
+            'name' => TextColumn::make('name')
+                ->searchable()
+                ->sortable()
+                ->wrap(),
+            'scope' => TextColumn::make('scope')
+                ->searchable()
+                ->sortable(),
+            'value' => TextColumn::make('value')
+                ->searchable()
+                ->wrap(),
         ];
     }
 
     public function getListTableColumns(): array
     {
         return [
-            TextColumn::make('id'),
-            TextColumn::make('name'),
-            TextColumn::make('scope'),
-            TextColumn::make('value'),
+            'id' => TextColumn::make('id')
+                ->searchable()
+                ->sortable(),
+            'name' => TextColumn::make('name')
+                ->searchable()
+                ->sortable()
+                ->wrap(),
+            'scope' => TextColumn::make('scope')
+                ->searchable()
+                ->sortable(),
+            'value' => TextColumn::make('value')
+                ->searchable()
+                ->wrap(),
+            'created_at' => TextColumn::make('created_at')
+                ->dateTime()
+                ->sortable(),
+            'updated_at' => TextColumn::make('updated_at')
+                ->dateTime()
+                ->sortable(),
         ];
     }
 

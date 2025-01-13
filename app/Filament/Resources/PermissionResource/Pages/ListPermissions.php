@@ -7,6 +7,7 @@ namespace Modules\User\Filament\Resources\PermissionResource\Pages;
 use Filament\Actions\CreateAction;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Actions\BulkAction;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Collection;
 use Modules\User\Filament\Resources\PermissionResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
@@ -15,6 +16,29 @@ use Webmozart\Assert\Assert;
 class ListPermissions extends XotBaseListRecords
 {
     protected static string $resource = PermissionResource::class;
+
+    public function getListTableColumns(): array
+    {
+        return [
+            'id' => TextColumn::make('id')
+                ->searchable()
+                ->sortable(),
+            'name' => TextColumn::make('name')
+                ->searchable()
+                ->sortable()
+                ->wrap(),
+            'guard_name' => TextColumn::make('guard_name')
+                ->searchable()
+                ->sortable(),
+            'roles_count' => TextColumn::make('roles_count')
+                ->counts('roles')
+                ->numeric()
+                ->sortable(),
+            'created_at' => TextColumn::make('created_at')
+                ->dateTime()
+                ->sortable(),
+        ];
+    }
 
     protected function getHeaderActions(): array
     {
@@ -41,7 +65,6 @@ class ListPermissions extends XotBaseListRecords
                 ->form(
                     [
                         Select::make('role')
-
                             ->options($roleModel::query()->pluck('name', 'id'))
                             ->required(),
                     ]
