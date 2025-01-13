@@ -1,13 +1,14 @@
-<?php return array (
-  'model' => 
-  array (
-    'label' => 'tenant.model',
-  ),
-  'plural' => 
-  array (
-    'model' => 
-    array (
-      'label' => 'tenant.plural.model',
-    ),
-  ),
-);
+<?php
+
+declare(strict_types=1);
+
+return [
+    'model' => [
+        'label' => 'tenant.model',
+    ],
+    'plural' => [
+        'model' => [
+            'label' => 'tenant.plural.model',
+        ],
+    ],
+];
