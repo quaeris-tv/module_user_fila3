@@ -5,25 +5,19 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\SocialProviderResource\Pages;
 
 use Filament\Actions;
-<<<<<<< HEAD
 use Filament\Tables\Table;
-<<<<<<< HEAD
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Actions\DeleteBulkAction;
-=======
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ViewColumn;
->>>>>>> cec14b7e83b98362e8d6b2c669f89317e7bb61f7
-=======
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
->>>>>>> origin/dev
 use Modules\User\Filament\Resources\SocialProviderResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
