@@ -7,7 +7,7 @@ namespace Modules\User\Filament\Resources\RoleResource\Pages;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\RoleResource;
 use Modules\User\Models\Role;
-use Modules\Xot\Filament\Pages\XotBaseListRecords;
+use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListRoles extends XotBaseListRecords
 {

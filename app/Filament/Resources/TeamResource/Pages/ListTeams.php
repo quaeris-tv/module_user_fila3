@@ -6,7 +6,7 @@ namespace Modules\User\Filament\Resources\TeamResource\Pages;
 
 use Filament\Actions\CreateAction;
 use Modules\User\Filament\Resources\TeamResource;
-use Modules\Xot\Filament\Pages\XotBaseListRecords;
+use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListTeams extends XotBaseListRecords
 {
