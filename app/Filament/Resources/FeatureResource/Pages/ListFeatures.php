@@ -14,7 +14,7 @@ use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
 use Modules\User\Filament\Resources\FeatureResource;
-use Modules\Xot\Filament\Pages\XotBaseListRecords;
+use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListFeatures extends XotBaseListRecords
 {
