@@ -20,6 +20,9 @@ use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Pages\XotBaseListRecords;
 use Webmozart\Assert\Assert;
 
+/**
+ * --
+ */
 class ListProfiles extends XotBaseListRecords
 {
     protected static string $resource = BaseProfileResource::class;
