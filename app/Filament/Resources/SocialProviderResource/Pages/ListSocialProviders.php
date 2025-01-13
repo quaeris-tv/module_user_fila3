@@ -6,10 +6,16 @@ namespace Modules\User\Filament\Resources\SocialProviderResource\Pages;
 
 use Filament\Actions;
 use Filament\Tables\Table;
+<<<<<<< HEAD
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Actions\DeleteBulkAction;
+=======
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ViewColumn;
+>>>>>>> cec14b7e83b98362e8d6b2c669f89317e7bb61f7
 use Modules\User\Filament\Resources\SocialProviderResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
@@ -43,12 +49,46 @@ class ListSocialProviders extends XotBaseListRecords
     public function getGridTableColumns(): array
     {
         return [
+            'name' => TextColumn::make('name')
+                ->searchable()
+                ->sortable()
+                ->wrap(),
+            'active' => IconColumn::make('active')
+                ->boolean()
+                ->sortable(),
+            'svg' => ViewColumn::make('svg')
+                ->view('user::filament.tables.columns.svg-icon'),
         ];
     }
 
     public function getListTableColumns(): array
     {
         return [
+            'name' => TextColumn::make('name')
+                ->searchable()
+                ->sortable()
+                ->wrap(),
+            'active' => IconColumn::make('active')
+                ->boolean()
+                ->sortable(),
+            'stateless' => IconColumn::make('stateless')
+                ->boolean()
+                ->sortable(),
+            'socialite' => IconColumn::make('socialite')
+                ->boolean()
+                ->sortable(),
+            'scopes' => TextColumn::make('scopes')
+                ->searchable()
+                ->wrap(),
+            'parameters' => TextColumn::make('parameters')
+                ->searchable()
+                ->wrap(),
+            'created_at' => TextColumn::make('created_at')
+                ->dateTime()
+                ->sortable(),
+            'updated_at' => TextColumn::make('updated_at')
+                ->dateTime()
+                ->sortable(),
         ];
     }
 
@@ -72,10 +112,5 @@ class ListSocialProviders extends XotBaseListRecords
         ];
     }
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
+    
 }
