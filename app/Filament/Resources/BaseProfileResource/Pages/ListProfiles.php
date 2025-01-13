@@ -21,7 +21,7 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Webmozart\Assert\Assert;
 
 /**
- * --.
+ * .
  */
 class ListProfiles extends XotBaseListRecords
 {
