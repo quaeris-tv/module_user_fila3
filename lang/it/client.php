@@ -1,21 +1,20 @@
-<?php return array (
-  'fields' => 
-  array (
-    'name' => 
-    array (
-      'label' => 'name',
-    ),
-    'create' => 
-    array (
-      'label' => 'create',
-    ),
-    'edit' => 
-    array (
-      'label' => 'edit',
-    ),
-    'delete' => 
-    array (
-      'label' => 'delete',
-    ),
-  ),
-);
+<?php
+
+declare(strict_types=1);
+
+return [
+    'fields' => [
+        'name' => [
+            'label' => 'name',
+        ],
+        'create' => [
+            'label' => 'create',
+        ],
+        'edit' => [
+            'label' => 'edit',
+        ],
+        'delete' => [
+            'label' => 'delete',
+        ],
+    ],
+];
