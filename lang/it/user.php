@@ -165,10 +165,10 @@ return [
     ],
     'plural' => [
         'model' => [
-            'label' => 'user.plural.model',
+            'label' => 'Utenti',
         ],
     ],
     'model' => [
-        'label' => 'user.model',
+        'label' => 'Utente',
     ],
 ];
