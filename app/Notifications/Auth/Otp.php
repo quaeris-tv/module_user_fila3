@@ -20,12 +20,15 @@ class Otp extends Notification implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(public UserContract $user, public string $code) {}
+    public function __construct(public UserContract $user, public string $code)
+    {
+    }
 
     /**
      * Get the notification's delivery channels.
      *
-     * @param  \Illuminate\Notifications\AnonymousNotifiable  $notifiable
+     * @param \Illuminate\Notifications\AnonymousNotifiable $notifiable
+     *
      * @return array
      */
     public function via($notifiable)
@@ -36,7 +39,8 @@ class Otp extends Notification implements ShouldQueue
     /**
      * Get the mail representation of the notification.
      *
-     * @param  \Illuminate\Notifications\AnonymousNotifiable  $notifiable
+     * @param \Illuminate\Notifications\AnonymousNotifiable $notifiable
+     *
      * @return MailMessage
      */
     public function toMail($notifiable)
@@ -45,7 +49,7 @@ class Otp extends Notification implements ShouldQueue
         /** @var string */
         $app_name = config('app.name');
 
-        return (new MailMessage)
+        return (new MailMessage())
 
             ->template('user::notifications.email')
             ->subject(__('user::otp.mail.subject'))
