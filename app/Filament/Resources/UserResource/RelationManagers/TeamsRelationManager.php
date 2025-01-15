@@ -19,6 +19,7 @@ use Modules\Xot\Filament\Traits\HasXotTable;
 class TeamsRelationManager extends XotBaseRelationManager
 {
     use HasXotTable;
+
     protected static string $relationship = 'teams';
 
     protected static ?string $recordTitleAttribute = 'name';
