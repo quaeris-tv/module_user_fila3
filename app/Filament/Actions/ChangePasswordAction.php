@@ -28,10 +28,9 @@ class ChangePasswordAction extends Action
                     'password' => Hash::make($data['new_password']),
                 ]);
                 Notification::make()
-                        ->success()
-                        ->title(__('user::notifications.password_changed_successfully.title'))
-                        ->body(__('user::notifications.password_changed_successfully.message'))
-                ;
+                    ->success()
+                    ->title(__('user::notifications.password_changed_successfully.title'))
+                    ->body(__('user::notifications.password_changed_successfully.message'));
             })
             ->form([
                 /*

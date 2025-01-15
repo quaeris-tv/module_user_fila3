@@ -45,6 +45,7 @@ class PasswordData extends Data
     public ?string $failMessage = null;
 
     private static ?self $instance = null;
+
     private string $field_name = 'new_password';
 
     public static function make(): self
@@ -133,9 +134,8 @@ class PasswordData extends Data
             ->extraInputAttributes(['tabindex' => 2])
             ->rule(Password::default())
             ->validationMessages($this->getValidationMessages())
-            ->helperText($this->getHelperText())
-            // ->live()
-        ;
+            ->helperText($this->getHelperText());
+        // ->live()
 
         return $field;
     }
@@ -151,8 +151,7 @@ class PasswordData extends Data
             // ->visible(fn (Get $get): bool => filled($get($this->field_name)))
             // ->dehydrated(false)
             ->same($this->field_name)
-            ->validationMessages($this->getValidationMessages())
-        ;
+            ->validationMessages($this->getValidationMessages());
     }
 
     /**

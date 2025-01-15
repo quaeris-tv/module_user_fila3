@@ -20,14 +20,15 @@ use Modules\Xot\Filament\Traits\HasXotTable;
 class TenantsRelationManager extends XotBaseRelationManager
 {
     use HasXotTable;
+
     protected static string $relationship = 'tenants';
+
     protected static ?string $recordTitleAttribute = 'name';
 
     /**
      * Set up the form schema for tenant relations.
      *
-     * @param Form $form the form instance for configuration
-     *
+     * @param  Form  $form  the form instance for configuration
      * @return Form configured form instance
      */
     public function form(Form $form): Form
