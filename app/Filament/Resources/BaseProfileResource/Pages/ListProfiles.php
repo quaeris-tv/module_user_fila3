@@ -51,11 +51,11 @@ class ListProfiles extends XotBaseListRecords
                         function ($record) {
                             $user = $record->user;
                             $user_class = XotData::make()->getUserClass();
-                            if ($user === null) {
+                            if (null === $user) {
                                 /** @var \Modules\Xot\Contracts\UserContract */
                                 $user = XotData::make()->getUserByEmail($record->email);
                             }
-                            if ($user === null) {
+                            if (null === $user) {
                                 $data = $record->toArray();
                                 $user_data = Arr::except($data, ['id']);
                                 /** @var \Modules\Xot\Contracts\UserContract */
@@ -97,8 +97,8 @@ class ListProfiles extends XotBaseListRecords
                     function ($record) {
                         $user = $record->user;
                         $user_class = XotData::make()->getUserClass();
-                        if ($user === null) {
-                            if ($record->email == null) {
+                        if (null === $user) {
+                            if (null == $record->email) {
                                 $record->update(['email' => fake()->email()]);
                             }
                             try {
@@ -110,7 +110,7 @@ class ListProfiles extends XotBaseListRecords
                                 return '--';
                             }
                         }
-                        if ($user === null) {
+                        if (null === $user) {
                             $data = $record->toArray();
                             $user_data = Arr::except($data, ['id']);
                             /** @var \Modules\Xot\Contracts\UserContract */

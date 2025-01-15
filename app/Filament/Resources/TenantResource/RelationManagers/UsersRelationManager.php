@@ -48,7 +48,7 @@ class UsersRelationManager extends XotBaseRelationManager
             Forms\Components\TextInput::make('password')
 
                 ->password()
-                ->required(fn ($context) => $context === 'create')
+                ->required(fn ($context) => 'create' === $context)
                 ->minLength(8)
                 ->same('password_confirmation')
                 ->dehydrated(fn ($state) => filled($state))
@@ -57,7 +57,7 @@ class UsersRelationManager extends XotBaseRelationManager
             Forms\Components\TextInput::make('password_confirmation')
 
                 ->password()
-                ->required(fn ($context) => $context === 'create')
+                ->required(fn ($context) => 'create' === $context)
                 ->minLength(8),
         ];
     }
