@@ -1,12 +1,14 @@
 <?php
-use function Laravel\Folio\{withTrashed, middleware, name, render};
 use Livewire\Volt\Component;
+
+use function Laravel\Folio\{withTrashed, middleware, name, render};
+
 //withTrashed();
 middleware(['auth']);
 name('errors.password-expired');
 //Expression "new class extends \Livewire\Volt\Component…" on a separate line does not do anything.
 // @phpstan-ignore expr.resultUnused
-new class extends Component {};
+new class () extends Component {};
 
 ?>
 <x-layouts.marketing>
