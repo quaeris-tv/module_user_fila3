@@ -11,7 +11,7 @@
       'name' => 'Admin',
     ),
     'label' => 'feature',
-    'sort' => 28,
+    'sort' => 87,
   ),
   'fields' => 
   array (
