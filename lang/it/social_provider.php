@@ -11,7 +11,7 @@
       'name' => 'Admin',
     ),
     'label' => 'social provider',
-    'sort' => 66,
+    'sort' => 39,
   ),
   'fields' => 
   array (
