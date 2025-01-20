@@ -48,7 +48,7 @@ trait HasHiddenAction
 
                 $regenerateRecoveryCodes = PasswordConfirmationAction::make('regenerate_recovery_codes')
 
-                    ->icon('heroicon-o-refresh')
+                    ->icon('heroicon-o-arrow-path')
                     ->action('regenerateRecoveryCodes');
             } else {
                 $showRecoveryCodes = Action::make('showing_recovery_codes')
@@ -60,7 +60,7 @@ trait HasHiddenAction
 
                 $regenerateRecoveryCodes = Action::make('regenerate_recovery_codes')
 
-                    ->icon('heroicon-o-refresh')
+                    ->icon('heroicon-o-arrow-path')
                     ->action('regenerateRecoveryCodes');
             }
 
