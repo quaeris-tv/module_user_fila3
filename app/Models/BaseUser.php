@@ -237,6 +237,40 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         return true;
     }
 
+    public function detach(Model $model): void
+    {
+        if (method_exists($this, 'teams')) {
+            $this->teams()->detach($model);
+        }
+    }
+
+    public function attach(Model $model): void
+    {
+        if (method_exists($this, 'teams')) {
+            $this->teams()->attach($model);
+        }
+    }
+
+    public function treeLabel(): string
+    {
+        return $this->name ?? $this->email;
+    }
+
+    public function treeSons(): Collection
+    {
+        return $this->teams ?? new Collection();
+    }
+
+    public function treeSonsCount(): int
+    {
+        return $this->teams()->count();
+    }
+
+    public function user(): UserContract
+    {
+        return $this;
+    }
+
     public function devices(): BelongsToMany
     {
         return $this
