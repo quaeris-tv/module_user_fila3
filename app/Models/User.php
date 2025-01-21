@@ -98,8 +98,7 @@ use Modules\Xot\Contracts\ProfileContract;
  */
 class User extends BaseUser
 {
-    /** @var string */
-    protected $connection = 'user';
+    protected string $connection = 'user';
 
     public function canAccessSocialite(): bool
     {

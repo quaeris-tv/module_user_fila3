@@ -26,33 +26,21 @@ class ListUsers extends XotBaseListRecords
     // //
     protected static string $resource = UserResource::class;
 
+    /**
+     * @return array<string, \Filament\Tables\Columns\Column>
+     */
     public function getListTableColumns(): array
     {
         return [
-            // TextColumn::make('id')->sortable(),
-            TextColumn::make('name')->sortable()->searchable(), // ->toggleable(),
-            TextColumn::make('email')->sortable()->searchable(),
-            // TextColumn::make('profile.first_name')->sortable()->searchable()->toggleable(),
-            // TextColumn::make('profile.last_name')->sortable()->searchable()->toggleable(),
-            TextColumn::make('teams.name')->searchable()->toggleable()->wrap()->badge(),
-            // Tables\Columns\TextColumn::make('email'),
-            // Tables\Columns\TextColumn::make('email_verified_at')
-            //    ->dateTime(config('app.date_format')),
-            // TextColumn::make('role.name')->toggleable(),
-            TextColumn::make('roles.name')->toggleable()->wrap()->badge(),
-            // Tables\Columns\TextColumn::make('created_at')->dateTime(config('app.date_format')),
-            // Tables\Columns\TextColumn::make('updated_at')
-            //    ->dateTime(config('app.date_format')),
-            // Tables\Columns\TextColumn::make('role_id'),
-            // Tables\Columns\TextColumn::make('display_name'),
-            // Tables\Columns\TextColumn::make('phone_number'),
-            // Tables\Columns\TextColumn::make('phone_verified_at')
-            //    ->dateTime(config('app.date_format')),
-            // Tables\Columns\TextColumn::make('photo'),
-            BooleanColumn::make('email_verified_at')->sortable()->searchable()->toggleable(),
-            // ...static::extendTableCallback(),
-            TextColumn::make('password_expires_at')->sortable()
-                ->toggleable(isToggledHiddenByDefault: true),
+            'id' => Tables\Columns\TextColumn::make('id'),
+            'name' => Tables\Columns\TextColumn::make('name')
+                ->searchable(),
+            'email' => Tables\Columns\TextColumn::make('email')
+                ->searchable(),
+            'email_verified_at' => Tables\Columns\TextColumn::make('email_verified_at')
+                ->dateTime(),
+            'created_at' => Tables\Columns\TextColumn::make('created_at')
+                ->dateTime(),
         ];
     }
 
