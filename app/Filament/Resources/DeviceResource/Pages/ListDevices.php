@@ -42,22 +42,17 @@ class ListDevices extends XotBaseListRecords
         ];
     }
 
+    /**
+     * @return array<string, \Filament\Tables\Columns\Column>
+     */
     public function getListTableColumns(): array
     {
         return [
-            TextColumn::make('id'),
-            TextColumn::make('mobile_id'),
-            // TextColumn::make('languages'),
-            TextColumn::make('device'),
-            TextColumn::make('platform'),
-            TextColumn::make('browser'),
-            TextColumn::make('version'),
-            IconColumn::make('is_robot')->boolean(),
-            TextColumn::make('robot'),
-            IconColumn::make('is_desktop')->boolean(),
-            IconColumn::make('is_mobile')->boolean(),
-            IconColumn::make('is_tablet')->boolean(),
-            IconColumn::make('is_phone')->boolean(),
+            'id' => TextColumn::make('id'),
+            'name' => TextColumn::make('name'),
+            'type' => TextColumn::make('type'),
+            'active' => IconColumn::make('active')
+                ->boolean(),
         ];
     }
 
@@ -88,31 +83,17 @@ class ListDevices extends XotBaseListRecords
         ];
     }
 
-    public function getTableBulkActions(): array
+    /**
+     * @return array<string, \Filament\Tables\Actions\BulkAction>
+     */
+    protected function getTableBulkActions(): array
     {
         return [
-            DeleteBulkAction::make(),
+            'delete' => DeleteBulkAction::make(),
         ];
     }
 
-    public function table(Table $table): Table
-    {
-        return $table
-            // ->columns($this->getTableColumns())
-            ->columns($this->layoutView->getTableColumns())
-            ->contentGrid($this->layoutView->getTableContentGrid())
-            ->headerActions($this->getTableHeaderActions())
-
-            ->filters($this->getTableFilters())
-            ->actions($this->getTableActions())
-            ->bulkActions($this->getTableBulkActions())
-            ->actionsPosition(ActionsPosition::BeforeColumns)
-            ->defaultSort(
-                column: 'created_at',
-                direction: 'DESC',
-            );
-    }
-
+   
     protected function getHeaderActions(): array
     {
         return [

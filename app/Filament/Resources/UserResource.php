@@ -127,23 +127,14 @@ class UserResource extends XotBaseResource
         return $form;
     }
 
+    /**
+     * @return array<int, class-string<RelationManager>|RelationGroup>
+     */
     public static function getRelations(): array
     {
         return [
-            RelationManagers\DevicesRelationManager::class,
-            RelationManagers\TeamsRelationManager::class,
-            RelationManagers\ProfileRelationManager::class,
-            RelationManagers\RolesRelationManager::class,
-            // ---PASSPORT
-            RelationGroup::make(
-                'Passport',
-                [
-                    RelationManagers\TokensRelationManager::class,
-                    RelationManagers\ClientsRelationManager::class,
-                ]
-            ),
-            RelationManagers\SocialiteUsersRelationManager::class,
-            RelationManagers\TenantsRelationManager::class,
+            'teams' => RelationManagers\TeamsRelationManager::class,
+            'tenants' => RelationManagers\TenantsRelationManager::class,
         ];
     }
 

@@ -9,6 +9,7 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Enums\FiltersLayout;
@@ -20,22 +21,23 @@ class ListFeatures extends XotBaseListRecords
 {
     protected static string $resource = FeatureResource::class;
 
+    /**
+     * @return array<int, \Filament\Tables\Columns\Column|\Filament\Tables\Columns\Layout\Stack>
+     */
     public function getGridTableColumns(): array
     {
         return [
-            'name' => TextColumn::make('name')
-                ->searchable()
-                ->sortable()
-                ->wrap(),
-            'scope' => TextColumn::make('scope')
-                ->searchable()
-                ->sortable(),
-            'value' => TextColumn::make('value')
-                ->searchable()
-                ->wrap(),
+            Stack::make([
+                TextColumn::make('name'),
+                TextColumn::make('description'),
+                TextColumn::make('created_at')->dateTime(),
+            ]),
         ];
     }
 
+    /**
+     * @return array<string, \Filament\Tables\Columns\Column>
+     */
     public function getListTableColumns(): array
     {
         return [
@@ -87,13 +89,6 @@ class ListFeatures extends XotBaseListRecords
             DeleteAction::make()
                 ->label('')
                 ->requiresConfirmation(),
-        ];
-    }
-
-    public function getTableBulkActions(): array
-    {
-        return [
-            DeleteBulkAction::make(),
         ];
     }
 

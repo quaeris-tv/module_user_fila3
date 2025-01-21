@@ -42,18 +42,16 @@ class ListSocialProviders extends XotBaseListRecords
             );
     }
 
+    /**
+     * @return array<string, Column>
+     */
     public function getGridTableColumns(): array
     {
         return [
-            'name' => TextColumn::make('name')
-                ->searchable()
-                ->sortable()
-                ->wrap(),
-            'active' => IconColumn::make('active')
-                ->boolean()
-                ->sortable(),
-            'svg' => ViewColumn::make('svg')
-                ->view('user::filament.tables.columns.svg-icon'),
+            'icon' => IconColumn::make('icon'),
+            'name' => TextColumn::make('name'),
+            'view' => ViewColumn::make('custom_view')
+                ->view('social-provider.column'),
         ];
     }
 
@@ -104,7 +102,7 @@ class ListSocialProviders extends XotBaseListRecords
     public function getTableBulkActions(): array
     {
         return [
-            DeleteBulkAction::make(),
+            'delete' => DeleteBulkAction::make(),
         ];
     }
 }
