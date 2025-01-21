@@ -303,7 +303,7 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
     // ----------------------
     // ---------------------
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany<\Modules\User\Models\Notification, self>
+     * @return MorphMany<Notification, self>
      */
     public function notifications(): MorphMany
     {
@@ -311,7 +311,7 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphOne<\Modules\User\Models\AuthenticationLog, self>
+     * @return MorphOne<AuthenticationLog, self>
      */
     public function latestAuthentication(): MorphOne
     {

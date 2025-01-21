@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
 use Filament\Forms\Components\TextInput;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Columns\BooleanColumn;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
@@ -21,7 +21,6 @@ use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\User\Models\Role;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-use Illuminate\Database\Eloquent\Collection;
 
 class ListUsers extends XotBaseListRecords
 {
@@ -29,7 +28,7 @@ class ListUsers extends XotBaseListRecords
     protected static string $resource = UserResource::class;
 
     /**
-     * @return array<string, \Filament\Tables\Columns\TextColumn>
+     * @return array<string, TextColumn>
      */
     public function getListTableColumns(): array
     {
@@ -49,7 +48,7 @@ class ListUsers extends XotBaseListRecords
     /**
      * Undocumented function.
      *
-     * @return array<\Filament\Tables\Filters\BaseFilter>
+     * @return array<Tables\Filters\BaseFilter>
      */
     public function getTableFilters(): array
     {
@@ -75,7 +74,7 @@ class ListUsers extends XotBaseListRecords
     /**
      * Undocumented function.
      *
-     * @return array<Action|\Filament\Tables\Actions\ActionGroup>
+     * @return array<Action|Tables\Actions\ActionGroup>
      */
     public function getTableActions(): array
     {
@@ -127,7 +126,7 @@ class ListUsers extends XotBaseListRecords
     }
 
     /**
-     * @return array<string, \Filament\Tables\Actions\BulkAction>
+     * @return array<string, Tables\Actions\BulkAction>
      */
     protected function getTableBulkActions(): array
     {

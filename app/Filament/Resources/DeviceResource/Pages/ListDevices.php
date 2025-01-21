@@ -12,8 +12,6 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Enums\ActionsPosition;
-use Filament\Tables\Table;
 use Modules\User\Filament\Resources\DeviceResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
@@ -93,7 +91,6 @@ class ListDevices extends XotBaseListRecords
         ];
     }
 
-   
     protected function getHeaderActions(): array
     {
         return [

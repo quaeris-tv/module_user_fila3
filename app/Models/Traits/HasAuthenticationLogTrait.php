@@ -24,9 +24,9 @@ trait HasAuthenticationLogTrait
     /**
      * Get all authentications for the model, ordered by the most recent login.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany<\Modules\User\Models\AuthenticationLog, self>
+     * @return MorphMany<AuthenticationLog, self>
      */
-    public function authentications(): \Illuminate\Database\Eloquent\Relations\MorphMany
+    public function authentications(): MorphMany
     {
         return $this->morphMany(AuthenticationLog::class, 'authenticatable')
             ->latest('login_at');
@@ -35,9 +35,9 @@ trait HasAuthenticationLogTrait
     /**
      * Get the latest authentication attempt for the model.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphOne<\Modules\User\Models\AuthenticationLog, self>
+     * @return MorphOne<AuthenticationLog, self>
      */
-    public function latestAuthentication(): \Illuminate\Database\Eloquent\Relations\MorphOne
+    public function latestAuthentication(): MorphOne
     {
         return $this->morphOne(AuthenticationLog::class, 'authenticatable')
             ->latestOfMany('login_at');
