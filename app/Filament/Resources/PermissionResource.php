@@ -180,4 +180,12 @@ class PermissionResource extends XotBaseResource
             'view' => ViewPermission::route('/{record}'),
         ];
     }
+
+    public static function syncPermissions(Permission $permission, array $data): void
+    {
+        Assert::keyExists($data, 'roles');
+        Assert::isArray($data['roles']);
+        
+        $permission->roles()->sync($data['roles']);
+    }
 }

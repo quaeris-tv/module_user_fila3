@@ -137,56 +137,14 @@ class ListProfiles extends XotBaseListRecords
         ];
     }
 
+    /**
+     * @return array<string, BulkAction>
+     */
     protected function getTableBulkActions(): array
     {
         return [
-            // Tables\Actions\BulkActionGroup::make([
-            //    Tables\Actions\DeleteBulkAction::make(),
-            /*
-                Tables\Actions\BulkAction::make('refresh-profiles')
-                    ->requiresConfirmation()
-                    ->action(function (Collection $records) {
-                        $users = User::all();
-
-                        foreach ($users as $user) {
-                            Profile::firstOrCreate(
-                                ['user_id' => $user->id, 'email' => $user->email],
-                                ['credits' => 1000]
-                            );
-                        }
-                    }),
-                */
-            // ]),
-            Tables\Actions\DeleteBulkAction::make(),
-            BulkAction::make('bulk_activate')
-                ->action(
-                    function (Collection $collection) {
-                        $collection
-                            ->chunk(20)
-                            ->each
-                            ->each(
-                                function ($user): void {
-                                    Assert::isInstanceOf($user, Model::class, '['.__LINE__.']['.class_basename($this).']');
-                                    $user->update(['is_active' => true]);
-                                }
-                            );
-                    }
-                ),
-
-            BulkAction::make('bulk_inactivate')
-                ->action(
-                    function (Collection $collection) {
-                        $collection
-                            ->chunk(20)
-                            ->each
-                            ->each(
-                                function ($user): void {
-                                    Assert::isInstanceOf($user, Model::class, '['.__LINE__.']['.class_basename($this).']');
-                                    $user->update(['is_active' => true]);
-                                }
-                            );
-                    }
-                ),
+            'delete' => DeleteBulkAction::make(),
+            'export' => ExportBulkAction::make(),
         ];
     }
 

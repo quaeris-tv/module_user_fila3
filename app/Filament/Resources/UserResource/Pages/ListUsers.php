@@ -8,6 +8,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Query\Builder;
@@ -20,6 +21,7 @@ use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\User\Models\Role;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+use Illuminate\Database\Eloquent\Collection;
 
 class ListUsers extends XotBaseListRecords
 {
@@ -27,19 +29,19 @@ class ListUsers extends XotBaseListRecords
     protected static string $resource = UserResource::class;
 
     /**
-     * @return array<string, \Filament\Tables\Columns\Column>
+     * @return array<string, \Filament\Tables\Columns\TextColumn>
      */
     public function getListTableColumns(): array
     {
         return [
-            'id' => Tables\Columns\TextColumn::make('id'),
-            'name' => Tables\Columns\TextColumn::make('name')
+            'id' => TextColumn::make('id'),
+            'name' => TextColumn::make('name')
                 ->searchable(),
-            'email' => Tables\Columns\TextColumn::make('email')
+            'email' => TextColumn::make('email')
                 ->searchable(),
-            'email_verified_at' => Tables\Columns\TextColumn::make('email_verified_at')
+            'email_verified_at' => TextColumn::make('email_verified_at')
                 ->dateTime(),
-            'created_at' => Tables\Columns\TextColumn::make('created_at')
+            'created_at' => TextColumn::make('created_at')
                 ->dateTime(),
         ];
     }
@@ -121,6 +123,18 @@ class ListUsers extends XotBaseListRecords
     {
         return [
             UserOverview::class,
+        ];
+    }
+
+    /**
+     * @return array<string, \Filament\Tables\Actions\BulkAction>
+     */
+    protected function getTableBulkActions(): array
+    {
+        return [
+            'delete' => Tables\Actions\DeleteBulkAction::make(),
+            'export' => Tables\Actions\BulkAction::make('export')
+                ->action(fn (Collection $records) => $this->export($records)),
         ];
     }
 }

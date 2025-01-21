@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
@@ -302,13 +303,19 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
     // ----------------------
     // ---------------------
     /**
-     * Get the entity's notifications.
-     *
-     * @return MorphMany<Notification>
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany<\Modules\User\Models\Notification, self>
      */
-    public function notifications()
+    public function notifications(): MorphMany
     {
-        return $this->morphMany(Notification::class, 'notifiable')->latest();
+        return $this->morphMany(Notification::class, 'notifiable');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne<\Modules\User\Models\AuthenticationLog, self>
+     */
+    public function latestAuthentication(): MorphOne
+    {
+        return $this->morphOne(AuthenticationLog::class, 'authenticatable')->latestOfMany();
     }
 
     public function getFullNameAttribute(?string $value): ?string
