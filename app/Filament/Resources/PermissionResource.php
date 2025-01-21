@@ -185,7 +185,7 @@ class PermissionResource extends XotBaseResource
     {
         Assert::keyExists($data, 'roles');
         Assert::isArray($data['roles']);
-        
+
         $permission->roles()->sync($data['roles']);
     }
 }

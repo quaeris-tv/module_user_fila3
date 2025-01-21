@@ -6,7 +6,6 @@ namespace Modules\User\Filament\Resources\FeatureResource\Pages;
 
 use Filament\Actions\CreateAction;
 use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\Layout\Stack;
@@ -22,7 +21,7 @@ class ListFeatures extends XotBaseListRecords
     protected static string $resource = FeatureResource::class;
 
     /**
-     * @return array<int, \Filament\Tables\Columns\Column|\Filament\Tables\Columns\Layout\Stack>
+     * @return array<int, \Filament\Tables\Columns\Column|Stack>
      */
     public function getGridTableColumns(): array
     {

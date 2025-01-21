@@ -12,13 +12,10 @@ use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TernaryFilter;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Modules\User\Filament\Resources\BaseProfileResource;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-use Webmozart\Assert\Assert;
 
 /**
  * .
