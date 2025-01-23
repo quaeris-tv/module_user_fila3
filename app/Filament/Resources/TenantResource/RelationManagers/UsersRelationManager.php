@@ -26,7 +26,7 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<Forms\Components\Component>
      */
-    protected function getFormSchema(): array
+    public function getFormSchema(): array
     {
         return [
             Forms\Components\TextInput::make('name')
