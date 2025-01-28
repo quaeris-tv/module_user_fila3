@@ -17,9 +17,7 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationGroup;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\HtmlString;
-use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
-use Modules\User\Filament\Resources\UserResource\Pages\EditUser;
-use Modules\User\Filament\Resources\UserResource\Pages\ListUsers;
+use Modules\User\Filament\Resources\UserResource\Pages;
 use Modules\User\Filament\Resources\UserResource\RelationManagers;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\Xot\Filament\Resources\XotBaseResource;
@@ -127,32 +125,23 @@ class UserResource extends XotBaseResource
         return $form;
     }
 
+    /**
+     * @return array<int, class-string<RelationManager>|RelationGroup>
+     */
     public static function getRelations(): array
     {
         return [
-            RelationManagers\DevicesRelationManager::class,
-            RelationManagers\TeamsRelationManager::class,
-            RelationManagers\ProfileRelationManager::class,
-            RelationManagers\RolesRelationManager::class,
-            // ---PASSPORT
-            RelationGroup::make(
-                'Passport',
-                [
-                    RelationManagers\TokensRelationManager::class,
-                    RelationManagers\ClientsRelationManager::class,
-                ]
-            ),
-            RelationManagers\SocialiteUsersRelationManager::class,
-            RelationManagers\TenantsRelationManager::class,
+            'teams' => RelationManagers\TeamsRelationManager::class,
+            'tenants' => RelationManagers\TenantsRelationManager::class,
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => ListUsers::route('/'),
-            'create' => CreateUser::route('/create'),
-            'edit' => EditUser::route('/{record}/edit'),
+            'index' => Pages\ListUsers::route('/'),
+            'create' => Pages\CreateUser::route('/create'),
+            'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
 

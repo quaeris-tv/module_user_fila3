@@ -7,6 +7,7 @@ namespace Modules\User\Filament\Resources\PermissionResource\Pages;
 use Filament\Actions\CreateAction;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Actions\BulkAction;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Collection;
 use Modules\User\Filament\Resources\PermissionResource;
@@ -52,7 +53,8 @@ class ListPermissions extends XotBaseListRecords
         Assert::classExists($roleModel = config('permission.models.role'));
 
         return [
-            BulkAction::make('Attach Role')
+            'delete' => DeleteBulkAction::make(),
+            'attach_role' => BulkAction::make('Attach Role')
                 ->action(
                     static function (Collection $collection, array $data): void {
                         foreach ($collection as $record) {
