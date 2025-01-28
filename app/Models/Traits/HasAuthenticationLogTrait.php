@@ -24,7 +24,7 @@ trait HasAuthenticationLogTrait
     /**
      * Get all authentications for the model, ordered by the most recent login.
      *
-     * @return MorphMany<AuthenticationLog> a morph many relationship with the AuthenticationLog model
+     * @return MorphMany<AuthenticationLog, self>
      */
     public function authentications(): MorphMany
     {
@@ -35,7 +35,7 @@ trait HasAuthenticationLogTrait
     /**
      * Get the latest authentication attempt for the model.
      *
-     * @return MorphOne<AuthenticationLog> a morph one relationship with the most recent AuthenticationLog entry
+     * @return MorphOne<AuthenticationLog, self>
      */
     public function latestAuthentication(): MorphOne
     {

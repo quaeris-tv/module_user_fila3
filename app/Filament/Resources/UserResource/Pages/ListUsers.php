@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
 use Filament\Forms\Components\TextInput;
+use Filament\Tables;
 use Filament\Tables\Actions\Action;
-use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
@@ -26,40 +27,28 @@ class ListUsers extends XotBaseListRecords
     // //
     protected static string $resource = UserResource::class;
 
+    /**
+     * @return array<string, TextColumn>
+     */
     public function getListTableColumns(): array
     {
         return [
-            // TextColumn::make('id')->sortable(),
-            TextColumn::make('name')->sortable()->searchable(), // ->toggleable(),
-            TextColumn::make('email')->sortable()->searchable(),
-            // TextColumn::make('profile.first_name')->sortable()->searchable()->toggleable(),
-            // TextColumn::make('profile.last_name')->sortable()->searchable()->toggleable(),
-            TextColumn::make('teams.name')->searchable()->toggleable()->wrap()->badge(),
-            // Tables\Columns\TextColumn::make('email'),
-            // Tables\Columns\TextColumn::make('email_verified_at')
-            //    ->dateTime(config('app.date_format')),
-            // TextColumn::make('role.name')->toggleable(),
-            TextColumn::make('roles.name')->toggleable()->wrap()->badge(),
-            // Tables\Columns\TextColumn::make('created_at')->dateTime(config('app.date_format')),
-            // Tables\Columns\TextColumn::make('updated_at')
-            //    ->dateTime(config('app.date_format')),
-            // Tables\Columns\TextColumn::make('role_id'),
-            // Tables\Columns\TextColumn::make('display_name'),
-            // Tables\Columns\TextColumn::make('phone_number'),
-            // Tables\Columns\TextColumn::make('phone_verified_at')
-            //    ->dateTime(config('app.date_format')),
-            // Tables\Columns\TextColumn::make('photo'),
-            BooleanColumn::make('email_verified_at')->sortable()->searchable()->toggleable(),
-            // ...static::extendTableCallback(),
-            TextColumn::make('password_expires_at')->sortable()
-                ->toggleable(isToggledHiddenByDefault: true),
+            'id' => TextColumn::make('id'),
+            'name' => TextColumn::make('name')
+                ->searchable(),
+            'email' => TextColumn::make('email')
+                ->searchable(),
+            'email_verified_at' => TextColumn::make('email_verified_at')
+                ->dateTime(),
+            'created_at' => TextColumn::make('created_at')
+                ->dateTime(),
         ];
     }
 
     /**
      * Undocumented function.
      *
-     * @return array<\Filament\Tables\Filters\BaseFilter>
+     * @return array<Tables\Filters\BaseFilter>
      */
     public function getTableFilters(): array
     {
@@ -85,7 +74,7 @@ class ListUsers extends XotBaseListRecords
     /**
      * Undocumented function.
      *
-     * @return array<Action|\Filament\Tables\Actions\ActionGroup>
+     * @return array<Action|Tables\Actions\ActionGroup>
      */
     public function getTableActions(): array
     {
@@ -133,6 +122,18 @@ class ListUsers extends XotBaseListRecords
     {
         return [
             UserOverview::class,
+        ];
+    }
+
+    /**
+     * @return array<string, Tables\Actions\BulkAction>
+     */
+    protected function getTableBulkActions(): array
+    {
+        return [
+            'delete' => Tables\Actions\DeleteBulkAction::make(),
+            'export' => Tables\Actions\BulkAction::make('export')
+                ->action(fn (Collection $records) => $this->export($records)),
         ];
     }
 }

@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
@@ -237,6 +238,40 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         return true;
     }
 
+    public function detach(Model $model): void
+    {
+        if (method_exists($this, 'teams')) {
+            $this->teams()->detach($model);
+        }
+    }
+
+    public function attach(Model $model): void
+    {
+        if (method_exists($this, 'teams')) {
+            $this->teams()->attach($model);
+        }
+    }
+
+    public function treeLabel(): string
+    {
+        return $this->name ?? $this->email;
+    }
+
+    public function treeSons(): Collection
+    {
+        return $this->teams ?? new Collection();
+    }
+
+    public function treeSonsCount(): int
+    {
+        return $this->teams()->count();
+    }
+
+    public function user(): UserContract
+    {
+        return $this;
+    }
+
     public function devices(): BelongsToMany
     {
         return $this
@@ -268,13 +303,19 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
     // ----------------------
     // ---------------------
     /**
-     * Get the entity's notifications.
-     *
-     * @return MorphMany<Notification>
+     * @return MorphMany<Notification, self>
      */
     public function notifications()
     {
-        return $this->morphMany(Notification::class, 'notifiable')->latest();
+        return $this->morphMany(Notification::class, 'notifiable');
+    }
+
+    /**
+     * @return MorphOne<AuthenticationLog, self>
+     */
+    public function latestAuthentication(): MorphOne
+    {
+        return $this->morphOne(AuthenticationLog::class, 'authenticatable')->latestOfMany();
     }
 
     public function getFullNameAttribute(?string $value): ?string

@@ -8,7 +8,7 @@
       'name' => 'Admin',
     ),
     'label' => 'team',
-    'sort' => 31,
+    'sort' => 97,
   ),
   'fields' => 
   array (

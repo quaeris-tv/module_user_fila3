@@ -7,5 +7,8 @@ return [
         'new_password_confirmation' => [
             'label' => 'new_password_confirmation',
         ],
+        'changePassword' => [
+            'label' => 'changePassword',
+        ],
     ],
 ];

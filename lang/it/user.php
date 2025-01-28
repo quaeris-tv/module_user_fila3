@@ -5,7 +5,7 @@
     'plural' => 'Utenti',
     'group' => 'Utenti',
     'label' => 'user',
-    'sort' => 6,
+    'sort' => 60,
   ),
   'fields' => 
   array (
@@ -78,6 +78,18 @@
     'changePassword' => 
     array (
       'label' => 'changePassword',
+    ),
+    'resetFilters' => 
+    array (
+      'label' => 'resetFilters',
+    ),
+    'applyFilters' => 
+    array (
+      'label' => 'applyFilters',
+    ),
+    'openFilters' => 
+    array (
+      'label' => 'openFilters',
     ),
   ),
   'filters' => 
