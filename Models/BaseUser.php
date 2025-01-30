@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -12,11 +14,9 @@ abstract class BaseUser extends Authenticatable
 
     /**
      * Get the entity's notifications.
-     *
-     * @return MorphMany
      */
     public function notifications(): MorphMany
     {
         return $this->morphMany(config('notifications.notification_model', \Illuminate\Notifications\DatabaseNotification::class), 'notifiable');
     }
-} 
+}

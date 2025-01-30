@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth;
 
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
-use Livewire\Component;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 use Modules\Xot\Actions\File\ViewCopyAction;
-use Modules\Xot\Datas\XotData;
 
 class Login extends Component implements HasForms
 {
@@ -46,14 +45,14 @@ class Login extends Component implements HasForms
                 ->label(__('Email'))
                 ->placeholder(__('Inserisci la tua email'))
                 ->suffixIcon('heroicon-m-envelope'),
-                
+
             TextInput::make('password')
                 ->password()
                 ->required()
                 ->label(__('Password'))
                 ->placeholder(__('Inserisci la tua password'))
                 ->suffixIcon('heroicon-m-key'),
-                
+
             Checkbox::make('remember')
                 ->label(__('Ricordami')),
         ];
@@ -80,6 +79,7 @@ class Login extends Component implements HasForms
 
         if (Auth::attempt($data, $remember)) {
             session()->regenerate();
+
             return redirect()->intended();
         }
 
