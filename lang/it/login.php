@@ -1,17 +1,15 @@
-<?php return array (
-  'fields' => 
-  array (
-    'email' => 
-    array (
-      'label' => 'email',
-    ),
-    'password' => 
-    array (
-      'label' => 'password',
-    ),
-    'remember' => 
-    array (
-      'label' => 'remember',
-    ),
-  ),
-);
+<?php
+
+return [
+    'fields' => [
+        'email' => [
+            'label' => 'email',
+        ],
+        'password' => [
+            'label' => 'password',
+        ],
+        'remember' => [
+            'label' => 'remember',
+        ],
+    ],
+];
