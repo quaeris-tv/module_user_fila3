@@ -28,7 +28,9 @@ class Login extends Component implements HasForms
     ];
 
     public string $email = '';
+
     public string $password = '';
+
     public bool $remember = false;
 
     public function mount(): void
