@@ -24,4 +24,4 @@ enum LanguageEnum: string implements HasLabel
             self::GERMAN => 'Deutsch',
         };
     }
-} 
+}
