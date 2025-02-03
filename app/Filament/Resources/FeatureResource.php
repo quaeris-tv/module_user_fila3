@@ -10,8 +10,8 @@ use Modules\User\Models\Feature;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
 /**
- * @property-read Feature $record
- * -------
+ * @property Feature $record
+ *                           -------
  */
 class FeatureResource extends XotBaseResource
 {
