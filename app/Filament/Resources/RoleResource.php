@@ -15,16 +15,21 @@ class RoleResource extends XotBaseResource
 {
     protected static ?string $navigationIcon = 'heroicon-o-shield-check';
 
-    public static function form(Form $form): Form
+    public static function getFormSchema(): array
     {
-        return $form
-            ->schema(
-                [
-                    'name' => TextInput::make('name')
-                        ->required()
-                        ->maxLength(255),
-                ]
-            );
+        return [
+            TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+            TextInput::make('guard_name')
+                ->default('web')
+                ->required()
+                ->maxLength(255),
+            \Filament\Forms\Components\Select::make('permissions')
+                ->multiple()
+                ->relationship('permissions', 'name')
+                ->preload(),
+        ];
     }
 
     public static function getRelations(): array
