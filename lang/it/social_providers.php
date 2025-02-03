@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'fields' => [
         'name' => 'Nome',
@@ -27,4 +29,4 @@ return [
         'svg.placeholder' => 'Inserisci il codice SVG dell\'icona',
         'svg.helper_text' => 'L\'icona SVG del provider social',
     ],
-]; 
+];
