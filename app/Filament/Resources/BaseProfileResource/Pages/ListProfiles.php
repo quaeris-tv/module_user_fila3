@@ -141,7 +141,7 @@ class ListProfiles extends XotBaseListRecords
     {
         return [
             'delete' => Tables\Actions\DeleteBulkAction::make(),
-            'export' => Tables\Actions\BulkAction::make('export')
+            'export' => BulkAction::make('export')
                 ->action(fn ($records) => $this->export($records)),
         ];
     }

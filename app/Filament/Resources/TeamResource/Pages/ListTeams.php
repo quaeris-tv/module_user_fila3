@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\TeamResource\Pages;
 
 use Filament\Actions\CreateAction;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\TeamResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
