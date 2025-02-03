@@ -6,6 +6,9 @@ namespace Modules\User\Filament\Resources\TeamResource\Pages;
 
 use Filament\Actions\CreateAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\ViewAction;
 use Modules\User\Filament\Resources\TeamResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
@@ -31,6 +34,27 @@ class ListTeams extends XotBaseListRecords
             'updated_at' => TextColumn::make('updated_at')
                 ->dateTime()
                 ->sortable(),
+        ];
+    }
+
+    public function getTableFilters(): array
+    {
+        return [];
+    }
+
+    public function getTableActions(): array
+    {
+        return [
+            ViewAction::make(),
+            EditAction::make(),
+            DeleteAction::make(),
+        ];
+    }
+
+    public function getTableBulkActions(): array
+    {
+        return [
+            \Filament\Tables\Actions\DeleteBulkAction::make(),
         ];
     }
 
