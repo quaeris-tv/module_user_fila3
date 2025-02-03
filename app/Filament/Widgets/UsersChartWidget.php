@@ -62,10 +62,10 @@ class UsersChartWidget extends ChartWidget implements HasForms
         try {
             Assert::nullOrString($startDate = $this->filters['startDate'] ?? null);
             Assert::nullOrString($endDate = $this->filters['endDate'] ?? null);
-            if (null === $endDate) {
+            if ($endDate === null) {
                 $endDate = Carbon::now()->format('Y-m-d H:i:s');
             }
-            if (null === $startDate) {
+            if ($startDate === null) {
                 $startDate = Carbon::now()->subMonth()->format('Y-m-d H:i:s');
             }
             Assert::notNull($startDate = Carbon::createFromFormat('Y-m-d H:i:s', $startDate));
