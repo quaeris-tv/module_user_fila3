@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
 use Modules\User\Filament\Resources\TeamResource\Pages\CreateTeam;
 use Modules\User\Filament\Resources\TeamResource\Pages\EditTeam;
 use Modules\User\Filament\Resources\TeamResource\Pages\ListTeams;
