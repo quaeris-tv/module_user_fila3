@@ -43,86 +43,25 @@ class UserResource extends XotBaseResource
     //    static::$extendFormCallback = $callback;
     // }
 
-    public static function form(Form $form): Form
+    public static function getFormSchema(): array
     {
-        // dddx([
-        //     $form->model->teams,
-        //     $form->model->currentTeam
-        // ]);
-        $schema = [
-            'left' => Section::make(
-                [
-                    'name' => TextInput::make('name')
-                        ->required(),
-                    'email' => TextInput::make('email')
-                        ->required()
-                        ->unique(ignoreRecord: true),
-                    /*
-                    'current_team_id' => Select::make('current_team_id')
-                        ->relationship('teams', 'name'),
-                    */
-                    /*
-                'password' => TextInput::make('password')
+        return [
+            Section::make([
+                TextInput::make('name')
+                    ->required(),
+                TextInput::make('email')
                     ->required()
+                    ->unique(ignoreRecord: true),
+                TextInput::make('password')
                     ->password()
-                    ->dehydrateStateUsing(fn ($state) => Hash::make($state))
-                    ->rule(Password::default()),
-                */
-                    /*------------
-                    'password' => TextInput::make('password')
-                        //
-                        ->password()
-                        ->maxLength(255)
-                        ->dehydrateStateUsing(
-                            static fn ($state) => ! empty($state)
-                            ? Hash::make($state)
-                            : User::find($form->getColumns())?->password
-                        ),
-                        */
-                    /*
-                    ->dehydrateStateUsing(function ($state) use ($form){
-                        if(!empty($state)){
-                            return Hash::make($state);
-                        }
-
-                        $user_class=\Modules\Xot\Datas\XotData::make()->getUserClass();
-                        //var \Modules\Xot\Contracts\UserContract
-                        $user = $user_class::find($form->getColumns());
-                        if($user){
-                            return $user->password;
-                        }
-                    }),
-                    */
-
-                    //    ->visible(fn ($livewire): bool => $livewire instanceof CreateUser)
-                    //    ->rule(Password::default()),
-                    /*
-                        'password_group' => Group::make([
-                    'password' => TextInput::make('password')
-                        ->password()
-                        ->nullable()
-                        ->rule(Password::default())
-                        ->dehydrated(false),
-                    'password_confirmation' => TextInput::make('password_confirmation')
-                        ->password()
-                        ->rule('required', fn ($get): bool => (bool) $get('password'))
-                        ->same('password')
-                        ->dehydrated(false),
-                        ])// ->visible(static::$enablePasswordUpdates),
-                        */
-                ]
-            )->columnSpan(8),
-            'right' => Section::make(
-                [
-                    'created_at' => Placeholder::make('created_at')
-                        ->content(static fn ($record) => $record?->created_at?->diffForHumans() ?? new HtmlString('&mdash;')),
-                ]
-            )->columnSpan(4),
+                    ->dehydrateStateUsing(fn ($state) => ! empty($state) ? Hash::make($state) : null)
+                    ->required(fn ($livewire) => $livewire instanceof Pages\CreateUser),
+            ])->columnSpan(8),
+            Section::make([
+                Placeholder::make('created_at')
+                    ->content(static fn ($record) => $record?->created_at?->diffForHumans() ?? new HtmlString('&mdash;')),
+            ])->columnSpan(4),
         ];
-
-        $form->schema($schema)->columns(12);
-
-        return $form;
     }
 
     /**

@@ -60,34 +60,29 @@ class PermissionResource extends XotBaseResource
     //    return __('filament-spatie-roles-permissions::filament-spatie.section.permissions');
     // }
 
-    public static function form(Form $form): Form
+    public static function getFormSchema(): array
     {
         Assert::isArray($guard_names = config('filament-spatie-roles-permissions.guard_names'));
         Assert::string($default_guard_name = config('filament-spatie-roles-permissions.default_guard_name'));
         Assert::boolean($preload_roles = config('filament-spatie-roles-permissions.preload_roles', true));
 
-        return $form
-            ->schema(
-                [
-                    Section::make()
-                        ->schema(
-                            [
-                                Grid::make(2)->schema(
-                                    [
-                                        TextInput::make('name'),
-                                        Select::make('guard_name')
-                                            ->options($guard_names)
-                                            ->default($default_guard_name),
-                                        Select::make('roles')
-                                            ->multiple()
-                                            ->relationship('roles', 'name')
-                                            ->preload($preload_roles),
-                                    ]
-                                ),
-                            ]
-                        ),
-                ]
-            );
+        return [
+            Section::make()
+                ->schema([
+                    Grid::make(2)->schema([
+                        TextInput::make('name')
+                            ->required(),
+                        Select::make('guard_name')
+                            ->options($guard_names)
+                            ->default($default_guard_name)
+                            ->required(),
+                        Select::make('roles')
+                            ->multiple()
+                            ->relationship('roles', 'name')
+                            ->preload($preload_roles),
+                    ]),
+                ]),
+        ];
     }
 
     public static function table(Table $table): Table
