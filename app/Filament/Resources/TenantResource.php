@@ -11,6 +11,7 @@ namespace Modules\User\Filament\Resources;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
+use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\TenantResource\Pages\CreateTenant;
 use Modules\User\Filament\Resources\TenantResource\Pages\EditTenant;
 use Modules\User\Filament\Resources\TenantResource\Pages\ListTenants;
@@ -18,7 +19,6 @@ use Modules\User\Filament\Resources\TenantResource\Pages\ViewTenant;
 use Modules\User\Filament\Resources\TenantResource\RelationManagers;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use Illuminate\Support\Str;
 
 class TenantResource extends XotBaseResource
 {
@@ -29,6 +29,7 @@ class TenantResource extends XotBaseResource
     public static function getModel(): string
     {
         $xot = XotData::make();
+
         return $xot->getTenantClass();
     }
 
@@ -51,16 +52,16 @@ class TenantResource extends XotBaseResource
 
                     TextInput::make('slug')
                         ->required()
-                        ->disabled(fn ($context) => $context !== 'create')
+                        ->disabled(fn ($context) => 'create' !== $context)
                         ->unique(table: 'tenants', ignoreRecord: true)
                         ->helperText(static::trans('fields.slug.helper_text')),
 
                     TextInput::make('domain')
                         ->required()
-                        ->visible(fn ($context) => $context === 'create')
+                        ->visible(fn ($context) => 'create' === $context)
                         ->unique(table: 'domains', ignoreRecord: true)
                         ->prefix('https://')
-                        ->suffix('.' . request()->getHost())
+                        ->suffix('.'.request()->getHost())
                         ->placeholder(static::trans('fields.domain.placeholder'))
                         ->helperText(static::trans('fields.domain.helper_text')),
 

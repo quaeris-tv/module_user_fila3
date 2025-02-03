@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'fields' => [
         'name' => 'Name',
@@ -35,4 +37,4 @@ return [
         'domain.placeholder' => 'Enter domain',
         'domain.helper_text' => 'Custom domain for this tenant',
     ],
-]; 
+];
