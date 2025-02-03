@@ -24,19 +24,18 @@ use Webmozart\Assert\Assert;
 /**
  * Modules\User\Models\Role.
  *
- * @property string                                      $id
- * @property string                                      $uuid
- * @property string|null                                 $team_id
- * @property string                                      $name
- * @property string                                      $guard_name
- * @property Carbon|null                                 $created_at
- * @property Carbon|null                                 $updated_at
- * @property Collection<int, Permission>                 $permissions
- * @property int|null                                    $permissions_count
- * @property Team|null                                   $team
+ * @property string $id
+ * @property string $uuid
+ * @property string|null $team_id
+ * @property string $name
+ * @property string $guard_name
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Collection<int, Permission> $permissions
+ * @property int|null $permissions_count
+ * @property Team|null $team
  * @property EloquentCollection<int, Model&UserContract> $users
- * @property int|null                                    $users_count
- *
+ * @property int|null $users_count
  * @method static \Illuminate\Database\Eloquent\Builder|Role newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Role newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Role permission($permissions)
@@ -47,23 +46,15 @@ use Webmozart\Assert\Assert;
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereTeamId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereUuid($value)
- *
  * @property int $id
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereId($value)
- *
  * @property string|null $updated_by
  * @property string|null $created_by
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereCreatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereUpdatedBy($value)
- *
  * @mixin Eloquent
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Role withoutPermission($permissions)
- *
  * @property PermissionRole|null $pivot
- *
  * @mixin \Eloquent
  */
 class Role extends SpatieRole
