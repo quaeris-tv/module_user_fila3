@@ -12,6 +12,10 @@ use Modules\User\Filament\Resources\SocialProviderResource\Pages;
 use Modules\User\Models\SocialProvider;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
+/**
+ * @property-read SocialProvider $record
+ * -------
+ */
 class SocialProviderResource extends XotBaseResource
 {
     protected static ?string $model = SocialProvider::class;
