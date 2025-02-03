@@ -16,15 +16,11 @@ class DeviceResource extends XotBaseResource
 {
     protected static ?string $model = Device::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-device-phone-mobile';
-
-    public static function form(Form $form): Form
+    public static function getFormSchema(): array
     {
-        return $form
-            ->schema(
-                [
-                ]
-            );
+        return [
+            // Definire qui lo schema del form
+        ];
     }
 
     public static function getRelations(): array
