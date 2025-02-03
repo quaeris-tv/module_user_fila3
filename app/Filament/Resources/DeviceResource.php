@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Forms\Form;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TagsInput;
 use Modules\User\Filament\Resources\DeviceResource\Pages\CreateDevice;
 use Modules\User\Filament\Resources\DeviceResource\Pages\EditDevice;
 use Modules\User\Filament\Resources\DeviceResource\Pages\ListDevices;
