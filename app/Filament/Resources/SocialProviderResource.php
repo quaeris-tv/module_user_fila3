@@ -13,8 +13,8 @@ use Modules\User\Models\SocialProvider;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
 /**
- * @property-read SocialProvider $record
- * -------
+ * @property SocialProvider $record
+ *                                  -------
  */
 class SocialProviderResource extends XotBaseResource
 {
