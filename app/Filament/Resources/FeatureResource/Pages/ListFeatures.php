@@ -91,6 +91,16 @@ class ListFeatures extends XotBaseListRecords
         ];
     }
 
+    /**
+     * @return array<\Filament\Tables\Actions\BulkAction>
+     */
+    public function getTableBulkActions(): array
+    {
+        return [
+            \Filament\Tables\Actions\DeleteBulkAction::make(),
+        ];
+    }
+
     public function table(Table $table): Table
     {
         return $table
