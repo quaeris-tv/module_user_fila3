@@ -11,6 +11,7 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 /**
  * @property-read Feature $record
+ * -------
  */
 class FeatureResource extends XotBaseResource
 {
