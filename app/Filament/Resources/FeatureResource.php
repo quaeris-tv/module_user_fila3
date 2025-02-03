@@ -22,23 +22,20 @@ class FeatureResource extends XotBaseResource
             TextInput::make('name')
                 ->required()
                 ->maxLength(255)
-                ->label('Name')
-                ->placeholder('Enter feature name')
-                ->helperText('The name of the feature'),
+                ->placeholder(static::trans('fields.name.placeholder'))
+                ->helperText(static::trans('fields.name.helper_text')),
 
             TextInput::make('scope')
                 ->required()
                 ->maxLength(255)
-                ->label('Scope')
-                ->placeholder('Enter feature scope')
-                ->helperText('The scope of the feature (e.g. global, user, team)'),
+                ->placeholder(static::trans('fields.scope.placeholder'))
+                ->helperText(static::trans('fields.scope.helper_text')),
 
             TextInput::make('value')
                 ->required()
                 ->maxLength(255)
-                ->label('Value')
-                ->placeholder('Enter feature value')
-                ->helperText('The value or configuration of the feature'),
+                ->placeholder(static::trans('fields.value.placeholder'))
+                ->helperText(static::trans('fields.value.helper_text')),
         ];
     }
 
