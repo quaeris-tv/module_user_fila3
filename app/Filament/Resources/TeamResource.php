@@ -31,18 +31,15 @@ class TeamResource extends XotBaseResource
         return $xot->getTeamClass();
     }
 
-    public static function form(Form $form): Form
+    public static function getFormSchema(): array
     {
-        return $form
-            ->schema(
-                [
-                    'name' => TextInput::make('name')
-                        ->required()
-                        ->maxLength(255),
-                    // 'role'=>Forms\Components\Select::make('role')
-                    //    ->options(Role::all()->pluck('name', 'name')),
-                ]
-            );
+        return [
+                'name' => TextInput::make('name')
+                    ->required()
+                    ->maxLength(255),
+                // 'role'=>Forms\Components\Select::make('role')
+                //    ->options(Role::all()->pluck('name', 'name')),
+            ];
     }
 
     public static function getRelations(): array

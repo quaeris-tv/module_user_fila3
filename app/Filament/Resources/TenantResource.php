@@ -33,11 +33,11 @@ class TenantResource extends XotBaseResource
         return $model;
     }
 
-    public static function form(Form $form): Form
+    public static function getFormSchema(): array
     {
         $resource = XotData::make()->getTenantResourceClass();
 
-        return app($resource)->form($form);
+        return app($resource)->getFormSchema();
         /*
         return $form
             ->schema(

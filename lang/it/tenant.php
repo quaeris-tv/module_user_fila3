@@ -8,7 +8,7 @@
       'name' => 'Admin',
     ),
     'label' => 'tenant',
-    'sort' => 88,
+    'sort' => 45,
   ),
   'table' => 
   array (
@@ -58,5 +58,16 @@
       ),
     ),
     'change_password' => 'Cambio password',
+  ),
+  'plural' => 
+  array (
+    'model' => 
+    array (
+      'label' => 'tenant.plural.model',
+    ),
+  ),
+  'model' => 
+  array (
+    'label' => 'tenant.model',
   ),
 );

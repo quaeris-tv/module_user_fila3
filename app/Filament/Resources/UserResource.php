@@ -43,7 +43,7 @@ class UserResource extends XotBaseResource
     //    static::$extendFormCallback = $callback;
     // }
 
-    public static function form(Form $form): Form
+    public static function getFormSchema(): array
     {
         // dddx([
         //     $form->model->teams,
@@ -120,9 +120,9 @@ class UserResource extends XotBaseResource
             )->columnSpan(4),
         ];
 
-        $form->schema($schema)->columns(12);
+        // $form->schema($schema)->columns(12);
 
-        return $form;
+        return $schema;
     }
 
     /**
