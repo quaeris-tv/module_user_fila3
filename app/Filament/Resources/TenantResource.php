@@ -50,6 +50,7 @@ class TenantResource extends XotBaseResource
                         ->placeholder(static::trans('fields.name.placeholder'))
                         ->helperText(static::trans('fields.name.helper_text')),
 
+<<<<<<< HEAD
                     TextInput::make('slug')
                         ->required()
                         ->disabled(fn ($context) => 'create' !== $context)
@@ -92,6 +93,44 @@ class TenantResource extends XotBaseResource
                 ])
                 ->columns(2),
         ];
+=======
+        return app($resource)->getFormSchema();
+        /*
+        return $form
+            ->schema(
+                [
+                    Forms\Components\Section::make(
+                        [
+                            Forms\Components\TextInput::make('name')
+                                ->required()
+                                ->unique(table: 'tenants', ignoreRecord: true)->live(onBlur: true)
+                                ->afterStateUpdated(
+                                    static function (Forms\Set $set, $state): void {
+                                        $set('id', $slug = \Str::of($state)->slug('_')->toString());
+                                        $set('domain', \Str::of($state)->slug()->toString());
+                                    }
+                                )->columnSpanFull(),
+                            Forms\Components\TextInput::make('id')
+                                ->required()
+                                ->disabled(static fn ($context) => 'create' !== $context)
+                                ->unique(table: 'tenants', ignoreRecord: true),
+                            Forms\Components\TextInput::make('domain')
+                                ->required()
+                                ->visible(static fn ($context) => 'create' === $context)
+                                ->unique(table: 'domains', ignoreRecord: true)
+                                ->prefix('https://')
+                                ->suffix('.'.request()->getHost()),
+                            Forms\Components\TextInput::make('email')->email(),
+                            Forms\Components\TextInput::make('phone')->tel(),
+                            Forms\Components\TextInput::make('mobile')->tel(),
+                            Forms\Components\ColorPicker::make('primary_color'),
+                            Forms\Components\ColorPicker::make('secondary_color'),
+                        ]
+                    )->columns(),
+                ]
+            );
+        */
+>>>>>>> origin/dev
     }
 
     public static function getRelations(): array

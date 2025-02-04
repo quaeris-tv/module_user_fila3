@@ -54,7 +54,10 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property int|null $tenants_count
  * @property \Illuminate\Database\Eloquent\Collection<int, OauthAccessToken> $tokens
  * @property int|null $tokens_count
+<<<<<<< HEAD
  *
+=======
+>>>>>>> origin/dev
  * @method static \Modules\User\Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
@@ -81,19 +84,27 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutPermission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutRole($roles, $guard = null)
+<<<<<<< HEAD
  *
  * @property string $surname
  * @property string|null $facebook_id
  * @property Team|null $currentTeam
  *
+=======
+ * @property string $surname
+ * @property string|null $facebook_id
+ * @property Team|null $currentTeam
+>>>>>>> origin/dev
  * @method static \Illuminate\Database\Eloquent\Builder|User whereFacebookId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereIsOtp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePasswordExpiresAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereSurname($value)
- *
  * @property \Illuminate\Database\Eloquent\Collection<int, SocialiteUser> $socialiteUsers
  * @property int|null $socialite_users_count
+<<<<<<< HEAD
  *
+=======
+>>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class User extends BaseUser
