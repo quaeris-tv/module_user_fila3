@@ -21,10 +21,9 @@ abstract class BaseProfileResource extends XotBaseResource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
+    public static function getFormSchema(): array
+{
+    return [
                 // Forms\Components\TextInput::make('user_id'),
                 // Forms\Components\TextInput::make('user_id')->readonly(),
                 Forms\Components\TextInput::make('user.name'),
