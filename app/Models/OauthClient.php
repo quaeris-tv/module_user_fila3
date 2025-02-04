@@ -48,8 +48,10 @@ use Laravel\Passport\Client as PassportClient;
  *
  * @property string|null $updated_by
  * @property string|null $created_by
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|OauthClient whereCreatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OauthClient whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class OauthClient extends PassportClient

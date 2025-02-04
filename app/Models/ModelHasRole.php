@@ -33,10 +33,14 @@ use Modules\User\Database\Factories\ModelHasRoleFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereTeamId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereUpdatedBy($value)
+ *
  * @property string $uuid (DC2Type:guid)
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereUuid($value)
+ *
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @mixin \Eloquent
  */
 class ModelHasRole extends BaseMorphPivot

@@ -7,10 +7,9 @@ namespace Modules\User\Models;
 use Webmozart\Assert\Assert;
 
 /**
- * 
- *
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|PermissionRole newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PermissionRole newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PermissionRole query()
@@ -30,6 +29,7 @@ use Webmozart\Assert\Assert;
  * @method static \Illuminate\Database\Eloquent\Builder|PermissionRole whereRoleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PermissionRole whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PermissionRole whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class PermissionRole extends BasePivot
