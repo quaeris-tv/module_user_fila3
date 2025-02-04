@@ -27,10 +27,7 @@ namespace Modules\User\Models;
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  * @property \Illuminate\Database\Eloquent\Collection<int, User> $users
  * @property int|null $users_count
-<<<<<<< HEAD
  *
-=======
->>>>>>> origin/dev
  * @method static \Modules\User\Database\Factories\TeamFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Team newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Team newQuery()
@@ -45,10 +42,7 @@ namespace Modules\User\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereUserId($value)
-<<<<<<< HEAD
  *
-=======
->>>>>>> origin/dev
  * @property string|null $code
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereCode($value)
  * @property string|null $uuid

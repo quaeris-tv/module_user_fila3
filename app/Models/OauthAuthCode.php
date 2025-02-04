@@ -14,10 +14,7 @@ use Laravel\Passport\AuthCode as PassportAuthCode;
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAuthCode newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAuthCode newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAuthCode query()
-<<<<<<< HEAD
  *
-=======
->>>>>>> origin/dev
  * @property string $id
  * @property string|null $user_id
  * @property string|null $client_id

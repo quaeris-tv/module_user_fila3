@@ -20,7 +20,6 @@ class RoleResource extends XotBaseResource
             TextInput::make('name')
                 ->required()
                 ->maxLength(255),
-<<<<<<< HEAD
             TextInput::make('guard_name')
                 ->default('web')
                 ->required()
@@ -29,8 +28,6 @@ class RoleResource extends XotBaseResource
                 ->multiple()
                 ->relationship('permissions', 'name')
                 ->preload(),
-=======
->>>>>>> origin/dev
         ];
     }
 

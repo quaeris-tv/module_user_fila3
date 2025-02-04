@@ -38,10 +38,7 @@ use Laravel\Passport\Token as PassportToken;
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
-<<<<<<< HEAD
  *
-=======
->>>>>>> origin/dev
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthAccessToken whereCreatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthAccessToken whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthAccessToken whereDeletedBy($value)

@@ -14,10 +14,7 @@ use Modules\Xot\Models\Extra as XotBaseExtra;
  * @method static \Illuminate\Database\Eloquent\Builder|Extra newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Extra query()
  * @method static \Illuminate\Database\Eloquent\Builder|Extra withExtraAttributes()
-<<<<<<< HEAD
  *
-=======
->>>>>>> origin/dev
  * @property int $id
  * @property string $model_type
  * @property string $model_id
@@ -27,10 +24,7 @@ use Modules\Xot\Models\Extra as XotBaseExtra;
  * @property string|null $created_by
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property string|null $deleted_by
-<<<<<<< HEAD
  *
-=======
->>>>>>> origin/dev
  * @method static \Illuminate\Database\Eloquent\Builder|Extra whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Extra whereCreatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Extra whereDeletedAt($value)

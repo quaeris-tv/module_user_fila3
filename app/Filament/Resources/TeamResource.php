@@ -33,7 +33,6 @@ class TeamResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-<<<<<<< HEAD
             TextInput::make('name')
                 ->required()
                 ->maxLength(255),
@@ -47,14 +46,6 @@ class TeamResource extends XotBaseResource
                 ->preload()
                 ->required(),
         ];
-=======
-                'name' => TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                // 'role'=>Forms\Components\Select::make('role')
-                //    ->options(Role::all()->pluck('name', 'name')),
-            ];
->>>>>>> origin/dev
     }
 
     public static function getRelations(): array

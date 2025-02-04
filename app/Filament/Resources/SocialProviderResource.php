@@ -20,7 +20,6 @@ class SocialProviderResource extends XotBaseResource
 {
     protected static ?string $model = SocialProvider::class;
 
-<<<<<<< HEAD
     public static function getFormSchema(): array
     {
         return [
@@ -51,14 +50,6 @@ class SocialProviderResource extends XotBaseResource
                 ->columnSpanFull()
                 ->placeholder(static::trans('fields.svg.placeholder'))
                 ->helperText(static::trans('fields.svg.helper_text')),
-=======
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
-    public static function getFormSchema(): array
-    {
-        return [
-            Forms\Components\Toggle::make('active'),
->>>>>>> origin/dev
         ];
     }
 

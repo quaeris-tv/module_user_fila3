@@ -14,10 +14,7 @@ use Modules\User\Database\Factories\ModelHasPermissionFactory;
  * @property int $permission_id
  * @property string $model_type
  * @property string $model_id
-<<<<<<< HEAD
  *
-=======
->>>>>>> origin/dev
  * @method static ModelHasPermissionFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasPermission newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasPermission newQuery()
@@ -37,10 +34,7 @@ use Modules\User\Database\Factories\ModelHasPermissionFactory;
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  * @property string|null $team_id
-<<<<<<< HEAD
  *
-=======
->>>>>>> origin/dev
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasPermission whereTeamId($value)
  * @mixin \Eloquent
  */

@@ -12,11 +12,6 @@ use Modules\Tenant\Models\Traits\SushiToPhpArray;
 use Modules\Xot\Contracts\ProfileContract;
 
 /**
-<<<<<<< HEAD
-=======
- * 
- *
->>>>>>> origin/dev
  * @property int|null $id
  * @property string|null $name
  * @property array|null $scopes
@@ -43,10 +38,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereSocialite($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereStateless($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereSvg($value)
-<<<<<<< HEAD
  *
-=======
->>>>>>> origin/dev
  * @property string|null $created_at
  * @property string|null $updated_at
  * @property string|null $created_by
