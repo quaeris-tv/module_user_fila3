@@ -8,7 +8,7 @@
       'name' => 'Admin',
     ),
     'label' => 'team',
-    'sort' => 49,
+    'sort' => 4,
   ),
   'fields' => 
   array (
@@ -40,6 +40,13 @@
     'create' => 
     array (
       'label' => 'create',
+    ),
+  ),
+  'plural' => 
+  array (
+    'model' => 
+    array (
+      'label' => 'team.plural.model',
     ),
   ),
 );

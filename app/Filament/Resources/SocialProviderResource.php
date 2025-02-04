@@ -16,12 +16,11 @@ class SocialProviderResource extends XotBaseResource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function form(Form $form): Form
+    public static function getFormSchema(): array
     {
-        return $form
-            ->schema([
-                Forms\Components\Toggle::make('active'),
-            ]);
+        return [
+            Forms\Components\Toggle::make('active'),
+        ];
     }
 
     public static function getRelations(): array
