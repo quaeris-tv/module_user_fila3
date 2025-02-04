@@ -12,10 +12,7 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder|TeamUser newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TeamUser newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TeamUser query()
-<<<<<<< HEAD
  *
-=======
->>>>>>> origin/dev
  * @property int $id
  * @property string|null $tenant_id
  * @property string|null $user_id

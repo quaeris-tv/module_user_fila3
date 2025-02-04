@@ -13,10 +13,7 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder|Membership newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Membership newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Membership query()
-<<<<<<< HEAD
  *
-=======
->>>>>>> origin/dev
  * @property int $id
  * @property string $uuid
  * @property string|null $team_id

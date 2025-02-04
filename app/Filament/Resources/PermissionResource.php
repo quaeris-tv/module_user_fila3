@@ -67,7 +67,6 @@ class PermissionResource extends XotBaseResource
         Assert::boolean($preload_roles = config('filament-spatie-roles-permissions.preload_roles', true));
 
         return [
-<<<<<<< HEAD
             Section::make()
                 ->schema([
                     Grid::make(2)->schema([
@@ -84,26 +83,6 @@ class PermissionResource extends XotBaseResource
                     ]),
                 ]),
         ];
-=======
-                Section::make()
-                    ->schema(
-                        [
-                            Grid::make(2)->schema(
-                                [
-                                    TextInput::make('name'),
-                                    Select::make('guard_name')
-                                        ->options($guard_names)
-                                        ->default($default_guard_name),
-                                    Select::make('roles')
-                                        ->multiple()
-                                        ->relationship('roles', 'name')
-                                        ->preload($preload_roles),
-                                ]
-                            ),
-                        ]
-                    ),
-            ];
->>>>>>> origin/dev
     }
 
     public static function table(Table $table): Table

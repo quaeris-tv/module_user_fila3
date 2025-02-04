@@ -19,10 +19,7 @@ use Modules\User\Database\Factories\ModelHasRoleFactory;
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
-<<<<<<< HEAD
  *
-=======
->>>>>>> origin/dev
  * @method static ModelHasRoleFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole newQuery()

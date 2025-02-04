@@ -18,10 +18,7 @@ use Modules\User\Database\Factories\PasswordResetFactory;
  * @property string|null $user_id
  * @property string|null $updated_by
  * @property string|null $created_by
-<<<<<<< HEAD
  *
-=======
->>>>>>> origin/dev
  * @method static PasswordResetFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset newQuery()
