@@ -43,7 +43,7 @@ abstract class BaseProfileResource extends XotBaseResource
                     ->disk('uploads')
                     ->directory('photos')
                     ->collection('photo_profile'),
-            ]);
+            ];
     }
 
     public static function getRelations(): array
