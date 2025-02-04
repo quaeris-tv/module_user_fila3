@@ -90,6 +90,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereIsOtp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePasswordExpiresAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereSurname($value)
+ *
  * @property \Illuminate\Database\Eloquent\Collection<int, SocialiteUser> $socialiteUsers
  * @property int|null $socialite_users_count
  *

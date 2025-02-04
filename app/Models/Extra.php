@@ -7,9 +7,8 @@ namespace Modules\User\Models;
 use Modules\Xot\Models\Extra as XotBaseExtra;
 
 /**
- * 
- *
  * @property \Spatie\SchemalessAttributes\SchemalessAttributes $extra_attributes
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Extra newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Extra newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Extra query()
@@ -35,9 +34,12 @@ use Modules\Xot\Models\Extra as XotBaseExtra;
  * @method static \Illuminate\Database\Eloquent\Builder|Extra whereModelType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Extra whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Extra whereUpdatedBy($value)
+ *
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @method static \Modules\User\Database\Factories\ExtraFactory factory($count = null, $state = [])
+ *
  * @mixin \Eloquent
  */
 class Extra extends XotBaseExtra

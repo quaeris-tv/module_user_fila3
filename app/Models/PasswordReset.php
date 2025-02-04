@@ -31,10 +31,13 @@ use Modules\User\Database\Factories\PasswordResetFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereUserId($value)
+ *
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  * @property string|null $uuid
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PasswordReset whereUuid($value)
+ *
  * @mixin \Eloquent
  */
 class PasswordReset extends BaseModel
