@@ -18,6 +18,7 @@ class DeviceResource extends XotBaseResource
 {
     protected static ?string $model = Device::class;
 
+<<<<<<< HEAD
     public static function getFormSchema(): array
     {
         return [
@@ -62,6 +63,14 @@ class DeviceResource extends XotBaseResource
                 ->label('Is Tablet'),
             Toggle::make('is_phone')
                 ->label('Is Phone'),
+=======
+    protected static ?string $navigationIcon = 'heroicon-o-device-phone-mobile';
+
+    public static function getFormSchema(): array
+    {
+        return [
+            
+>>>>>>> origin/dev
         ];
     }
 

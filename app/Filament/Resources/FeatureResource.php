@@ -17,6 +17,7 @@ class FeatureResource extends XotBaseResource
 {
     protected static ?string $model = Feature::class;
 
+<<<<<<< HEAD
     public static function getFormSchema(): array
     {
         return [
@@ -37,6 +38,14 @@ class FeatureResource extends XotBaseResource
                 ->maxLength(255)
                 ->placeholder(static::trans('fields.value.placeholder'))
                 ->helperText(static::trans('fields.value.helper_text')),
+=======
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    public static function getFormSchema(): array
+    {
+        return [
+            
+>>>>>>> origin/dev
         ];
     }
 

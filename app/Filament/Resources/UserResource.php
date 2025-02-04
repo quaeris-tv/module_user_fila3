@@ -60,6 +60,13 @@ class UserResource extends XotBaseResource
                     ->content(static fn ($record) => $record?->created_at?->diffForHumans() ?? new HtmlString('&mdash;')),
             ])->columnSpan(4),
         ];
+<<<<<<< HEAD
+=======
+
+        // $form->schema($schema)->columns(12);
+
+        return $schema;
+>>>>>>> origin/dev
     }
 
     /**
