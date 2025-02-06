@@ -41,6 +41,23 @@ class ListPermissions extends XotBaseListRecords
         ];
     }
 
+    public function getTableFilters(): array
+    {
+        return [
+            \Filament\Tables\Filters\SelectFilter::make('guard_name')
+                ->options(fn () => \Modules\User\Models\Permission::distinct()->pluck('guard_name', 'guard_name')->toArray()),
+        ];
+    }
+
+    public function getTableActions(): array
+    {
+        return [
+            \Filament\Tables\Actions\ViewAction::make(),
+            \Filament\Tables\Actions\EditAction::make(),
+            \Filament\Tables\Actions\DeleteAction::make(),
+        ];
+    }
+
     protected function getHeaderActions(): array
     {
         return [
@@ -48,7 +65,7 @@ class ListPermissions extends XotBaseListRecords
         ];
     }
 
-    protected function getTableBulkActions(): array
+    public function getTableBulkActions(): array
     {
         Assert::classExists($roleModel = config('permission.models.role'));
 

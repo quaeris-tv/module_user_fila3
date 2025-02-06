@@ -137,18 +137,19 @@ class ListProfiles extends XotBaseListRecords
     /**
      * @return array<string, BulkAction>
      */
-    protected function getTableBulkActions(): array
+    public function getTableBulkActions(): array
     {
         return [
-            'delete' => DeleteBulkAction::make(),
-            'export' => ExportBulkAction::make(),
+            'delete' => Tables\Actions\DeleteBulkAction::make(),
+            'export' => BulkAction::make('export')
+                ->action(fn ($records) => $this->export($records)),
         ];
     }
 
     /**
      * @return array<Tables\Filters\BaseFilter>
      */
-    protected function getTableFilters(): array
+    public function getTableFilters(): array
     {
         return [
             TernaryFilter::make('is_active')
@@ -159,6 +160,15 @@ class ListProfiles extends XotBaseListRecords
                     true: static fn (Builder $query) => $query->where('is_active', '=', true),
                     false: static fn (Builder $query) => $query->where('is_active', '=', false),
                 ),
+        ];
+    }
+
+    public function getTableActions(): array
+    {
+        return [
+            Tables\Actions\ViewAction::make(),
+            Tables\Actions\EditAction::make(),
+            Tables\Actions\DeleteAction::make(),
         ];
     }
 }

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
 use Filament\Resources\Pages\Page;
 use Modules\User\Filament\Resources\RoleResource\Pages;
 use Modules\User\Filament\Resources\RoleResource\RelationManagers;
@@ -21,6 +20,14 @@ class RoleResource extends XotBaseResource
             TextInput::make('name')
                 ->required()
                 ->maxLength(255),
+            TextInput::make('guard_name')
+                ->default('web')
+                ->required()
+                ->maxLength(255),
+            \Filament\Forms\Components\Select::make('permissions')
+                ->multiple()
+                ->relationship('permissions', 'name')
+                ->preload(),
         ];
     }
 

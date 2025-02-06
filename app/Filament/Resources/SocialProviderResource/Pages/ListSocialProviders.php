@@ -6,12 +6,10 @@ namespace Modules\User\Filament\Resources\SocialProviderResource\Pages;
 
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
-use Filament\Tables\Enums\ActionsPosition;
-use Filament\Tables\Enums\FiltersLayout;
-use Filament\Tables\Table;
 use Modules\User\Filament\Resources\SocialProviderResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
@@ -21,26 +19,6 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 class ListSocialProviders extends XotBaseListRecords
 {
     protected static string $resource = SocialProviderResource::class;
-
-    public function table(Table $table): Table
-    {
-        return $table
-            // ->columns($this->getTableColumns())
-            ->columns($this->layoutView->getTableColumns())
-            ->contentGrid($this->layoutView->getTableContentGrid())
-            ->headerActions($this->getTableHeaderActions())
-
-            ->filters($this->getTableFilters())
-            ->filtersLayout(FiltersLayout::AboveContent)
-            ->persistFiltersInSession()
-            ->actions($this->getTableActions())
-            ->bulkActions($this->getTableBulkActions())
-            ->actionsPosition(ActionsPosition::BeforeColumns)
-            ->defaultSort(
-                column: 'created_at',
-                direction: 'DESC',
-            );
-    }
 
     /**
      * @return array<string, Column>
@@ -86,23 +64,32 @@ class ListSocialProviders extends XotBaseListRecords
         ];
     }
 
+    public function getTableFilters(): array
+    {
+        return [
+            \Filament\Tables\Filters\SelectFilter::make('active')
+                ->options([
+                    true => 'Active',
+                    false => 'Inactive',
+                ]),
+        ];
+    }
+
     /**
-     * Undocumented function.
-     *
      * @return array<\Filament\Tables\Actions\Action|\Filament\Tables\Actions\ActionGroup>
      */
     public function getTableActions(): array
     {
         return [
-            EditAction::make()
-                ->label(''),
+            ViewAction::make(),
+            EditAction::make(),
         ];
     }
 
     public function getTableBulkActions(): array
     {
         return [
-            'delete' => DeleteBulkAction::make(),
+            DeleteBulkAction::make(),
         ];
     }
 }

@@ -7,6 +7,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\TenantResource;
@@ -39,6 +42,27 @@ class ListTenants extends XotBaseListRecords
                     return $slug;
                 })
                 ->sortable(),
+        ];
+    }
+
+    public function getTableFilters(): array
+    {
+        return [];
+    }
+
+    public function getTableActions(): array
+    {
+        return [
+            ViewAction::make(),
+            EditAction::make(),
+            DeleteAction::make(),
+        ];
+    }
+
+    public function getTableBulkActions(): array
+    {
+        return [
+            \Filament\Tables\Actions\DeleteBulkAction::make(),
         ];
     }
 }
