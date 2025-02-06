@@ -87,41 +87,7 @@ class PermissionResource extends XotBaseResource
             ];
     }
 
-    public static function table(Table $table): Table
-    {
-        Assert::boolean($isToggledHiddenByDefault = config('filament-spatie-roles-permissions.toggleable_guard_names.permissions.isToggledHiddenByDefault', true));
-
-        return $table
-            ->columns(
-                [
-                    TextColumn::make('id')
-                        ->searchable(),
-                    TextColumn::make('name')
-                        ->searchable(),
-                    TextColumn::make('guard_name')
-                        ->toggleable(isToggledHiddenByDefault: $isToggledHiddenByDefault)
-                        ->searchable(),
-                ]
-            )
-            ->filters(
-                [
-                    /*
-                Filter::make('models')
-                    ->form(function () {
-                        $commands = new \Modules\User\Filament\Commands\Permission();
-                        $models = $commands->getAllModels();
-
-                        return array_map(function (\ReflectionClass $model) {
-                            return Checkbox::make($model->getShortName());
-                        }, $models);
-                    })
-                    ->query(function (Builder $query, array $data) {
-                        return $query->where(function (Builder $query) use ($data) {
-                            foreach ($data as $key => $value) {
-                                if ($value) {
-                                    $query->orWhere('name', 'like', eval(config('filament-spatie-roles-permissions.model_filter_key')));
                                 }
-                            }
                         });
                     }),
                 */
