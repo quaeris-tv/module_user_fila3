@@ -64,8 +64,6 @@ class ListDevices extends XotBaseListRecords
     }
 
     /**
-     * Undocumented function.
-     *
      * @return array<\Filament\Tables\Actions\Action|\Filament\Tables\Actions\ActionGroup>
      */
     public function getTableActions(): array
@@ -84,7 +82,7 @@ class ListDevices extends XotBaseListRecords
     /**
      * @return array<string, \Filament\Tables\Actions\BulkAction>
      */
-    protected function getTableBulkActions(): array
+    public function getTableBulkActions(): array
     {
         return [
             'delete' => DeleteBulkAction::make(),

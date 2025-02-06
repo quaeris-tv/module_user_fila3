@@ -12,6 +12,9 @@ use Illuminate\Validation\Rules\Password as PasswordRule;
 use Livewire\Component;
 use Modules\Xot\Datas\XotData;
 
+/**
+ * @property ComponentContainer $form
+ */
 class Register extends Component
 {
     public string $name = '';

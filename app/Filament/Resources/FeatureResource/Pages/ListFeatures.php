@@ -10,9 +10,6 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Enums\ActionsPosition;
-use Filament\Tables\Enums\FiltersLayout;
-use Filament\Tables\Table;
 use Modules\User\Filament\Resources\FeatureResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
@@ -91,24 +88,14 @@ class ListFeatures extends XotBaseListRecords
         ];
     }
 
-    public function table(Table $table): Table
+    /**
+     * @return array<\Filament\Tables\Actions\BulkAction>
+     */
+    public function getTableBulkActions(): array
     {
-        return $table
-            // ->columns($this->getTableColumns())
-            ->columns($this->layoutView->getTableColumns())
-            ->contentGrid($this->layoutView->getTableContentGrid())
-            ->headerActions($this->getTableHeaderActions())
-
-            ->filters($this->getTableFilters())
-            ->filtersLayout(FiltersLayout::AboveContent)
-            ->persistFiltersInSession()
-            ->actions($this->getTableActions())
-            ->bulkActions($this->getTableBulkActions())
-            ->actionsPosition(ActionsPosition::BeforeColumns)
-            ->defaultSort(
-                column: 'created_at',
-                direction: 'DESC',
-            );
+        return [
+            \Filament\Tables\Actions\DeleteBulkAction::make(),
+        ];
     }
 
     protected function getHeaderActions(): array

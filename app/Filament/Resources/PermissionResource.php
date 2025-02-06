@@ -67,64 +67,22 @@ class PermissionResource extends XotBaseResource
         Assert::boolean($preload_roles = config('filament-spatie-roles-permissions.preload_roles', true));
 
         return [
-                Section::make()
-                    ->schema(
-                        [
-                            Grid::make(2)->schema(
-                                [
-                                    TextInput::make('name'),
-                                    Select::make('guard_name')
-                                        ->options($guard_names)
-                                        ->default($default_guard_name),
-                                    Select::make('roles')
-                                        ->multiple()
-                                        ->relationship('roles', 'name')
-                                        ->preload($preload_roles),
-                                ]
-                            ),
-                        ]
-                    ),
-            ];
-    }
-
-                                }
-                        });
-                    }),
-                */
-                ]
-            )->actions(
-                [
-                    EditAction::make(),
-                    ViewAction::make(),
-                ]
-            )
-            ->bulkActions(
-                [
-                    // Tables\Actions\BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    // ]),
-                    BulkAction::make('Attach Role')
-                        ->action(
-                            static function (Collection $collection, array $data): void {
-                                foreach ($collection as $record) {
-                                    Assert::isInstanceOf($record, Permission::class, '['.__LINE__.']['.__CLASS__.']');
-                                    $record->roles()->sync($data['role']);
-                                    $record->save();
-                                }
-                            }
-                        )
-                        ->form(
-                            [
-                                Select::make('role')
-                                    ->options(Role::query()->pluck('name', 'id'))
-                                    ->required(),
-                            ]
-                        )->deselectRecordsAfterCompletion(),
-                ]
-            );
-        // ->emptyStateActions([
-        //    Tables\Actions\CreateAction::make(),
-        // ])
+            Section::make()
+                ->schema([
+                    Grid::make(2)->schema([
+                        TextInput::make('name')
+                            ->required(),
+                        Select::make('guard_name')
+                            ->options($guard_names)
+                            ->default($default_guard_name)
+                            ->required(),
+                        Select::make('roles')
+                            ->multiple()
+                            ->relationship('roles', 'name')
+                            ->preload($preload_roles),
+                    ]),
+                ]),
+        ];
     }
 
     public static function getRelations(): array
@@ -146,8 +104,11 @@ class PermissionResource extends XotBaseResource
 
     public static function syncPermissions(Permission $permission, array $data): void
     {
-        Assert::keyExists($data, 'roles');
-        Assert::isArray($data['roles']);
+        if (! isset($data['roles'])) {
+            $permission->roles()->detach();
+
+            return;
+        }
 
         $permission->roles()->sync($data['roles']);
     }

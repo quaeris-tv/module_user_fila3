@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
 use Modules\User\Filament\Resources\TeamResource\Pages\CreateTeam;
 use Modules\User\Filament\Resources\TeamResource\Pages\EditTeam;
 use Modules\User\Filament\Resources\TeamResource\Pages\ListTeams;
@@ -34,12 +33,19 @@ class TeamResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-                'name' => TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                // 'role'=>Forms\Components\Select::make('role')
-                //    ->options(Role::all()->pluck('name', 'name')),
-            ];
+            TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+            TextInput::make('display_name')
+                ->maxLength(255),
+            TextInput::make('description')
+                ->maxLength(255),
+            \Filament\Forms\Components\Select::make('owner_id')
+                ->relationship('owner', 'name')
+                ->searchable()
+                ->preload()
+                ->required(),
+        ];
     }
 
     public static function getRelations(): array
