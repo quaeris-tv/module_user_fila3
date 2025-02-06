@@ -21,11 +21,10 @@ abstract class BaseProfileResource extends XotBaseResource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    public static function form(Form $form): Form
+    public static function getFormSchema(): array
     {
-        return $form
-            ->schema([
-                // Forms\Components\TextInput::make('user_id'),
+        return [
+            // Forms\Components\TextInput::make('user_id'),
                 // Forms\Components\TextInput::make('user_id')->readonly(),
                 Forms\Components\TextInput::make('user.name'),
                 Forms\Components\TextInput::make('email'),
@@ -44,7 +43,7 @@ abstract class BaseProfileResource extends XotBaseResource
                     ->disk('uploads')
                     ->directory('photos')
                     ->collection('photo_profile'),
-            ]);
+        ]; 
     }
 
     public static function getRelations(): array
