@@ -30,11 +30,11 @@ class SocialProviderResource extends XotBaseResource
                 ->helperText(static::trans('fields.name.helper_text')),
 
             KeyValue::make('scopes')
-                ->placeholder(static::trans('fields.scopes.placeholder'))
+                //->placeholder(static::trans('fields.scopes.placeholder'))
                 ->helperText(static::trans('fields.scopes.helper_text')),
 
             KeyValue::make('parameters')
-                ->placeholder(static::trans('fields.parameters.placeholder'))
+                //->placeholder(static::trans('fields.parameters.placeholder'))
                 ->helperText(static::trans('fields.parameters.helper_text')),
 
             Toggle::make('stateless')

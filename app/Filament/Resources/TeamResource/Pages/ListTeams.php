@@ -37,31 +37,5 @@ class ListTeams extends XotBaseListRecords
         ];
     }
 
-    public function getTableFilters(): array
-    {
-        return [];
-    }
-
-    public function getTableActions(): array
-    {
-        return [
-            ViewAction::make(),
-            EditAction::make(),
-            DeleteAction::make(),
-        ];
-    }
-
-    public function getTableBulkActions(): array
-    {
-        return [
-            \Filament\Tables\Actions\DeleteBulkAction::make(),
-        ];
-    }
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            CreateAction::make(),
-        ];
-    }
+   
 }
