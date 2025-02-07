@@ -20,18 +20,7 @@ class ListSocialProviders extends XotBaseListRecords
 {
     protected static string $resource = SocialProviderResource::class;
 
-    /**
-     * @return array<string, Column>
-     */
-    public function getGridTableColumns(): array
-    {
-        return [
-            'icon' => IconColumn::make('icon'),
-            'name' => TextColumn::make('name'),
-            'view' => ViewColumn::make('custom_view')
-                ->view('social-provider.column'),
-        ];
-    }
+    
 
     public function getListTableColumns(): array
     {
@@ -67,7 +56,7 @@ class ListSocialProviders extends XotBaseListRecords
     public function getTableFilters(): array
     {
         return [
-            \Filament\Tables\Filters\SelectFilter::make('active')
+            'active'=>\Filament\Tables\Filters\SelectFilter::make('active')
                 ->options([
                     true => 'Active',
                     false => 'Inactive',
@@ -75,21 +64,5 @@ class ListSocialProviders extends XotBaseListRecords
         ];
     }
 
-    /**
-     * @return array<\Filament\Tables\Actions\Action|\Filament\Tables\Actions\ActionGroup>
-     */
-    public function getTableActions(): array
-    {
-        return [
-            ViewAction::make(),
-            EditAction::make(),
-        ];
-    }
-
-    public function getTableBulkActions(): array
-    {
-        return [
-            DeleteBulkAction::make(),
-        ];
-    }
+   
 }

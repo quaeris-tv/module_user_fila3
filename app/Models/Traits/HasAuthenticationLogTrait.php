@@ -22,12 +22,13 @@ use Modules\User\Models\AuthenticationLog;
 trait HasAuthenticationLogTrait
 {
     /**
-     * Get all authentications for the model, ordered by the most recent login.
+     * Get all of the model's authentication logs.
      *
-     * @return MorphMany<AuthenticationLog, self>
+     * @return MorphMany<AuthenticationLog, static>
      */
     public function authentications(): MorphMany
     {
+        // @phpstan-ignore return.type
         return $this->morphMany(AuthenticationLog::class, 'authenticatable')
             ->latest('login_at');
     }
@@ -35,7 +36,7 @@ trait HasAuthenticationLogTrait
     /**
      * Get the latest authentication attempt for the model.
      *
-     * @return MorphOne<AuthenticationLog, self>
+     * @return MorphOne<AuthenticationLog, static>
      */
     public function latestAuthentication(): MorphOne
     {

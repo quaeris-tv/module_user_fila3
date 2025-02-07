@@ -17,19 +17,7 @@ class ListFeatures extends XotBaseListRecords
 {
     protected static string $resource = FeatureResource::class;
 
-    /**
-     * @return array<int, \Filament\Tables\Columns\Column|Stack>
-     */
-    public function getGridTableColumns(): array
-    {
-        return [
-            Stack::make([
-                TextColumn::make('name'),
-                TextColumn::make('description'),
-                TextColumn::make('created_at')->dateTime(),
-            ]),
-        ];
-    }
+   
 
     /**
      * @return array<string, \Filament\Tables\Columns\Column>

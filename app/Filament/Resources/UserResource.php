@@ -44,26 +44,26 @@ class UserResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-            Section::make([
-                TextInput::make('name')
+            'section01'=>Section::make([
+                'name'=>TextInput::make('name')
                     ->required(),
-                TextInput::make('email')
+                'email'=>TextInput::make('email')
                     ->required()
                     ->unique(ignoreRecord: true),
-                TextInput::make('password')
+                'password'=>TextInput::make('password')
                     ->password()
                     ->dehydrateStateUsing(fn ($state) => ! empty($state) ? Hash::make($state) : null)
                     ->required(fn ($livewire) => $livewire instanceof Pages\CreateUser),
             ])->columnSpan(8),
-            Section::make([
-                Placeholder::make('created_at')
+            'section02'=>Section::make([
+                'created_at'=>Placeholder::make('created_at')
                     ->content(static fn ($record) => $record?->created_at?->diffForHumans() ?? new HtmlString('&mdash;')),
             ])->columnSpan(4),
         ];
     }
 
     /**
-     * @return array<int, class-string<RelationManager>|RelationGroup>
+     * ---
      */
     public static function getRelations(): array
     {
@@ -73,14 +73,7 @@ class UserResource extends XotBaseResource
         ];
     }
 
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
-        ];
-    }
+    
 
     // public static function enablePasswordUpdates(bool|Closure $condition = true): void
     // {
