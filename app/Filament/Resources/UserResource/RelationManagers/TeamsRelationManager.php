@@ -18,17 +18,19 @@ use Modules\Xot\Filament\Traits\HasXotTable;
 
 class TeamsRelationManager extends XotBaseRelationManager
 {
-    use HasXotTable;
-
+    
     protected static string $relationship = 'teams';
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    protected static string $resource = TeamResource::class;
+    /*
     public function form(Form $form): Form
     {
         return TeamResource::form($form);
     }
 
+    
     public function getColumns(Table $table): array
     {
         $actions = [
@@ -39,7 +41,7 @@ class TeamsRelationManager extends XotBaseRelationManager
 
         return array_merge($table->getColumns(), $actions);
     }
-
+    */
     public function getFilters(Table $table): array
     {
         return $table->getFilters();

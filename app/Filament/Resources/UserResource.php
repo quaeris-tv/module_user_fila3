@@ -62,16 +62,7 @@ class UserResource extends XotBaseResource
         ];
     }
 
-    /**
-     * ---
-     */
-    public static function getRelations(): array
-    {
-        return [
-            'teams' => RelationManagers\TeamsRelationManager::class,
-            'tenants' => RelationManagers\TenantsRelationManager::class,
-        ];
-    }
+   
 
     
 
