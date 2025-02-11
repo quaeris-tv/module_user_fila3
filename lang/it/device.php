@@ -8,7 +8,7 @@
       'name' => 'Admin',
     ),
     'label' => 'device',
-    'sort' => 34,
+    'sort' => 58,
   ),
   'fields' => 
   array (

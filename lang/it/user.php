@@ -5,7 +5,7 @@
     'plural' => 'Utenti',
     'group' => 'Utenti',
     'label' => 'user',
-    'sort' => 7,
+    'sort' => 27,
   ),
   'fields' => 
   array (

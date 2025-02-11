@@ -8,7 +8,7 @@
       'name' => 'Admin',
     ),
     'label' => 'tenant',
-    'sort' => 61,
+    'sort' => 38,
   ),
   'table' => 
   array (
