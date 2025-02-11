@@ -15,10 +15,10 @@ use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+use Filament\Tables\Actions\ExportBulkAction;
 
 class ListUsers extends XotBaseListRecords
 {
-    // //
     protected static string $resource = UserResource::class;
 
     /**
@@ -85,8 +85,7 @@ class ListUsers extends XotBaseListRecords
     {
         return [
             'delete' => Tables\Actions\DeleteBulkAction::make(),
-            'export' => Tables\Actions\BulkAction::make('export')
-                ->action(fn (Collection $records) => $this->export($records)),
+            'export' => ExportBulkAction::make(),
         ];
     }
 }

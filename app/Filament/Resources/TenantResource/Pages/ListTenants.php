@@ -25,14 +25,14 @@ class ListTenants extends XotBaseListRecords
     public function getListTableColumns(): array
     {
         return [
-            TextColumn::make('id')
+            'id'=>TextColumn::make('id')
                 ->searchable()
                 ->sortable(),
 
-            TextColumn::make('name')
+            'name'=>TextColumn::make('name')
                 ->searchable(),
 
-            TextColumn::make('slug')
+            'slug'=>TextColumn::make('slug')
                 ->default(function ($record) {
                     $record->generateSlug();
                     $slug = Str::slug($record->name);
@@ -45,24 +45,5 @@ class ListTenants extends XotBaseListRecords
         ];
     }
 
-    public function getTableFilters(): array
-    {
-        return [];
-    }
-
-    public function getTableActions(): array
-    {
-        return [
-            ViewAction::make(),
-            EditAction::make(),
-            DeleteAction::make(),
-        ];
-    }
-
-    public function getTableBulkActions(): array
-    {
-        return [
-            \Filament\Tables\Actions\DeleteBulkAction::make(),
-        ];
-    }
+    
 }

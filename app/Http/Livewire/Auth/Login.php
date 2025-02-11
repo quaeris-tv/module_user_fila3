@@ -13,7 +13,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Modules\Xot\Actions\File\ViewCopyAction;
+use Filament\Forms\ComponentContainer;
 
+/**
+ * @property ComponentContainer $form
+ */
 class Login extends Component implements HasForms
 {
     use InteractsWithForms;

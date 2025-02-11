@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
+use Filament\Tables;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
@@ -36,24 +37,14 @@ class ListRoles extends XotBaseListRecords
     public function getTableFilters(): array
     {
         return [
-            \Filament\Tables\Filters\SelectFilter::make('guard_name')
-                ->options(fn () => Role::distinct()->pluck('guard_name', 'guard_name')->toArray()),
+            'guard_name' => Tables\Filters\SelectFilter::make('guard_name')
+                ->options([
+                    'web' => 'Web',
+                    'api' => 'API',
+                    'sanctum' => 'Sanctum',
+                ])
+                ->multiple(),
         ];
     }
 
-    public function getTableActions(): array
-    {
-        return [
-            ViewAction::make(),
-            EditAction::make(),
-            DeleteAction::make(),
-        ];
-    }
-
-    public function getTableBulkActions(): array
-    {
-        return [
-            \Filament\Tables\Actions\DeleteBulkAction::make(),
-        ];
-    }
 }
