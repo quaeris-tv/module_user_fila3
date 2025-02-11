@@ -13,48 +13,63 @@ use Illuminate\Database\Eloquent\Collection;
 use Modules\User\Filament\Resources\PermissionResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Webmozart\Assert\Assert;
+use Filament\Tables;
 
 class ListPermissions extends XotBaseListRecords
 {
     protected static string $resource = PermissionResource::class;
 
+    /**
+     * @return array<string, Tables\Columns\Column>
+     */
     public function getListTableColumns(): array
     {
         return [
-            'id' => TextColumn::make('id')
+            'id' => Tables\Columns\TextColumn::make('id')
                 ->searchable()
                 ->sortable(),
-            'name' => TextColumn::make('name')
+            'name' => Tables\Columns\TextColumn::make('name')
                 ->searchable()
                 ->sortable()
                 ->wrap(),
-            'guard_name' => TextColumn::make('guard_name')
+            'guard_name' => Tables\Columns\TextColumn::make('guard_name')
                 ->searchable()
                 ->sortable(),
-            'roles_count' => TextColumn::make('roles_count')
+            'roles_count' => Tables\Columns\TextColumn::make('roles_count')
                 ->counts('roles')
                 ->numeric()
                 ->sortable(),
-            'created_at' => TextColumn::make('created_at')
+            'created_at' => Tables\Columns\TextColumn::make('created_at')
                 ->dateTime()
                 ->sortable(),
         ];
     }
 
+    /**
+     * @return array<string, Tables\Filters\BaseFilter>
+     */
     public function getTableFilters(): array
     {
         return [
-            \Filament\Tables\Filters\SelectFilter::make('guard_name')
-                ->options(fn () => \Modules\User\Models\Permission::distinct()->pluck('guard_name', 'guard_name')->toArray()),
+            'guard_name' => Tables\Filters\SelectFilter::make('guard_name')
+                ->options([
+                    'web' => 'Web',
+                    'api' => 'API',
+                    'sanctum' => 'Sanctum',
+                ])
+                ->multiple(),
         ];
     }
 
+    /**
+     * @return array<string, Tables\Actions\Action|Tables\Actions\ActionGroup>
+     */
     public function getTableActions(): array
     {
         return [
-            \Filament\Tables\Actions\ViewAction::make(),
-            \Filament\Tables\Actions\EditAction::make(),
-            \Filament\Tables\Actions\DeleteAction::make(),
+            'view' => Tables\Actions\ViewAction::make(),
+            'edit' => Tables\Actions\EditAction::make(),
+            'delete' => Tables\Actions\DeleteAction::make(),
         ];
     }
 
@@ -65,13 +80,16 @@ class ListPermissions extends XotBaseListRecords
         ];
     }
 
+    /**
+     * @return array<string, Tables\Actions\BulkAction>
+     */
     public function getTableBulkActions(): array
     {
         Assert::classExists($roleModel = config('permission.models.role'));
 
         return [
-            'delete' => DeleteBulkAction::make(),
-            'attach_role' => BulkAction::make('Attach Role')
+            'delete' => Tables\Actions\DeleteBulkAction::make(),
+            'attach_role' => Tables\Actions\BulkAction::make('Attach Role')
                 ->action(
                     static function (Collection $collection, array $data): void {
                         foreach ($collection as $record) {
@@ -81,13 +99,12 @@ class ListPermissions extends XotBaseListRecords
                         }
                     }
                 )
-                ->form(
-                    [
-                        Select::make('role')
-                            ->options($roleModel::query()->pluck('name', 'id'))
-                            ->required(),
-                    ]
-                )->deselectRecordsAfterCompletion(),
+                ->form([
+                    Select::make('role')
+                        ->options($roleModel::query()->pluck('name', 'id'))
+                        ->required(),
+                ])
+                ->deselectRecordsAfterCompletion(),
         ];
     }
 }

@@ -19,27 +19,7 @@ class ListDevices extends XotBaseListRecords
 {
     protected static string $resource = DeviceResource::class;
 
-    public function getGridTableColumns(): array
-    {
-        return [
-            Stack::make([
-                TextColumn::make('id'),
-                TextColumn::make('mobile_id'),
-                // TextColumn::make('languages'),
-                TextColumn::make('device'),
-                TextColumn::make('platform'),
-                TextColumn::make('browser'),
-                TextColumn::make('version'),
-                IconColumn::make('is_robot')->boolean(),
-                TextColumn::make('robot'),
-                IconColumn::make('is_desktop')->boolean(),
-                IconColumn::make('is_mobile')->boolean(),
-                IconColumn::make('is_tablet')->boolean(),
-                IconColumn::make('is_phone')->boolean(),
-            ]),
-        ];
-    }
-
+   
     /**
      * @return array<string, \Filament\Tables\Columns\Column>
      */

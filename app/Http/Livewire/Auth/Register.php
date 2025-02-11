@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth;
 
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules\Password as PasswordRule;
 use Livewire\Component;
 use Modules\Xot\Datas\XotData;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
+use Filament\Forms\ComponentContainer;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Validation\Rules\Password as PasswordRule;
 
+/**
+ * @property ComponentContainer $form
+ */
 class Register extends Component
 {
     public string $name = '';
