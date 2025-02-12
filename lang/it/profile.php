@@ -88,6 +88,17 @@
     array (
       'label' => 'reorderRecords',
     ),
+<<<<<<< HEAD
+=======
+    'resetFilters' => 
+    array (
+      'label' => 'resetFilters',
+    ),
+    'applyFilters' => 
+    array (
+      'label' => 'applyFilters',
+    ),
+>>>>>>> origin/dev1
   ),
   'personal_info' => 
   array (

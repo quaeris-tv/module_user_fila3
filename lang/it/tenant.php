@@ -8,7 +8,11 @@
       'name' => 'Admin',
     ),
     'label' => 'tenant',
+<<<<<<< HEAD
     'sort' => 50,
+=======
+    'sort' => 24,
+>>>>>>> origin/dev1
   ),
   'table' => 
   array (
@@ -41,6 +45,10 @@
     'resetFilters' => 
     array (
       'label' => 'resetFilters',
+    ),
+    'applyFilters' => 
+    array (
+      'label' => 'applyFilters',
     ),
   ),
   'actions' => 
