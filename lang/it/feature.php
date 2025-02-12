@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'resources' => 'Risorse',
   'pages' => 'Pagine',
   'widgets' => 'Widgets',
@@ -11,11 +12,7 @@
       'name' => 'Admin',
     ),
     'label' => 'feature',
-<<<<<<< HEAD
     'sort' => 22,
-=======
-    'sort' => 34,
->>>>>>> origin/dev1
   ),
   'fields' => 
   array (
@@ -54,4 +51,4 @@
       ),
     ),
   ),
-);
+);

@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'navigation' => 
   array (
     'name' => 'Dispositivo',
@@ -8,11 +9,7 @@
       'name' => 'Admin',
     ),
     'label' => 'device',
-<<<<<<< HEAD
     'sort' => 25,
-=======
-    'sort' => 13,
->>>>>>> origin/dev1
   ),
   'fields' => 
   array (
@@ -78,13 +75,10 @@
     array (
       'label' => 'reorderRecords',
     ),
-<<<<<<< HEAD
-=======
     'resetFilters' => 
     array (
       'label' => 'resetFilters',
     ),
->>>>>>> origin/dev1
   ),
   'actions' => 
   array (
@@ -109,4 +103,4 @@
       'label' => 'create',
     ),
   ),
-);
+);

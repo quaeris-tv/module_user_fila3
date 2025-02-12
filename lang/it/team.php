@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'navigation' => 
   array (
     'name' => 'Team',
@@ -8,11 +9,7 @@
       'name' => 'Admin',
     ),
     'label' => 'team',
-<<<<<<< HEAD
     'sort' => 50,
-=======
-    'sort' => 83,
->>>>>>> origin/dev1
   ),
   'fields' => 
   array (
@@ -109,4 +106,4 @@
       'label' => 'team.plural.model',
     ),
   ),
-);
+);

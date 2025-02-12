@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'account' => 'Account',
   'profile' => 'Profilo',
   'my_profile' => 'Il mio profilo',
@@ -88,8 +89,6 @@
     array (
       'label' => 'reorderRecords',
     ),
-<<<<<<< HEAD
-=======
     'resetFilters' => 
     array (
       'label' => 'resetFilters',
@@ -98,7 +97,6 @@
     array (
       'label' => 'applyFilters',
     ),
->>>>>>> origin/dev1
   ),
   'personal_info' => 
   array (
@@ -110,4 +108,4 @@
     ),
     'notify' => 'Profilo aggiornato correttamente!',
   ),
-);
+);
