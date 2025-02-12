@@ -11,7 +11,7 @@
       'name' => 'Admin',
     ),
     'label' => 'role',
-    'sort' => 75,
+    'sort' => 17,
   ),
   'fields' => 
   array (
@@ -79,6 +79,18 @@
     array (
       'label' => 'applyFilters',
     ),
+    'openFilters' => 
+    array (
+      'label' => 'openFilters',
+    ),
+    'view' => 
+    array (
+      'label' => 'view',
+    ),
+    'create' => 
+    array (
+      'label' => 'create',
+    ),
   ),
   'actions' => 
   array (
@@ -97,6 +109,13 @@
         'name' => 'Nome area',
         'parent_name' => 'Nome area livello superiore',
       ),
+    ),
+  ),
+  'plural' => 
+  array (
+    'model' => 
+    array (
+      'label' => 'role.plural.model',
     ),
   ),
 );
