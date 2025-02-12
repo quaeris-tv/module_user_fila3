@@ -8,7 +8,7 @@
       'name' => 'Admin',
     ),
     'label' => 'device',
-    'sort' => 25,
+    'sort' => 13,
   ),
   'fields' => 
   array (
@@ -73,6 +73,10 @@
     'reorderRecords' => 
     array (
       'label' => 'reorderRecords',
+    ),
+    'resetFilters' => 
+    array (
+      'label' => 'resetFilters',
     ),
   ),
   'actions' => 

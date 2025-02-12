@@ -88,6 +88,14 @@
     array (
       'label' => 'reorderRecords',
     ),
+    'resetFilters' => 
+    array (
+      'label' => 'resetFilters',
+    ),
+    'applyFilters' => 
+    array (
+      'label' => 'applyFilters',
+    ),
   ),
   'personal_info' => 
   array (
