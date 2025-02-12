@@ -1,15 +1,16 @@
-<?php 
-return array (
+<?php return array (
   'navigation' => 
   array (
     'name' => 'Dispositivo',
     'plural' => 'Dispositivi',
     'group' => 
     array (
-      'name' => 'Admin',
+      'name' => 'Gestione Utenti',
+      'description' => 'Gestione dei dispositivi degli utenti',
     ),
     'label' => 'device',
-    'sort' => 25,
+    'sort' => 54,
+    'icon' => 'user-device',
   ),
   'fields' => 
   array (
@@ -103,4 +104,4 @@ return array (
       'label' => 'create',
     ),
   ),
-);
+);

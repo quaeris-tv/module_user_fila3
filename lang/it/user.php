@@ -1,12 +1,39 @@
-<?php 
-return array (
+<?php return array (
   'navigation' => 
   array (
     'name' => 'Utente',
     'plural' => 'Utenti',
-    'group' => 'Utenti',
+    'group' => 
+    array (
+      'name' => 'Gestione Utenti',
+      'description' => 'Gestione degli utenti, ruoli e permessi',
+    ),
     'label' => 'user',
-    'sort' => 71,
+    'sort' => 23,
+    'icon' => 'user-main',
+  ),
+  'sections' => 
+  array (
+    'users' => 
+    array (
+      'icon' => 'user-user-main',
+      'label' => 'Lista Utenti',
+    ),
+    'groups' => 
+    array (
+      'icon' => 'user-user-group',
+      'label' => 'Gruppi',
+    ),
+    'roles' => 
+    array (
+      'icon' => 'user-user-role',
+      'label' => 'Ruoli',
+    ),
+    'permissions' => 
+    array (
+      'icon' => 'user-user-permission',
+      'label' => 'Permessi',
+    ),
   ),
   'fields' => 
   array (
@@ -181,7 +208,7 @@ return array (
     'edit' => 
     array (
       'heading' => 'Modifica Utente',
-      'description' => 'Modifica le informazioni dell’utente',
+      'description' => 'Modifica le informazioni dell\'utente',
       'actions' => 
       array (
         'submit' => 'Salva Modifiche',
@@ -240,4 +267,4 @@ return array (
   array (
     'label' => 'Utente',
   ),
-);
+);
