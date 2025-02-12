@@ -5,7 +5,7 @@
     'plural' => 'Utenti',
     'group' => 'Utenti',
     'label' => 'user',
-    'sort' => 27,
+    'sort' => 71,
   ),
   'fields' => 
   array (
@@ -90,6 +90,22 @@
     'openFilters' => 
     array (
       'label' => 'openFilters',
+    ),
+    'toggleColumns' => 
+    array (
+      'label' => 'toggleColumns',
+    ),
+    'reorderRecords' => 
+    array (
+      'label' => 'reorderRecords',
+    ),
+    'isActive' => 
+    array (
+      'label' => 'isActive',
+    ),
+    'delete' => 
+    array (
+      'label' => 'delete',
     ),
   ),
   'filters' => 

@@ -8,7 +8,7 @@ use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Modules\User\Filament\Resources\BaseProfileResource;
 
-class EditProfile extends EditRecord
+class EditProfile extends \Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord
 {
     protected static string $resource = BaseProfileResource::class;
 
