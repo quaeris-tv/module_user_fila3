@@ -29,5 +29,20 @@
     array (
       'label' => 'resetFilters',
     ),
+    'applyFilters' => 
+    array (
+      'label' => 'applyFilters',
+    ),
+    'openFilters' => 
+    array (
+      'label' => 'openFilters',
+    ),
+  ),
+  'plural' => 
+  array (
+    'model' => 
+    array (
+      'label' => 'client.plural.model',
+    ),
   ),
 );
