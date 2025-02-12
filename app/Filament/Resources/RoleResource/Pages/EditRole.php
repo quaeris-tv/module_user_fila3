@@ -15,7 +15,7 @@ use Modules\User\Models\Role;
 use Modules\User\Support\Utils;
 use Webmozart\Assert\Assert;
 
-class EditRole extends EditRecord
+class EditRole extends \Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord
 {
     // //
     public Collection $permissions;

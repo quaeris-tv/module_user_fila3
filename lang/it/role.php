@@ -11,7 +11,7 @@
       'name' => 'Admin',
     ),
     'label' => 'role',
-    'sort' => 76,
+    'sort' => 75,
   ),
   'fields' => 
   array (
@@ -42,6 +42,42 @@
     'detach' => 
     array (
       'label' => 'detach',
+    ),
+    'toggleColumns' => 
+    array (
+      'label' => 'toggleColumns',
+    ),
+    'reorderRecords' => 
+    array (
+      'label' => 'reorderRecords',
+    ),
+    'team_id' => 
+    array (
+      'label' => 'team_id',
+    ),
+    'edit' => 
+    array (
+      'label' => 'edit',
+    ),
+    'recordId' => 
+    array (
+      'label' => 'recordId',
+    ),
+    'attach' => 
+    array (
+      'label' => 'attach',
+    ),
+    'id' => 
+    array (
+      'label' => 'id',
+    ),
+    'resetFilters' => 
+    array (
+      'label' => 'resetFilters',
+    ),
+    'applyFilters' => 
+    array (
+      'label' => 'applyFilters',
     ),
   ),
   'actions' => 

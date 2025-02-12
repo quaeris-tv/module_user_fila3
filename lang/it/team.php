@@ -8,7 +8,7 @@
       'name' => 'Admin',
     ),
     'label' => 'team',
-    'sort' => 80,
+    'sort' => 50,
   ),
   'fields' => 
   array (
@@ -69,6 +69,10 @@
     'name' => 
     array (
       'label' => 'name',
+    ),
+    'recordId' => 
+    array (
+      'label' => 'recordId',
     ),
   ),
   'actions' => 

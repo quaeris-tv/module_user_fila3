@@ -8,7 +8,7 @@
       'name' => 'Admin',
     ),
     'label' => 'device',
-    'sort' => 58,
+    'sort' => 25,
   ),
   'fields' => 
   array (
@@ -65,6 +65,14 @@
     'logout_at' => 
     array (
       'label' => 'logout_at',
+    ),
+    'toggleColumns' => 
+    array (
+      'label' => 'toggleColumns',
+    ),
+    'reorderRecords' => 
+    array (
+      'label' => 'reorderRecords',
     ),
   ),
   'actions' => 
