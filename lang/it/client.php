@@ -1,4 +1,17 @@
 <?php return array (
+  'navigation' => 
+  array (
+    'name' => 'Client',
+    'plural' => 'Clients',
+    'group' => 
+    array (
+      'name' => 'Gestione Utenti',
+      'description' => 'Gestione dei client e delle loro autorizzazioni',
+    ),
+    'label' => 'client',
+    'sort' => 92,
+    'icon' => 'user-user-client',
+  ),
   'fields' => 
   array (
     'name' => 
@@ -45,4 +58,4 @@
       'label' => 'client.plural.model',
     ),
   ),
-);
+);

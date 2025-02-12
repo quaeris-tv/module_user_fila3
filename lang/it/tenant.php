@@ -1,15 +1,16 @@
-<?php 
-return array (
+<?php return array (
   'navigation' => 
   array (
     'name' => 'Tenant',
-    'plural' => 'Tenant',
+    'plural' => 'Tenants',
     'group' => 
     array (
-      'name' => 'Admin',
+      'name' => 'Gestione Utenti',
+      'description' => 'Gestione dei tenant e delle loro configurazioni',
     ),
     'label' => 'tenant',
-    'sort' => 50,
+    'sort' => 7,
+    'icon' => 'user-user-tenant',
   ),
   'table' => 
   array (
@@ -68,4 +69,4 @@ return array (
     ),
     'change_password' => 'Cambio password',
   ),
-);
+);

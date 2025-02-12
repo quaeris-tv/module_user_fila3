@@ -1,5 +1,4 @@
-<?php 
-return array (
+<?php return array (
   'account' => 'Account',
   'profile' => 'Profilo',
   'my_profile' => 'Il mio profilo',
@@ -108,4 +107,8 @@ return array (
     ),
     'notify' => 'Profilo aggiornato correttamente!',
   ),
-);
+  'navigation' => 
+  array (
+    'sort' => 59,
+  ),
+);

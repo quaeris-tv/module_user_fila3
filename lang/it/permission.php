@@ -5,10 +5,12 @@
     'plural' => 'Permessi',
     'group' => 
     array (
-      'name' => 'Admin',
+      'name' => 'Gestione Utenti',
+      'description' => 'Gestione dei permessi del sistema',
     ),
     'label' => 'permission',
-    'sort' => 5,
+    'sort' => 38,
+    'icon' => 'user-user-permission',
   ),
   'fields' => 
   array (
@@ -43,4 +45,4 @@
       ),
     ),
   ),
-);
+);

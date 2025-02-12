@@ -1,5 +1,4 @@
-<?php 
-return array (
+<?php return array (
   'resources' => 'Risorse',
   'pages' => 'Pagine',
   'widgets' => 'Widgets',
@@ -9,10 +8,12 @@ return array (
     'plural' => 'Features',
     'group' => 
     array (
-      'name' => 'Admin',
+      'name' => 'Gestione Utenti',
+      'description' => 'Gestione delle feature e delle funzionalità',
     ),
     'label' => 'feature',
-    'sort' => 22,
+    'sort' => 1,
+    'icon' => 'user-user-feature',
   ),
   'fields' => 
   array (
@@ -51,4 +52,4 @@ return array (
       ),
     ),
   ),
-);
+);

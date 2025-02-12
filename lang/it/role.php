@@ -1,5 +1,4 @@
-<?php 
-return array (
+<?php return array (
   'resources' => 'Risorse',
   'pages' => 'Pagine',
   'widgets' => 'Widgets',
@@ -9,10 +8,12 @@ return array (
     'plural' => 'Ruoli',
     'group' => 
     array (
-      'name' => 'Admin',
+      'name' => 'Gestione Utenti',
+      'description' => 'Gestione dei ruoli del sistema',
     ),
     'label' => 'role',
-    'sort' => 75,
+    'sort' => 99,
+    'icon' => 'user-user-role',
   ),
   'fields' => 
   array (
