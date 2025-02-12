@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'resources' => 'Risorse',
   'pages' => 'Pagine',
   'widgets' => 'Widgets',
@@ -11,11 +12,7 @@
       'name' => 'Admin',
     ),
     'label' => 'social provider',
-<<<<<<< HEAD
     'sort' => 42,
-=======
-    'sort' => 82,
->>>>>>> origin/dev1
   ),
   'fields' => 
   array (
@@ -61,4 +58,4 @@
       'label' => 'social provider.plural.model',
     ),
   ),
-);
+);

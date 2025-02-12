@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'navigation' => 
   array (
     'name' => 'Tenant',
@@ -8,11 +9,7 @@
       'name' => 'Admin',
     ),
     'label' => 'tenant',
-<<<<<<< HEAD
     'sort' => 50,
-=======
-    'sort' => 24,
->>>>>>> origin/dev1
   ),
   'table' => 
   array (
@@ -71,4 +68,4 @@
     ),
     'change_password' => 'Cambio password',
   ),
-);
+);

@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'resources' => 'Risorse',
   'pages' => 'Pagine',
   'widgets' => 'Widgets',
@@ -11,11 +12,7 @@
       'name' => 'Admin',
     ),
     'label' => 'role',
-<<<<<<< HEAD
     'sort' => 75,
-=======
-    'sort' => 17,
->>>>>>> origin/dev1
   ),
   'fields' => 
   array (
@@ -83,8 +80,6 @@
     array (
       'label' => 'applyFilters',
     ),
-<<<<<<< HEAD
-=======
     'openFilters' => 
     array (
       'label' => 'openFilters',
@@ -97,7 +92,6 @@
     array (
       'label' => 'create',
     ),
->>>>>>> origin/dev1
   ),
   'actions' => 
   array (
@@ -125,4 +119,4 @@
       'label' => 'role.plural.model',
     ),
   ),
-);
+);
