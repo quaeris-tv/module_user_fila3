@@ -5,7 +5,11 @@
     'plural' => 'Utenti',
     'group' => 'Utenti',
     'label' => 'user',
+<<<<<<< HEAD
     'sort' => 71,
+=======
+    'sort' => 79,
+>>>>>>> origin/dev1
   ),
   'fields' => 
   array (

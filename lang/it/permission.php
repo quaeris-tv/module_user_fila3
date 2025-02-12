@@ -8,7 +8,7 @@
       'name' => 'Admin',
     ),
     'label' => 'permission',
-    'sort' => 84,
+    'sort' => 5,
   ),
   'fields' => 
   array (
