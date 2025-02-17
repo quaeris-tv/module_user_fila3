@@ -28,7 +28,8 @@ class TenantsRelationManager extends XotBaseRelationManager
     /**
      * Set up the form schema for tenant relations.
      *
-     * @param  Form  $form  the form instance for configuration
+     * @param Form $form the form instance for configuration
+     *
      * @return Form configured form instance
      */
     public function form(Form $form): Form
