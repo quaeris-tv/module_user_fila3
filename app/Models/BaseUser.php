@@ -28,6 +28,8 @@ use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Traits\HasRoles;
+use Modules\User\Models\AuthenticationLog;
+use Modules\User\Models\Notification;
 
 /**
  * Modules\User\Models\User.
@@ -240,14 +242,18 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
 
     public function detach(Model $model): void
     {
+        // @phpstan-ignore function.alreadyNarrowedType
         if (method_exists($this, 'teams')) {
+            // @phpstan-ignore function.alreadyNarrowedType
             $this->teams()->detach($model);
         }
     }
 
     public function attach(Model $model): void
     {
+        // @phpstan-ignore function.alreadyNarrowedType
         if (method_exists($this, 'teams')) {
+            // @phpstan-ignore function.alreadyNarrowedType
             $this->teams()->attach($model);
         }
     }
@@ -299,23 +305,27 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         throw new \Exception('SocialiteUser field ['.$field.'] not found');
     }
 
-    // ----------------------
-    // ----------------------
-    // ---------------------
     /**
-     * @return MorphMany<Notification, self>
+     * Get all of the user's notifications.
+     *
+     * @return MorphMany<Notification, static>
      */
     public function notifications()
     {
+        // @phpstan-ignore return.type
         return $this->morphMany(Notification::class, 'notifiable');
     }
 
     /**
-     * @return MorphOne<AuthenticationLog, self>
+     * Get the user's latest authentication log.
+     *
+     * @return MorphOne<AuthenticationLog, static>
      */
     public function latestAuthentication(): MorphOne
     {
-        return $this->morphOne(AuthenticationLog::class, 'authenticatable')->latestOfMany();
+        // @phpstan-ignore return.type
+        return $this->morphOne(AuthenticationLog::class, 'authenticatable')
+            ->latestOfMany();
     }
 
     public function getFullNameAttribute(?string $value): ?string
@@ -373,5 +383,21 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
             'created_by' => 'string',
             'deleted_by' => 'string',
         ];
+    }
+
+    /**
+     * Check if the user has teams.
+     */
+    public function hasTeams(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Check if the user belongs to any teams.
+     */
+    public function belongsToTeams(): bool
+    {
+        return true;
     }
 }

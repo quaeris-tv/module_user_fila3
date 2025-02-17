@@ -46,7 +46,7 @@ class TenantsRelationManager extends XotBaseRelationManager
     /**
      * Define table columns for displaying tenant information.
      *
-     * @return array<int, \Filament\Tables\Columns\Column> configured table columns
+     * @return array<string, \Filament\Tables\Columns\Column> configured table columns
      */
     public function getListTableColumns(): array
     {

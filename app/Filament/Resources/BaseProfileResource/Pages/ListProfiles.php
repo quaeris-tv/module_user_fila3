@@ -16,6 +16,7 @@ use Illuminate\Support\Arr;
 use Modules\User\Filament\Resources\BaseProfileResource;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+use Filament\Tables\Actions\ExportBulkAction;
 
 /**
  * .
@@ -24,70 +25,15 @@ class ListProfiles extends XotBaseListRecords
 {
     protected static string $resource = BaseProfileResource::class;
 
-    public function getModelLabel(): string
-    {
-        return static::trans('navigation.name');
-    }
+    
 
-    public function getPluralModelLabel(): string
-    {
-        return static::trans('navigation.plural');
-    }
-
-    public function getGridTableColumns(): array
-    {
-        return [
-            Stack::make([
-                // 'type' => TextColumn::make('type')
-                //    ->sortable(),
-
-                'user_name' => TextColumn::make('user.name')
-                    ->sortable()
-                    ->searchable()
-                    ->default(
-                        function ($record) {
-                            $user = $record->user;
-                            $user_class = XotData::make()->getUserClass();
-                            if (null === $user) {
-                                /** @var \Modules\Xot\Contracts\UserContract */
-                                $user = XotData::make()->getUserByEmail($record->email);
-                            }
-                            if (null === $user) {
-                                $data = $record->toArray();
-                                $user_data = Arr::except($data, ['id']);
-                                /** @var \Modules\Xot\Contracts\UserContract */
-                                $user = $user_class::create($user_data);
-                            }
-                            $record->update(['user_id' => $user->id]);
-
-                            return $user->name;
-                        }
-                    ),
-                'first_name' => TextColumn::make('first_name')
-                    ->sortable()
-                    ->searchable(),
-                'last_name' => TextColumn::make('last_name')
-                    ->sortable()
-                    ->searchable(),
-                'email' => TextColumn::make('email')
-                    ->sortable()
-                    ->searchable(),
-                'is_active' => IconColumn::make('is_active')
-                    ->boolean(),
-                'photo' => SpatieMediaLibraryImageColumn::make('photo')
-                    ->collection('profile'),
-            ]),
-        ];
-    }
-
+    /**
+     * @return array<string, Tables\Columns\Column>
+     */
     public function getListTableColumns(): array
     {
         return [
-            // 'type' => TextColumn::make('type')
-            //    ->sortable(),
-            //     ->sortable(),
-
-            'user_name' => TextColumn::make('user.name')
+            'user.name'=>TextColumn::make('user.name')
                 ->sortable()
                 ->searchable()
                 ->default(
@@ -102,8 +48,6 @@ class ListProfiles extends XotBaseListRecords
                                 /** @var \Modules\Xot\Contracts\UserContract */
                                 $user = XotData::make()->getUserByEmail($record->email);
                             } catch (\Exception $e) {
-                                // $record->delete();
-
                                 return '--';
                             }
                         }
@@ -118,41 +62,31 @@ class ListProfiles extends XotBaseListRecords
                         return $user->name;
                     }
                 ),
-            'first_name' => TextColumn::make('first_name')
+            'first_name'=>TextColumn::make('first_name')
                 ->sortable()
                 ->searchable(),
-            'last_name' => TextColumn::make('last_name')
+            'last_name'=>TextColumn::make('last_name')
                 ->sortable()
                 ->searchable(),
-            'email' => TextColumn::make('email')
+            'email'=>TextColumn::make('email')
                 ->sortable()
                 ->searchable(),
-            'is_active' => IconColumn::make('is_active')
+            'is_active'=>IconColumn::make('is_active')
                 ->boolean(),
-            'photo' => SpatieMediaLibraryImageColumn::make('photo')
+            'photo'=>SpatieMediaLibraryImageColumn::make('photo')
                 ->collection('profile'),
         ];
     }
 
-    /**
-     * @return array<string, BulkAction>
-     */
-    public function getTableBulkActions(): array
-    {
-        return [
-            'delete' => Tables\Actions\DeleteBulkAction::make(),
-            'export' => BulkAction::make('export')
-                ->action(fn ($records) => $this->export($records)),
-        ];
-    }
+   
 
     /**
-     * @return array<Tables\Filters\BaseFilter>
+     * @return array<string, Tables\Filters\BaseFilter>
      */
     public function getTableFilters(): array
     {
         return [
-            TernaryFilter::make('is_active')
+            'is_active'=>TernaryFilter::make('is_active')
                 ->placeholder(static::trans('filters.is_active.all'))
                 ->trueLabel(static::trans('filters.is_active.active'))
                 ->falseLabel(static::trans('filters.is_active.inactive'))
@@ -163,12 +97,5 @@ class ListProfiles extends XotBaseListRecords
         ];
     }
 
-    public function getTableActions(): array
-    {
-        return [
-            Tables\Actions\ViewAction::make(),
-            Tables\Actions\EditAction::make(),
-            Tables\Actions\DeleteAction::make(),
-        ];
-    }
+   
 }
