@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<?php
 <?php return array (
   'navigation' => 
   array (
