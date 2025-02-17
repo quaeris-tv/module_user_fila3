@@ -28,8 +28,6 @@ use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Traits\HasRoles;
-use Modules\User\Models\AuthenticationLog;
-use Modules\User\Models\Notification;
 
 /**
  * Modules\User\Models\User.

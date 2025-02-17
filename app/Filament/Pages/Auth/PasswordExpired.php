@@ -15,7 +15,6 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
 use Filament\Pages\Page;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Validation\Rules\Password as PasswordRule;
@@ -84,7 +83,7 @@ class PasswordExpired extends Page implements HasForms
         }
 
         // check if current password is correct
-        if ($user->password === null || ! Hash::check($current_password, $user->password)) {
+        if (null === $user->password || ! Hash::check($current_password, $user->password)) {
             Notification::make()
                 ->title(__('user::otp.notifications.wrong_password.title'))
                 ->body(__('user::otp.notifications.wrong_password.body'))
@@ -95,7 +94,7 @@ class PasswordExpired extends Page implements HasForms
         }
 
         // check if new password is different from the current password
-        if ($user->password !== null && Hash::check($password, $user->password)) {
+        if (null !== $user->password && Hash::check($password, $user->password)) {
             Notification::make()
                 ->title(__('user::otp.notifications.same_password.title'))
                 ->body(__('user::otp.notifications.same_password.body'))

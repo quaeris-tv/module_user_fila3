@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth;
 
+use Filament\Forms\ComponentContainer;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -13,7 +14,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Modules\Xot\Actions\File\ViewCopyAction;
-use Filament\Forms\ComponentContainer;
 
 /**
  * @property ComponentContainer $form
