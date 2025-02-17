@@ -1,16 +1,20 @@
-<?php return array (
-    'navigation' => array (
+<?php
+
+declare(strict_types=1);
+
+return [
+    'navigation' => [
         'name' => 'Utenti',
         'plural' => 'Utenti',
-        'group' => array (
+        'group' => [
             'name' => 'Gestione Utenti',
             'description' => 'Gestione degli utenti e dei loro permessi',
-        ),
+        ],
         'label' => 'Utenti',
         'sort' => 70,
         'icon' => 'user-user-animated',
-    ),
-    'fields' => array (
+    ],
+    'fields' => [
         'name' => 'Nome',
         'email' => 'Email',
         'password' => 'Password',
@@ -19,20 +23,20 @@
         'role' => 'Ruolo',
         'roles' => 'Ruoli',
         'permissions' => 'Permessi',
-        'status' => array (
+        'status' => [
             'label' => 'Stato',
             'active' => 'Attivo',
             'inactive' => 'Inattivo',
             'blocked' => 'Bloccato',
-        ),
+        ],
         'last_login' => 'Ultimo Accesso',
         'created_at' => 'Data Creazione',
         'updated_at' => 'Ultima Modifica',
         'avatar' => 'Avatar',
         'language' => 'Lingua',
         'timezone' => 'Fuso Orario',
-    ),
-    'actions' => array (
+    ],
+    'actions' => [
         'create' => 'Crea Utente',
         'edit' => 'Modifica Utente',
         'delete' => 'Elimina Utente',
@@ -42,8 +46,8 @@
         'unblock' => 'Sblocca',
         'send_reset_link' => 'Invia Link Reset Password',
         'verify_email' => 'Verifica Email',
-    ),
-    'messages' => array (
+    ],
+    'messages' => [
         'created' => 'Utente creato con successo',
         'updated' => 'Utente aggiornato con successo',
         'deleted' => 'Utente eliminato con successo',
@@ -52,19 +56,19 @@
         'reset_link_sent' => 'Link per il reset della password inviato',
         'email_verified' => 'Email verificata con successo',
         'impersonating' => 'Stai impersonando l\'utente :name',
-    ),
-    'validation' => array (
+    ],
+    'validation' => [
         'email_unique' => 'Questa email è già in uso',
         'password_min' => 'La password deve essere di almeno :min caratteri',
         'password_confirmed' => 'Le password non coincidono',
         'current_password' => 'La password attuale non è corretta',
-    ),
-    'permissions' => array (
+    ],
+    'permissions' => [
         'view_users' => 'Visualizza utenti',
         'create_users' => 'Crea utenti',
         'edit_users' => 'Modifica utenti',
         'delete_users' => 'Elimina utenti',
         'impersonate_users' => 'Impersona utenti',
         'manage_roles' => 'Gestisci ruoli',
-    ),
-);
+    ],
+];
