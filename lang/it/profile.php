@@ -49,6 +49,7 @@ return [
             'two_factor' => 'Autenticazione a Due Fattori',
             'recovery_codes' => 'Codici di Recupero',
         ],
+<<<<<<< HEAD
         'avatar' => [
             'label' => 'Avatar',
             'upload' => 'Carica Avatar',
@@ -77,5 +78,74 @@ return [
         'password_confirmed' => 'Le password non coincidono',
         'avatar_size' => 'L\'avatar deve essere massimo :size KB',
         'avatar_dimensions' => 'L\'avatar deve essere :width x :height pixel',
+=======
+        'id' => [
+            'label' => 'ID',
+        ],
+        'ente' => [
+            'label' => 'Ente',
+        ],
+        'matr' => [
+            'label' => 'Matricola',
+        ],
+        'first_name' => [
+            'label' => 'Nome',
+            'fields' => [
+                'label' => 'Nome',
+            ],
+        ],
+        'last_name' => [
+            'label' => 'Cognome',
+            'fields' => [
+                'label' => 'Cognome',
+            ],
+        ],
+        'email' => [
+            'label' => 'Email',
+            'fields' => [
+                'label' => 'Email',
+            ],
+        ],
+        'is_active' => [
+            'label' => 'Attivo',
+            'fields' => [
+                'label' => 'Attivo',
+            ],
+        ],
+        'delete' => [
+            'label' => 'Elimina',
+        ],
+        'toggleColumns' => [
+            'label' => 'Mostra/Nascondi Colonne',
+        ],
+        'reorderRecords' => [
+            'label' => 'Riordina Record',
+        ],
+        'resetFilters' => [
+            'label' => 'Resetta Filtri',
+        ],
+        'applyFilters' => [
+            'label' => 'Applica Filtri',
+        ],
+    ],
+    'personal_info' => [
+        'heading' => 'Informazioni Personali',
+        'subheading' => 'Gestisci le tue informazioni personali.',
+        'submit' => [
+            'label' => 'Aggiorna',
+        ],
+        'notify' => 'Profilo aggiornato correttamente!',
+>>>>>>> origin/dev
+    ],
+    'navigation' => [
+        'name' => 'Profilo',
+        'plural' => 'Profili',
+        'group' => [
+            'name' => 'Gestione Utenti',
+            'description' => 'Gestione dei profili',
+        ],
+        'label' => 'profili',
+        'sort' => 71,
+        'icon' => 'user-profile',
     ],
 ];
