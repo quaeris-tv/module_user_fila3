@@ -10,7 +10,6 @@ use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\DeviceResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
@@ -19,7 +18,6 @@ class ListDevices extends XotBaseListRecords
 {
     protected static string $resource = DeviceResource::class;
 
-   
     /**
      * @return array<string, \Filament\Tables\Columns\Column>
      */

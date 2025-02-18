@@ -8,7 +8,6 @@ use Filament\Actions\CreateAction;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
-use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\FeatureResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
@@ -16,8 +15,6 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 class ListFeatures extends XotBaseListRecords
 {
     protected static string $resource = FeatureResource::class;
-
-   
 
     /**
      * @return array<string, \Filament\Tables\Columns\Column>

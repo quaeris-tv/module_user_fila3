@@ -6,7 +6,6 @@ namespace Modules\User\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Filament\Forms\Form;
 use Filament\Resources\Concerns\Translatable;
 use Illuminate\Database\Eloquent\Collection;
 use Modules\User\Filament\Resources\BaseProfileResource\Pages;
@@ -19,31 +18,29 @@ abstract class BaseProfileResource extends XotBaseResource
 
     protected static ?string $model = Profile::class;
 
-    
-
     public static function getFormSchema(): array
     {
         return [
             // Forms\Components\TextInput::make('user_id'),
-                // Forms\Components\TextInput::make('user_id')->readonly(),
-                Forms\Components\TextInput::make('user.name'),
-                Forms\Components\TextInput::make('email'),
-                Forms\Components\TextInput::make('first_name'),
-                Forms\Components\TextInput::make('last_name'),
-                SpatieMediaLibraryFileUpload::make('photo_profile')
-                    // ->image()
-                    // ->maxSize(5000)
-                    // ->multiple()
-                    // ->enableReordering()
-                    ->openable()
-                    ->downloadable()
-                    ->columnSpanFull()
-                    // ->collection('avatars')
-                    // ->conversion('thumbnail')
-                    ->disk('uploads')
-                    ->directory('photos')
-                    ->collection('photo_profile'),
-        ]; 
+            // Forms\Components\TextInput::make('user_id')->readonly(),
+            Forms\Components\TextInput::make('user.name'),
+            Forms\Components\TextInput::make('email'),
+            Forms\Components\TextInput::make('first_name'),
+            Forms\Components\TextInput::make('last_name'),
+            SpatieMediaLibraryFileUpload::make('photo_profile')
+                // ->image()
+                // ->maxSize(5000)
+                // ->multiple()
+                // ->enableReordering()
+                ->openable()
+                ->downloadable()
+                ->columnSpanFull()
+                // ->collection('avatars')
+                // ->conversion('thumbnail')
+                ->disk('uploads')
+                ->directory('photos')
+                ->collection('photo_profile'),
+        ];
     }
 
     public static function getRelations(): array

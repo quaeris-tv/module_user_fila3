@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Filament\Resources\ProfileResource\Pages;
 
-use Modules\User\Filament\Resources\ProfileResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Modules\User\Filament\Resources\ProfileResource;
 
 class EditProfile extends EditRecord
 {
