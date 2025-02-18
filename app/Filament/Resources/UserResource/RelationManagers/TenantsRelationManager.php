@@ -21,6 +21,7 @@ class TenantsRelationManager extends XotBaseRelationManager
     protected static string $relationship = 'tenants';
 
     protected static ?string $recordTitleAttribute = 'name';
+
     protected static string $resource = TenantResource::class;
 
     /*
