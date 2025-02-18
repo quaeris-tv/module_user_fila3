@@ -88,11 +88,37 @@ return [
         'plural' => 'Utenti',
         'group' => [
             'name' => 'Gestione Utenti',
+<<<<<<< HEAD
             'description' => 'Gestione degli utenti e dei loro permessi',
         ],
         'label' => 'Utenti',
         'sort' => 70,
         'icon' => 'user-user-animated',
+=======
+            'description' => 'Gestione degli utenti, ruoli e permessi',
+        ],
+        'label' => 'user',
+        'sort' => 80,
+        'icon' => 'user-main',
+    ],
+    'sections' => [
+        'users' => [
+            'icon' => 'user-user-main',
+            'label' => 'Lista Utenti',
+        ],
+        'groups' => [
+            'icon' => 'user-user-group',
+            'label' => 'Gruppi',
+        ],
+        'roles' => [
+            'icon' => 'user-user-role',
+            'label' => 'Ruoli',
+        ],
+        'permissions' => [
+            'icon' => 'user-user-permission',
+            'label' => 'Permessi',
+        ],
+>>>>>>> origin/dev
     ],
     'fields' => [
         'name' => 'Nome',
@@ -109,12 +135,74 @@ return [
             'inactive' => 'Inattivo',
             'blocked' => 'Bloccato',
         ],
+<<<<<<< HEAD
         'last_login' => 'Ultimo Accesso',
         'created_at' => 'Data Creazione',
         'updated_at' => 'Ultima Modifica',
         'avatar' => 'Avatar',
         'language' => 'Lingua',
         'timezone' => 'Fuso Orario',
+=======
+        'teams' => [
+            'name' => [
+                'label' => 'Nome Team',
+            ],
+        ],
+        'roles' => [
+            'name' => [
+                'label' => 'Nome Ruolo',
+            ],
+        ],
+        'password_expires_at' => [
+            'label' => 'Scadenza Password',
+        ],
+        'verified' => [
+            'label' => 'Verificato',
+        ],
+        'unverified' => [
+            'label' => 'Non Verificato',
+        ],
+        'deactivate' => [
+            'label' => 'deactivate',
+        ],
+        'changePassword' => [
+            'label' => 'changePassword',
+        ],
+        'resetFilters' => [
+            'label' => 'resetFilters',
+        ],
+        'applyFilters' => [
+            'label' => 'applyFilters',
+        ],
+        'openFilters' => [
+            'label' => 'openFilters',
+        ],
+        'toggleColumns' => [
+            'label' => 'toggleColumns',
+        ],
+        'reorderRecords' => [
+            'label' => 'reorderRecords',
+        ],
+        'isActive' => [
+            'label' => 'isActive',
+        ],
+        'delete' => [
+            'label' => 'delete',
+        ],
+    ],
+    'filters' => [
+        'active_users' => 'Utenti Attivi',
+        'creation_date' => 'Data di Creazione',
+        'date_from' => 'Dal',
+        'date_to' => 'Al',
+        'verified' => 'Utenti Verificati',
+        'unverified' => 'Utenti Non Verificati',
+    ],
+    'messages' => [
+        'no_records' => 'Nessun utente trovato',
+        'loading' => 'Caricamento utenti...',
+        'search' => 'Cerca utenti...',
+>>>>>>> origin/dev
     ],
     'actions' => [
         'create' => 'Crea Utente',
@@ -127,6 +215,7 @@ return [
         'send_reset_link' => 'Invia Link Reset Password',
         'verify_email' => 'Verifica Email',
     ],
+<<<<<<< HEAD
     'messages' => [
         'created' => 'Utente creato con successo',
         'updated' => 'Utente aggiornato con successo',
@@ -136,6 +225,57 @@ return [
         'reset_link_sent' => 'Link per il reset della password inviato',
         'email_verified' => 'Email verificata con successo',
         'impersonating' => 'Stai impersonando l\'utente :name',
+=======
+    'modals' => [
+        'create' => [
+            'heading' => 'Crea Utente',
+            'description' => 'Crea un nuovo utente',
+            'actions' => [
+                'submit' => 'Crea',
+                'cancel' => 'Annulla',
+            ],
+        ],
+        'edit' => [
+            'heading' => 'Modifica Utente',
+            'description' => 'Modifica le informazioni dell\'utente',
+            'actions' => [
+                'submit' => 'Salva Modifiche',
+                'cancel' => 'Annulla',
+            ],
+        ],
+        'delete' => [
+            'heading' => 'Elimina Utente',
+            'description' => 'Sei sicuro di voler eliminare questo utente?',
+            'actions' => [
+                'submit' => 'Elimina',
+                'cancel' => 'Annulla',
+            ],
+        ],
+        'associate' => [
+            'heading' => 'Associa Utente',
+            'description' => 'Seleziona un utente da associare',
+            'actions' => [
+                'submit' => 'Associa',
+                'cancel' => 'Annulla',
+            ],
+        ],
+        'detach' => [
+            'heading' => 'Scollega Utente',
+            'description' => 'Sei sicuro di voler scollegare questo utente?',
+            'actions' => [
+                'submit' => 'Scollega',
+                'cancel' => 'Annulla',
+            ],
+        ],
+        'bulk_delete' => [
+            'heading' => 'Elimina Utenti Selezionati',
+            'description' => 'Sei sicuro di voler eliminare gli utenti selezionati?',
+            'actions' => [
+                'submit' => 'Elimina Selezionati',
+                'cancel' => 'Annulla',
+            ],
+        ],
+>>>>>>> origin/dev
     ],
     'validation' => [
         'email_unique' => 'Questa email è già in uso',

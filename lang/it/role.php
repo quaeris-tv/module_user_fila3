@@ -76,16 +76,25 @@ return [
         'plural' => 'Ruoli',
         'group' => [
             'name' => 'Gestione Utenti',
+<<<<<<< HEAD
             'description' => 'Gestione dei ruoli e dei permessi associati',
         ],
         'label' => 'Ruoli',
         'sort' => 71,
         'icon' => 'user-role-animated',
+=======
+            'description' => 'Gestione dei ruoli del sistema',
+        ],
+        'label' => 'role',
+        'sort' => 84,
+        'icon' => 'user-user-role',
+>>>>>>> origin/dev
     ],
     'fields' => [
         'name' => 'Nome Ruolo',
         'guard_name' => 'Guard',
         'permissions' => 'Permessi',
+<<<<<<< HEAD
         'users_count' => 'Numero Utenti',
         'created_at' => 'Data Creazione',
         'updated_at' => 'Ultima Modifica',
@@ -97,6 +106,59 @@ return [
         'manager' => 'Manager',
         'editor' => 'Editor',
         'user' => 'Utente',
+=======
+        'updated_at' => 'Aggiornato il',
+        'first_name' => 'Nome',
+        'last_name' => 'Cognome',
+        'select_all' => [
+            'name' => 'Seleziona Tutti',
+            'message' => '',
+        ],
+        'team' => [
+            'name' => [
+                'label' => 'team.name',
+            ],
+        ],
+        'detach' => [
+            'label' => 'detach',
+        ],
+        'toggleColumns' => [
+            'label' => 'toggleColumns',
+        ],
+        'reorderRecords' => [
+            'label' => 'reorderRecords',
+        ],
+        'team_id' => [
+            'label' => 'team_id',
+        ],
+        'edit' => [
+            'label' => 'edit',
+        ],
+        'recordId' => [
+            'label' => 'recordId',
+        ],
+        'attach' => [
+            'label' => 'attach',
+        ],
+        'id' => [
+            'label' => 'id',
+        ],
+        'resetFilters' => [
+            'label' => 'resetFilters',
+        ],
+        'applyFilters' => [
+            'label' => 'applyFilters',
+        ],
+        'openFilters' => [
+            'label' => 'openFilters',
+        ],
+        'view' => [
+            'label' => 'view',
+        ],
+        'create' => [
+            'label' => 'create',
+        ],
+>>>>>>> origin/dev
     ],
     'actions' => [
         'create' => 'Crea Ruolo',
@@ -126,6 +188,11 @@ return [
         'content' => 'Gestione Contenuti',
         'settings' => 'Impostazioni',
         'reports' => 'Report',
+    ],
+    'plural' => [
+        'model' => [
+            'label' => 'role.plural.model',
+        ],
     ],
 ];
 >>>>>>> 6fb7ca2eb5c3803f511c33f86773bc441bd59c53
