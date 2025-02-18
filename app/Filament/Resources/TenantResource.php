@@ -52,13 +52,13 @@ class TenantResource extends XotBaseResource
 
                     TextInput::make('slug')
                         ->required()
-                        ->disabled(fn ($context) => 'create' !== $context)
+                        ->disabled(fn ($context) => $context !== 'create')
                         ->unique(table: 'tenants', ignoreRecord: true)
                         ->helperText(static::trans('fields.slug.helper_text')),
 
                     TextInput::make('domain')
                         ->required()
-                        ->visible(fn ($context) => 'create' === $context)
+                        ->visible(fn ($context) => $context === 'create')
                         ->unique(table: 'domains', ignoreRecord: true)
                         ->prefix('https://')
                         ->suffix('.'.request()->getHost())

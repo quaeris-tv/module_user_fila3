@@ -16,6 +16,4 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin \Eloquent
  */
-class ProfileTeam extends TeamUser
-{
-}
+class ProfileTeam extends TeamUser {}

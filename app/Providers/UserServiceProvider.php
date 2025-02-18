@@ -51,7 +51,7 @@ class UserServiceProvider extends XotBaseServiceProvider
         }
         // $url = url(route('password.reset', ['token' => $token, 'email' => $notifiable->getEmailForPasswordReset()]));
         ResetPassword::toMailUsing(function ($notifiable, string $token): MailMessage {
-            return (new MailMessage())
+            return (new MailMessage)
                 ->template('user::notifications.email')
                 ->subject(__('user::reset_password.password_reset_subject'))
                 ->line(__('user::reset_password.password_cause_of_email'))
@@ -62,7 +62,7 @@ class UserServiceProvider extends XotBaseServiceProvider
         });
         $salutation = __('user::verify_email.salutation', ['app_name' => $app_name]);
         VerifyEmail::toMailUsing(function (object $notifiable, string $url) use ($salutation): MailMessage {
-            return (new MailMessage())
+            return (new MailMessage)
                 ->template('user::notifications.email')
                 ->subject(__('user::verify_email.subject'))
                 ->greeting(__('user::verify_email.greeting'))
