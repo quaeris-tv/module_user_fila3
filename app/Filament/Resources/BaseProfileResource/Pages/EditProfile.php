@@ -11,10 +11,5 @@ class EditProfile extends \Modules\Xot\Filament\Resources\Pages\XotBaseEditRecor
 {
     protected static string $resource = BaseProfileResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
-    }
+   
 }
