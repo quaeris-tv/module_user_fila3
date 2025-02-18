@@ -9,7 +9,7 @@
       'description' => 'Gestione dei dispositivi degli utenti',
     ),
     'label' => 'device',
-    'sort' => 54,
+    'sort' => 20,
     'icon' => 'user-device',
   ),
   'fields' => 

@@ -12,7 +12,7 @@
       'description' => 'Gestione dei ruoli del sistema',
     ),
     'label' => 'role',
-    'sort' => 99,
+    'sort' => 84,
     'icon' => 'user-user-role',
   ),
   'fields' => 
@@ -120,4 +120,4 @@
       'label' => 'role.plural.model',
     ),
   ),
-);
+);

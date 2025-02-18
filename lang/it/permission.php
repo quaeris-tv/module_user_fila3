@@ -9,7 +9,7 @@
       'description' => 'Gestione dei permessi del sistema',
     ),
     'label' => 'permission',
-    'sort' => 38,
+    'sort' => 98,
     'icon' => 'user-user-permission',
   ),
   'fields' => 
@@ -45,4 +45,4 @@
       ),
     ),
   ),
-);
+);

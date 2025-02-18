@@ -12,7 +12,7 @@
       'description' => 'Gestione dei provider social',
     ),
     'label' => 'social provider',
-    'sort' => 14,
+    'sort' => 93,
     'icon' => 'user-user-social',
   ),
   'fields' => 

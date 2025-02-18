@@ -9,7 +9,7 @@
       'description' => 'Gestione dei tenant e delle loro configurazioni',
     ),
     'label' => 'tenant',
-    'sort' => 7,
+    'sort' => 30,
     'icon' => 'user-user-tenant',
   ),
   'table' => 
