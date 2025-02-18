@@ -22,7 +22,8 @@ class ResetPassword extends BaseNotification
     /**
      * Get the reset password notification mail message for the given URL.
      *
-     * @param  string  $url
+     * @param string $url
+     *
      * @return MailMessage
      */
     protected function buildMailMessage($url)
@@ -30,7 +31,7 @@ class ResetPassword extends BaseNotification
         Assert::string($subject = Lang::get('user::email.password_reset_subject'));
         Assert::string($action = Lang::get('user::email.reset_password'));
 
-        return (new MailMessage)
+        return (new MailMessage())
             ->subject($subject)
             ->line(Lang::get('user::email.password_cause_of_email'))
             ->action($action, $url)

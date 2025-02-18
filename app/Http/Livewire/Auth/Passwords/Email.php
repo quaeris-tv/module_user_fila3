@@ -24,7 +24,7 @@ class Email extends Component
         $broker = $this->broker();
         $response = $broker->sendResetLink(['email' => $this->email]);
 
-        if ($response === Password::RESET_LINK_SENT) {
+        if (Password::RESET_LINK_SENT === $response) {
             $this->emailSentMessage = trans('user::'.$response);
 
             return;
