@@ -16,7 +16,6 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
 use Filament\Widgets\Widget;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Validation\Rules\Password as PasswordRule;
@@ -91,7 +90,7 @@ class PasswordExpiredWidget extends Widget implements HasForms
         $data = $this->form->getState();
         Assert::string($current_password = Arr::get($data, 'current_password'));
         Assert::string($password = Arr::get($data, 'password'));
-        $user = Auth::user();
+        $user = auth()->user();
         if (null === $user) {
             return null;
         }
