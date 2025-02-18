@@ -1,73 +1,4 @@
 <?php
-<?php 
-return array (
-  'navigation' => 
-  array (
-    'name' => 'Ruoli',
-    'plural' => 'Ruoli',
-    'group' => 
-    array (
-      'name' => 'Gestione Utenti',
-      'description' => 'Gestione dei ruoli e dei permessi associati',
-    ),
-    'label' => 'Ruoli',
-    'sort' => 26,
-    'icon' => 'user-role-animated',
-  ),
-  'fields' => 
-  array (
-    'name' => 'Nome Ruolo',
-    'guard_name' => 'Guard',
-    'permissions' => 'Permessi',
-    'users_count' => 'Numero Utenti',
-    'created_at' => 'Data Creazione',
-    'updated_at' => 'Ultima Modifica',
-    'description' => 'Descrizione',
-  ),
-  'roles' => 
-  array (
-    'super_admin' => 'Super Amministratore',
-    'admin' => 'Amministratore',
-    'manager' => 'Manager',
-    'editor' => 'Editor',
-    'user' => 'Utente',
-  ),
-  'actions' => 
-  array (
-    'create' => 'Crea Ruolo',
-    'edit' => 'Modifica Ruolo',
-    'delete' => 'Elimina Ruolo',
-    'assign_permissions' => 'Assegna Permessi',
-    'sync_permissions' => 'Sincronizza Permessi',
-  ),
-  'messages' => 
-  array (
-    'created' => 'Ruolo creato con successo',
-    'updated' => 'Ruolo aggiornato con successo',
-    'deleted' => 'Ruolo eliminato con successo',
-    'permissions_updated' => 'Permessi aggiornati con successo',
-    'cannot_delete_super_admin' => 'Non puoi eliminare il ruolo di Super Amministratore',
-    'role_in_use' => 'Non puoi eliminare un ruolo assegnato a degli utenti',
-  ),
-  'descriptions' => 
-  array (
-    'super_admin' => 'Accesso completo a tutte le funzionalità',
-    'admin' => 'Accesso alla maggior parte delle funzionalità amministrative',
-    'manager' => 'Gestione di utenti e contenuti specifici',
-    'editor' => 'Modifica e gestione dei contenuti',
-    'user' => 'Accesso base alle funzionalità',
-  ),
-  'permissions_groups' => 
-  array (
-    'users' => 'Gestione Utenti',
-    'roles' => 'Gestione Ruoli',
-    'content' => 'Gestione Contenuti',
-    'settings' => 'Impostazioni',
-    'reports' => 'Report',
-  ),
-);
-=======
-<?php
 
 declare(strict_types=1);
 
@@ -77,74 +8,86 @@ return [
         'plural' => 'Ruoli',
         'group' => [
             'name' => 'Gestione Utenti',
-            'description' => 'Gestione dei ruoli del sistema',
+            'description' => 'Gestione dei ruoli e dei permessi associati',
         ],
-        'label' => 'role',
-        'sort' => 84,
-        'icon' => 'user-user-role',
+        'label' => 'Ruoli',
+        'sort' => 26,
+        'icon' => 'user-role-animated',
     ],
     'fields' => [
-        'name' => 'Nome Ruolo',
-        'guard_name' => 'Guard',
-        'permissions' => 'Permessi',
-        'updated_at' => 'Aggiornato il',
-        'first_name' => 'Nome',
-        'last_name' => 'Cognome',
-        'select_all' => [
-            'name' => 'Seleziona Tutti',
-            'message' => '',
+        'name' => [
+            'label' => 'Nome Ruolo',
+            'tooltip' => 'Il nome identificativo del ruolo, es. "Admin".',
+            'placeholder' => 'Nome del ruolo',
         ],
-        'team' => [
-            'name' => [
-                'label' => 'team.name',
-            ],
+        'guard_name' => [
+            'label' => 'Guard',
+            'tooltip' => 'Il nome della guardia per questo ruolo, es. "web".',
+            'placeholder' => 'Nome della guardia',
         ],
-        'detach' => [
-            'label' => 'detach',
+        'permissions' => [
+            'label' => 'Permessi',
+            'tooltip' => 'Seleziona i permessi associati a questo ruolo.',
+            'placeholder' => 'Seleziona permessi',
         ],
-        'toggleColumns' => [
-            'label' => 'toggleColumns',
+        'users_count' => [
+            'label' => 'Numero Utenti',
+            'tooltip' => 'Il numero di utenti assegnati a questo ruolo.',
         ],
-        'reorderRecords' => [
-            'label' => 'reorderRecords',
+        'created_at' => [
+            'label' => 'Data Creazione',
+            'tooltip' => 'La data in cui il ruolo è stato creato.',
+            'placeholder' => 'Data di creazione',
         ],
-        'team_id' => [
-            'label' => 'team_id',
+        'updated_at' => [
+            'label' => 'Ultima Modifica',
+            'tooltip' => 'La data dell\'ultima modifica del ruolo.',
+            'placeholder' => 'Ultima modifica',
         ],
-        'edit' => [
-            'label' => 'edit',
-        ],
-        'recordId' => [
-            'label' => 'recordId',
-        ],
-        'attach' => [
-            'label' => 'attach',
-        ],
-        'id' => [
-            'label' => 'id',
-        ],
-        'resetFilters' => [
-            'label' => 'resetFilters',
-        ],
-        'applyFilters' => [
-            'label' => 'applyFilters',
-        ],
-        'openFilters' => [
-            'label' => 'openFilters',
-        ],
-        'view' => [
-            'label' => 'view',
-        ],
-        'create' => [
-            'label' => 'create',
+        'description' => [
+            'label' => 'Descrizione',
+            'tooltip' => 'Una descrizione del ruolo e delle sue funzioni.',
+            'placeholder' => 'Descrizione del ruolo',
         ],
     ],
+    'roles' => [
+        'super_admin' => 'Super Amministratore',
+        'admin' => 'Amministratore',
+        'manager' => 'Manager',
+        'editor' => 'Editor',
+        'user' => 'Utente',
+    ],
     'actions' => [
-        'create' => 'Crea Ruolo',
-        'edit' => 'Modifica Ruolo',
-        'delete' => 'Elimina Ruolo',
-        'assign_permissions' => 'Assegna Permessi',
-        'sync_permissions' => 'Sincronizza Permessi',
+        'create' => [
+            'label' => 'Crea Ruolo',
+            'tooltip' => 'Clicca per creare un nuovo ruolo nel sistema.',
+            'icon' => 'fa fa-plus',
+            'color' => 'success',
+        ],
+        'edit' => [
+            'label' => 'Modifica Ruolo',
+            'tooltip' => 'Clicca per modificare il ruolo selezionato.',
+            'icon' => 'fa fa-edit',
+            'color' => 'primary',
+        ],
+        'delete' => [
+            'label' => 'Elimina Ruolo',
+            'tooltip' => 'Clicca per eliminare questo ruolo.',
+            'icon' => 'fa fa-trash',
+            'color' => 'danger',
+        ],
+        'assign_permissions' => [
+            'label' => 'Assegna Permessi',
+            'tooltip' => 'Clicca per assegnare permessi al ruolo.',
+            'icon' => 'fa fa-check',
+            'color' => 'info',
+        ],
+        'sync_permissions' => [
+            'label' => 'Sincronizza Permessi',
+            'tooltip' => 'Clicca per sincronizzare i permessi con quelli di un altro sistema.',
+            'icon' => 'fa fa-sync',
+            'color' => 'warning',
+        ],
     ],
     'messages' => [
         'created' => 'Ruolo creato con successo',
@@ -155,11 +98,11 @@ return [
         'role_in_use' => 'Non puoi eliminare un ruolo assegnato a degli utenti',
     ],
     'descriptions' => [
-        'super_admin' => 'Accesso completo a tutte le funzionalità',
-        'admin' => 'Accesso alla maggior parte delle funzionalità amministrative',
-        'manager' => 'Gestione di utenti e contenuti specifici',
-        'editor' => 'Modifica e gestione dei contenuti',
-        'user' => 'Accesso base alle funzionalità',
+        'super_admin' => 'Accesso completo a tutte le funzionalità del sistema.',
+        'admin' => 'Accesso alla maggior parte delle funzionalità amministrative.',
+        'manager' => 'Gestione di utenti e contenuti specifici.',
+        'editor' => 'Modifica e gestione dei contenuti.',
+        'user' => 'Accesso base alle funzionalità del sistema.',
     ],
     'permissions_groups' => [
         'users' => 'Gestione Utenti',
@@ -168,10 +111,4 @@ return [
         'settings' => 'Impostazioni',
         'reports' => 'Report',
     ],
-    'plural' => [
-        'model' => [
-            'label' => 'role.plural.model',
-        ],
-    ],
 ];
->>>>>>> 6fb7ca2eb5c3803f511c33f86773bc441bd59c53
