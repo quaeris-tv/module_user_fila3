@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'navigation' => [
         'name' => 'Token',
@@ -12,31 +14,24 @@ return [
         'sort' => 29,
         'icon' => 'user-user-token',
     ],
-    'fields' => 
-    array (
-        'name' => 
-        array (
+    'fields' => [
+        'name' => [
             'label' => 'name',
-        ),
-        'create' => 
-        array (
+        ],
+        'create' => [
             'label' => 'create',
-        ),
-        'edit' => 
-        array (
+        ],
+        'edit' => [
             'label' => 'edit',
-        ),
-        'delete' => 
-        array (
+        ],
+        'delete' => [
             'label' => 'delete',
-        ),
-        'toggleColumns' => 
-        array (
+        ],
+        'toggleColumns' => [
             'label' => 'toggleColumns',
-        ),
-        'reorderRecords' => 
-        array (
+        ],
+        'reorderRecords' => [
             'label' => 'reorderRecords',
-        ),
-    ),
+        ],
+    ],
 ];

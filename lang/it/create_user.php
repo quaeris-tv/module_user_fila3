@@ -1,32 +1,28 @@
-<?php return array (
-  'fields' => 
-  array (
-    'name' => 
-    array (
-      'label' => 'name',
-    ),
-    'email' => 
-    array (
-      'label' => 'email',
-    ),
-    'password' => 
-    array (
-      'label' => 'password',
-    ),
-  ),
-  'actions' => 
-  array (
-    'create' => 
-    array (
-      'label' => 'create',
-    ),
-    'createAnother' => 
-    array (
-      'label' => 'createAnother',
-    ),
-    'cancel' => 
-    array (
-      'label' => 'cancel',
-    ),
-  ),
-);
+<?php
+
+declare(strict_types=1);
+
+return [
+    'fields' => [
+        'name' => [
+            'label' => 'name',
+        ],
+        'email' => [
+            'label' => 'email',
+        ],
+        'password' => [
+            'label' => 'password',
+        ],
+    ],
+    'actions' => [
+        'create' => [
+            'label' => 'create',
+        ],
+        'createAnother' => [
+            'label' => 'createAnother',
+        ],
+        'cancel' => [
+            'label' => 'cancel',
+        ],
+    ],
+];
