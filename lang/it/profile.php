@@ -34,72 +34,72 @@
     ),
     'id' => 
     array (
-      'label' => 'id',
+      'label' => 'ID',
     ),
     'ente' => 
     array (
-      'label' => 'ente',
+      'label' => 'Ente',
     ),
     'matr' => 
     array (
-      'label' => 'matr',
+      'label' => 'Matricola',
     ),
     'first_name' => 
     array (
-      'label' => 'first_name',
+      'label' => 'Nome',
       'fields' => 
       array (
-        'label' => 'first_name',
+        'label' => 'Nome',
       ),
     ),
     'last_name' => 
     array (
-      'label' => 'last_name',
+      'label' => 'Cognome',
       'fields' => 
       array (
-        'label' => 'last_name',
+        'label' => 'Cognome',
       ),
     ),
     'email' => 
     array (
-      'fields' => 'email',
-      'label' => 
+      'label' => 'Email',
+      'fields' => 
       array (
-        'fields' => 'email',
+        'label' => 'Email',
       ),
     ),
     'is_active' => 
     array (
-      'fields' => 'is_active',
-      'label' => 
+      'label' => 'Attivo',
+      'fields' => 
       array (
-        'fields' => 'is_active',
+        'label' => 'Attivo',
       ),
     ),
     'delete' => 
     array (
-      'label' => 'delete',
+      'label' => 'Elimina',
     ),
     'toggleColumns' => 
     array (
-      'label' => 'toggleColumns',
+      'label' => 'Mostra/Nascondi Colonne',
     ),
     'reorderRecords' => 
     array (
-      'label' => 'reorderRecords',
+      'label' => 'Riordina Record',
     ),
     'resetFilters' => 
     array (
-      'label' => 'resetFilters',
+      'label' => 'Resetta Filtri',
     ),
     'applyFilters' => 
     array (
-      'label' => 'applyFilters',
+      'label' => 'Applica Filtri',
     ),
   ),
   'personal_info' => 
   array (
-    'heading' => 'Informazioni personali',
+    'heading' => 'Informazioni Personali',
     'subheading' => 'Gestisci le tue informazioni personali.',
     'submit' => 
     array (
@@ -109,6 +109,15 @@
   ),
   'navigation' => 
   array (
-    'sort' => 59,
+    'name' => 'Profilo',
+    'plural' => 'Profili',
+    'group' => 
+    array (
+      'name' => 'Gestione Utenti',
+      'description' => 'Gestione dei profili',
+    ),
+    'label' => 'profili',
+    'sort' => 71,
+    'icon' => 'user-profile',
   ),
 );

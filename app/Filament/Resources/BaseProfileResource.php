@@ -10,16 +10,16 @@ use Filament\Forms\Form;
 use Filament\Resources\Concerns\Translatable;
 use Illuminate\Database\Eloquent\Collection;
 use Modules\User\Filament\Resources\BaseProfileResource\Pages;
-use Modules\User\Models\BaseProfile;
+use Modules\User\Models\Profile;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
 abstract class BaseProfileResource extends XotBaseResource
 {
     use Translatable;
 
-    protected static ?string $model = BaseProfile::class;
+    protected static ?string $model = Profile::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users';
+    
 
     public static function getFormSchema(): array
     {

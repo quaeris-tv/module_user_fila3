@@ -9,7 +9,7 @@
       'description' => 'Gestione degli utenti, ruoli e permessi',
     ),
     'label' => 'user',
-    'sort' => 23,
+    'sort' => 80,
     'icon' => 'user-main',
   ),
   'sections' => 

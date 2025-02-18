@@ -12,7 +12,7 @@
       'description' => 'Gestione delle feature e delle funzionalità',
     ),
     'label' => 'feature',
-    'sort' => 1,
+    'sort' => 75,
     'icon' => 'user-user-feature',
   ),
   'fields' => 
