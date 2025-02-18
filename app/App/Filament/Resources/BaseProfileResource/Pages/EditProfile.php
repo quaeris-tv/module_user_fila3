@@ -12,10 +12,5 @@ class EditProfile extends EditRecord
 {
     protected static string $resource = BaseProfileResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
-    }
+   
 }
