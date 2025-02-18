@@ -1,5 +1,6 @@
 <?php
-<?php return array (
+<?php 
+return array (
   'navigation' => 
   array (
     'name' => 'Permessi',
@@ -88,19 +89,11 @@ return [
         'plural' => 'Permessi',
         'group' => [
             'name' => 'Gestione Utenti',
-<<<<<<< HEAD
-            'description' => 'Gestione dei permessi di sistema',
-        ],
-        'label' => 'Permessi',
-        'sort' => 72,
-        'icon' => 'user-permission-animated',
-=======
             'description' => 'Gestione dei permessi del sistema',
         ],
         'label' => 'permission',
         'sort' => 98,
         'icon' => 'user-user-permission',
->>>>>>> origin/dev
     ],
     'fields' => [
         'name' => 'Nome Permesso',

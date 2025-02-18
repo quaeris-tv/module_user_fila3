@@ -58,12 +58,9 @@ use Modules\Xot\Datas\XotData;
  * @property \Illuminate\Support\Carbon|null             $updated_at
  * @property string|null                                 $updated_by
  * @property string|null                                 $created_by
- *                                                                   <<<<<<< HEAD
  * @property string|null                                 $uuid
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Device whereUuid($value)
- *                                                                                       =======
- *                                                                                       >>>>>>> origin/dev
  *
  * @mixin \Eloquent
  */

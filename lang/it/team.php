@@ -11,12 +11,8 @@ return [
             'description' => 'Gestione dei team e delle loro autorizzazioni',
         ],
         'label' => 'team',
-<<<<<<< HEAD
-        'sort' => 48,
-=======
         'sort' => 18,
         'icon' => 'user-team',
->>>>>>> origin/dev
     ],
     'fields' => [
         'first_name' => 'Nome',

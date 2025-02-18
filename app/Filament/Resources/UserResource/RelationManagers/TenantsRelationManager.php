@@ -23,29 +23,7 @@ class TenantsRelationManager extends XotBaseRelationManager
     protected static ?string $recordTitleAttribute = 'name';
     protected static string $resource = TenantResource::class;
 
-<<<<<<< HEAD
-    /**
-     * Set up the form schema for tenant relations.
-     *
-     * @param Form $form the form instance for configuration
-     *
-     * @return Form configured form instance
-     */
-    public function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('name')
-
-                    ->required()
-                    ->maxLength(255),
-            ]);
-    }
-
-    /**
-=======
     /*
->>>>>>> origin/dev
      * Define table columns for displaying tenant information.
      *
      * @return array<string, \Filament\Tables\Columns\Column> configured table columns
