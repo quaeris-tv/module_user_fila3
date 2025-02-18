@@ -1,5 +1,6 @@
 <?php
-<?php return array (
+<?php 
+return array (
   'navigation' => 
   array (
     'name' => 'Ruoli',
@@ -76,37 +77,16 @@ return [
         'plural' => 'Ruoli',
         'group' => [
             'name' => 'Gestione Utenti',
-<<<<<<< HEAD
-            'description' => 'Gestione dei ruoli e dei permessi associati',
-        ],
-        'label' => 'Ruoli',
-        'sort' => 71,
-        'icon' => 'user-role-animated',
-=======
             'description' => 'Gestione dei ruoli del sistema',
         ],
         'label' => 'role',
         'sort' => 84,
         'icon' => 'user-user-role',
->>>>>>> origin/dev
     ],
     'fields' => [
         'name' => 'Nome Ruolo',
         'guard_name' => 'Guard',
         'permissions' => 'Permessi',
-<<<<<<< HEAD
-        'users_count' => 'Numero Utenti',
-        'created_at' => 'Data Creazione',
-        'updated_at' => 'Ultima Modifica',
-        'description' => 'Descrizione',
-    ],
-    'roles' => [
-        'super_admin' => 'Super Amministratore',
-        'admin' => 'Amministratore',
-        'manager' => 'Manager',
-        'editor' => 'Editor',
-        'user' => 'Utente',
-=======
         'updated_at' => 'Aggiornato il',
         'first_name' => 'Nome',
         'last_name' => 'Cognome',
@@ -158,7 +138,6 @@ return [
         'create' => [
             'label' => 'create',
         ],
->>>>>>> origin/dev
     ],
     'actions' => [
         'create' => 'Crea Ruolo',

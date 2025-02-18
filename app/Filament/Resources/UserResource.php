@@ -60,20 +60,6 @@ class UserResource extends XotBaseResource
         ];
     }
 
-<<<<<<< HEAD
-    /**
-     * ---.
-     */
-    public static function getRelations(): array
-    {
-        return [
-            'teams' => RelationManagers\TeamsRelationManager::class,
-            'tenants' => RelationManagers\TenantsRelationManager::class,
-        ];
-    }
-
-=======
->>>>>>> origin/dev
     // public static function enablePasswordUpdates(bool|Closure $condition = true): void
     // {
     //     static::$enablePasswordUpdates = $condition;

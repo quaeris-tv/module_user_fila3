@@ -11,12 +11,8 @@ return [
             'description' => 'Gestione dei tenant e delle loro configurazioni',
         ],
         'label' => 'tenant',
-<<<<<<< HEAD
-        'sort' => 70,
-=======
         'sort' => 30,
         'icon' => 'user-user-tenant',
->>>>>>> origin/dev
     ],
     'table' => [
         'heading' => 'Tenant',
