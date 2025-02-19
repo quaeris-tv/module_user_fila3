@@ -14,12 +14,8 @@ return [
             'description' => 'Gestione delle feature e delle funzionalità',
         ],
         'label' => 'feature',
-<<<<<<< HEAD
-        'sort' => 40,
-=======
         'sort' => 75,
         'icon' => 'user-user-feature',
->>>>>>> origin/dev
     ],
     'fields' => [
         'name' => 'Nome',

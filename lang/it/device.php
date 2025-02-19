@@ -11,12 +11,8 @@ return [
             'description' => 'Gestione dei dispositivi degli utenti',
         ],
         'label' => 'device',
-<<<<<<< HEAD
-        'sort' => 90,
-=======
         'sort' => 20,
         'icon' => 'user-device',
->>>>>>> origin/dev
     ],
     'fields' => [
         'first_name' => 'Nome',
