@@ -1,14 +1,7 @@
 @props([
     'level' => 'success',
 ])
-<<<<<<< HEAD
-<x-notify::mail.message>
-=======
-{{--
-<x-mail.message>
---}}
-<div>
->>>>>>> origin/dev
+<x-mail::message>
     {{-- Greeting --}}
     @if (!empty($greeting))
         # {{ $greeting }}
@@ -61,11 +54,4 @@
             ]) <span class="break-all">[{{ $displayableActionUrl }}]({{ $actionUrl }})</span>
         </x-slot:subcopy>
     @endisset
-<<<<<<< HEAD
-</x-notify::mail.message>
-=======
-</div>
-{{--
-</x-mail.message>
---}}
->>>>>>> origin/dev
+</x-mail::message>

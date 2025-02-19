@@ -26,6 +26,31 @@ class PermissionResource extends XotBaseResource
 {
     protected static ?string $navigationIcon = 'heroicon-o-lock-closed';
 
+    // public static function shouldRegisterNavigation(): bool
+    // {
+    //    return config('filament-spatie-roles-permissions.should_register_on_navigation.permissions', true);
+    // }
+
+    // public static function getModel(): string
+    // {
+    //    return config('permission.models.permission', Permission::class);
+    // }
+
+    // public static function getLabel(): string
+    // {
+    //    return __('filament-spatie-roles-permissions::filament-spatie.section.permission');
+    // }
+
+    // public static function getNavigationGroup(): ?string
+    // {
+    //    return __(config('filament-spatie-roles-permissions.navigation_section_group', 'filament-spatie-roles-permissions::filament-spatie.section.roles_and_permissions'));
+    // }
+
+    // public static function getPluralLabel(): string
+    // {
+    //    return __('filament-spatie-roles-permissions::filament-spatie.section.permissions');
+    // }
+
     public static function getFormSchema(): array
     {
         Assert::isArray($guard_names = config('filament-spatie-roles-permissions.guard_names'));

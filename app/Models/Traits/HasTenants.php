@@ -14,8 +14,6 @@ use Modules\Xot\Datas\XotData;
 // use Modules\User\Models\OwnerRole;
 
 /**
- * ----.
- *
  * @property TeamContract $currentTeam
  */
 trait HasTenants
