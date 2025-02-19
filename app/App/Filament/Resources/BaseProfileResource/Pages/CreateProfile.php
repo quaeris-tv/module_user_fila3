@@ -9,7 +9,7 @@ use Illuminate\Support\Arr;
 use Modules\User\Filament\Resources\BaseProfileResource;
 use Modules\Xot\Datas\XotData;
 
-class CreateProfile extends CreateRecord
+class CreateProfile extends \Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord
 {
     protected static string $resource = BaseProfileResource::class;
 
