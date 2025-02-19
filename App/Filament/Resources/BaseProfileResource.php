@@ -9,16 +9,14 @@ use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Resources\Concerns\Translatable;
 use Illuminate\Database\Eloquent\Collection;
 use Modules\User\Filament\Resources\BaseProfileResource\Pages;
-use Modules\User\Models\BaseProfile;
+use Modules\User\Models\Profile;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
 abstract class BaseProfileResource extends XotBaseResource
 {
     use Translatable;
 
-    protected static ?string $model = BaseProfile::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $model = Profile::class;
 
     public static function getFormSchema(): array
     {
