@@ -12,10 +12,5 @@ class ListProfiles extends ListRecords
 {
     protected static string $resource = ProfileResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
+
 }
