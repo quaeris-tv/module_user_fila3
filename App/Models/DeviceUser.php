@@ -20,8 +20,14 @@ use Modules\Xot\Datas\XotData;
  * @method static \Illuminate\Database\Eloquent\Builder|DeviceUser newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|DeviceUser query()
  *
+ * <<<<<<< HEAD
+ *
  * @ erty string      $id
  *
+ * =======
+ *
+ * @property string      $id
+ *                                                   >>>>>>> origin/dev
  * @property string      $device_id
  * @property string      $user_id
  * @property Carbon|null $login_at

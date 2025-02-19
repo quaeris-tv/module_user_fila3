@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Modules\User\Filament\Resources\TenantResource;
 use Modules\User\Filament\Resources\TenantResource\Pages\ListTenants;
 use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
-use Modules\Xot\Filament\Traits\HasXotTable;
 
 /**
  * Manages the relationship between users and tenants.
@@ -19,12 +18,12 @@ use Modules\Xot\Filament\Traits\HasXotTable;
  */
 class TenantsRelationManager extends XotBaseRelationManager
 {
-    use HasXotTable;
-
     protected static string $relationship = 'tenants';
 
     protected static ?string $recordTitleAttribute = 'name';
+    protected static string $resource = TenantResource::class;
 
+<<<<<<< HEAD
     /**
      * Set up the form schema for tenant relations.
      *
@@ -44,12 +43,15 @@ class TenantsRelationManager extends XotBaseRelationManager
     }
 
     /**
+=======
+    /*
+>>>>>>> origin/dev
      * Define table columns for displaying tenant information.
      *
      * @return array<string, \Filament\Tables\Columns\Column> configured table columns
      */
-    public function getListTableColumns(): array
-    {
-        return app(ListTenants::class)->getListTableColumns();
-    }
+    // public function getListTableColumns(): array
+    // {
+    //    return app(ListTenants::class)->getListTableColumns();
+    // }
 }
