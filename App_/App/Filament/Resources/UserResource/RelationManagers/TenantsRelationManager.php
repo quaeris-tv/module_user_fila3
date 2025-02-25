@@ -18,15 +18,8 @@ use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelati
  */
 class TenantsRelationManager extends XotBaseRelationManager
 {
-<<<<<<< HEAD:app/Filament/Resources/UserResource/RelationManagers/TenantsRelationManager.php
-=======
-    use HasXotTable;
-
->>>>>>> 96f269357d1a785a36860a85f377f9e5c58e50b8:App_/App/Filament/Resources/UserResource/RelationManagers/TenantsRelationManager.php
     protected static string $relationship = 'tenants';
-
     protected static ?string $recordTitleAttribute = 'name';
-
     protected static string $resource = TenantResource::class;
 
     /*

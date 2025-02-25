@@ -11,7 +11,7 @@ use Filament\Actions;
 use Filament\Resources\Pages\ViewRecord;
 use Modules\User\Filament\Resources\TenantResource;
 
-class ViewTenant extends \Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord
+class ViewTenant extends ViewRecord
 {
     protected static string $resource = TenantResource::class;
 

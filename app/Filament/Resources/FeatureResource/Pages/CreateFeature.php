@@ -7,7 +7,7 @@ namespace Modules\User\Filament\Resources\FeatureResource\Pages;
 use Filament\Resources\Pages\CreateRecord;
 use Modules\User\Filament\Resources\FeatureResource;
 
-class CreateFeature extends \Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord
+class CreateFeature extends CreateRecord
 {
     protected static string $resource = FeatureResource::class;
 }

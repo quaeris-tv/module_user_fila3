@@ -7,7 +7,7 @@ namespace Modules\User\Filament\Resources\PermissionResource\Pages;
 use Filament\Resources\Pages\CreateRecord;
 use Modules\User\Filament\Resources\PermissionResource;
 
-class CreatePermission extends \Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord
+class CreatePermission extends CreateRecord
 {
     // //
     protected static string $resource = PermissionResource::class;

@@ -10,11 +10,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\RoleResource;
 
-<<<<<<< HEAD
 class CreateRole extends CreateRecord
-=======
-class CreateRole extends \Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord
->>>>>>> 96f269357d1a785a36860a85f377f9e5c58e50b8
 {
     // //
     public Collection $permissions;

@@ -11,7 +11,7 @@ use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Resources\TenantResource;
 
-class CreateTenant extends \Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord
+class CreateTenant extends CreateRecord
 {
     protected static string $resource = TenantResource::class;
 
