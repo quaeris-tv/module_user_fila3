@@ -12,5 +12,6 @@ class ProfileRelationManager extends XotBaseRelationManager
     protected static string $relationship = 'profile';
 
     protected static ?string $recordTitleAttribute = 'first_name';
+
     protected static string $resource = ProfileResource::class;
 }
