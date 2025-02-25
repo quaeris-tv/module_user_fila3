@@ -8,7 +8,7 @@ use Filament\Pages\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 use Modules\User\Filament\Resources\RoleResource;
 
-class ViewRole extends ViewRecord
+class ViewRole extends \Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord
 {
     // //
     protected static string $resource = RoleResource::class;

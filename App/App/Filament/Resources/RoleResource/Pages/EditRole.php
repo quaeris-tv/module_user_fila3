@@ -6,7 +6,10 @@ namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
 use Filament\Actions\DeleteAction;
 use Filament\Pages\Actions\ViewAction;
+<<<<<<< HEAD
 use Filament\Resources\Pages\EditRecord;
+=======
+>>>>>>> 96f269357d1a785a36860a85f377f9e5c58e50b8
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
@@ -15,7 +18,11 @@ use Modules\User\Models\Role;
 use Modules\User\Support\Utils;
 use Webmozart\Assert\Assert;
 
+<<<<<<< HEAD
 class EditRole extends EditRecord
+=======
+class EditRole extends \Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord
+>>>>>>> 96f269357d1a785a36860a85f377f9e5c58e50b8
 {
     // //
     public Collection $permissions;

@@ -8,7 +8,7 @@ use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 use Modules\User\Filament\Resources\PermissionResource;
 
-class ViewPermission extends ViewRecord
+class ViewPermission extends \Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord
 {
     // //
     protected static string $resource = PermissionResource::class;

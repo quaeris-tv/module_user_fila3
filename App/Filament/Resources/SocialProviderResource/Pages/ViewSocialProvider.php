@@ -8,7 +8,7 @@ use Filament\Actions;
 use Filament\Resources\Pages\ViewRecord;
 use Modules\User\Filament\Resources\SocialProviderResource;
 
-class ViewSocialProvider extends ViewRecord
+class ViewSocialProvider extends \Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord
 {
     protected static string $resource = SocialProviderResource::class;
 
