@@ -11,7 +11,11 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Pages\ViewRecord;
 use Modules\User\Filament\Resources\BaseProfileResource;
 
+<<<<<<< HEAD
 class ViewProfile extends ViewRecord
+=======
+class ViewProfile extends \Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord
+>>>>>>> 96f269357d1a785a36860a85f377f9e5c58e50b8
 {
     protected static string $resource = BaseProfileResource::class;
 
