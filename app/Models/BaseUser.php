@@ -263,7 +263,7 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
 
     public function treeSons(): Collection
     {
-        return $this->teams ?? new Collection;
+        return $this->teams ?? new Collection();
     }
 
     public function treeSonsCount(): int
@@ -306,10 +306,7 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
     /**
      * Get all of the user's notifications.
      *
-<<<<<<< HEAD
-     * @return MorphMany<Notification, static>
      * @return MorphMany<Notification, static|$this>
->>>>>>> 96f269357d1a785a36860a85f377f9e5c58e50b8
      */
     public function notifications(): MorphMany
     {

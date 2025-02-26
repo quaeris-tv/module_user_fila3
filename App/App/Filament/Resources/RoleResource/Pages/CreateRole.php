@@ -4,17 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
-use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
+use Filament\Resources\Pages\CreateRecord;
 use Modules\User\Filament\Resources\RoleResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
 
-<<<<<<< HEAD
-class CreateRole extends CreateRecord
-=======
-class CreateRole extends \Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord
->>>>>>> 96f269357d1a785a36860a85f377f9e5c58e50b8
+class CreateRole extends XotBaseCreateRecord
 {
     // //
     public Collection $permissions;

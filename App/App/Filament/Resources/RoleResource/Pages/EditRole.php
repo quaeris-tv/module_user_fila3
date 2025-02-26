@@ -4,25 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
-use Filament\Actions\DeleteAction;
-use Filament\Pages\Actions\ViewAction;
-<<<<<<< HEAD
-use Filament\Resources\Pages\EditRecord;
-=======
->>>>>>> 96f269357d1a785a36860a85f377f9e5c58e50b8
 use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Modules\User\Filament\Resources\RoleResource;
+use Webmozart\Assert\Assert;
 use Modules\User\Models\Role;
 use Modules\User\Support\Utils;
-use Webmozart\Assert\Assert;
+use Filament\Actions\DeleteAction;
+use Illuminate\Support\Collection;
+use Filament\Pages\Actions\ViewAction;
+use Modules\User\Filament\Resources\RoleResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 
-<<<<<<< HEAD
-class EditRole extends EditRecord
-=======
-class EditRole extends \Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord
->>>>>>> 96f269357d1a785a36860a85f377f9e5c58e50b8
+class EditRole extends XotBaseEditRecord
 {
     // //
     public Collection $permissions;

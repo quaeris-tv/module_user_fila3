@@ -7,12 +7,9 @@ namespace Modules\User\Filament\Resources\SocialProviderResource\Pages;
 use Filament\Actions;
 use Filament\Resources\Pages\ViewRecord;
 use Modules\User\Filament\Resources\SocialProviderResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 
-<<<<<<< HEAD
-class ViewSocialProvider extends ViewRecord
-=======
-class ViewSocialProvider extends \Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord
->>>>>>> 96f269357d1a785a36860a85f377f9e5c58e50b8
+class ViewSocialProvider extends XotBaseViewRecord
 {
     protected static string $resource = SocialProviderResource::class;
 

@@ -7,12 +7,9 @@ namespace Modules\User\Filament\Resources\RoleResource\Pages;
 use Filament\Pages\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 use Modules\User\Filament\Resources\RoleResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 
-<<<<<<< HEAD
-class ViewRole extends ViewRecord
-=======
-class ViewRole extends \Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord
->>>>>>> 96f269357d1a785a36860a85f377f9e5c58e50b8
+class ViewRole extends XotBaseViewRecord
 {
     // //
     protected static string $resource = RoleResource::class;

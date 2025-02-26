@@ -6,12 +6,9 @@ namespace Modules\User\Filament\Resources\DeviceResource\Pages;
 
 use Filament\Resources\Pages\CreateRecord;
 use Modules\User\Filament\Resources\DeviceResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
 
-<<<<<<< HEAD
-class CreateDevice extends CreateRecord
-=======
-class CreateDevice extends \Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord
->>>>>>> 96f269357d1a785a36860a85f377f9e5c58e50b8
+class CreateDevice extends XotBaseCreateRecord
 {
     protected static string $resource = DeviceResource::class;
 }
