@@ -9,14 +9,17 @@
         "Laravel",
         "User module",
         "Users",
-        "Users management"
+        "Users management",
+        "Xot"
     ],
     "homepage": "https://github.com/laraxot/module_user_fila3",
     "license": "MIT",
-    "authors": [{
-        "name": "Marco Sottana",
-        "email": "marco.sottana@gmail.com"
-    }],
+    "authors": [
+        {
+            "name": "Marco Sottana",
+            "email": "marco.sottana@gmail.com"
+        }
+    ],
     "extra": {
         "laravel": {
             "providers": [
@@ -24,53 +27,24 @@
                 "Modules\\User\\Providers\\UserServiceProvider",
                 "Modules\\User\\Providers\\Filament\\AdminPanelProvider"
             ],
-            "aliases": {
-
-            }
+            "aliases": {}
         }
     },
     "autoload": {
         "psr-4": {
-            "Modules\\User\\": ""
+            "Modules\\User\\": "app/",
+            "Modules\\User\\Database\\Factories\\": "database/factories/",
+            "Modules\\User\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "require": {
         "flowframe/laravel-trend": "*",
         "jenssegers/agent": "*",
         "laravel/passport": "*",
-        "livewire/volt": "*",
         "socialiteproviders/auth0": "*",
-        "spatie/laravel-personal-data-export": "*",
-        "thecodingmachine/safe": "^2.5"
+        "spatie/laravel-personal-data-export": "*"
     },
-    "require_comment": {
-        "laraxot/module_tenant_fila3": "*",
-        "laraxot/module_xot_fila3": "*",
-        "laraxot/module_notify_fila3": "*"
-    },
-    "require-dev_comment": {
-        "barryvdh/laravel-ide-helper": "*",
-        "driftingly/rector-laravel": "*",
-        "enlightn/enlightn": "*",
-        "fakerphp/faker": "*",
-        "friendsofphp/php-cs-fixer": "*",
-        "larastan/larastan": "*",
-        "laravel/pint": "*",
-        "nunomaduro/collision": "*",
-        "nunomaduro/phpinsights": "*",
-        "orchestra/testbench": "*",
-        "pestphp/pest": "*",
-        "pestphp/pest-plugin-arch": "*",
-        "pestphp/pest-plugin-laravel": "*",
-        "phpstan/phpstan-deprecation-rules": "*",
-        "phpstan/phpstan-phpunit": "*",
-        "rector/rector": "*",
-        "spatie/laravel-ray": "*",
-        "symplify/phpstan-rules": "*",
-        "thecodingmachine/phpstan-safe-rule": "*",
-        "tightenco/duster": "*",
-        "vimeo/psalm": "*"
-    },
+    "require-dev": {},
     "repositories": [
         {
             "type": "path",
@@ -83,14 +57,10 @@
         {
             "type": "path",
             "url": "../UI"
-        },
-        {
-            "type": "path",
-            "url": "../Notify"
         }
     ],
     "scripts": {
-        "post-autoload-dump": [
+        "post-autoload-dump1": [
             "@php vendor/bin/testbench package:discover --ansi"
         ],
         "post-update-cmd": [
