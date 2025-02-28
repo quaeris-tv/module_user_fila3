@@ -306,7 +306,7 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
     /**
      * Get all of the user's notifications.
      *
-     * @return MorphMany<Notification, static|$this>
+     * @return MorphMany<Notification, static>
      */
     public function notifications(): MorphMany
     {
