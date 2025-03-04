@@ -2,7 +2,7 @@
     "name": "laraxot/module_user_fila3",
     "description": "user module for user management",
     "keywords": [
-        "laraxot",
+        "LaraXot",
         "laravel",
         "filament",
         "module_user",
@@ -17,7 +17,8 @@
     "authors": [
         {
             "name": "Marco Sottana",
-            "email": "marco.sottana@gmail.com"
+            "email": "marco.sottana@gmail.com",
+            "role": "Developer"
         }
     ],
     "extra": {
