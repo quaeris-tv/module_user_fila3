@@ -28,6 +28,7 @@ use Modules\User\Datas\PasswordData;
 
 /**
  * MyProfilePage.
+ *
  * @property ComponentContainer $form
  * @property ComponentContainer $editProfileForm
  * @property ComponentContainer $editPasswordForm

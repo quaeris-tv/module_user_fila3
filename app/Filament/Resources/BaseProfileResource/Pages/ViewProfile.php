@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
 use Filament\Actions;
-use Filament\Infolists\Infolist;
 use Filament\Infolists\Components;
-use Filament\Resources\Pages\ViewRecord;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Modules\User\Filament\Resources\BaseProfileResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 

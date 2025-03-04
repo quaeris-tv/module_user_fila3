@@ -263,7 +263,7 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
 
     public function treeSons(): Collection
     {
-        return $this->teams ?? new Collection();
+        return $this->teams ?? new Collection;
     }
 
     public function treeSonsCount(): int

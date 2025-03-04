@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
+use Filament\Actions\DeleteAction;
+use Filament\Pages\Actions\ViewAction;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Webmozart\Assert\Assert;
+use Modules\User\Filament\Resources\RoleResource;
 use Modules\User\Models\Role;
 use Modules\User\Support\Utils;
-use Filament\Actions\DeleteAction;
-use Illuminate\Support\Collection;
-use Filament\Pages\Actions\ViewAction;
-use Modules\User\Filament\Resources\RoleResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
+use Webmozart\Assert\Assert;
 
 class EditRole extends XotBaseEditRecord
 {

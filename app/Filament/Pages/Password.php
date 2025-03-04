@@ -21,6 +21,7 @@ use Modules\Xot\Filament\Traits\TransTrait;
 
 /**
  * Password.
+ *
  * @property Forms\ComponentContainer $form
  */
 class Password extends Page implements HasForms

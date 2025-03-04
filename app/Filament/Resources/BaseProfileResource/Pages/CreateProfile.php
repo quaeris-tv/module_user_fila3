@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
 use Illuminate\Support\Arr;
-use Modules\Xot\Datas\XotData;
-use Filament\Resources\Pages\CreateRecord;
 use Modules\User\Filament\Resources\BaseProfileResource;
+use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
 
 class CreateProfile extends XotBaseCreateRecord
