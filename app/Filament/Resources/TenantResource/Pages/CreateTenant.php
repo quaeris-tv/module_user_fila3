@@ -7,11 +7,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
-use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;
+use Filament\Resources\Pages\CreateRecord;
 use Modules\User\Filament\Resources\TenantResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
 
-class CreateTenant extends CreateRecord
+class CreateTenant extends XotBaseCreateRecord
 {
     protected static string $resource = TenantResource::class;
 

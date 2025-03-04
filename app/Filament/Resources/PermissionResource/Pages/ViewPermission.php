@@ -7,8 +7,9 @@ namespace Modules\User\Filament\Resources\PermissionResource\Pages;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 use Modules\User\Filament\Resources\PermissionResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 
-class ViewPermission extends ViewRecord
+class ViewPermission extends XotBaseViewRecord
 {
     // //
     protected static string $resource = PermissionResource::class;
