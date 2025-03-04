@@ -18,6 +18,9 @@ use Filament\Widgets\Widget;
 use Filament\Widgets\WidgetConfiguration;
 use Modules\User\Filament\Widgets;
 
+/**
+ * Dashboard.
+ */
 class Dashboard extends BaseBashboard
 {
     use HasFiltersForm;
