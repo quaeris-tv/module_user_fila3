@@ -28,6 +28,12 @@ class SendOtpAction extends Action
             ->tooltip(trans('user::otp.actions.send_otp'))
             ->icon('heroicon-o-key')
             ->action(function (User $record) {
+<<<<<<< HEAD
+=======
+                if (! $record instanceof \Modules\Xot\Contracts\UserContract) {
+                    throw new \InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
+                }
+>>>>>>> 427aa276b (first)
                 app(SendOtpByUserAction::class)->execute($record);
             })
             ->requiresConfirmation()

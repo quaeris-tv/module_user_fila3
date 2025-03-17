@@ -23,12 +23,17 @@ class SocialProviderResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
+<<<<<<< HEAD
             TextInput::make('name')
+=======
+            'name' => TextInput::make('name')
+>>>>>>> 427aa276b (first)
                 ->required()
                 ->maxLength(255)
                 ->placeholder(static::trans('fields.name.placeholder'))
                 ->helperText(static::trans('fields.name.helper_text')),
 
+<<<<<<< HEAD
             KeyValue::make('scopes')
                 // ->placeholder(static::trans('fields.scopes.placeholder'))
                 ->helperText(static::trans('fields.scopes.helper_text')),
@@ -50,6 +55,33 @@ class SocialProviderResource extends XotBaseResource
                 ->columnSpanFull()
                 ->placeholder(static::trans('fields.svg.placeholder'))
                 ->helperText(static::trans('fields.svg.helper_text')),
+=======
+            'scopes' => KeyValue::make('scopes')
+                // ->placeholder(static::trans('fields.scopes.placeholder'))
+                ->helperText(static::trans('fields.scopes.helper_text')),
+
+            'client_id' => TextInput::make('client_id')
+                ->required()
+                ->maxLength(255)
+                ->placeholder(static::trans('fields.client_id.placeholder'))
+                ->helperText(static::trans('fields.client_id.helper_text')),
+
+            'client_secret' => TextInput::make('client_secret')
+                ->required()
+                ->maxLength(1024)
+                ->placeholder(static::trans('fields.client_secret.placeholder'))
+                ->helperText(static::trans('fields.client_secret.helper_text')),
+
+            'redirect' => TextInput::make('redirect')
+                ->required()
+                ->maxLength(255)
+                ->placeholder(static::trans('fields.redirect.placeholder'))
+                ->helperText(static::trans('fields.redirect.helper_text')),
+
+            'additional_params' => Textarea::make('additional_params'),
+
+            'enabled' => Toggle::make('enabled'),
+>>>>>>> 427aa276b (first)
         ];
     }
 

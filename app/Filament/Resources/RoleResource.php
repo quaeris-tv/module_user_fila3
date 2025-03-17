@@ -22,6 +22,7 @@ class RoleResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
+<<<<<<< HEAD
             TextInput::make('name')
                 ->required()
                 ->maxLength(255),
@@ -30,6 +31,15 @@ class RoleResource extends XotBaseResource
                 ->maxLength(255),
             Toggle::make('active')
                 ->required(),
+=======
+            'name' => TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+            'guard_name' => TextInput::make('guard_name')
+                ->required()
+                ->maxLength(255),
+            'enabled' => Toggle::make('enabled'),
+>>>>>>> 427aa276b (first)
         ];
     }
 

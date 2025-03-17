@@ -51,7 +51,11 @@ class TenantResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
+<<<<<<< HEAD
             Section::make()
+=======
+            'tenant_section' => Section::make()
+>>>>>>> 427aa276b (first)
                 ->schema([
                     TextInput::make('name')
                         ->required()
