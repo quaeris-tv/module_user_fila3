@@ -17,8 +17,8 @@ class CheckOtpExpiredRule implements ValidationRule
      * Determina se la regola di validazione si applica.
      *
      * @param string $attribute L'attributo che viene validato
-     * @param string|int $value Il valore dell'attributo
-     * @param \Closure(string): void $fail La closure da chiamare in caso di fallimento
+     * @param mixed $value Il valore dell'attributo
+     * @param \Closure(string, string|null=): \Illuminate\Translation\PotentiallyTranslatedString $fail La closure da chiamare in caso di fallimento
      */
     public function validate(string $attribute, mixed $value, \Closure $fail): void
     {

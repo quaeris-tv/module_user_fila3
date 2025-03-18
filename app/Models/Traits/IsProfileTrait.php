@@ -25,11 +25,11 @@ trait IsProfileTrait
     /**
      * Relazione con l'utente a cui appartiene il profilo.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\Modules\Xot\Contracts\UserContract, static>
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\Illuminate\Database\Eloquent\Model&\Modules\Xot\Contracts\UserContract, \Modules\User\Models\BaseProfile>
      */
     public function user(): BelongsTo
     {
-        /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
+        /** @var class-string<\Illuminate\Database\Eloquent\Model&\Modules\Xot\Contracts\UserContract> $userClass */
         $userClass = XotData::make()->getUserClass();
 
         return $this->belongsTo($userClass);
@@ -124,7 +124,7 @@ trait IsProfileTrait
     /**
      * Relazione con i dispositivi mobili associati al profilo.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<\Modules\User\Models\Device>
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<\Modules\User\Models\Device, \Modules\User\Models\BaseProfile>
      */
     public function mobileDevices(): BelongsToMany
     {
@@ -136,7 +136,7 @@ trait IsProfileTrait
     /**
      * Relazione con tutti i dispositivi associati al profilo.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<\Modules\User\Models\Device>
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<\Modules\User\Models\Device, \Modules\User\Models\BaseProfile>
      */
     public function devices(): BelongsToMany
     {
@@ -148,7 +148,7 @@ trait IsProfileTrait
     /**
      * Relazione con gli utenti di dispositivi mobili.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<\Modules\User\Models\DeviceUser>
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<\Modules\User\Models\DeviceUser, \Modules\User\Models\BaseProfile>
      */
     public function mobileDeviceUsers(): HasMany
     {
@@ -158,7 +158,7 @@ trait IsProfileTrait
     /**
      * Relazione con gli utenti di dispositivi generici.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<\Modules\User\Models\DeviceUser>
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<\Modules\User\Models\DeviceUser, \Modules\User\Models\BaseProfile>
      */
     public function deviceUsers(): HasMany
     {
@@ -184,7 +184,7 @@ trait IsProfileTrait
     /**
      * Relazione con i team a cui appartiene il profilo.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<\Illuminate\Database\Eloquent\Model>
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<\Modules\User\Contracts\TeamContract, \Modules\User\Models\BaseProfile>
      */
     public function teams(): BelongsToMany
     {

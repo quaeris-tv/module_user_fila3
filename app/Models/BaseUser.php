@@ -206,14 +206,28 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         return true;
     }
 
+    /**
+     * Get the user's name for Filament.
+     *
+     * @return string
+     */
     public function getFilamentName(): string
     {
-        return sprintf(
+        /** @var string|null */
+        $name = $this->getAttribute('name');
+        
+        /** @var string|null */
+        $firstName = $this->getAttribute('first_name');
+        
+        /** @var string|null */
+        $lastName = $this->getAttribute('last_name');
+        
+        return trim(sprintf(
             '%s %s %s',
-            $this->name,
-            $this->first_name,
-            $this->last_name,
-        );
+            $name ?? '',
+            $firstName ?? '',
+            $lastName ?? '',
+        ));
     }
 
     public function profile(): HasOne

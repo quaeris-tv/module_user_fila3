@@ -47,9 +47,14 @@ class EmailVerificationController extends Controller
             return redirect(route('home'));
         }
 
-        if ($user->markEmailAsVerified()) {
-            event(new Verified($user));
+        $user->markEmailAsVerified();
+
+        // Verificare che l'utente implementi l'interfaccia MustVerifyEmail
+        if (!($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail)) {
+            throw new \InvalidArgumentException('L\'utente deve implementare l\'interfaccia MustVerifyEmail');
         }
+
+        event(new Verified($user));
 
         return redirect(route('home'));
     }
