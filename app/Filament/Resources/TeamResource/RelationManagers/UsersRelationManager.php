@@ -31,28 +31,37 @@ class UsersRelationManager extends XotBaseRelationManager
         ];
     }
     
+    /**
+     * @return array<string, \Filament\Tables\Actions\Action>
+     */
     public function getTableHeaderActions(): array
     {
         return [
-            Tables\Actions\AttachAction::make(),
+            'attach' => Tables\Actions\AttachAction::make(),
         ];
     }
     
+    /**
+     * @return array<string, \Filament\Tables\Actions\Action|\Filament\Tables\Actions\ActionGroup>
+     */
     public function getTableActions(): array
     {
         return [
-            Tables\Actions\ViewAction::make(),
-            Tables\Actions\EditAction::make(),
-            Tables\Actions\DetachAction::make(),
-            Tables\Actions\DeleteAction::make(),
+            'view' => Tables\Actions\ViewAction::make(),
+            'edit' => Tables\Actions\EditAction::make(),
+            'detach' => Tables\Actions\DetachAction::make(),
+            'delete' => Tables\Actions\DeleteAction::make(),
         ];
     }
     
+    /**
+     * @return array<string, \Filament\Tables\Actions\BulkAction>
+     */
     public function getTableBulkActions(): array
     {
         return [
-            Tables\Actions\DetachBulkAction::make(),
-            Tables\Actions\DeleteBulkAction::make(),
+            'detach' => Tables\Actions\DetachBulkAction::make(),
+            'delete' => Tables\Actions\DeleteBulkAction::make(),
         ];
     }
 }

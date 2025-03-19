@@ -40,7 +40,7 @@ class LogoutController extends XotBaseController
 
         // TODO: Implement token cleanup logic here
         // DB::table('oauth_refresh_tokens')
-        //     ->where('access_token_id', $accessToken->id)
+        //     ->where('access_token_id', $accessToken->)
         //     ->delete();
 
         // TODO: Implement token cleanup logic here
@@ -53,7 +53,7 @@ class LogoutController extends XotBaseController
         // }
 
         // TODO: Implement mobile device user logout logic here
-        // MobileDeviceUser::where('user_id', $user->id)->update(['logout_at' => now()]);
+        // MobileDeviceUser::where('user_id', $user->)->update(['logout_at' => now()]);
 
         // TODO: Implement response logic here
         // return response()->json([

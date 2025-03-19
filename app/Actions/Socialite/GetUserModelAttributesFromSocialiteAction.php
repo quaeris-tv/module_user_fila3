@@ -28,7 +28,7 @@ class GetUserModelAttributesFromSocialiteAction
         $this->name = $nameFieldsResolver->name;
         $this->first_name = $nameFieldsResolver->name;
         $this->last_name = $nameFieldsResolver->last_name;
-        $this->email = (string) $this->oauthUser->getEmail();
+        $this->email = is_string($this) ? $this : (string) $this->oauthUser->getEmail();
     }
 
     public function getProvider(): string

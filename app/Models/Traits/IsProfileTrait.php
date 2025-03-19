@@ -47,7 +47,7 @@ trait IsProfileTrait
             return $res;
         }
 
-        return $this->user?->name;
+        return $this->user->name;
     }
 
     public function getFirstNameAttribute(?string $value): ?string
@@ -55,7 +55,7 @@ trait IsProfileTrait
         if ($value !== null) {
             return $value;
         }
-        $value = $this->user?->first_name;
+        $value = $this->user->first_name;
         $this->update(['first_name' => $value]);
 
         return $value;
@@ -66,7 +66,7 @@ trait IsProfileTrait
         if ($value !== null) {
             return $value;
         }
-        $value = $this->user?->last_name;
+        $value = $this->user->last_name;
         $this->update(['last_name' => $value]);
 
         return $value;
@@ -184,7 +184,7 @@ trait IsProfileTrait
     /**
      * Relazione con i team a cui appartiene il profilo.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<\Modules\User\Contracts\TeamContract, \Modules\User\Models\BaseProfile>
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<\Illuminate\Database\Eloquent\Model&\Modules\User\Contracts\TeamContract, \Modules\User\Models\BaseProfile>
      */
     public function teams(): BelongsToMany
     {
@@ -200,7 +200,7 @@ trait IsProfileTrait
     {
         return Attribute::make(
             get: function (): ?string {
-                return $this->user?->name;
+                return $this->user->name;
             }
         );
     }

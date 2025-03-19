@@ -81,6 +81,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string|null $updated_by
  * @property string|null $deleted_by
  * @property string|null $profile_photo_path
+ * @property \Illuminate\Database\Eloquent\Relations\Pivot|null $pivot
  *
  * @method static \Modules\User\Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
@@ -180,6 +181,8 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
     protected $appends = [
         // 'profile_photo_url',
     ];
+
+    protected $pivot;
 
     public function canAccessFilament(?Panel $panel = null): bool
     {
@@ -301,11 +304,7 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         }
 
         $res = $socialiteUser->{$field};
-        if (is_string($res)) {
-            return $res;
-        }
-        dddx($socialiteUser);
-        throw new \Exception('SocialiteUser field ['.$field.'] not found');
+        return (string) $res;
     }
 
     /**
@@ -341,7 +340,7 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         if ($value !== null || $this->getKey() === null) {
             return $value;
         }
-        $name = Str::of((string)$this->email)->before('@')->toString();
+        $name = Str::of((string) $this->email)->before('@')->toString();
         $i = 1;
         $value = $name.'-'.$i;
         while (self::firstWhere(['name' => $value]) !== null) {
@@ -406,7 +405,7 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
 
     public function hasRole($role, ?string $guard = null): bool
     {
-        return parent::hasRole($role, $guard);
+        return $this->roles()->where('name', $role)->exists();
     }
 
     public function teams(): BelongsToMany
@@ -419,18 +418,19 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         return parent::belongsToMany($related, $table, $foreignPivotKey, $relatedPivotKey, $parentKey, $relatedKey, $relation);
     }
 
-    public function personalTeam(): Team
+    public function personalTeam(): ?Team
     {
+        /** @var Team|null */
         return $this->ownedTeams()->first();
     }
 
-    public function switchTeam(Team $team): bool
+    public function switchTeam(\Modules\User\Contracts\TeamContract $team): bool
     {
         if (! $this->belongsToTeam($team)) {
             return false;
         }
 
-        $this->current_team_id = $team->id;
+        $this->current_team_id = (string) $team->id;
         $this->save();
 
         return true;
@@ -441,34 +441,39 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         return $this->teams()->get();
     }
 
-    public function belongsToTeam(Team $team): bool
+    public function belongsToTeam(\Modules\User\Contracts\TeamContract $team): bool
     {
         return $this->teams()->where('team_id', $team->id)->exists();
     }
 
-    public function ownsTeam(Team $team): bool
+    public function ownsTeam(\Modules\User\Contracts\TeamContract $team): bool
     {
         return $this->ownedTeams()->where('id', $team->id)->exists();
     }
 
-    public function teamRole(Team $team): ?Role
+    public function teamRole(\Modules\User\Contracts\TeamContract $team): ?Role
     {
-        return $this->teams()->where('team_id', $team->id)->first()?->pivot?->role;
+        /** @var \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Relations\Pivot|null $teamUser */
+        $teamUser = $this->teams()->where('team_id', $team->id)->first();
+        if ($teamUser && method_exists($teamUser, 'getPivot') && $teamUser->getPivot() !== null && isset($teamUser->pivot->role)) {
+            return $teamUser->pivot->role;
+        }
+        return null;
     }
 
-    public function teamPermissions(Team $team): array
+    public function teamPermissions(\Modules\User\Contracts\TeamContract $team): array
     {
-        return $this->teamRole($team)?->permissions->pluck('name')->toArray() ?? [];
+        return $this->teamRole($team)->permissions->pluck('name')->toArray() ?? [];
     }
 
-    public function hasTeamPermission(Team $team, string $permission): bool
+    public function hasTeamPermission(\Modules\User\Contracts\TeamContract $team, string $permission): bool
     {
         return $this->ownsTeam($team) || in_array($permission, $this->teamPermissions($team));
     }
 
-    public function hasTeamRole(Team $team, string $role): bool
+    public function hasTeamRole(\Modules\User\Contracts\TeamContract $team, string $role): bool
     {
-        return $this->ownsTeam($team) || $this->teamRole($team)?->name === $role;
+        return $this->ownsTeam($team) || $this->teamRole($team)->name === $role;
     }
 
     public function canManageTeam(Team $team): bool
@@ -533,46 +538,6 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
 
     public function authentications(): MorphMany
     {
-        return $this->morphMany(Authentication::class, 'authenticatable');
-    }
-
-    public function latestAuthentication(): MorphOne
-    {
-        return $this->morphOne(Authentication::class, 'authenticatable')->latest();
-    }
-
-    public function getFullNameAttribute(?string $value): ?string
-    {
-        return trim($this->first_name . ' ' . $this->last_name);
-    }
-
-    public function getNameAttribute(?string $value): ?string
-    {
-        return trim($this->first_name . ' ' . $this->last_name);
-    }
-
-    protected static function newFactory(): Factory
-    {
-        return UserFactory::new();
-    }
-
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password_expires_at' => 'datetime',
-            'is_active' => 'boolean',
-            'is_otp' => 'boolean',
-        ];
-    }
-
-    public function hasTeams(): bool
-    {
-        return true;
-    }
-
-    public function belongsToTeams(): bool
-    {
-        return true;
+        return $this->morphMany(\Modules\User\Models\Authentication::class, 'authenticatable');
     }
 }

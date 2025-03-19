@@ -28,17 +28,16 @@ class RoleRelationManager extends XotBaseRelationManager
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    /**
+     * @return array<string, \Filament\Forms\Components\Component>
+     */
     public function getFormSchema(): array
-{
-    
-        
-    return [
-              
-                    TextInput::make('name'),
-                    TextInput::make('guard_name'),
-                
-      ];
-}
+    {
+        return [
+            'name' => TextInput::make('name'),
+            'guard_name' => TextInput::make('guard_name'),
+        ];
+    }
 
     public function table(Table $table): Table
     {

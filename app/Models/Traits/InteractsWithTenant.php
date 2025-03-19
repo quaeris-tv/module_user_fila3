@@ -38,7 +38,9 @@ trait InteractsWithTenant
 
         static::creating(
             static function ($model): void {
-                $model->tenant_id = Filament::getTenant()?->getKey();
+                if ($model !== null) {
+                    $model->tenant_id = Filament::getTenant()->getKey();
+                }
             }
         );
     }
@@ -49,7 +51,7 @@ trait InteractsWithTenant
     protected function setTenantIdAttribute(?int $value): void
     {
         if ($value === null) {
-            $value = Filament::getTenant()?->getKey();
+            $value = Filament::getTenant()->getKey();
         }
         $this->attributes['tenant_id'] = $value;
     }

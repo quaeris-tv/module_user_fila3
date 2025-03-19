@@ -35,7 +35,7 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
     /**
      * Configure the form schema for managing Socialite User data.
      */
-    
+
 
     /**
      * Define form fields in a dedicated method for reusability.

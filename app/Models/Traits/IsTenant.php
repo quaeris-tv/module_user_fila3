@@ -20,7 +20,7 @@ trait IsTenant
     /**
      * Get all users associated with this tenant.
      * 
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<\Illuminate\Database\Eloquent\Model&\Modules\Xot\Contracts\UserContract, \Modules\User\Models\BaseIsTenant>
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<\Illuminate\Database\Eloquent\Model&\Modules\Xot\Contracts\UserContract, $this>
      */
     public function users(): BelongsToMany
     {
@@ -28,6 +28,7 @@ trait IsTenant
         $userClass = $xot->getUserClass();
 
         // $this->setConnection('mysql');
+        /** @var class-string<\Illuminate\Database\Eloquent\Model&\Modules\Xot\Contracts\UserContract> $userClass */
         return $this->belongsToManyX($userClass, null, 'tenant_id', 'user_id');
         // ->as('membership')
     }
@@ -40,7 +41,7 @@ trait IsTenant
      * @param string $foreignPivotKey The foreign key in pivot table
      * @param string $relatedPivotKey The related key in pivot table
      * 
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<\Illuminate\Database\Eloquent\Model, \Modules\User\Models\BaseIsTenant>
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<\Illuminate\Database\Eloquent\Model, $this>
      */
     public function belongsToManyX(string $related, ?string $table = null, ?string $foreignPivotKey = 'tenant_id', ?string $relatedPivotKey = 'user_id', ?string $parentKey = null, ?string $relatedKey = null, ?string $relation = null): BelongsToMany
     {

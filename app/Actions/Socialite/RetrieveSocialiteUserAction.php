@@ -28,7 +28,7 @@ class RetrieveSocialiteUserAction
             ->where('provider_id', $user->getId())
             ->first();
 
-        $res?->update([
+        $res->update([
             // @phpstan-ignore property.notFound
             'token' => $user->token,
         ]);

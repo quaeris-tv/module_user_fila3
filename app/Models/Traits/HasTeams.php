@@ -190,7 +190,7 @@ trait HasTeams
         return $this->belongsToTeam($teamContract) && optional(FilamentJet::findRole($teamContract->users->where(
             'id',
             $this->id
-        )->first()?->membership?->role))->key === $role;
+        )->first()?->membership->role))->key === $role;
         */
         return $this->belongsToTeam($teamContract) && $this->teamRole($teamContract) !== null;
     }
@@ -204,7 +204,7 @@ trait HasTeams
             return ['*'];
         }
 
-        return (array) $this->teamRole($teamContract)?->permissions;
+        return (array) $this->teamRole($teamContract)->permissions;
     }
 
     /**

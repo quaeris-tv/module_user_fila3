@@ -29,29 +29,28 @@ class SetCurrentTeamCommand extends Command
     protected $description = 'Assign current team to user';
 
     /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      */
     public function handle(): void
     {
         $email = text('email ?');
-        $user_class = XotData::make()->getUserClass();
-        /** @var UserContract */
-        $user = XotData::make()->getUserByEmail($email);
+
         $xot = XotData::make();
+        $user = $xot->getUserByEmail($email);
+
+        if (!$user instanceof UserContract) {
+            $this->error('User not found!');
+            return;
+        }
+
         $teamClass = $xot->getTeamClass();
-        /** @var array<int|string, string>|\Illuminate\Support\Collection<int|string, string> */
-        $opts = $teamClass::pluck('name', 'id')
-            ->toArray();
+        if (!class_exists($teamClass)) {
+            $this->error('Team class not found!');
+            return;
+        }
+
+        /** @var array<int|string, string> */
+        $opts = $teamClass::pluck('name', 'id')->toArray();
 
         $team_id = select(
             label: 'What team?',

@@ -9,33 +9,29 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
 use Filament\Actions\DeleteAction;
+use Filament\Resources\Pages\EditRecord;
+use Illuminate\Support\Facades\Hash;
 use Modules\User\Filament\Resources\UserResource;
-
-
-
+use Webmozart\Assert\Assert;
 
 use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
-
-
-
-
-class EditUser extends \Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord
+class EditUser extends EditRecord
 {
     // //
     protected static string $resource = UserResource::class;
 
-    /* --- dovrebbe fare il mutator da controllare
-    public function beforeSave(): void
+    protected function mutateFormDataBeforeSave(array $data): array
     {
-        Assert::isArray($this->data);
-        if (! array_key_exists('new_password', $this->data) || ! filled($this->data['new_password'])) {
-            return;
+        Assert::isArray($data);
+        if (! array_key_exists('new_password', $data) || ! filled($data['new_password'])) {
+            return $data;
         }
 
-        $this->record->password = Hash::make($this->data['new_password']);
+        $this->record->update(['password' => Hash::make($data['new_password'])]);
+        return $data;
     }
-    */
+
     protected function getHeaderActions(): array
     {
         return [

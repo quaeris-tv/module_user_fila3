@@ -110,7 +110,7 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
             return $avatar;
         }
 
-        $email = trim((string) $this->email);
+        $email = trim(is_string($this) ? $this : (string) $this->email);
         // 'MyEmailAddress@example.com'
         $email = mb_strtolower($email);
         // 'myemailaddress@example.com'
