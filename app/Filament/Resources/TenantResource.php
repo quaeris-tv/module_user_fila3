@@ -23,7 +23,7 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 
 
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
 
 
@@ -32,8 +32,6 @@ use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 class TenantResource extends XotBaseResource
 {
     // protected static ?string $model = Tenant::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     /**
      * Get the model class name for this resource.
@@ -51,11 +49,7 @@ class TenantResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-<<<<<<< HEAD
-            Section::make()
-=======
             'tenant_section' => Section::make()
->>>>>>> 427aa276b (first)
                 ->schema([
                     TextInput::make('name')
                         ->required()

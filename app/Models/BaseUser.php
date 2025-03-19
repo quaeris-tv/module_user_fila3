@@ -13,10 +13,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-<<<<<<< HEAD
-=======
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
->>>>>>> 427aa276b (first)
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -61,8 +58,6 @@ use Spatie\Permission\Traits\HasRoles;
  * @property int|null $tenants_count
  * @property Collection<int, OauthAccessToken> $tokens
  * @property int|null $tokens_count
-<<<<<<< HEAD
-=======
  * @property string $surname
  * @property string|null $facebook_id
  * @property Collection<int, SocialiteUser> $socialiteUsers
@@ -86,7 +81,6 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string|null $updated_by
  * @property string|null $deleted_by
  * @property string|null $profile_photo_path
->>>>>>> 427aa276b (first)
  *
  * @method static \Modules\User\Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
@@ -114,24 +108,11 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutPermission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutRole($roles, $guard = null)
-<<<<<<< HEAD
- *
- * @property string $surname
- * @property string|null $facebook_id
- *
-=======
->>>>>>> 427aa276b (first)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereFacebookId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereIsOtp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePasswordExpiresAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereSurname($value)
  *
-<<<<<<< HEAD
- * @property Collection<int, SocialiteUser> $socialiteUsers
- * @property int|null $socialite_users_count
- *
-=======
->>>>>>> 427aa276b (first)
  * @mixin \Eloquent
  */
 abstract class BaseUser extends Authenticatable implements HasName, HasTenants, UserContract
@@ -422,8 +403,6 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
     {
         return true;
     }
-<<<<<<< HEAD
-=======
 
     public function hasRole($role, ?string $guard = null): bool
     {
@@ -596,5 +575,4 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
     {
         return true;
     }
->>>>>>> 427aa276b (first)
 }

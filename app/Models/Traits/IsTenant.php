@@ -42,8 +42,8 @@ trait IsTenant
      * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<\Illuminate\Database\Eloquent\Model, \Modules\User\Models\BaseIsTenant>
      */
-    protected function belongsToManyX(string $related, ?string $table = null, string $foreignPivotKey = 'tenant_id', string $relatedPivotKey = 'user_id'): BelongsToMany
+    public function belongsToManyX(string $related, ?string $table = null, ?string $foreignPivotKey = 'tenant_id', ?string $relatedPivotKey = 'user_id', ?string $parentKey = null, ?string $relatedKey = null, ?string $relation = null): BelongsToMany
     {
-        return $this->belongsToMany($related, $table, $foreignPivotKey, $relatedPivotKey);
+        return $this->belongsToMany($related, $table, $foreignPivotKey, $relatedPivotKey, $parentKey, $relatedKey, $relation);
     }
 }

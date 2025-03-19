@@ -27,7 +27,7 @@ class Login extends Component implements HasForms
     /**
      * Regole di validazione.
      *
-     * @var array<string, array<string|object>>
+     * @var array<string, array<string|object
      */
     protected $rules = [
         'email' => ['required', 'email'],
